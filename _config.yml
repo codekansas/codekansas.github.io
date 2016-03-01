@@ -1,0 +1,12 @@
+# Site settings
+title: ETZQ
+email: bkbolte18@gmail.com
+description: >
+  My blog, eventually.
+baseurl: ""
+url: "http://codekansas.github.io" 
+github_username: codekansas
+
+# Build settings
+markdown: kramdown
+permalink: /:year/:title:output_ext
