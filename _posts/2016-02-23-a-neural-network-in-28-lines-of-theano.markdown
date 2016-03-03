@@ -58,7 +58,7 @@ Here, we're creating shared variables X and y, representing our inputs and outpu
 
 {% highlight python %}
 def layer(n_in, n_out):
-    return theano.shared(value=np.asarray(rng.uniform(low=-1.0, high=1.0, size=(n_in, n_out)), dtype=theano.config.floatX), name='W', borrow=True)&amp;amp;amp;lt;/pre&amp;amp;amp;gt;
+    return theano.shared(value=np.asarray(rng.uniform(low=-1.0, high=1.0, size=(n_in, n_out)), dtype=theano.config.floatX), name='W', borrow=True);
 
 W1 = layer(2, 3)
 W2 = layer(3, 1)
