@@ -10,3 +10,5 @@ Hi, my name is Ben Bolte. I'm currently an undergrad at Emory University in Atla
 
 [Old Blog](https://benjaminbolte.wordpress.com/)
 
+[Twitter](https://twitter.com/code__kansas)
+
