@@ -16,7 +16,7 @@ Sand Island Lighthouse
 
 **ABV** 5.1%
 
-It goes down pretty easily. It seems kind of nutty. Not something I would drink to get drunk, but good for drinking while doing work or hanging out. A lot of people on beeradvocate.com think it is fruity. It comes in a can, although I don't think it had the nitrogren thing on the lid, so it is either too mainstream or way, way underground, based on what I know about hipster beer these days. The can itself has some cool art on it, but not in-your-face avant garde art. The brewer, "Straight to Ale", might be a pun, but if it is, I don't get it. It tastes pretty good, though. All around: 4 plaid shirts.
+It goes down pretty easily. It seems kind of nutty. Not something I would drink to get drunk, but good for drinking while doing work or hanging out. A lot of people on beeradvocate.com think it is fruity. It comes in a can, although I don't think it had the nitrogren thing on the lid, so it is either too mainstream or way, way underground. The can itself has some cool art on it, but not in-your-face avant garde art. The brewer, "Straight to Ale", might be a pun, but if it is, I don't get it. It tastes pretty good, though. All around: 4 plaid shirts.
 
 Pabst Blue Ribbon
 -----------------
