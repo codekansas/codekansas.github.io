@@ -1,23 +1,26 @@
 ---
 layout: default
+title: Home
 ---
 
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
+  <h1 class="page-heading">Badges</h1>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+  <p><!-- Facebook Badge START --><a href="https://www.facebook.com/benjamin.bolte" title="Benjamin Bolte" target="_TOP"><img class="img" src="https://badge.facebook.com/badge/1455734326.3788.49682297.png" width="200px" style="border: 0px;" alt="You will find me on Facebook" /></a><!-- Facebook Badge END --></p>
+  <p><img src="https://stallman.org/no-facebook.png" alt="From Richard Stallman's website" width="200px"/></p>
+  <p><img src="https://projecteuler.net/profile/bkbolte.png" alt="Project Euler Score" width="200px"/></p>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
+  <h1 class="page-heading">Most Recent Post</h1>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+   <ul class="post-list">
+     {% for post in site.posts limit:1 %}
+     <li>
+     <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+     <h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}"    >{{ post.title }}</a></h2>
+     <p>{{ post.content }}</p>
+     </li>
+     {% endfor %}
+   </ul>
+ 
 </div>
