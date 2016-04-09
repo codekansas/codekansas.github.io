@@ -7,6 +7,17 @@ categories: misc
 
 These are some facts and opinions regarding craft beers that can be bought at the Krogers near my apartment.
 
+SweetWater IPA
+---------------
+
+**Brewed by** SweetWater Brewing Company, Georgia, United States
+
+**Style** 'Merican IPA
+
+**ABV** 6.3%
+
+SweetWater is about as big an Atlanta institution as Coca Cola or The Varsity. Pretty good, really hopsy. They served it at the PyData meetup at MailChip, along with non-chain store pizza.
+
 Sand Island Lighthouse
 ----------------------
 
