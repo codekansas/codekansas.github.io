@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Evolving List of Opinions about Atlanta Craft Beers"
-date: 2016-02-23 12:00:00
+date: 2016-03-30 12:00:00
 categories: misc
 ---
 
