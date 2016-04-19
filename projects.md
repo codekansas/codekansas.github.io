@@ -5,9 +5,9 @@ permalink: /projects/
 ---
 
 Electric Longboard
-| [Side View](https://goo.gl/photos/o7pZ1cuh9toNMhHZ9)
-| [Top View](https://goo.gl/photos/2Gh1TpHrYFAWmTqg8)
-| [Mount DFX File](https://drive.google.com/file/d/0B4Po_rQ05VxJVGJhamE2ZGNYOTQ/view?usp=sharing)
+| [Side View](https://raw.githubusercontent.com/codekansas/electric-longboard/master/side_view.jpg)
+| [Top View](https://raw.githubusercontent.com/codekansas/electric-longboard/master/top_view.jpg)
+| [Github Repo](https://github.com/codekansas/electric-longboard)
 
 Making two FPGAs talk to each other
 | [Video](https://drive.google.com/file/d/0B4Po_rQ05VxJdzNVc0xiZjRmd00/view)
@@ -16,5 +16,6 @@ Making two FPGAs talk to each other
 
 Smart Mirror
 | [Picture](https://goo.gl/photos/m9iZ4fcbizQ68LEX7)
+| [Code](https://github.com/codekansas/hackemory-2016)
 
 
