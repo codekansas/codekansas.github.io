@@ -7,6 +7,17 @@ categories: misc
 
 These are some facts and opinions regarding craft beers that can be bought at the Krogers near my apartment.
 
+Slow Ride Session IPA
+---------------------
+
+**Brewed by** New Belgium Brewing, Colorado, United States
+
+**Style** AmeriCAN IPA ("More flavorful than the withering English IPA" according to Beer Advocate, suck on those tea bags England)
+
+**ABV** 4.5%
+
+On the lighter side for an American IPA. It tastes a bit like apple. It's the kind of beer a beer snob would say is "not very flavorful" because people actually like to drink it. The picture on the front is of a couch with a steering wheel, which is probably a play on "Slow Ride". A bit of a chicken and egg situation here though because it's not clear if the name or the picture came first.
+
 Drafty Kilt Scotch Ale
 ----------------------
 
