@@ -7,6 +7,17 @@ categories: misc
 
 These are some facts and opinions regarding craft beers that can be bought at the Krogers near my apartment.
 
+Drafty Kilt Scotch Ale
+----------------------
+
+**Brewed by** Monday Night Brewing, Georgia, United States
+
+**Style** Scottish Ale
+
+**ABV** 7.2%
+
+Drafty Kilt Scotch Ale is the SweetWater Brewing Company of Atlanta Beers. It tastes like air until it goes in your stomach, when it tastes like acid. Doesn't get fantastic reviews on Beer Advocate, but it's still pretty good. 2.5 selfie sticks.
+
 SweetWater IPA
 ---------------
 
