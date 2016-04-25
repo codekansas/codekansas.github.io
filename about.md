@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Hi, my name is Ben Bolte. I'm currently an undergrad at Emory University in Atlanta, Georgia, interested in neuroscience and machine learning. I'm currently planning on doing neither of those things while interning at Amazon this summer. I'm always looking for new things to do, so if you have an idea and you need someone to work on it, let me know!
+Hi, my name is Ben Bolte. I'm always looking for new things to do, so if you have an idea and you need someone to work on it, let me know!
 
 [Old Blog](https://benjaminbolte.wordpress.com/)
 
