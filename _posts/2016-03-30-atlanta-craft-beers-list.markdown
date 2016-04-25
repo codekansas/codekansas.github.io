@@ -7,6 +7,17 @@ categories: misc
 
 These are some facts and opinions regarding craft beers that can be bought at the Krogers near my apartment.
 
+Samuel Smith's Winter Welcome Ale
+---------------------------------
+
+**Brewed by** Samuel Smith Old Brewery (Tadcaster), Ye Ol' Pubbery, The Queen, Great Britain
+
+**Style** Winter Warmer
+
+**ABV** 6.0%
+
+This beer is called a "Winter Warmer", which pretty much explains everything about it. It gets really good reviews on Beer Advocate, probably because it's foreign ("In America, we tend to like our hoppy IPA's, funky saisons and roasty stouts, but this time of year, sometimes to give a shout out to a style that is often overlooked" - Back_in_the_Saddle, Nov 19 2015) This is one of the few beers that I got at a liquor store instead of a grocery store, and I can't unassociate it from the jankyness of buying vodka from a drive-thru. I imagine that more than a few people have this beer in their refrigerator for the same reason Zooey Deschanel had a comedy tour, to show everyone how quirky and authentic they are despite not really taking it seriously. Whoever did the bottle art seemed inspired by Dr. Bronner's Castile soap. By shipping it to the United States, Samuel Smith shrewdly hones in on his target audience of Ren Fair attendees who have beer blogs. All around: 3 LARP swords.
+
 Slow Ride Session IPA
 ---------------------
 
