@@ -2,7 +2,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    <a class="site-title" id="tagline" href="{{ site.baseurl }}/">{{ site.title }}</a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -21,6 +21,20 @@
         {% endfor %}
       </div>
     </nav>
+ 
+ <script type="text/javascript">
+ var tagline = document.getElementById("tagline");
+ var letters = "{{ site.title }}".split("");
+ var punctuation = new Array("", ") ", ", ", " (", ") (", "! ", " = ", "_", "|", "/", ".");
+ var txt = "";
+ 
+ for (var i = 0; i < 5; i++) {
+ 	txt += punctuation[Math.floor(Math.random()*punctuation.length)];
+ 	if (i < 4) txt += letters[i];
+ }
+ 
+ tagline.innerHTML = txt;
+ </script>
 
   </div>
 

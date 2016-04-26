@@ -2,11 +2,13 @@
 title: ETZQ
 email: bkbolte18@gmail.com
 description: >
-  Blog about miscellaneous stuff
+  def do_work: pass
 baseurl: ""
 url: "http://codekansas.github.io" 
 github_username: codekansas
+twitter_username: code__kansas
 
 # Build settings
 markdown: kramdown
-permalink: /:year/:title:output_ext
+permalink: /blog/:year/:title:output_ext
+

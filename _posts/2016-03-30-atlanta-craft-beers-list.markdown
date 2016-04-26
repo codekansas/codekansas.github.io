@@ -1,11 +1,55 @@
 ---
 layout: post
 title: "Evolving List of Opinions about Atlanta Craft Beers"
-date: 2016-02-23 12:00:00
+date: 2016-03-30 12:00:00
 categories: misc
 ---
 
 These are some facts and opinions regarding craft beers that can be bought at the Krogers near my apartment.
+
+Samuel Smith's Winter Welcome Ale
+---------------------------------
+
+**Brewed by** Samuel Smith Old Brewery (Tadcaster), Ye Ol' Pubbery, The Queen, Great Britain
+
+**Style** Winter Warmer
+
+**ABV** 6.0%
+
+This beer is called a "Winter Warmer", which pretty much explains everything about it. It gets really good reviews on Beer Advocate, probably because it's foreign ("In America, we tend to like our hoppy IPA's, funky saisons and roasty stouts, but this time of year, sometimes to give a shout out to a style that is often overlooked" - Back_in_the_Saddle, Nov 19 2015) This is one of the few beers that I got at a liquor store instead of a grocery store, and I can't unassociate it from the jankyness of buying vodka from a drive-thru. I imagine that more than a few people have this beer in their refrigerator for the same reason Zooey Deschanel had a comedy tour, to show everyone how quirky and authentic they are despite not really taking it seriously. Whoever did the bottle art seemed inspired by Dr. Bronner's Castile soap. By shipping it to the United States, Samuel Smith shrewdly hones in on his target audience of Ren Fair attendees who have beer blogs. All around: 3 LARP swords.
+
+Slow Ride Session IPA
+---------------------
+
+**Brewed by** New Belgium Brewing, Colorado, United States
+
+**Style** AmeriCAN IPA ("More flavorful than the withering English IPA" according to Beer Advocate, suck on those tea bags England)
+
+**ABV** 4.5%
+
+On the lighter side for an American IPA. It tastes a bit like apple. It's the kind of beer a beer snob would say is "not very flavorful" because people actually like to drink it. The picture on the front is of a couch with a steering wheel, which is probably a play on "Slow Ride". A bit of a chicken and egg situation here though because it's not clear if the name or the picture came first. All around: 3.5 electric cars.
+
+Drafty Kilt Scotch Ale
+----------------------
+
+**Brewed by** Monday Night Brewing, Georgia, United States
+
+**Style** Scottish Ale
+
+**ABV** 7.2%
+
+Drafty Kilt Scotch Ale is the SweetWater Brewing Company of Atlanta Beers. It tastes like air until it goes in your stomach, when it tastes like acid. Doesn't get fantastic reviews on Beer Advocate, but it's still pretty good. All around: 2.5 selfie sticks.
+
+SweetWater IPA
+---------------
+
+**Brewed by** SweetWater Brewing Company, Georgia, United States
+
+**Style** 'Merican IPA
+
+**ABV** 6.3%
+
+SweetWater is about as big an Atlanta institution as Coca Cola or The Varsity. Pretty good, really hopsy. They served it at the PyData meetup at MailChip, along with non-chain store pizza. All around: 4 alternative pizza joints.
 
 Sand Island Lighthouse
 ----------------------
