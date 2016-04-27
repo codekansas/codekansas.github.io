@@ -8,6 +8,8 @@ Hi, my name is Ben Bolte. I'm currently an undergrad at Emory University in Atla
 
 `s = 's = %r; print(s%%s)'; print(s%s)`
 
+Last year I got to the second round of the Facebook Hacker Cup
+
 [Website](http://benjaminbolte.com)
 
 [Old Blog](https://benjaminbolte.wordpress.com/)
