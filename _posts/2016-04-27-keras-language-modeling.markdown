@@ -394,7 +394,11 @@ The attention parameter is a function of the current hidden state and the attent
 
 ### <a name="attentional-layer"></a>Building an Attentional LSTM
 
-I'll add the full Attentional LSTM code eventually.
+Now that we have all the components for an Attentional LSTM, let's see the code for how we could implement this. The attentional component can be tacked onto the LSTM code that already exists.
+
+{% highlight python %}
+print('hello world!')
+{% endhighlight %}
 
 ## <a name="convolutional"></a>Convolutional Neural Networks
 
