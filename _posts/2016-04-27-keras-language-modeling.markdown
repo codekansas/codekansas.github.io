@@ -247,7 +247,7 @@ for rnn in rnns:
     model.fit([X_data], [y_data], nb_epoch=1000)
 {% endhighlight %}
 
-Training on my computer, there wasn't a significant difference between the LSTM and GRU layers. However, the Vanilla layer had a much more difficult time learning the data. This makes sense! There are 10 different sequences of random 0s and 1s that need to be learned. The probability of two sequences being different doubles with each extra element in the sequence, so a model that can take advantage of long-term dependencies will have a much easier time seeing how two sequences are different.
+The results will vary from trial to trial. RNNs are exceptionally difficult to train. However, in general, a model that can take advantage of long-term dependencies will have a much easier time seeing how two sequences are different.
 
 ## <a name="attentional"></a>Attentional RNNs
 
