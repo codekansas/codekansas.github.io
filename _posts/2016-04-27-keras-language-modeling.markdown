@@ -137,17 +137,19 @@ for i in range(n_words):
 
 The embedding layer embeds the words into 3 dimensions. A sample of the vectors it produces is seen below. As predicted, the model learns useful word embeddings.
 
-    sarah:	[-0.5835458  -0.2772688   0.01127077]
-    sam:	[-0.57449967 -0.26132962  0.04002968]
+{% highlight bash %}
+sarah:	[-0.5835458  -0.2772688   0.01127077]
+sam:	[-0.57449967 -0.26132962  0.04002968]
 
-    bob:	[ 1.10480607  0.97720605  0.10953052]
-    hannah:	[ 1.12466967  0.95199704  0.13520472]
+bob:	[ 1.10480607  0.97720605  0.10953052]
+hannah:	[ 1.12466967  0.95199704  0.13520472]
 
-    not:	[-0.17611612 -0.2958962  -0.06028322]
-    is:	[-0.10752882 -0.34842652 -0.06909169]
+not:	[-0.17611612 -0.2958962  -0.06028322]
+is:	[-0.10752882 -0.34842652 -0.06909169]
 
-    red:	[-0.10381682 -0.31055665 -0.0975003 ]
-    green:	[-0.05930901 -0.33241618 -0.06948926]
+red:	[-0.10381682 -0.31055665 -0.0975003 ]
+green:	[-0.05930901 -0.33241618 -0.06948926]
+{% endhighlight %}
 
 Each category is grouped in the 3-dimensional vector space. The network learned each of these categories from how each word was used. This is very useful for developing a language model.
 
@@ -161,7 +163,9 @@ As the Keras examples illustrate, there are different philosophies on deep langu
 
 The basic RNN architecture is essentially a feed-forward neural network that is stretched out over a bunch of time steps and has it's intermediate output added to the next input step. This idea can be expressed as an update equation for each input step:
 
-    new_hidden_state = tanh(dot(input_vector, W) + dot(prev_hidden, U) + b)
+{% highlight bash %}
+new_hidden_state = tanh(dot(input_vector, W) + dot(prev_hidden, U) + b)
+{% endhighlight %}
 
 Note that `dot` indicates vector-matrix multiplication. Multiplying a vector of dimensions `<m>` by a matrix of dimensions `<m, n>` can be done with `dot(<m>, <m, n>)` and yields a vector of dimensions `<n>`. This is consistent with its usage in Theano and Keras. In the update equation, we multiply each `input_vector` by our input weights `W`, multiply the `prev_hidden` vector by our hidden weights `U`, and add a bias, before passing the sum to the activation function `sigmoid`. To get the **many to one** behavior in the image, we can grab the last hidden state and use that as our output. To get the **one to many** behavior, we can pass one input vector and then just pass a bunch of zero vectors to get as many hidden states as we want.
 
@@ -169,14 +173,16 @@ Note that `dot` indicates vector-matrix multiplication. Multiplying a vector of 
 
 If the RNN gets really long, then we run into a lot of difficulty training the model. The effect of something a early in the sequence on the end result is very small relative to later components, so it is hard to use that information in updating the weights. To solve this, several methods have been proposed, and two have been implemented in Keras. The first is the Long Short-Term Memory (LSTM) unit, which was proposed by [Hochreiter and Schmidhuber 1997][hochreiter]. This model uses a second hidden state which stores information from further back in the model, allowing that information to have a stronger effect on the end result. The update equations for this model are:
 
-    input_gate = tanh(dot(input_vector, W_input) + dot(prev_hidden, U_input) + b_input)
-    forget_gate = tanh(dot(input_vector, W_forget) + dot(prev_hidden, U_forget) + b_forget)
-    output_gate = tanh(dot(input_vector, W_output) + dot(prev_hidden, U_output) + b_output)
+{% highlight bash %}
+input_gate = tanh(dot(input_vector, W_input) + dot(prev_hidden, U_input) + b_input)
+forget_gate = tanh(dot(input_vector, W_forget) + dot(prev_hidden, U_forget) + b_forget)
+output_gate = tanh(dot(input_vector, W_output) + dot(prev_hidden, U_output) + b_output)
 
-    candidate_state = tanh(dot(x, W_hidden) + dot(prev_hidden, U_hidden) + b_hidden)
-    memory_unit = prev_candidate_state * forget_gate + candidate_state * input_gate
+candidate_state = tanh(dot(x, W_hidden) + dot(prev_hidden, U_hidden) + b_hidden)
+memory_unit = prev_candidate_state * forget_gate + candidate_state * input_gate
 
-    new_hidden_state = tanh(memory_unit) * output_gate
+new_hidden_state = tanh(memory_unit) * output_gate
+{% endhighlight %}
 
 Note that `*` indicates element-wise multiplication. This is consistent with its usage in Theano and Keras. First, there are a bunch more parameters to train; not only do we have weights for the input-to-hidden and hidden-to-hidden matrices, but also we have an accompanying `candidate_state`. The candidate state is like a second hidden state that transfers information to and from the hidden state. It is like a safety deposit box for putting things in and taking things out.
 
@@ -184,12 +190,14 @@ Note that `*` indicates element-wise multiplication. This is consistent with its
 
 The second model is the Gated Recurrent Unit (GRU), which was proposed by [Cho et. al. 2014][cho]. The equations for this model are as follows:
 
-    update_gate = tanh(dot(input_vector, W_update) + dot(prev_hidden, U_update) + b_update)
-    reset_gate = tanh(dot(input_vector, W_reset) + dot(prev_hidden, U_reset) + b_reset)
+{% highlight bash %}
+update_gate = tanh(dot(input_vector, W_update) + dot(prev_hidden, U_update) + b_update)
+reset_gate = tanh(dot(input_vector, W_reset) + dot(prev_hidden, U_reset) + b_reset)
 
-    reset_hidden = prev_hidden * reset_gate
-    temp_state = tanh(dot(input_vector, W_hidden) + dot(reset_hidden, U_reset) + b_hidden)
-    new_hidden_state = (1 - update_gate) * temp_state + update_gate * prev_hidden
+reset_hidden = prev_hidden * reset_gate
+temp_state = tanh(dot(input_vector, W_hidden) + dot(reset_hidden, U_reset) + b_hidden)
+new_hidden_state = (1 - update_gate) * temp_state + update_gate * prev_hidden
+{% endhighlight %}
 
 In this model, there is an `update_gate` which controls how much of the previous hidden state to carry over to the new hidden state and a `reset_gate` which controls how much the previous hidden state changes. This allows potentially long-term dependencies to be propagated through the network.
 
