@@ -61,7 +61,9 @@ Ok! Let's dive in. The first challenge that you might think of when designing a 
 
 One popular method of doing this is using `word2vec`. `word2vec` is a way of embedding words in a vector space so that words that are semantically similar are near each other. There are some interesting consequences of doing this, like being able to do word addition and subtraction:
 
-    king - man + woman = queen
+{% highlight bash %}
+king - man + woman = queen
+{% endhighlight %}
 
 In Keras, this is available as an `Embedding` layer. This layer takes as input a `(n_batches, sentence_length)` dimensional matrix of integers representing each word in the corpus, and outputs a `(n_batches, sentence_length, n_embedding_dims)` dimensional matrix, where the last dimension is the word embedding.
 
