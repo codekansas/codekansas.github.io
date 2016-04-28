@@ -7,18 +7,22 @@ categories: ml
 
 # Contents
 
+ - [Introduction](#introduction)
  - [Installing Keras](#installing-keras)
  - [Jumping Into Language Modeling](#jumping-in)
-   - [Representation without taxation](#embedding) (embedding words)
+   - [Word Embedding](#embedding)
      - [Code Example](#embedding-code-example)
-   - [What do pirates call neural networks?](#rnn) (recurrent neural networks)
+   - [Recurrent Neural Networks](#rnn)
      - [Vanilla RNN update equation](#vanilla)
      - [LSTM update equations](#lstm)
      - [GRU update equations](#gru)
      - [Code Example](#rnn-code-example)
-   - [Convoluted (Convolutional) Neural Networks](#convolutional)
-   - [Hey baby, what’s your cosine?](#cosine) (similarity metrics)
+   - [Attentional RNNs](#attentional)
+   - [Convoluted Neural Networks](#convolutional)
+   - [Similarity Metrics](#cosine)
  - [Closing remarks](#closing)
+
+# <a name="introduction"></a>Introduction
 
 [Question answering][qa wiki] has recieved more focus as large search engines have basically mastered general information retrieval and are starting to cover more edge cases. Question answering happens to be one of those edge cases, because it could involve a lot of syntatic nuance that doesn't get captured by standard information retrieval models, like LDA or LSI. Hypothetically, deep learning models would be better suited to this type of task because of their ability to capture higher-order syntax. Two papers, "Applying deep learning to answer selection: a study and an open task" [(Feng et. al. 2015)][feng] and "LSTM-based deep learning models for non-factoid answer selection" [(Tan et. al. 2016)][tan], are recent examples which have applied deep learning to question-answering tasks with good results.
 
@@ -47,7 +51,7 @@ There are actually a couple language models in the [Keras examples](https://gith
 
 These are pretty interesting to play around with. It is really cool how easy it is to get one of these set up! With Keras, a high-level model design can be quickly implemented.
 
-## <a name="embedding"></a>Representation without taxation
+## <a name="embedding"></a>Word Embeddings
 
 Ok! Let's dive in. The first challenge that you might think of when designing a language model is what the units of the language might be. A reasonable dataset might have around 20000 distinct words, after lemmatizing them. If the average sentence is 40 words long, then you're left with a `20000 x 40` matrix just to represent one sentence, which is 3.2 megabytes if each word is represented in 32 bits. This obviously doesn't work, so the first step in developing a good language model is to figure out how to reduce the number of dimensions required to represent a word.
 
@@ -125,7 +129,7 @@ for i in range(n_words):
 	print('{}: {}'.format(idx2word[i], embeddings[i]))
 {% endhighlight %}
 
-The embedding layer embeds the words into 3 dimensions. A sample of the vectors it produces is seen below. As predicted, the model 
+The embedding layer embeds the words into 3 dimensions. A sample of the vectors it produces is seen below. As predicted, the model learns useful word embeddings.
 
     sarah:	[-0.5835458  -0.2772688   0.01127077]
     sam:	[-0.57449967 -0.26132962  0.04002968]
@@ -141,13 +145,13 @@ The embedding layer embeds the words into 3 dimensions. A sample of the vectors 
 
 Each category is grouped in the 3-dimensional vector space. The network learned each of these categories from how each word was used. This is very useful for developing a language model.
 
-## <a name="rnn"></a>What do pirates call neural networks?
+## <a name="rnn"></a>Recurrent Neural Networks
 
-As the Keras examples illustrate, there are different philosophies on deep language modeling. [Feng et. al.][feng] did a bunch of benchmarks with convolutional networks, and ended up with some impressive results. [Tan et. al.][tan] used recurrent networks with some different parameters. I'll focus on recurrent neural networks (*Arrrgh*NNs) first. In general, I'll assume some familiarity with both recurrent and convolutional neural networks. [Andrej Karpathy's blog](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) discusses neural networks in detail. Here is an image from that post which explains the core concept:
+As the Keras examples illustrate, there are different philosophies on deep language modeling. [Feng et. al.][feng] did a bunch of benchmarks with convolutional networks, and ended up with some impressive results. [Tan et. al.][tan] used recurrent networks with some different parameters. I'll focus on recurrent neural networks (What do pirates call neural networks? *Arrrgh*NNs) first. In general, I'll assume some familiarity with both recurrent and convolutional neural networks. [Andrej Karpathy's blog](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) discusses neural networks in detail. Here is an image from that post which explains the core concept:
 
 ![Recurrent neural network](/images/karpathy_rnn.jpeg)
 
-#### <a name="vanilla"></a>Vanilla
+### <a name="vanilla"></a>Vanilla
 
 The basic RNN architecture is essentially a feed-forward neural network that is stretched out over a bunch of time steps and has it's intermediate output added to the next input step. This idea can be expressed as an update equation for each input step:
 
@@ -155,7 +159,7 @@ The basic RNN architecture is essentially a feed-forward neural network that is 
 
 Note that `dot` indicates vector-matrix multiplication. Multiplying a vector of dimensions `<m>` by a matrix of dimensions `<m, n>` can be done with `dot(<m>, <m, n>)` and yields a vector of dimensions `<n>`. This is consistent with its usage in Theano and Keras. In the update equation, we multiply each `input_vector` by our input weights `W`, multiply the `prev_hidden` vector by our hidden weights `U`, and add a bias, before passing the sum to the activation function `sigmoid`. To get the **many to one** behavior in the image, we can grab the last hidden state and use that as our output. To get the **one to many** behavior, we can pass one input vector and then just pass a bunch of zero vectors to get as many hidden states as we want.
 
-#### <a name="lstm"></a>LSTM
+### <a name="lstm"></a>LSTM
 
 If the RNN gets really long, then we run into a lot of difficulty training the model. The effect of something a early in the sequence on the end result is very small relative to later components, so it is hard to use that information in updating the weights. To solve this, several methods have been proposed, and two have been implemented in Keras. The first is the Long Short-Term Memory (LSTM) unit, which was proposed by [Hochreiter and Schmidhuber 1997][hochreiter]. This model uses a second hidden state which stores information from further back in the model, allowing that information to have a stronger effect on the end result. The update equations for this model are:
 
@@ -170,7 +174,7 @@ If the RNN gets really long, then we run into a lot of difficulty training the m
 
 Note that `*` indicates element-wise multiplication. This is consistent with its usage in Theano and Keras. First, there are a bunch more parameters to train; not only do we have weights for the input-to-hidden and hidden-to-hidden matrices, but also we have an accompanying `candidate_state`. The candidate state is like a second hidden state that transfers information to and from the hidden state. It is like a safety deposit box for putting things in and taking things out.
 
-#### <a name="gru"></a>GRU
+### <a name="gru"></a>GRU
 
 The second model is the Gated Recurrent Unit (GRU), which was proposed by [Cho et. al. 2014][cho]. The equations for this model are as follows:
 
@@ -224,11 +228,15 @@ for rnn in rnns:
 
 Training on my computer, there wasn't a significant difference between the LSTM and GRU layers. However, the Vanilla layer had a much more difficult time learning the data. This makes sense! There are 10 different sequences of random 0s and 1s that need to be learned. The probability of two sequences being different doubles with each extra element in the sequence, so a model that can take advantage of long-term dependencies will have a much easier time seeing how two sequences are different.
 
-## <a name="convolutional"></a>Convoluted Neural Networks
+## <a name="attentional"></a>Attentional RNNs
+
+Add a part about attention component here.
+
+## <a name="convolutional"></a>Convolutional Neural Networks
 
 I'll add this eventually, I think. Right now I should probably go do something else for a bit.
 
-## <a name="cosine"></a>Hey baby, what's your cosine?
+## <a name="cosine"></a>Similarity Metrics
 
 The basic idea with question answering is to embed questions and answers as vectors, so that the question vector is close in vector space to the answer vector. "Close" usually means it has a small cosine distance.
 
