@@ -12,7 +12,7 @@ Samuel Smith's Winter Welcome Ale
 
 **Brewed by** Samuel Smith Old Brewery (Tadcaster), Ye Ol' Pubbery, The Queen, Great Britain
 
-**Style** Winter Warmer
+**Style** Winter Warmer? You 'ardly know 'er!
 
 **ABV** 6.0%
 
@@ -34,11 +34,11 @@ Drafty Kilt Scotch Ale
 
 **Brewed by** Monday Night Brewing, Georgia, United States
 
-**Style** Scottish Ale
+**Style** Scottish Ale (Not completely Scott, only Scott-ish)
 
 **ABV** 7.2%
 
-Drafty Kilt Scotch Ale is the SweetWater Brewing Company of Atlanta Beers. It tastes like air until it goes in your stomach, when it tastes like acid. Doesn't get fantastic reviews on Beer Advocate, but it's still pretty good. All around: 2.5 selfie sticks.
+Monday Night Brewing is the SweetWater Brewing Company of Atlanta Breweries. It tastes like air until it goes in your stomach, when it tastes like acid. Doesn't get fantastic reviews on Beer Advocate, but it's still pretty good. All around: 2.5 selfie sticks.
 
 SweetWater IPA
 ---------------
@@ -71,5 +71,4 @@ Pabst Blue Ribbon
 
 **ABV** 4.74%
 
-As with anyone who likes craft beers, PBR is my go-to beverage of choice. Ironically, I don't drink it ironically, but because at 67 cents a can (in 2016 adjusted dollars) it is the cheapest one at Krogers that doesn't advertise during the Super Bowl. Probably best if you want to get drunk, but don't want to be associated with people who get drunk. All around: 3 ironic glasses.
-
+As with anyone who likes craft beers, PBR is my go-to beverage of choice. Kind of meta-ironically, I drink it because at 67 cents a can (in 2016 adjusted dollars) it is the cheapest one at Krogers that doesn't advertise during the Super Bowl. Probably best if you want to get drunk, but don't want to be associated with people who get drunk. All around: 3 ironic glasses.

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Deep Language Modeling with Keras"
+title: "Deep Language Modeling for Question Answering using Keras"
 date: 2016-04-27 12:00:00
 categories: ml
 ---
@@ -18,9 +18,13 @@ categories: ml
      - [GRU update equations](#gru)
      - [Code Example](#rnn-code-example)
    - [Attentional RNNs](#attentional)
+     - [Lambda Layer](#lambda)
+     - [Simple Custom Layer Example](#custom)
+     - [Characterizing the Attentional LSTM](#attentional-equations)
+     - [Building an Attentional LSTM](#attentional-layer)
    - [Convoluted Neural Networks](#convolutional)
    - [Similarity Metrics](#cosine)
- - [Closing remarks](#closing)
+ - [Closing Remarks](#closing)
 
 # <a name="introduction"></a>Introduction
 
@@ -39,11 +43,12 @@ sudo pip install --upgrade keras
 There are some important features that might not be available without the most recent version. I'm not sure if doing `pip install` gets the most recent version, so it might be helpful to install from binary. This is actually pretty straightforward! Just change to the directory where you want your source code to be and do:
 
 {% highlight bash %}
-git clone https://github.com/fchollet/keras.git .
+git clone https://github.com/fchollet/keras.git
+cd keras
 sudo python setup.py install
 {% endhighlight %}
 
-One benefit of this is that if you want to add a custom layer, you can add it to the Keras installation and be able to use it across different projects.
+One benefit of this is that if you want to add a custom layer, you can add it to the Keras installation and be able to use it across different projects. Even better, you could fork the project and clone your own fork, although this gets into areas of Git beyond my understanding.
 
 # <a name="jumping-in"></a>Jumping into language modeling
 
@@ -78,7 +83,7 @@ input_sentence = Input(shape=(sentence_maxlen,), dtype='int32')
 embedding = Embedding(n_words, n_embed_dims)(input_sentence)
 {% endhighlight %}
 
-Let's try this out! We can train a recurrent neural network to predict some dummy data and examine the embedding layer for each vector. This model takes a sentence like "sam is red" or "sarah not green" and predicts what color the person is. It is a very simple example with some dummy data. 
+Let's try this out! We can train a recurrent neural network to predict some dummy data and examine the embedding layer for each vector. This model takes a sentence like "sam is red" or "sarah not green" and predicts what color the person is. It is a very simple example, but it will illustrate what the Embedding layer is doing, and also illustrate how we can turn a bunch of sentences into vectors of indices by building a dictionary. 
 
 <a name="embedding-code-example"></a>
 {% highlight python %}
@@ -151,13 +156,15 @@ red:	[-0.10381682 -0.31055665 -0.0975003 ]
 green:	[-0.05930901 -0.33241618 -0.06948926]
 {% endhighlight %}
 
-Each category is grouped in the 3-dimensional vector space. The network learned each of these categories from how each word was used. This is very useful for developing a language model.
+Each category is grouped in the 3-dimensional vector space. The network learned each of these categories from how each word was used; Sarah and Sam are the red people, while Bob and Hannah are the green people. However, it did not differentiate well between `not`, `is`, `red`, and `green`, because those weren't immediately obvious for the decision task.
+
+![Word distributions in vector space](/resources/attention_rnn/word_vectors.png)
 
 ## <a name="rnn"></a>Recurrent Neural Networks
 
-As the Keras examples illustrate, there are different philosophies on deep language modeling. [Feng et. al.][feng] did a bunch of benchmarks with convolutional networks, and ended up with some impressive results. [Tan et. al.][tan] used recurrent networks with some different parameters. I'll focus on recurrent neural networks (What do pirates call neural networks? *Arrrgh*NNs) first. In general, I'll assume some familiarity with both recurrent and convolutional neural networks. [Andrej Karpathy's blog](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) discusses neural networks in detail. Here is an image from that post which explains the core concept:
+As the Keras examples illustrate, there are different philosophies on deep language modeling. [Feng et. al.][feng] did a bunch of benchmarks with convolutional networks, and ended up with some impressive results. [Tan et. al.][tan] used recurrent networks with some different parameters. I'll focus on recurrent neural networks first (What do pirates call neural networks? *Arrrgh*NNs). I'll assume some familiarity with both recurrent and convolutional neural networks. [Andrej Karpathy's blog](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) discusses recurrent neural networks in detail. Here is an image from that post which explains the core concept:
 
-![Recurrent neural network](/images/karpathy_rnn.jpeg)
+![Recurrent neural network](/resources/attention_rnn/karpathy_rnn.jpeg)
 
 ### <a name="vanilla"></a>Vanilla
 
@@ -244,7 +251,150 @@ Training on my computer, there wasn't a significant difference between the LSTM 
 
 ## <a name="attentional"></a>Attentional RNNs
 
-Add a part about attention component here.
+It isn't strictly important to understand the RNN part before looking at this part, but it will help everything make more sense. The next component of language modeling, which was the focus of the [Tan] paper, is the Attentional RNN. This essential components of model is described in "Show, Attend and Tell: Neural Image Caption Generation with Visual Attention" [(Xu et. al. 2016)][xu]. I'll try to hash it out in this blog post a little bit and look at how to build it in Keras.
+
+### <a name="lambda"></a>Lambda Layer
+
+First, let's look at how to make a custom layer in Keras. There are a couple options. One is the `Lambda` layer, which does a specified operation. An example of this could be a layer that doubles the value it is passed:
+
+{% highlight python %}
+from keras.layers import Lambda, Input
+from keras.models import Model
+
+import numpy as np
+
+input = Input(shape=(5,), dtype='int32')
+double = Lambda(lambda x: 2 * x)(input)
+
+model = Model(input=[input], output=[double])
+model.compile(optimizer='sgd', loss='mse')
+
+data = np.arange(5)
+print(model.predict(data))
+{% endhighlight %}
+
+This doubles our input data. Note that there are no trainable weights anywhere in this model, so it couldn't actually learn anything. What if we wanted to multiply our input vector by some trainable scalar that predicts the output vector? In this case, we will have to write our own layer.
+
+### <a name="custom"></a>Simple Custom Layer Example
+
+Let's jump right in and write a layer that learns to multiply an input by a scalar value and produce an output.
+
+{% highlight python %}
+from keras.engine import Layer
+from keras import initializations
+
+# our layer will take input shape (nb_samples, 1)
+class MultiplicationLayer(Layer):
+	def __init__(self, **kwargs):
+		self.init = initializations.get('glorot_uniform')
+		super(MultiplicationLayer, self).__init__(**kwargs)
+	
+	def build(self, input_shape):
+		# each sample should be a scalar
+		assert len(input_shape) == 2 and input_shape[1] == 1
+		self.multiplicand = self.init(input_shape[1:], name='multiplicand')
+		
+		# let Keras know that we want to train the multiplicand
+		self.trainable_weights = [self.multiplicand]
+	
+	def get_output_shape_for(self, input_shape):
+		# we're doing a scalar multiply, so we don't change the input shape
+		assert input_shape and len(input_shape) == 2 and input_shape[1] == 1
+		return input_shape
+
+	def call(self, x, mask=None):
+		# this is called during MultiplicationLayer()(input)
+		return x * self.multiplicand
+
+# test the model
+from keras.layers import Input
+from keras.models import Model
+
+# input is a single scalar
+input = Input(shape=(1,), dtype='int32')
+multiply = MultiplicationLayer()(input)
+
+model = Model(input=[input], output=[multiply])
+model.compile(optimizer='sgd', loss='mse')
+
+import numpy as np
+input_data = np.arange(10)
+output_data = 3 * input_data
+
+model.fit([input_data], [output_data], nb_epoch=10)
+print(model.layers[1].multiplicand.get_value())
+# should be close to 3
+{% endhighlight %}
+
+There we go! We have a complete model. We could change it around to make it fancier, like adding a *broadcastable dimension* to the `multiplicand` so that the layer could be passed a vector of numbers instead of just a scalar. Let's look closer at how we built the multiplication layer:
+
+{% highlight python %}
+def __init__(self, **kwargs):
+	self.init = initializations.get('glorot_uniform')
+	super(MultiplicationLayer, self).__init__(**kwargs)
+{% endhighlight %}
+
+First, we make a weight initializer that we can use later to get weights. `glorot_uniform` is just a particular way to initialize weights. We then call the `__init__` method of the super class.
+
+{% highlight python %}
+def build(self, input_shape):
+	# each sample should be a scalar
+	assert len(input_shape) == 2 and input_shape[1] == 1
+	self.multiplicand = self.init(input_shape[1:], name='multiplicand')
+	
+	# let Keras know that we want to train the multiplicand
+	self.trainable_weights = [self.multiplicand]
+{% endhighlight %}
+
+This method specifies the components of the model, for when we build it. The only component we need is the scalar to multiply by, so we initialize a new tensor by calling `self.init`, the initializer we created in the `__init__` method.
+
+{% highlight python %}	
+def get_output_shape_for(self, input_shape):
+	# we're doing a scalar multiply, so we don't change the input shape
+	assert input_shape and len(input_shape) == 2 and input_shape[1] == 1
+	return input_shape
+{% endhighlight %}
+
+This method tells the builder what the output shape of this layer will be given its input shape. Since our layer just does a scalar multiply, it doesn't change the output shape from the input shape. For example, scalar multiplying the input `[1, 2, 3]` of dimensions `<3, 1>` by a scalar factor of 2 gives the output `[2, 4, 6]`, which has the same dimensions `<3, 1>`.
+
+{% highlight python %}
+def call(self, x, mask=None):
+	# this is called during MultiplicationLayer()(input)
+	return x * self.multiplicand
+{% endhighlight %}
+
+This is the bread and butter of the the layer, where we actually perform the operation. We specify that the output of this layer is the input `x` matrix multiplied by our multiplicand tensor. Note that this method takes a while to run, because whatever backend we use (for example, Theano) has to put together the tensors in the right way. To make your layer run quickly, it is good practice to add `assert` checks in the `build` and `get_output_shape_for` methods.
+
+### <a name="attentional-equations"></a>Characterizing the Attentional LSTM
+
+Now that we've got an idea of how to build a custom layer, let's look at the specifications for an attentional LSTM. Following [Tan et. al.][tan], we can augment our LSTM equations from earlier to include an attentional component. The attentional component requires some attention vector `attention_vec`.
+
+{% highlight bash %}
+input_gate = tanh(dot(input_vector, W_input) + dot(prev_hidden, U_input) + b_input)
+forget_gate = tanh(dot(input_vector, W_forget) + dot(prev_hidden, U_forget) + b_forget)
+output_gate = tanh(dot(input_vector, W_output) + dot(prev_hidden, U_output) + b_output)
+
+candidate_state = tanh(dot(x, W_hidden) + dot(prev_hidden, U_hidden) + b_hidden)
+memory_unit = prev_candidate_state * forget_gate + candidate_state * input_gate
+
+new_hidden_state = tanh(memory_unit) * output_gate
+
+attention_state = tanh(dot(attention_vec, W_attn) + dot(new_hidden_state, U_attn))
+attention_param = exp(dot(attention_state, W_param))
+new_hidden_state = new_hidden_state * attention_param
+{% endhighlight %}
+
+The new equations are the last three, which correspond to equations 9, 10 and 11 from the paper (approximately reproduced below, using different notation).
+
+$${\bf s}_{a}(t) = \tanh({\bf h}(t) {\bf W}_{a} + {\bf v}_a {\bf U}_{a})\\
+{\bf p}_{a}(t) = \exp({\bf s}_{a}(t) {\bf W}_{p})\\
+{\bf \tilde{h}}(t) = {\bf h}(t) * {\bf p}_{a} (t)$$
+
+The attention parameter is a function of the current hidden state and the attention vector mixed together. Each is first put through a matrix, summed and put through an activation function to get an attention state, which is then put through another transformation to get an attention parameter. The attention parameter then re-updates the hidden state. Supposedly, this is conceptually similar to TF-IDF weighting, where the model learns to weight particular states at particular times.
+
+### <a name="attentional-layer"></a>Building an Attentional LSTM
+
+I'll add the full Attentional LSTM code eventually.
 
 ## <a name="convolutional"></a>Convolutional Neural Networks
 
@@ -254,7 +404,7 @@ I'll add this eventually, I think. Right now I should probably go do something e
 
 The basic idea with question answering is to embed questions and answers as vectors, so that the question vector is close in vector space to the answer vector. "Close" usually means it has a small cosine distance.
 
-## <a name="closing"></a>Closing remarks
+## <a name="closing"></a>Closing Remarks
 
 This post follows my final project for my Information Retrieval class, the code for which can be seen [here][github project].
 
@@ -266,5 +416,6 @@ This post follows my final project for my Information Retrieval class, the code 
 [cho]: http://arxiv.org/pdf/1406.1078.pdf
 [feng]: http://arxiv.org/pdf/1508.01585v2.pdf
 [tan]: http://arxiv.org/pdf/1511.04108.pdf
+[xu]: http://arxiv.org/pdf/1502.03044.pdf
 [keras]: https://github.com/fchollet/keras
 [karpathy]: http://karpathy.github.io/2015/05/21/rnn-effectiveness/
