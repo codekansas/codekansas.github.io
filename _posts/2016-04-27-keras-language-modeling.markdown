@@ -32,12 +32,16 @@ categories: ml
 
 See the instructions [here](http://keras.io/#installation) on how to install Keras. The simple route is to install using `pip`, e.g.
 
-    sudo pip install --upgrade keras
+{% highlight bash %}
+sudo pip install --upgrade keras
+{% endhighlight %}
 
 There are some important features that might not be available without the most recent version. I'm not sure if doing `pip install` gets the most recent version, so it might be helpful to install from binary. This is actually pretty straightforward! Just change to the directory where you want your source code to be and do:
 
-    git clone https://github.com/fchollet/keras.git .
-    sudo python setup.py install
+{% highlight bash %}
+git clone https://github.com/fchollet/keras.git .
+sudo python setup.py install
+{% endhighlight %}
 
 One benefit of this is that if you want to add a custom layer, you can add it to the Keras installation and be able to use it across different projects.
 
