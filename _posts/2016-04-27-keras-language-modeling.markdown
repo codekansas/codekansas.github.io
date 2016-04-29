@@ -257,7 +257,7 @@ print(model.predict(data))
 
 This doubles our input data. Note that there are no trainable weights anywhere in this model, so it couldn't actually learn anything. What if we wanted to multiply our input vector by some trainable scalar that predicts the output vector? In this case, we will have to write our own layer.
 
-### Simple Custom Layer Example
+### Building a Custom Layer Example
 
 Let's jump right in and write a layer that learns to multiply an input by a scalar value and produce an output.
 
@@ -330,7 +330,7 @@ def build(self, input_shape):
 
 This method specifies the components of the model, for when we build it. The only component we need is the scalar to multiply by, so we initialize a new tensor by calling `self.init`, the initializer we created in the `__init__` method.
 
-{% highlight python %}	
+{% highlight python %}
 def get_output_shape_for(self, input_shape):
 	# we're doing a scalar multiply, so we don't change the input shape
 	assert input_shape and len(input_shape) == 2 and input_shape[1] == 1
