@@ -5,34 +5,16 @@ date: 2016-04-27 12:00:00
 categories: ml
 ---
 
-# Contents
+* TOC
+{:toc}
 
- - [Introduction](#introduction)
- - [Installing Keras](#installing-keras)
- - [Jumping Into Language Modeling](#jumping-in)
-   - [Word Embedding](#embedding)
-     - [Code Example](#embedding-code-example)
-   - [Recurrent Neural Networks](#rnn)
-     - [Vanilla RNN update equation](#vanilla)
-     - [LSTM update equations](#lstm)
-     - [GRU update equations](#gru)
-     - [Code Example](#rnn-code-example)
-   - [Attentional RNNs](#attentional)
-     - [Lambda Layer](#lambda)
-     - [Simple Custom Layer Example](#custom)
-     - [Characterizing the Attentional LSTM](#attentional-equations)
-     - [Building an Attentional LSTM](#attentional-layer)
-   - [Convoluted Neural Networks](#convolutional)
-   - [Similarity Metrics](#cosine)
- - [Closing Remarks](#closing)
-
-# <a name="introduction"></a>Introduction
+# Introduction
 
 [Question answering][qa wiki] has recieved more focus as large search engines have basically mastered general information retrieval and are starting to cover more edge cases. Question answering happens to be one of those edge cases, because it could involve a lot of syntatic nuance that doesn't get captured by standard information retrieval models, like LDA or LSI. Hypothetically, deep learning models would be better suited to this type of task because of their ability to capture higher-order syntax. Two papers, "Applying deep learning to answer selection: a study and an open task" [(Feng et. al. 2015)][feng] and "LSTM-based deep learning models for non-factoid answer selection" [(Tan et. al. 2016)][tan], are recent examples which have applied deep learning to question-answering tasks with good results.
 
 [Feng et. al.][feng] used an in-house Java framework for their work, and [Tan et. al.][tan] built their model entirely from Theano. Personally, I am a lot lazier than them, and I don't understand CNNs very well, so I would like to use an existing framework to build one of their models to see if I could get similar results. [Keras][keras] is a really popular one that has support for everything we might need to put the model together.
 
-# <a name="installing-keras"></a>Installing Keras
+# Installing Keras
 
 See the instructions [here](http://keras.io/#installation) on how to install Keras. The simple route is to install using `pip`, e.g.
 
@@ -50,7 +32,7 @@ sudo python setup.py install
 
 One benefit of this is that if you want to add a custom layer, you can add it to the Keras installation and be able to use it across different projects. Even better, you could fork the project and clone your own fork, although this gets into areas of Git beyond my understanding.
 
-# <a name="jumping-in"></a>Jumping into language modeling
+# Jumping into language modeling
 
 There are actually a couple language models in the [Keras examples](https://github.com/fchollet/keras/blob/master/examples/imdb_lstm.py):
 
@@ -60,7 +42,7 @@ There are actually a couple language models in the [Keras examples](https://gith
 
 These are pretty interesting to play around with. It is really cool how easy it is to get one of these set up! With Keras, a high-level model design can be quickly implemented.
 
-## <a name="embedding"></a>Word Embeddings
+## Word Embeddings
 
 Ok! Let's dive in. The first challenge that you might think of when designing a language model is what the units of the language might be. A reasonable dataset might have around 20000 distinct words, after lemmatizing them. If the average sentence is 40 words long, then you're left with a `20000 x 40` matrix just to represent one sentence, which is 3.2 megabytes if each word is represented in 32 bits. This obviously doesn't work, so the first step in developing a good language model is to figure out how to reduce the number of dimensions required to represent a word.
 
@@ -85,7 +67,6 @@ embedding = Embedding(n_words, n_embed_dims)(input_sentence)
 
 Let's try this out! We can train a recurrent neural network to predict some dummy data and examine the embedding layer for each vector. This model takes a sentence like "sam is red" or "sarah not green" and predicts what color the person is. It is a very simple example, but it will illustrate what the Embedding layer is doing, and also illustrate how we can turn a bunch of sentences into vectors of indices by building a dictionary. 
 
-<a name="embedding-code-example"></a>
 {% highlight python %}
 import itertools
 import numpy as np
@@ -160,13 +141,13 @@ Each category is grouped in the 3-dimensional vector space. The network learned 
 
 ![Word distributions in vector space](/resources/attention_rnn/word_vectors.png)
 
-## <a name="rnn"></a>Recurrent Neural Networks
+## Recurrent Neural Networks
 
 As the Keras examples illustrate, there are different philosophies on deep language modeling. [Feng et. al.][feng] did a bunch of benchmarks with convolutional networks, and ended up with some impressive results. [Tan et. al.][tan] used recurrent networks with some different parameters. I'll focus on recurrent neural networks first (What do pirates call neural networks? *Arrrgh*NNs). I'll assume some familiarity with both recurrent and convolutional neural networks. [Andrej Karpathy's blog](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) discusses recurrent neural networks in detail. Here is an image from that post which explains the core concept:
 
 ![Recurrent neural network](/resources/attention_rnn/karpathy_rnn.jpeg)
 
-### <a name="vanilla"></a>Vanilla
+### Vanilla
 
 The basic RNN architecture is essentially a feed-forward neural network that is stretched out over a bunch of time steps and has it's intermediate output added to the next input step. This idea can be expressed as an update equation for each input step:
 
@@ -176,7 +157,7 @@ new_hidden_state = tanh(dot(input_vector, W) + dot(prev_hidden, U) + b)
 
 Note that `dot` indicates vector-matrix multiplication. Multiplying a vector of dimensions `<m>` by a matrix of dimensions `<m, n>` can be done with `dot(<m>, <m, n>)` and yields a vector of dimensions `<n>`. This is consistent with its usage in Theano and Keras. In the update equation, we multiply each `input_vector` by our input weights `W`, multiply the `prev_hidden` vector by our hidden weights `U`, and add a bias, before passing the sum to the activation function `sigmoid`. To get the **many to one** behavior in the image, we can grab the last hidden state and use that as our output. To get the **one to many** behavior, we can pass one input vector and then just pass a bunch of zero vectors to get as many hidden states as we want.
 
-### <a name="lstm"></a>LSTM
+### LSTM
 
 If the RNN gets really long, then we run into a lot of difficulty training the model. The effect of something a early in the sequence on the end result is very small relative to later components, so it is hard to use that information in updating the weights. To solve this, several methods have been proposed, and two have been implemented in Keras. The first is the Long Short-Term Memory (LSTM) unit, which was proposed by [Hochreiter and Schmidhuber 1997][hochreiter]. This model uses a second hidden state which stores information from further back in the model, allowing that information to have a stronger effect on the end result. The update equations for this model are:
 
@@ -193,7 +174,7 @@ new_hidden_state = tanh(memory_unit) * output_gate
 
 Note that `*` indicates element-wise multiplication. This is consistent with its usage in Theano and Keras. First, there are a bunch more parameters to train; not only do we have weights for the input-to-hidden and hidden-to-hidden matrices, but also we have an accompanying `candidate_state`. The candidate state is like a second hidden state that transfers information to and from the hidden state. It is like a safety deposit box for putting things in and taking things out.
 
-### <a name="gru"></a>GRU
+### GRU
 
 The second model is the Gated Recurrent Unit (GRU), which was proposed by [Cho et. al. 2014][cho]. The equations for this model are as follows:
 
@@ -210,9 +191,10 @@ In this model, there is an `update_gate` which controls how much of the previous
 
 My implementations of these models in Theano, as well as optimizers for training them, can be found in [this Github repository][theano-rnn].
 
+### RNN Example: Predicting Dummy Data
+
 Now that we've seen the equations, let's see how Keras implementations compare on some sample data.
 
-<a name="rnn-code-example"></a>
 {% highlight python %}
 import numpy as np
 rng = np.random.RandomState(42)
@@ -249,11 +231,11 @@ for rnn in rnns:
 
 The results will vary from trial to trial. RNNs are exceptionally difficult to train. However, in general, a model that can take advantage of long-term dependencies will have a much easier time seeing how two sequences are different.
 
-## <a name="attentional"></a>Attentional RNNs
+## Attentional RNNs
 
 It isn't strictly important to understand the RNN part before looking at this part, but it will help everything make more sense. The next component of language modeling, which was the focus of the [Tan] paper, is the Attentional RNN. This essential components of model is described in "Show, Attend and Tell: Neural Image Caption Generation with Visual Attention" [(Xu et. al. 2016)][xu]. I'll try to hash it out in this blog post a little bit and look at how to build it in Keras.
 
-### <a name="lambda"></a>Lambda Layer
+### Lambda Layer
 
 First, let's look at how to make a custom layer in Keras. There are a couple options. One is the `Lambda` layer, which does a specified operation. An example of this could be a layer that doubles the value it is passed:
 
@@ -275,7 +257,7 @@ print(model.predict(data))
 
 This doubles our input data. Note that there are no trainable weights anywhere in this model, so it couldn't actually learn anything. What if we wanted to multiply our input vector by some trainable scalar that predicts the output vector? In this case, we will have to write our own layer.
 
-### <a name="custom"></a>Simple Custom Layer Example
+### Simple Custom Layer Example
 
 Let's jump right in and write a layer that learns to multiply an input by a scalar value and produce an output.
 
@@ -365,7 +347,7 @@ def call(self, x, mask=None):
 
 This is the bread and butter of the the layer, where we actually perform the operation. We specify that the output of this layer is the input `x` matrix multiplied by our multiplicand tensor. Note that this method takes a while to run, because whatever backend we use (for example, Theano) has to put together the tensors in the right way. To make your layer run quickly, it is good practice to add `assert` checks in the `build` and `get_output_shape_for` methods.
 
-### <a name="attentional-equations"></a>Characterizing the Attentional LSTM
+### Characterizing the Attentional LSTM
 
 Now that we've got an idea of how to build a custom layer, let's look at the specifications for an attentional LSTM. Following [Tan et. al.][tan], we can augment our LSTM equations from earlier to include an attentional component. The attentional component requires some attention vector `attention_vec`.
 
@@ -392,25 +374,345 @@ $${\bf s}_{a}(t) = \tanh({\bf h}(t) {\bf W}_{a} + {\bf v}_a {\bf U}_{a})\\
 
 The attention parameter is a function of the current hidden state and the attention vector mixed together. Each is first put through a matrix, summed and put through an activation function to get an attention state, which is then put through another transformation to get an attention parameter. The attention parameter then re-updates the hidden state. Supposedly, this is conceptually similar to TF-IDF weighting, where the model learns to weight particular states at particular times.
 
-### <a name="attentional-layer"></a>Building an Attentional LSTM
+### Building an Attentional LSTM Example
 
 Now that we have all the components for an Attentional LSTM, let's see the code for how we could implement this. The attentional component can be tacked onto the LSTM code that already exists.
 
 {% highlight python %}
-print('hello world!')
+from keras import backend as K
+from keras.layers import LSTM
+
+class AttentionLSTM(LSTM):
+    def __init__(self, output_dim, attention_vec, **kwargs):
+        self.attention_vec = attention_vec
+        super(AttentionLSTM, self).__init__(output_dim, **kwargs)
+
+    def build(self, input_shape):
+        super(AttentionLSTM, self).build(input_shape)
+
+        assert hasattr(self.attention_vec, '_keras_shape')
+        attention_dim = self.attention_vec._keras_shape[1]
+
+        self.U_a = self.inner_init((self.output_dim, self.output_dim),
+                                   name='{}_U_a'.format(self.name))
+        self.b_a = K.zeros((self.output_dim,), name='{}_b_a'.format(self.name))
+
+        self.U_m = self.inner_init((attention_dim, self.output_dim),
+                                   name='{}_U_m'.format(self.name))
+        self.b_m = K.zeros((self.output_dim,), name='{}_b_m'.format(self.name))
+
+        self.U_s = self.inner_init((self.output_dim, self.output_dim),
+                                   name='{}_U_s'.format(self.name))
+        self.b_s = K.zeros((self.output_dim,), name='{}_b_s'.format(self.name))
+
+        self.trainable_weights += [self.U_a, self.U_m, self.U_s,
+                                   self.b_a, self.b_m, self.b_s]
+
+        if self.initial_weights is not None:
+            self.set_weights(self.initial_weights)
+            del self.initial_weights
+
+    def step(self, x, states):
+        h, [h, c] = super(AttentionLSTM, self).step(x, states)
+        attention = states[4]
+
+        m = K.tanh(K.dot(h, self.U_a) + attention + self.b_a)
+        s = K.exp(K.dot(m, self.U_s) + self.b_s)
+        h = h * s
+
+        return h, [h, c]
+
+    def get_constants(self, x):
+        constants = super(AttentionLSTM, self).get_constants(x)
+        constants.append(K.dot(self.attention_vec, self.U_m) + self.b_m)
+        return constants
 {% endhighlight %}
 
-## <a name="convolutional"></a>Convolutional Neural Networks
+Let's look at what each function is doing individually. Note that this builds heavily upon the already-existing LSTM implementation.
 
-I'll add this eventually, I think. Right now I should probably go do something else for a bit.
+{% highlight python %}
+from keras import backend as K
+from keras.layers import LSTM
+{% endhighlight %}
 
-## <a name="cosine"></a>Similarity Metrics
+We will create a subclass (does python even do subclasses?) of the LSTM implementation that Keras already provides. The Keras `backend` is either Theano or Tensorflow, depending on the settings specified in `~/.keras/keras.json` (the default is Theano). This backend lets us use Theano-type functions such as `K.zeros`, which specifies a matrix of zeros, to initialize our model.
 
-The basic idea with question answering is to embed questions and answers as vectors, so that the question vector is close in vector space to the answer vector. "Close" usually means it has a small cosine distance.
+{% highlight python %}
+def __init__(self, output_dim, attention_vec, **kwargs):
+    self.attention_vec = attention_vec
+    super(AttentionLSTM, self).__init__(output_dim, **kwargs)
+{% endhighlight %}
 
-## <a name="closing"></a>Closing Remarks
+We initialize the layer by passing it the out number of hidden layers `output_dim` and the layer to use as the attention vector `attention_vec`. The `__init__` function is identical to the `__init__` function for the `LSTM` layer except for the attention vector, so we just reuse it here.
 
-This post follows my final project for my Information Retrieval class, the code for which can be seen [here][github project].
+{% highlight python %}
+def build(self, input_shape):
+{% endhighlight %}
+
+I won't reproduce everything here, but essentially this method initializes all of the weight matrices we need for the attentional component, after calling the `LSTM.build` method to initialize the LSTM weight matrices.
+
+{% highlight python %}
+def step(self, x, states):
+    h, [h, c] = super(AttentionLSTM, self).step(x, states)
+    attention = states[4]
+
+    m = K.tanh(K.dot(h, self.U_a) + attention + self.b_a)
+    s = K.exp(K.dot(m, self.U_s) + self.b_s)
+    h = h * s
+
+    return h, [h, c]
+{% endhighlight %}
+
+This method is used by the `RNN` superclass, and tells the function what to do on each timestep. It mirrors the equations given earlier, and adds the attentional component on top of the LSTM equations.
+
+{% highlight python %}
+def get_constants(self, x):
+    constants = super(AttentionLSTM, self).get_constants(x)
+    constants.append(K.dot(self.attention_vec, self.U_m) + self.b_m)
+    return constants
+{% endhighlight %}
+
+This method is used by the LSTM superclass to define components outside of the step function, so that they don't need to be recomputed very time step. In our case, the attentional vector doesn't need to be recomputed every time step, so we define it as a constant (we then grab it in the `step` function using `attention = states[4]`).
+
+## Convolutional Neural Networks
+
+I will add something here when I actually understand how these work at a sufficient level. Basically, with language modeling, a common strategy is to apply a ton (on the order of 1000) convolutional filters to the embedding layer followed by a max-1 pooling function and call it a day. It actually works stupidly well for question answering (see [Feng et. al.][feng] for benchmarks). In the mean time, I will dump some code here that might be helpful to pour over.
+
+{% highlight python %}
+from keras.layers import Convolution1D
+
+cnns = [Convolution1D(filter_length=filt, nb_filter=1000, border_mode='same')
+        for filt in [2, 3, 5, 7]]
+question = merge([cnn(question) for cnn in cnns], mode='concat')
+answer = merge([cnn(answer) for cnn in cnns], mode='concat')
+{% endhighlight %}
+
+## Similarity Metrics
+
+The basic idea with question answering is to embed questions and answers as vectors, so that the question vector is close in vector space to the answer vector. For example, with the Attentional RNN, we take the question vector and use it as an input for generating the answer vector. A common approach is to then rank answer vectors according to their cosine similarities with the question vector. This doesn't follow the conventional neural network architecture, and takes some manipulation to achieve in Keras. To use equations, what we would like to do is:
+
+{% highlight bash %}
+best answer = argmax(cos(question, answers))
+{% endhighlight %}
+
+Training is generally done by minimizing hinge loss. In this case, we want the cosine similarity for the correct answer to go up, and the cosine similarity for an incorrect answer to go down. The loss function can be formulated as:
+
+{% highlight bash %}
+loss = max(0, constant margin - cos(question, good answer) + cos(question, bad answer))
+{% endhighlight %}
+
+Note that for implementations, having a loss of zero can be troublesome, so a small value like `1e-6` is generally preferable instead. The loss is zero when the difference between the cosine similarities of the good and bad answers is greater than the constant margin we defined. In practice, the margins generally range from 0.001 to 0.2. If we want to use something besides cosine similarity, we can reformulate this as
+
+{% highlight bash %}
+loss = max(0, constant margin - sim(question, good answer) + sim(question, bad answer))
+{% endhighlight %}
+
+where `sim` is our similarity metric. Hinge loss works well for this application, as opposed to something like mean squared error, because we don't want our question vectors to be orthogonal with the bad answer vectors, we just want the bad answer vectors to be a good distance away.
+
+### Cosine Similarity Example: Rotational Matrix
+
+First, let's look at how to do cosine similarity within the constraints of Keras. Fortunately, Keras has an implementation of cosine similarity, as a `mode` argument to the `merge` layer. This is done with:
+
+{% highlight python %}
+from keras.layers import merge
+cosine_sim = merge([a, b], mode='cos', dot_axes=-1)
+{% endhighlight %}
+
+If we pass it two inputs of dimensions `(a, b, c)`, it will calculate the cosine simliarity of the `c` dimension (specified using `dot_axes`) and give an output of dimensions `(a, b)`. However, because we might eventually want to implement other types of similarities besides cosine similarity, let's look at how this can be done by passing a lambda function to `merge`.
+
+{% highlight python %}
+def similarity(x):
+    return (x[0] * x[1]).sum() / ((x[0] * x[0]).sum() * (x[1] * x[1]).sum())
+cosine_sim = merge([a, b], mode=similarity, output_shape=lambda x: x[0])
+{% endhighlight %}
+
+We define a function `similarity` which we will use to compute the similarity of the inputs passed to the `merge` layer. Note that when we do this, we also have to pass an `output_shape` which tells Keras what shape the output will be after we do this operation (hopefully in the future this shape will be inferred, but it is still an open issue in the Github group).
+
+A cool example might be to see if we can learn a rotation matrix. A rotation matrix in Euclidean space is a matrix which rotates a vector by a certain angle around the origin. It is defined as a function of `theta`, the angle to rotate by:
+
+$$R = \begin{bmatrix}\cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta)\end{bmatrix}$$
+
+We can learn this matrix really simply with the right dataset and one dense layer, that is:
+
+{% highlight python %}
+from keras.layers import Input, Dense
+from keras.models import Model
+
+a = Input(shape=(2,), name='a')
+b = Input(shape=(2,), name='b')
+
+a_rotated = Dense(2, activation='linear')(a)
+
+model = Model(input=[a], output=[a_rotated])
+model.compile(optimizer='sgd', loss='mse')
+
+import numpy as np
+
+a_data = np.asarray([[0, 1], [1, 0], [0, -1], [-1, 0]])
+b_data = np.asarray([[1, 0], [0, -1], [-1, 0], [0, 1]])
+
+model.fit([a_data], [b_data], nb_epoch=1000)
+print(model.layers[1].W.get_value())
+{% endhighlight %}
+
+A `Dense` layer with `linear` activation is the exact same as a matrix multiplication. We give it two input dimensions and two output dimensions. After training this model, the printed weight matrix is:
+
+{% highlight bash %}
+[[-0.00603954, -0.99370766]
+ [ 0.99173903,  0.0078686 ]]
+{% endhighlight %}
+
+which is close to the rotation matrix for an angle of 90 degrees. Let's try this again, but with cosine similarity. This will require some manipulation. In the previous example, we had a clearly defined input, `a`, and output, `b`, and our model was designed to perform a transformaion on `a` to predict `b`. In this example, we have two inputs, `a` and `b`, and we will perform a transformation on `a` to make it close to `b`. As an output, we get the similarity of the two vectors, so we need to train our model to make this similarity high by providing it a bunch of 1's.
+
+{% highlight python %}
+from keras.layers import Input, Dense, merge
+from keras.models import Model
+from keras import backend as K
+
+a = Input(shape=(2,), name='a')
+b = Input(shape=(2,), name='b')
+
+a_rotated = Dense(2, activation='linear')(a)
+
+def cosine(x):
+    axis = len(x[0]._keras_shape)-1
+    dot = lambda a, b: K.batch_dot(a, b, axes=axis)
+    return dot(x[0], x[1]) / K.sqrt(dot(x[0], x[0]) * dot(x[1], x[1]))
+
+cosine_sim = merge([a_rotated, b], mode=cosine, output_shape=lambda x: x[:-1])
+
+model = Model(input=[a, b], output=[cosine_sim])
+model.compile(optimizer='sgd', loss='mse')
+
+import numpy as np
+
+a_data = np.asarray([[0, 1], [1, 0], [0, -1], [-1, 0]])
+b_data = np.asarray([[1, 0], [0, -1], [-1,  0], [0, 1]])
+targets = np.asarray([1, 1, 1, 1])
+
+model.fit([a_data, b_data], [targets], nb_epoch=1000)
+print(model.layers[2].W.get_value())
+{% endhighlight %}
+
+Running this, we end up with a weight matrix that looks like
+
+{% highlight bash %}
+[[-0.16537911 -1.26961863]
+ [ 1.06261277  0.1144496 ]]
+{% endhighlight %}
+
+This looks a bit like cosine similarity, but the scaling seems off. Cosine similarity is ambivalent about the magnitude of vectors, so the weight matrix ends up not being a rotation matrix so much as a rotation-and-skew matrix. Note that we can redefine the `cosine` method to be any similarity that we want.
+
+### Other Similarity Metrics
+
+[Feng et. al.][feng] provided a list of similarities along with their benchmarks for a CNN architecture. Some of these similarities, along with their implementations in Keras, are reproduced below. The function `dot` will be used as a placeholder for the lambda function defined below.
+
+{% highlight python %}
+from keras import backend as K
+dot = lambda a, b, axis: K.batch_dot(a, b, axes=axis)
+{% endhighlight %}
+
+Also, the parameter `ax` is left to be specified depending on the implementation.
+
+#### Cosine
+
+$$\frac{x y^T}{||x|| ||y||}$$
+
+{% highlight python %}
+def cosine(x):
+    return dot(x[0], x[1], ax) / K.sqrt(dot(x[0], x[0], ax) * dot(x[1], x[1], ax))
+{% endhighlight %}
+
+#### Polynomial
+
+$$(\gamma x y^T + c)^d$$
+
+{% highlight python %}
+def polynomial(x):
+    return (gamma * dot(x[0], x[1], ax) + c) ** d
+{% endhighlight %}
+
+Values for `gamma` used in the paper were `[0.5,  1.0, 1.5]`. The value for `c` was usually `1`. Values for `d` were `[2, 3]`.
+
+#### Sigmoid
+
+$$\tanh(\gamma x y^T + c)$$
+
+{% highlight python %}
+def sigmoid(x):
+    return K.tanh(gamma * dot(x[0], x[1], ax) + c)
+{% endhighlight %}
+
+Values for `gamma` used in the paper were `[0.5, 1.0, 1.5]`, and `c` was `1`.
+
+#### RBF
+
+RBF stands for radial basis function.
+
+$$\exp(-\gamma ||x - y||^2)$$
+
+{% highlight python %}
+def rbf(x):
+    return K.exp(-1 * K.sum(x[0] - x[1], axis=ax, keepdims=True) ** 2)
+{% endhighlight %}
+
+Values for `gamma` used in the paper were `[0.5, 1.0, 1.5]`.
+
+#### Euclidean
+
+$$\frac{1}{1 + ||x - y||}$$
+
+{% highlight python %}
+def euclidean(x):
+    return 1 / (1 + K.sum(x[0] - x[1], axis=ax, keepdims=True))
+{% endhighlight %}
+
+#### Exponential
+
+$$\exp(-\gamma ||x - y||_1)$$
+
+{% highlight python %}
+def exponential(x):
+    return K.exp(-1 * K.sum(K.abs(x[0] - x[1]), axis=ax, keepdims=True))
+{% endhighlight %}
+
+#### GESD
+
+This was a custom metric developed by the authors which stands for Geometric mean of Euclidean and Sigmoid Dot product. It performed well for their benchmarks.
+
+$$\frac{1}{1 + ||x - y||} * \frac{1}{1 + \exp(-\gamma (x y^T + c))}$$
+
+{% highlight python %}
+def gesd(x):
+    euclidean = 1 / (1 + K.sum(x[0] - x[1], axis=ax, keepdims=True))
+    sigmoid = 1 / (1 + K.exp(-gamma * (dot(x[0], x[1], ax) + c)))
+    return euclidean * sigmoid
+{% endhighlight %}
+
+Values for `gamma` used were `[0.5, 1.0, 1.5]` and `c` was `1`.
+
+#### AESD
+
+This was a custom metric developed by the authors which stands for Arithmetic mean of Euclidean and Sigmoid Dot product. It performed well for their benchmarks.
+
+$$\frac{1}{1 + ||x - y||} + \frac{1}{1 + \exp(-\gamma (x y^T + c))}$$
+
+{% highlight python %}
+def gesd(x):
+    euclidean = 1 / (1 + K.sum(x[0] - x[1], axis=ax, keepdims=True))
+    sigmoid = 1 / (1 + K.exp(-gamma * (dot(x[0], x[1], ax) + c)))
+    return euclidean + sigmoid
+{% endhighlight %}
+
+Values for `gamma` used were `[0.5, 1.0, 1.5]` and `c` was `1`.
+
+## Bringing it all together
+
+Aside from updating the CNN section, I should add something here about a complete implementation.
+
+# Closing Remarks
+
+Hopefully this demonstrates that Keras is powerful and flexible enough to allow for quick and creative implementations of networks. This post follows my final project for my Information Retrieval class, the code for which can be seen [here][github project].
 
 
 [theano-rnn]: https://github.com/codekansas/theano-rnn

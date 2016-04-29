@@ -7,6 +7,17 @@ categories: misc
 
 These are some facts and opinions regarding craft beers that can be bought at the Krogers near my apartment.
 
+Not Your Father's Root Beer
+---------------------------
+
+**Brewed by** Small Town Brewery, Illiois, United States
+
+**Style** Secret Blend of Herbed / Spiced Beer
+
+**ABV** 5.9%
+
+This is literally root beer. Everyone on beer advocate complains about how "the head isn't frothy enough" or "the coloration is too dark" or "you'll get diabetes before you get alcohol poisoning" but c'mon, it's literally root beer. With alcohol though, so that's pretty redeeming. It's not your father's root beer because it's your drunk uncle's root beer. It is to beer what Mike's Hard Lemonade is to vodka. All around: 4 well-groomed mustaches.
+
 Samuel Smith's Winter Welcome Ale
 ---------------------------------
 
