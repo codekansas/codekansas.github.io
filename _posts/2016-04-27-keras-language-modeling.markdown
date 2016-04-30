@@ -14,6 +14,8 @@ categories: ml
 
 [Feng et. al.][feng] used an in-house Java framework for their work, and [Tan et. al.][tan] built their model entirely from Theano. Personally, I am a lot lazier than them, and I don't understand CNNs very well, so I would like to use an existing framework to build one of their models to see if I could get similar results. [Keras][keras] is a really popular one that has support for everything we might need to put the model together.
 
+The Github repository for this project can be found [here][github project].
+
 # Installing Keras
 
 See the instructions [here](http://keras.io/#installation) on how to install Keras. The simple route is to install using `pip`, e.g.
