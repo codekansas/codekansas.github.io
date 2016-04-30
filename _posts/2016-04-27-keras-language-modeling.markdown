@@ -601,18 +601,24 @@ Running this, we end up with a weight matrix that looks like
  [ 1.06261277  0.1144496 ]]
 {% endhighlight %}
 
-This looks a bit like cosine similarity, but the scaling seems off. Cosine similarity is ambivalent about the magnitude of vectors, so the weight matrix ends up not being a rotation matrix so much as a rotation-and-skew matrix. Note that we can redefine the `cosine` method to be any similarity that we want.
+This looks a bit like cosine similarity, but the scaling seems off. Cosine similarity is ambivalent about the magnitude of vectors, so the weight matrix ends up not being a rotation matrix so much as a rotation-and-skew matrix. It is interesting to think about why this network learned this particular matrix.
+
+Below, a unit square (blue) is multiplied by the first matrix to get the orange square, and by the second matrix to get the yellow square.
+
+![Matrix transformation](/resources/attention_rnn/matrix_transform.png)
 
 ### Other Similarity Metrics
 
-[Feng et. al.][feng] provided a list of similarities along with their benchmarks for a CNN architecture. Some of these similarities, along with their implementations in Keras, are reproduced below. The function `dot` will be used as a placeholder for the lambda function defined below.
+[Feng et. al.][feng] provided a list of similarities along with their benchmarks for a CNN architecture. Some of these similarities, along with their implementations in Keras, are reproduced below. They rely on these helper functions:
 
 {% highlight python %}
 from keras import backend as K
+axis = lambda a: len(a._keras_shape) - 1
 dot = lambda a, b, axis: K.batch_dot(a, b, axes=axis)
+l2_norm = lambda a, b: K.sqrt(K.sum((a - b) ** 2, axis=axis(a), keepdims=True))
 {% endhighlight %}
 
-Also, the parameter `ax` is left to be specified depending on the implementation.
+If the function requires extra parameters, they are usually supplied as arguments in a dictionary.
 
 #### Cosine
 
@@ -620,7 +626,7 @@ $$\frac{x y^T}{||x|| ||y||}$$
 
 {% highlight python %}
 def cosine(x):
-    return dot(x[0], x[1], ax) / K.sqrt(dot(x[0], x[0], ax) * dot(x[1], x[1], ax))
+    return dot(x[0], x[1]) / K.sqrt(dot(x[0], x[0]) * dot(x[1], x[1]))
 {% endhighlight %}
 
 #### Polynomial
@@ -629,7 +635,7 @@ $$(\gamma x y^T + c)^d$$
 
 {% highlight python %}
 def polynomial(x):
-    return (gamma * dot(x[0], x[1], ax) + c) ** d
+    return (params['gamma'] * dot(x[0], x[1]) + params['c']) ** params['d']
 {% endhighlight %}
 
 Values for `gamma` used in the paper were `[0.5,  1.0, 1.5]`. The value for `c` was usually `1`. Values for `d` were `[2, 3]`.
@@ -640,7 +646,7 @@ $$\tanh(\gamma x y^T + c)$$
 
 {% highlight python %}
 def sigmoid(x):
-    return K.tanh(gamma * dot(x[0], x[1], ax) + c)
+    return K.tanh(params['gamma'] * dot(x[0], x[1]) + params['c'])
 {% endhighlight %}
 
 Values for `gamma` used in the paper were `[0.5, 1.0, 1.5]`, and `c` was `1`.
@@ -653,7 +659,7 @@ $$\exp(-\gamma ||x - y||^2)$$
 
 {% highlight python %}
 def rbf(x):
-    return K.exp(-1 * K.sum(x[0] - x[1], axis=ax, keepdims=True) ** 2)
+    return K.exp(-1 * params['gamma'] * l2_norm(x[0], x[1]) ** 2)
 {% endhighlight %}
 
 Values for `gamma` used in the paper were `[0.5, 1.0, 1.5]`.
@@ -664,16 +670,16 @@ $$\frac{1}{1 + ||x - y||}$$
 
 {% highlight python %}
 def euclidean(x):
-    return 1 / (1 + K.sum(x[0] - x[1], axis=ax, keepdims=True))
+    return 1 / (1 + l2_norm(x[0], x[1]))
 {% endhighlight %}
 
 #### Exponential
 
-$$\exp(-\gamma ||x - y||_1)$$
+$$\exp(-\gamma ||x - y||)$$
 
 {% highlight python %}
 def exponential(x):
-    return K.exp(-1 * K.sum(K.abs(x[0] - x[1]), axis=ax, keepdims=True))
+    return K.exp(-1 * params['gamma'] * l2_norm(x[0], x[1]))
 {% endhighlight %}
 
 #### GESD
@@ -684,8 +690,8 @@ $$\frac{1}{1 + ||x - y||} * \frac{1}{1 + \exp(-\gamma (x y^T + c))}$$
 
 {% highlight python %}
 def gesd(x):
-    euclidean = 1 / (1 + K.sum(x[0] - x[1], axis=ax, keepdims=True))
-    sigmoid = 1 / (1 + K.exp(-gamma * (dot(x[0], x[1], ax) + c)))
+    euclidean = 1 / (1 + l2_norm(x[0], x[1]))
+    sigmoid = 1 / (1 + K.exp(-1 * params['gamma'] * (dot(x[0], x[1]) + params['c'])))
     return euclidean * sigmoid
 {% endhighlight %}
 
@@ -695,26 +701,79 @@ Values for `gamma` used were `[0.5, 1.0, 1.5]` and `c` was `1`.
 
 This was a custom metric developed by the authors which stands for Arithmetic mean of Euclidean and Sigmoid Dot product. It performed well for their benchmarks.
 
-$$\frac{1}{1 + ||x - y||} + \frac{1}{1 + \exp(-\gamma (x y^T + c))}$$
+$$\frac{0.5}{1 + ||x - y||} + \frac{0.5}{1 + \exp(-\gamma (x y^T + c))}$$
 
 {% highlight python %}
 def gesd(x):
-    euclidean = 1 / (1 + K.sum(x[0] - x[1], axis=ax, keepdims=True))
-    sigmoid = 1 / (1 + K.exp(-gamma * (dot(x[0], x[1], ax) + c)))
+    euclidean = 0.5 / (1 + l2_norm(x[0], x[1]))
+    sigmoid = 0.5 / (1 + K.exp(-1 * params['gamma'] * (dot(x[0], x[1]) + params['c'])))
     return euclidean + sigmoid
 {% endhighlight %}
 
 Values for `gamma` used were `[0.5, 1.0, 1.5]` and `c` was `1`.
 
-## Bringing it all together
+## InsuranceQA Model Example
 
-Aside from updating the CNN section, I should add something here about a complete implementation.
+A surprisingly good model for the [InsuranceQA dataset][feng] is as follows:
+
+![Model diagram](/resources/attention_rnn/model_diagram.png)
+
+A framework for designing and testing models can be found in [this Github repo][github project]. This model achieved relatively good marks for Top-1 Accuracy (how often did the model rank a ground truth the highest out of 500 results) and Mean Reciprocal Rank (MRR), which is defined as
+
+$$MRR = \frac{1}{|Q|} \sum_{i=1}^{|Q|}{\frac{1}{rank_i}}$$
+
+The results after learning the training set are summaraized in the following table.
+
+|Test set|Top-1 Accuracy|Mean Reciprocal Rank|
+|------|------|------|
+|Test 1|0.4933|0.6189|
+|Test 2|0.4606|0.5968|
+|Dev   |0.4700|0.6088|
+
+For comparison, the best model from [Feng et. al.][feng] achieved an accuracy of 0.653 on Test 1, and the model in [Tan et. al.][tan] achieved an accuracy of 0.681 on Test 1. This model isn't exceptional, but it works pretty well for how simple it is.  It outperforms the baseline bag of words model, and performs on par with the Metzler-Bendersky IR model introduced in "Learning concept importance using a weighted dependence model" ([Bendersky and Metzler, 2010][bendersky]). Here's how we build it in Keras:
+
+{% highlight python %}
+def build():
+    input = Input(shape=(sentence_length,))
+
+    # embedding
+    embedding = Embedding(n_words, n_embed_dims)
+    input_embedding = embedding(input)
+
+    # dropout
+    dropout = Dropout(0.5)
+    input_dropout = dropout(input_embedding)
+
+    # maxpooling
+    maxpool = Lambda(lambda x: K.max(x, axis=1, keepdims=False),
+                     output_shape=lambda x: (x[0], x[2]))
+    input_pool = maxpool(input_dropout)
+
+    # activation
+    activation = Activation('tanh')
+    output = activation(input_pool)
+
+    model = Model(input=[input], output=[output])
+
+model = build()
+question, answer = Input(shape=(q_len,)), Input(shape=(a_len,))
+
+question_output = model(question)
+answer_output = model(answer)
+
+similarity = merge([question_output, answer_output], mode='cos', dot_axes=-1)
+
+model = Merge([question_output, answer_output], [similarity])
+{% endhighlight %}
+
+The code is kind of awkward without the context, so I would recommend checking out the repository to see how it works.
 
 # Closing Remarks
 
-Hopefully this demonstrates that Keras is powerful and flexible enough to allow for quick and creative implementations of networks. This post follows my final project for my Information Retrieval class, the code for which can be seen [here][github project].
+Hopefully this demonstrates that Keras is powerful and flexible enough to allow for quick and creative implementations of networks. This post follows my final project for my Information Retrieval class, the code for which can be seen [here][github project]. I think this code makes more sense in the context of this post.
 
 
+[bendersky]: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.157.2597&rep=rep1&type=pdf
 [theano-rnn]: https://github.com/codekansas/theano-rnn
 [github project]: https://github.com/codekansas/keras-language-modeling
 [qa wiki]: https://en.wikipedia.org/wiki/Question_answering
