@@ -7,6 +7,17 @@ categories: misc
 
 These are some facts and opinions regarding craft beers that can be bought at the Krogers near my apartment.
 
+Hopsecutioner
+-------------
+
+**Brewed by** Terrapin Beer Company, Athens, Georgia, United States
+
+**Style** American Indian Pale Ale
+
+**ABV** 7.3%
+
+I realized that I drink a lot of American IPA's because I am having more difficulty coming up with puns I haven't used. This beer has a good orange color and a nice head when poured, I guess, although I don't think I've complained about enough nightclubs to have a valid opinion on that issue. I like the Teenage Mutant Ninja Turtle on the can. The brewery is based out of Athens, which is the ideal city for a craft brewery to be based out of. There are 6 varieties of hops in this beer, which is the smallest positive integer with two prime factors, much like this beer has two prime factors: it's commitment to scaring away people who only drink beer "recreationally", and the fact that it's from the same city as R.E.M. All around: 4 flannel-shirted bouncers.
+
 Not Your Father's Root Beer
 ---------------------------
 
