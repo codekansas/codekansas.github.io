@@ -774,6 +774,16 @@ The code is kind of awkward without the context, so I would recommend checking o
 
 Hopefully this demonstrates that Keras is powerful and flexible enough to allow for quick and creative implementations of networks. This post follows my final project for my Information Retrieval class, the code for which can be seen [here][github project]. I think this code makes more sense in the context of this post.
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("article").find("h1, h2, h3, h4, h5, h6").each(function(index) {
+        var content = $(this).text();
+        $(this).html("<a href=\"#markdown-toc\" style=\"color: black;\">" + content + "</a>");
+    });
+});
+</script>
+
 
 [bendersky]: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.157.2597&rep=rep1&type=pdf
 [theano-rnn]: https://github.com/codekansas/theano-rnn
