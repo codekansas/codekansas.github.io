@@ -4,18 +4,38 @@ title: About
 permalink: /about/
 ---
 
-Hi, my name is Ben Bolte. I'm currently an undergrad at Emory University in Atlanta, Georgia. I'm interested in neuroscience and machine learning.
+Hello! I am an undergraduate at Emory University in Atlanta, GA, the second best
+school in the Atlanta area. This summer I will be doing an internship at Amazon.com
+in Seattle. After that, I will return to Emory to do a master's thesis in neuroscience.
+I am looking for machine learning-type jobs or Ph.D. programs come May 2017. If you have
+information relating to this, send me an email at bkbolte18@gmail.com.
+
+[Email](mailto:bkbolte18@gmail.com) \| [LinkedIn](https://www.linkedin.com/in/benjamin-bolte-37337686)
+\| [Twitter](https://twitter.com/code__kansas) \| [Github](https://github.com/codekansas)
 
 `s = 's = %r; print(s%%s)'; print(s%s)`
 
-Last year I got to the second round of the Facebook Hacker Cup
+#### Presentations
 
-[Website](http://benjaminbolte.com)
+ - Weighted Sums of IT Firing Rates Predict Recognition Performance
+| [Slides](https://drive.google.com/file/d/0B4Po_rQ05VxJZ0Y2YUM0aEtncTA/view?usp=sharing)
+| [Original Paper](http://www.jneurosci.org/content/35/39/13402.short)
+ - Evasi0n iOS 6.1 Jailbreak
+| [Video](https://www.youtube.com/watch?v=myT1HfmJ43Q)
+| [Evasion Website](http://evasi0n.com/iOS6/)
+ - Neuron simulations and phase space analysis (technical writing sample)
+| [Document](https://drive.google.com/file/d/0B4Po_rQ05VxJYjM2MHQ3NXZvU00/view?usp=sharing)
 
-[Old Blog](https://benjaminbolte.wordpress.com/)
+#### Projects
 
-# Badges
-
-<img class="img" src="https://badge.facebook.com/badge/1455734326.3788.49682297.png" width="200px" style="border: 0px;" alt="You will find me on Facebook" />
-<img src="https://stallman.org/no-facebook.png" alt="From Richard Stallman's website" width="200px"/>
-<img src="https://projecteuler.net/profile/bkbolte.png" alt="Project Euler Score" width="200px"/>
+ - Electric Longboard
+| [Side View](https://raw.githubusercontent.com/codekansas/electric-longboard/master/side_view.jpg)
+| [Top View](https://raw.githubusercontent.com/codekansas/electric-longboard/master/top_view.jpg)
+| [Github Repo](https://github.com/codekansas/electric-longboard)
+ - Making two FPGAs talk to each other
+| [Video](https://drive.google.com/file/d/0B4Po_rQ05VxJdzNVc0xiZjRmd00/view)
+| [Verilog Code](https://docs.google.com/document/d/1tnkjv1U_YGLsozmywy_tF7uurL-iGzs3qrH-8x3dZQU/edit)
+| [Presentation](https://docs.google.com/presentation/d/1EeGCTz75rqUiZlUaGq5zngbZyf86yFCVq00SnlURxes/edit?usp=sharing)
+ - Smart Mirror
+| [Picture](https://goo.gl/photos/m9iZ4fcbizQ68LEX7)
+| [Code](https://github.com/codekansas/hackemory-2016)

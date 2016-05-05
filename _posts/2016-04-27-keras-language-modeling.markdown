@@ -5,6 +5,8 @@ date: 2016-04-27 12:00:00
 categories: ml
 ---
 
+An in-depth introduction to using Keras for deep language modeling. Includes sections on word embedding, characterizing recurrent and convolutional neural networks, attentional RNNs, and similarity metrics for sentence vectors. Each section includes examples on how to implement it using [Keras][keras]. This post explains the code in [this Github repository][github project].
+
 * TOC
 {:toc}
 
@@ -13,8 +15,6 @@ categories: ml
 [Question answering][qa wiki] has received more focus as large search engines have basically mastered general information retrieval and are starting to cover more edge cases. Question answering happens to be one of those edge cases, because it could involve a lot of syntatic nuance that doesn't get captured by standard information retrieval models, like LDA or LSI. Hypothetically, deep learning models would be better suited to this type of task because of their ability to capture higher-order syntax. Two papers, "Applying deep learning to answer selection: a study and an open task" [(Feng et. al. 2015)][feng] and "LSTM-based deep learning models for non-factoid answer selection" [(Tan et. al. 2016)][tan], are recent examples which have applied deep learning to question-answering tasks with good results.
 
 [Feng et. al.][feng] used an in-house Java framework for their work, and [Tan et. al.][tan] built their model entirely from Theano. Personally, I am a lot lazier than them, and I don't understand CNNs very well, so I would like to use an existing framework to build one of their models to see if I could get similar results. [Keras][keras] is a really popular one that has support for everything we might need to put the model together.
-
-The Github repository for this project can be found [here][github project].
 
 # Installing Keras
 
@@ -720,7 +720,7 @@ A surprisingly good model for the [InsuranceQA dataset][feng] is as follows:
 
 ![Model diagram](/resources/attention_rnn/model_diagram.png)
 
-A framework for designing and testing models can be found in [this Github repo][github project]. This model achieved relatively good marks for Top-1 Accuracy (how often did the model rank a ground truth the highest out of 500 results) and Mean Reciprocal Rank (MRR), which is defined as
+This model achieved relatively good marks for Top-1 Accuracy (how often did the model rank a ground truth the highest out of 500 results) and Mean Reciprocal Rank (MRR), which is defined as
 
 $$MRR = \frac{1}{|Q|} \sum_{i=1}^{|Q|}{\frac{1}{rank_i}}$$
 
@@ -769,10 +769,6 @@ model = Merge([question_output, answer_output], [similarity])
 {% endhighlight %}
 
 The code is kind of awkward without the context, so I would recommend checking out the repository to see how it works.
-
-# Closing Remarks
-
-Hopefully this demonstrates that Keras is powerful and flexible enough to allow for quick and creative implementations of networks. This post follows my final project for my Information Retrieval class, the code for which can be seen [here][github project]. I think this code makes more sense in the context of this post.
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <script type="text/javascript">
