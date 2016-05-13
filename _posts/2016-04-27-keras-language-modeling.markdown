@@ -188,7 +188,7 @@ reset_hidden = prev_hidden * reset_gate
 temp_state = tanh(dot(input_vector, W_hidden) + dot(reset_hidden, U_reset) + b_hidden)
 new_hidden_state = (1 - update_gate) * temp_state + update_gate * prev_hidden
 {% endhighlight %}
-
+t
 In this model, there is an `update_gate` which controls how much of the previous hidden state to carry over to the new hidden state and a `reset_gate` which controls how much the previous hidden state changes. This allows potentially long-term dependencies to be propagated through the network.
 
 My implementations of these models in Theano, as well as optimizers for training them, can be found in [this Github repository][theano-rnn].
@@ -358,7 +358,7 @@ input_gate = tanh(dot(input_vector, W_input) + dot(prev_hidden, U_input) + b_inp
 forget_gate = tanh(dot(input_vector, W_forget) + dot(prev_hidden, U_forget) + b_forget)
 output_gate = tanh(dot(input_vector, W_output) + dot(prev_hidden, U_output) + b_output)
 
-candidate_state = tanh(dot(x, W_hidden) + dot(prev_hidden, U_hidden) + b_hidden)
+candidate_state = tanh(dot(input_vector, W_hidden) + dot(prev_hidden, U_hidden) + b_hidden)
 memory_unit = prev_candidate_state * forget_gate + candidate_state * input_gate
 
 new_hidden_state = tanh(memory_unit) * output_gate
