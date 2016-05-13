@@ -3,9 +3,8 @@ layout: post
 title: "Evolving List of Opinions about Atlanta Craft Beers"
 date: 2016-03-30 12:00:00
 categories: misc
+excerpt: These are some facts and opinions regarding craft beers that can be bought at the Krogers near my apartment. Originally I started it to help remember which beers I liked, but after I realized how yuppie-ish it is to have a beer blog it sort of evolved into sarcastic, holier-than-thou commentaries on hipster-isms. I update this page pretty regularly if I try a new beer.
 ---
-
-These are some facts and opinions regarding craft beers that can be bought at the Krogers near my apartment. Originally I started it to help remember which beers I liked, but after I realized how yuppie-ish it is to have a beer blog it sort of evolved into sarcastic, holier-than-thou commentaries on hipster-isms. I update this page pretty regularly if I try a new beer.
 
 Hopsecutioner
 -------------

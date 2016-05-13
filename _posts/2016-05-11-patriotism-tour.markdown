@@ -3,9 +3,8 @@ layout: post
 title: "Patriotism Tour of the United States"
 date: 2016-05-11 12:00:00
 categories: misc
+excerpt: My trip with Wei Wei across the United States, from Nashville to Chicago to Toronto (to see how much better the United States is) to Montreal to our nation's capitol.
 ---
-
-My trip with Wei Wei across the United States, from Nashville to Chicago to Toronto (to see how much better the United States is) to Montreal to our nation's capitol.
 
 ## Nashville
 

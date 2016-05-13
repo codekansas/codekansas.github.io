@@ -5,7 +5,7 @@ date: 2016-04-27 12:00:00
 categories: ml
 ---
 
-An in-depth introduction to using Keras for deep language modeling. Includes sections on word embedding, characterizing recurrent and convolutional neural networks, attentional RNNs, and similarity metrics for sentence vectors. Each section includes examples on how to implement it using [Keras][keras]. This post explains the code in [this Github repository][github project].
+This post provides an in-depth introduction to using Keras for deep language modeling. Includes sections on word embedding, characterizing recurrent and convolutional neural networks, attentional RNNs, and similarity metrics for sentence vectors. Each section includes examples on how to implement it using [Keras][keras]. This post explains the code in [this Github repository][github project].
 
 * TOC
 {:toc}
