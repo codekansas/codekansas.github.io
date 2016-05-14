@@ -10,8 +10,7 @@ in Seattle. After that, I will return to Emory to do a master's thesis in neuros
 I am looking for machine learning-type jobs or Ph.D. programs come May 2017. If you have
 information relating to this, send me an email at bkbolte18@gmail.com.
 
-[Email](mailto:bkbolte18@gmail.com) \| [LinkedIn](https://www.linkedin.com/in/benjamin-bolte-37337686)
-\| [Twitter](https://twitter.com/code__kansas) \| [Github](https://github.com/codekansas)
+[Email](mailto:bkbolte18@gmail.com) \| [LinkedIn](https://www.linkedin.com/in/benjamin-bolte-37337686) \| [Twitter](https://twitter.com/code__kansas) \| [Github](https://github.com/codekansas) \| [Transcripts](https://github.com/codekansas/jobs/blob/master/unofficial_transcript.pdf) \| [Resume](https://github.com/codekansas/jobs/blob/master/resume/cv_12.pdf)
 
 `s = 's = %r; print(s%%s)'; print(s%s)`
 
