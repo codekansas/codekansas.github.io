@@ -44,8 +44,6 @@ for i in range(60000):
 print(test())
 {% endhighlight %}
 
-&nbsp;
-
 This code can also be found [here][code-src].
 <h2>Explanation</h2>
 Ok, let's see what's going on here.
@@ -103,6 +101,6 @@ Here, we define our "train" and "test" functions. The "train" function updates t
 [theano-tut]: http://deeplearning.net/tutorial/gettingstarted.html]
 [theano-install]: http://deeplearning.net/software/theano/install.html
 [theano-shared]: http://deeplearning.net/software/theano/library/compile/shared.html
-[code-src]: https://github.com/bkbolte181/theano_stuff/blob/master/two_layer.py
+[code-src]: https://github.com/codekansas/ml/blob/master/theano_stuff/two_layer.py
 [manifold-blog]: https://colah.github.io/posts/2014-03-NN-Manifolds-Topology/
 [sgd-wiki]: https://en.wikipedia.org/wiki/Stochastic_gradient_descent
