@@ -11,4 +11,3 @@ twitter_username: code__kansas
 # Build settings
 markdown: kramdown
 permalink: /blog/:year/:title:output_ext
-
