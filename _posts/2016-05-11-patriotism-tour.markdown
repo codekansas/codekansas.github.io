@@ -1,10 +1,23 @@
 ---
 layout: post
-title: "Patriotism Tour of the United States"
+title: "Roadtrip Blog"
 date: 2016-05-11 12:00:00
 categories: misc
-excerpt: My trip with Wei Wei across the United States, from Nashville to Chicago to Toronto (to see how much better the United States is) to Montreal to our nation's capitol.
+excerpt: My trip with Wei Wei across the United States and Canada, from Nashville to Chicago to Toronto to Montreal to our nation's capitol.
 ---
+
+* TOC
+{:toc}
+
+## Itinerary
+
+| City                               | Arrive             | Depart             |
+| ---------------------------------- | ------------------ | ------------------ |
+| [Nashville](#nashville)            | 9:55 am, May 10    | 9:55 am, May 14    |
+| [Chicago](#chicago)                | 7:30 pm, May 14    | 7:10 pm, May 17    |
+| [Toronto](#toronto)                | 9:45 pm, May 17    | 7:30 am, May 22    |
+| [Montreal](#montreal)              | 1:50 pm, May 22    | 4:00 pm, May 26    |
+| [Washington](#washington)          | 5:45 pm, May 26    | Different times    |
 
 ## Nashville
 
@@ -41,3 +54,11 @@ In the bathroom of the restaurant there was a young man turning the sink faucet 
 We walked over to the hockey stadium after that, Nissan Stadium, home of the Nashville Predators. The Nashville Predators got shat on by the San Jose Sharks, 5-0. It was pretty neat because it was an away game, so they opened up the stadium to everyone and streamed the game on the big screens inside the rink. By the time we got there they were already down 4-0, so there were a lot of people leaving. The goalie broke his stick on the goal.
 
 By that time it was around 10:30, and we wanted to get over to see the Burlesque Show at the Skull's Rainbow Room. Apparently the bar has been around since the 1930's, since the prohibition era. The performer was Midnite Martini. We both sat at the bar, and the guy next to me recommended a cranberry sour, which was really good, even if it was 8 dollars. There was a woman named Jennifer who bought 73 dollars worth of alcohol and paid a 20 dollar tip, along with a 20 dollar tip for the burlesque dancer, and told the two men who were hitting on her that I was her son. She was a burlesque dancer at one point, apparently. No bones about it, burlesque is hot. I didn't know taking off clothes could be so artistic. But damn.
+
+### Day 4: Music my Mom Listens To
+
+Today was our last full day in Nashville. Tomorrow our bus leaves at 10:00 am, so we're just going to get up, make breakfast and leave. We made oatmeal and fruit for breakfast again, and decided to go see the Country Music Hall of Fame and Museum, which turned out to be an entire building dedicated to playing songs my parents sang when I was a kid. There were some really cool guitar collections, and a whole exhibit dedicated to Sam Phillips, the producer for Howlin' Wolf, Carl Perkins, Jerry Lee Lewis, Johnny Cash and Elvis. There was also a lot of Taylor Swift stuff. Wei Wei and I did the kids' activity and sent the result to Juan's email. We wandered around the hotel next to the museum for a bit.
+
+We came back and made spaghetti for lunch again. We did some work for a bit and around 8:00 we went to the Bourbon Street Blues and Boogie Bar again, because there was a pretty good singer there. We got some more Gumbo and danced to the music. Wei Wei is a good dancer, she doesn't have inhibitions, or at least doesn't show them very much. We were the youngest people there by a decent amount, although there were some 30-year-old-looking men who were dancing near us. Mostly I thought my mom would have really liked it.
+
+We got back to the hostel and boiled the rest of our eggs so we can take them with us tomorrow. Wei Wei is actually pretty decent at foosball. I worked some more after she went to sleep. As I'm writing this, it's almost 3 am, but I got to a good stopping point with what I had to do. I'll sleep on the bus tomorrow. The bridges over the Cumberland River are lit up with colors every night, and I can see them from my bed, where I'm writing this.
