@@ -40,13 +40,17 @@ ul, ol, dl, figure,
 /**
  * Images
  */
-img {
+img, video, audio {
     max-width: 70%;
     max-height: 500px;
 //     width: 100%;
     vertical-align: middle;
 	margin: 0 auto;
 	display: block;
+}
+
+video {
+	margin-bottom: 15px;
 }
 
 
