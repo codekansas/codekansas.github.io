@@ -718,7 +718,7 @@ Values for `gamma` used were `[0.5, 1.0, 1.5]` and `c` was `1`.
 
 A surprisingly good model for the [InsuranceQA dataset][feng] is as follows:
 
-![Model diagram](/resources/attention_rnn/model_diagram.png)
+![Model diagram](/resources/attention_rnn/model_diagram.jpeg)
 
 This model achieved relatively good marks for Top-1 Accuracy (how often did the model rank a ground truth the highest out of 500 results) and Mean Reciprocal Rank (MRR), which is defined as
 
