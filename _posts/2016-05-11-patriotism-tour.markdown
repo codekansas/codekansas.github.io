@@ -123,3 +123,19 @@ There was some other cool stuff in Chinatown. Mostly we saw restaurants and gift
 ![Spiderman](/resources/us_roadtrip/chicago/spiderman.jpg)
 
 We wanted to go to Navy Pier today. We walked there along the river, which was quite scenic. By the time we got there it was closed. It had been closed for 3 hours, actually, poor planning on our part. So we went to a convenience store and got some beer and Indian food. In particular, we got the Commodore Perry IPA by Great Lakes Brewing, and Tandori Chicken. Both were alright. The IPA gets really good reviews by beer people, so naturally Wei Wei didn't like it. I thought it was pretty bitter. The Indian people working at the convenience store let us use their microwave and gave us plastic forks to use. We took the bus home. All told, we walked at least 8.9 miles today, according to a pedometer website I used. My legs are tired and sore, and Wei Wei has a raw bit on her foot, probably metaphors for something.
+
+### Day 3: You Mean HINsdale
+
+We woke up pretty late, around 11 or noon. We got a Polish sausage and a Gyro from the Greek fast food joint near the hostel, plus more fries than we could eat. The food was pretty good. We were really full after that. Probably between that, walking a ridiculous amount yesterday and a strange sleep schedule we were both pretty tired.
+
+![Spiderman](/resources/us_roadtrip/chicago/art.jpg)
+
+We took the L up to the area around The Second City. We got a cigar and some spices from some shops in Old Town. We also walked around a garden store and a non-Second City theater, plus an art gallery. I think art gallery curators feel the same way about heterosexual couples from out of town visiting their galleries as a Republican presidential candidate might feel when asked to be Donald Trump's running mate. There are a lot of actors around that part of Chicago. We walked into Second City and looked around a bit. There had been a fire sort of recently so they were rebuilding a bunch of stuff. The teaching area in Second City is really neat, there are a bunch of classrooms with interesting artwork on the walls. We also went by the Apollo, but it was closed.
+
+![Spiderman](/resources/us_roadtrip/chicago/bridge.jpg)
+
+Wei Wei was really tired today. We went back to the hostel and she laid down for a bit. Around 6, we went to see our friend Rudy, who lives out in Hinsdale (and not Hinesdale, as we were incorrectly pronouncing it). Hinsdale is about a 30 minute train ride from Chicago, on a separate train system from the CTA. The seats on the train were pretty cool, you could change them from facing forward or backward and make two seats face each other. Wei Wei slept pretty much the whole way there.
+
+![Spiderman](/resources/us_roadtrip/chicago/friends.jpg)
+
+Out in Hinsdale we got to meet Rudy's mom and sisters. His mom is really sweet, she made us tea and gave us cake and whiskey to celebrate Wei Wei's birthday tomorrow. We went with Rudy to eat sushi too and talked for a while about different things. Apparently there are a lot of suburbs of Chicago like Hinsdale, and people commute to work by train. The train is very convenient. We took the train back to Chicago around 11.
