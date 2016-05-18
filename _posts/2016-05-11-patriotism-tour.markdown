@@ -11,13 +11,13 @@ excerpt: My trip with Wei Wei across the United States and Canada, from Nashvill
 
 ## Itinerary
 
-| City                               | Arrive             | Depart             |
-| ---------------------------------- | ------------------ | ------------------ |
-| [Nashville](#nashville)            | 9:55 am, May 10    | 9:55 am, May 14    |
-| [Chicago](#chicago)                | 7:30 pm, May 14    | 7:10 pm, May 17    |
-| [Toronto](#toronto)                | 9:45 pm, May 17    | 7:30 am, May 22    |
-| [Montreal](#montreal)              | 1:50 pm, May 22    | 4:00 pm, May 26    |
-| [Washington](#washington)          | 5:45 pm, May 26    | Different times    |
+| City                               | Arrive             | Depart             | Hostel |
+| ---------------------------------- | ------------------ | ------------------ | --- |
+| [Nashville](#nashville)            | 9:55 am, May 10    | 9:55 am, May 14    | [Nashville Downtown Hostel](http://www.nashvilledowntownhostel.com/) |
+| [Chicago](#chicago)                | 7:30 pm, May 14    | 7:10 pm, May 17    | [Chicago Parthenon Hostel](http://www.chicagoparthenonhostel.com/) |
+| [Toronto](#toronto)                | 9:45 pm, May 17    | 7:30 am, May 22    | [Neill-Wycik Backpackers Hotel](http://torontobackpackershotel.com/) |
+| [Montreal](#montreal)              | 1:50 pm, May 22    | 4:00 pm, May 26    | [Auberge-Bishop](http://www.hostelworld.com/hosteldetails.php/Auberge-Bishop/Montreal/63208) |
+| [Washington](#washington)          | 5:45 pm, May 26    | Different times    | Family |
 
 ## Nashville
 
