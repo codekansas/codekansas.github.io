@@ -96,6 +96,28 @@ We got back to the hostel and boiled the rest of our eggs so we can take them wi
 
 ## Chicago
 
+{% highlight poem %}
+I saw the best minds of my generation
+Destroyed by madness, starving, hysterical, naked
+Dragging themselves to the suburbs at dusk, looking for an angry fix
+Who bared their brains to Heaven under the El
+And saw Mohammedan angels staggering on tenement rooftops illuminated
+Who cowered in unshaven rooms in three sweaters, burning their money in wastebaskets
+And listening to Koreans through the wall,
+Who ate gyros in paint hostels or drank beer in airport bathrooms,
+Who chained themselves to subways for the endless ride from Halstead to Southport
+    to the Navy Pier
+Who talked continuously seventy hours from park to pad to bar
+    to Presidents to museum to the Lake Street Bridge
+What sphinx of cement and aluminum walked miles upon miles and ate up their legs?
+Chicago! Whose theaters are very numerous!
+Chicago! Whose Chinatown is the spectre of genius!
+Chicago! Chicago! Whose trains ride overhead!
+Real holy laughter in the river! They saw it all! The wild eyes! The holy yells!
+    They bade farewell! They jumped off the roof! To solitude! waving! Carrying
+    Flowers! Down to the river! Into the street!
+{% endhighlight %}
+
 ### Day 1: May the Fourteenth Be With You
 
 We packed up and left the hostel at 10:00 after eating the rest of the food we had in the fridge. It was a rainy day in Nashville when we left, which was probably a metaphor. We got a bit mixed up trying to find the Megabus station but got on in time. After sleeping so little last night, I wasn't able to sleep much on the bus. It's weird how that happens sometimes. The bus ride was mostly uneventful. We watched A New Hope and The Empire Strikes Back, and eventually slept a little. The bus stopped in Louisville and Indianapolis to let people on and off. We made one pit stop at a Love's, with an obligatory Subway, which seems to be the place all Megabus stops happen.
@@ -139,3 +161,15 @@ Wei Wei was really tired today. We went back to the hostel and she laid down for
 ![Friend-ou](/resources/us_roadtrip/chicago/friends.jpg)
 
 Out in Hinsdale we got to meet Rudy's mom and sisters. His mom is really sweet, she made us tea and gave us cake and bourbon to celebrate Wei Wei's birthday tomorrow. We went with Rudy to eat sushi too and talked for a while about different things. Apparently there are a lot of suburbs of Chicago like Hinsdale, and people commute to work by train. The train is very convenient. We took the train back to Chicago around 11.
+
+### Day 4: If you don't know by now, I'm talkin' 'bout Chi-town
+
+Last night was our last night in the hostel. We packed up this morning around 10 and turned in our key. We made green onion rolls we got from Chinatown in the hostel kitchen and went to Walgreens to get some medicine for Wei Wei, who felt sick, and a lighter for the cigar we got. It turns out that Walgreens is not a subsidiary of WalMart, but is owned by the Walgreen family. The store we went to in Chicago was the 3000th Walgreens in the United States, which seems special, but only 5670 in base 8, which is decidedly less special.
+
+Today was Wei Wei's birthday, so it kind of sucked that she was sick. But we went to the Chicago Art Museum, which has some really well-known paintings, like the American Gothic, A Sunday Afternoon on the Island of La Grande Jatte, and Nighthawks. There was a whole section on impressionism, which, as Wei Wei told me, has something to do with painting a scene as it appears in the moment, like the impression it leaves on you. There were separate sections for contemporary art and modern art, even though "contemporary" and "modern" seem like synonyms. And neither was part of the impressionist part, although there seemed to be some overlap. Wei Wei thought it was really surreal to see the famous paintings she'd studied in class in real life. The museum also had some interesting artifacts, but we didn't have enough time to appreciate everything - it was a really large museum.
+
+We ate at a Chinese restaurant for lunch, the city branch of a dim sum restaurant we'd seen in Chinatown. There was a spicy beef dish that I really enjoyed. When we finished walking around the museum we got our bags from the hostel and caught the blue line up to the airport. It's a straight shot on the CTA to get to O'Hare, so it's very convenient. We smoked part of the cigar outside, where everyone smokes. Neither Wei Wei or I is particularly good at smoking a cigar, but it was fun for a bit. I also still had 3 beers from before that I didn't want to just throw away, so I chugged two of them in the airport bathroom (the third one seemed like overkill).
+
+Semi-drunk me and semi-sick Wei Wei made it through TSA, and I started singing patriotic songs to prepare for our trip to Canada, and talked Wei Wei's ears off about how great America is. I learned some more Chinese phrases. The flight to Toronto was pretty uneventful, but the altitude change sucked for Wei Wei, being sick. It is really easy to go through customs in Canada if you're a US citizen, but it was a bit more difficult for Wei Wei with a Chinese passport. Neither of us got detained though, so that's positive. We took the train from the airport to Toronto and a taxi from Union Station to the hostel.
+
+Canada is pretty crazy. Some people seem nice, stereotypically. Their money is really wonky. They use more coins than bills (there are 1 and 2 dollar coins) and the bills are plastic. Random things are different here, like how Google redirects to Google Canada. I got shawarma from a shop near the hostel. The hostel has four rooms to a unit, and two twin beds to a room, jammed pretty tightly in.
