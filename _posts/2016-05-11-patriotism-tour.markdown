@@ -174,6 +174,6 @@ We ate at a Chinese restaurant for lunch, the city branch of a dim sum restauran
 
 Semi-drunk me and semi-sick Wei Wei made it through TSA, and I started singing patriotic songs to prepare for our trip to Canada, and talked Wei Wei's ears off about how great America is. I learned some more Chinese phrases. The flight to Toronto was pretty uneventful, but the altitude change sucked for Wei Wei, being sick. It is really easy to go through customs in Canada if you're a US citizen, but it was a bit more difficult for Wei Wei with a Chinese passport. Neither of us got detained though, so that's positive. We took the train from the airport to Toronto and a taxi from Union Station to the hostel.
 
-![Friend-ou](/resources/us_roadtrip/chicago/plane.jpg)
+![Friend-ou](/resources/us_roadtrip/chicago/boy.jpg)
 
 Canada is pretty crazy. Some people seem nice, stereotypically. Their money is really wonky. They use more coins than bills (there are 1 and 2 dollar coins) and the bills are plastic. Random things are different here, like how Google redirects to Google Canada. I got shawarma from a shop near the hostel. The hostel has four rooms to a unit, and two twin beds to a room, jammed pretty tightly in. It is sufficiently run-down, kind of like the Chicago hostel. And the drinking age here is 19, so me and Wei Wei can go bar hopping. Ayy.
