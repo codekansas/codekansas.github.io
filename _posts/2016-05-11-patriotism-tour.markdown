@@ -177,3 +177,11 @@ Semi-drunk me and semi-sick Wei Wei made it through TSA, and I started singing p
 ![Boy](/resources/us_roadtrip/chicago/boy.jpg)
 
 Canada is pretty crazy. Some people seem nice, stereotypically. Their money is really wonky. They use more coins than bills (there are 1 and 2 dollar coins) and the bills are plastic. Random things are different here, like how Google redirects to Google Canada. I got shawarma from a shop near the hostel. The hostel has four rooms to a unit, and two twin beds to a room, jammed pretty tightly in. It is sufficiently run-down, kind of like the Chicago hostel. And the drinking age here is 19, so me and Wei Wei can go bar hopping. Ayy.
+
+## Toronto
+
+### Day 1: Sičk Brüh
+
+Wei Wei was sick all day today, so we didn't really do much besides sit inside. I got her some Gatorade and yogurt at one point, and a thermometer later on. She was feeling well enough to go get dinner with our friend Jay, who lives in Toronto. He knows a bunch about the city, and told us all the places to go eat and things to do. We got ramen together at one of the four ramen shops in a two-block radius of our hostel. It was quite good, the chicken looked like it should be flavorless, but it took on the flavor of the broth really well.
+
+We walked around Yonge Street a bit, and saw the student center at Ryerson University. It is a very cool building, the architecture is very unique. They have a different theme for each floor, and the architecture really reflects that theme. One floor is a beach, and it literally looks like a sandy beach leading up to a body of water. We walked around some more and got bubble tea. We got our laundry from the hostel and took it over to Jay's apartment to throw it in the wash, and Jay showed us some of his film projects and played a jazz record. It felt a bit like a Murakami novel.
