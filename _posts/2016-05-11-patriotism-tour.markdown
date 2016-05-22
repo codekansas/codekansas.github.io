@@ -180,8 +180,52 @@ Canada is pretty crazy. Some people seem nice, stereotypically. Their money is r
 
 ## Toronto
 
+{% highlight poem %}
+Two roads diverged in a mellow hood,
+And sorry I could not walk the two,
+In real fact, I probably could,
+Though at the hostel long I stood,
+My undone work, long to rue
+
+The Island park, with beaches fair
+Little ducks, in mothers' wings
+The wind was cold, and blew our hair
+No one nude on beaches there
+Instead quiescing on the swings
+
+Then to the other, Chinatown
+Two miles north, my feet are sore
+For many steps have worn the ground
+Speaking Chinese all around
+And spicy snails we then devore
+
+We wanted all the sights to see
+But the metro made no sense
+Two roads diverged in a hood, and we -
+We took them both, because fuck me
+And that has made all the difference
+{% endhighlight %}
+
 ### Day 1: Sičk Brüh
 
 Wei Wei was sick all day today, so we didn't really do much besides sit inside. I got her some Gatorade and yogurt at one point, and a thermometer later on. She was feeling well enough to go get dinner with our friend Jay, who lives in Toronto. He knows a bunch about the city, and told us all the places to go eat and things to do. We got ramen together at one of the four ramen shops in a two-block radius of our hostel. It was quite good, the chicken looked like it should be flavorless, but it took on the flavor of the broth really well.
 
+![Graffiti](/resources/us_roadtrip/toronto/graphiti.jpg)
+
 We walked around Yonge Street a bit, and saw the student center at Ryerson University. It is a very cool building, the architecture is very unique. They have a different theme for each floor, and the architecture really reflects that theme. One floor is a beach, and it literally looks like a sandy beach leading up to a body of water. We walked around some more and got bubble tea. We got our laundry from the hostel and took it over to Jay's apartment to throw it in the wash, and Jay showed us some of his film projects and played a jazz record. It felt a bit like a Murakami novel.
+
+### Day 2 - 4: Sitting Inside
+
+I didn't write anything the last two days, so I'm combining everything into one post. I was pretty busy getting stuff ready for a conference in Montreal, which also meant I didn't get to explore Toronto as much as I would have liked. Wei Wei got over being sick at day 3, but she was really supportive while I was basically sitting inside being boring. She made me eat stuff, for example. We did manage to go see some Toronto-based stuff. Jay's recommendations were largely restaurants, so we had some good food.
+
+We walked over to Chinatown on one day. Toronto has a huge Chinese population; in fact, Toronto has the second-largest percentage of foreign-born residents of any major world city, behind Miami, but probably significantly fewer came to Toronto by swimming. 20 percent of Canada's visible minority population live in Toronto, and 70 percent are of Asian ancestry<sup>[[citation needed]](#)</sup>. We got some good Chinese food, according to Wei Wei it was pretty authentic. A good guide to getting authentic Chinese food, apparently, is whether or not the restaurant takes credit cards. We also walked around a Chinese mall, and I got a Toronto hat. Pro tip for traveling, get a hat of the city you're in. Someone came up to us to ask us a question, but I was wearing the hat, so he knew I didn't know the answer. It went something like "Excuse me, do you - never mind" and he walked away.
+
+![At the park](/resources/us_roadtrip/toronto/park_both.jpg)
+
+The second day we got Japanese tapas (which were expensive as balls) and then went bar hopping. By "bar hopping" I mean that we went to one bar and ordered five drinks, then were pretty drunk and realized we hadn't actually "hopped" so we went to another random bar and got another drink and a dessert. It was both of our first experience getting real cocktails at an actual bar. We got a Sex on the Beach, which was like drinking soda, and a White Russian, which tasted like a latte (or as they call them here, Ice Capps) and a Manhattan, which was gross. Also got a couple Toronto-ish beers. At the other place we got a sangria and chocolate mouse.
+
+Another day we went to the Toronto Island Park. The ferry ride over gave a beautiful view of the city. The CN tower is really, really huge, it puts the Space Needle to shape. We didn't realize it was going to be so cold on the island, so we only brought one jacket between the two of us (classic). But we saw some geese (perhaps Canadian geese, although I'm not sure if they were that authentic). There were a bunch of baby ducks, which were super adorable. We sat on a beach for a while. I skipped rocks (Wei Wei is still picking it up) and we made stuff in the sand. There was purple sand on that particular beach, it made our feet purple. We took the fairy back to the city and walked over to Chinatown to get dinner. We were pretty hungry though, so we got a Polish hot dog to eat while we walked there. We ate snails at a Cantonese-ish-style restaurant.
+
+![Sunset](/resources/us_roadtrip/toronto/sunset.jpg)
+
+I'm getting increasingly exhausted every day. We walk around so much. One problem with Canada is the lack of cell service, which isn't so bad for not making calls (I don't get invited to many parties anyway) but means that we have to navigate with maps instead of GPS, like cavemen or something. We couldn't find a decent map of the Toronto metro system, so we ended up walking pretty much everywhere. My calfs are twitching a bit. Just the walk to Toronto Island Park and Chinatown was 6.7 miles, but in Canada that's actually 10.8 miles, although the Canadian mile is getting stronger.
