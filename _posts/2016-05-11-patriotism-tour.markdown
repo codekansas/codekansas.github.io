@@ -19,6 +19,13 @@ excerpt: My trip with Wei Wei across the United States and Canada, from Nashvill
 | [Montreal](#montreal)              | 1:50 pm, May 22    | 4:00 pm, May 26    | [Auberge-Bishop](http://www.hostelworld.com/hosteldetails.php/Auberge-Bishop/Montreal/63208) |
 | [Washington](#washington)          | 5:45 pm, May 26    | Different times    | Family |
 
+## Miscellaneous Thoughts
+
+ - 3-4 days is a good amount of time to spend in a city, if the city is pretty big
+ - Knowing someone in the city is fun, but so is not knowing anyone (it seems more adventurous)
+ - Make sure to budget food well, and don't go to restaurants that just opened
+ - Even blood-stained hostels are comfortable if you're tired enough
+
 ## Nashville
 
 {% highlight poem %}
