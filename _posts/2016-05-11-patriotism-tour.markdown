@@ -236,3 +236,13 @@ Another day we went to the Toronto Island Park. The ferry ride over gave a beaut
 ![Sunset](/resources/us_roadtrip/toronto/sunset.jpg)
 
 I'm getting increasingly exhausted every day. We walk around so much. One problem with Canada is the lack of cell service, which isn't so bad for not making calls (I don't get invited to many parties anyway) but means that we have to navigate with maps instead of GPS, like cavemen or something. We couldn't find a decent map of the Toronto metro system, so we ended up walking pretty much everywhere. My calfs are twitching a bit. Just the walk to Toronto Island Park and Chinatown was 6.7 miles, but in Canada that's actually 10.8 miles, although the Canadian mile is getting stronger.
+
+## Montreal
+
+### Day 1: Keepin' it Mont-real
+
+The Megabus left from Toronto at 7:30 this morning, which was about three hours earlier than we're used to getting up. So we slept a lot on the bus. We watched 30 minutes of Return of the Jedi, but we were too tired. We slept until about 11 and then got up and finally updated the blog with what we did in Toronto.
+
+If Toronto was too much like the United States, Montreal is a completely different country. Leave it to French culture to give you grief about ordering Lebanese food in one of the country's official languages. This city is so European that there were people non-ironically rollerblading and at least four or five Vespas. Our hostel is pretty cool, there were random people sitting around in the lobby singing when we got in. All the signs are in French. It is a cool experience to see little kids speaking a foreign language, for some reason.
+
+I checked in for ISCAS at the Sheraton hotel. This conference is really expensive, but they had lots of swag (maple syrup and an umbrella). There are some really cool topics at this conference. We got Lebanese food afterwards and then I went back to the hotel by myself while Wei Wei went to journal in a pub. There was a welcome reception in a random building in "old Montreal" which seemed a bit hedonistic. There were some cool dancers and stuff. I met a guy named Kodai who is presenting on a noise-resilient RBM circuit. It was kind of hard to hear him at the reception but I'm planning on going to his lecture tomorrow.
