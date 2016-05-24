@@ -6,8 +6,8 @@
 </description>
     <link>http://codekansas.github.io/</link>
     <atom:link href="http://codekansas.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 23 May 2016 17:10:14 -0400</pubDate>
-    <lastBuildDate>Mon, 23 May 2016 17:10:14 -0400</lastBuildDate>
+    <pubDate>Tue, 24 May 2016 17:39:39 -0400</pubDate>
+    <lastBuildDate>Tue, 24 May 2016 17:39:39 -0400</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -36,6 +36,7 @@
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#montreal&quot; id=&quot;markdown-toc-montreal&quot;&gt;Montreal&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#day-1-keepin-it-mont-real&quot; id=&quot;markdown-toc-day-1-keepin-it-mont-real&quot;&gt;Day 1: Keepin’ it Mont-real&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#day-2-captain-canada-civilly-warring&quot; id=&quot;markdown-toc-day-2-captain-canada-civilly-warring&quot;&gt;Day 2: Captain Canada: Civilly Warring&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
@@ -308,6 +309,12 @@ And that has made all the difference&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p&gt;If Toronto was too much like the United States, Montreal is a completely different country. Leave it to French culture to give you grief about ordering Lebanese food in one of the country’s official languages. This city is so European that there were people non-ironically rollerblading and at least four or five Vespas. Our hostel is pretty cool, there were random people sitting around in the lobby singing when we got in. All the signs are in French. It is a cool experience to see little kids speaking a foreign language, for some reason.&lt;/p&gt;
 
 &lt;p&gt;I checked in for ISCAS at the Sheraton hotel. This conference is really expensive, but they had lots of swag (maple syrup and an umbrella). There are some really cool topics at this conference. We got Lebanese food afterwards and then I went back to the hotel by myself while Wei Wei went to journal in a pub. There was a welcome reception in a random building in “old Montreal” which seemed a bit hedonistic. There were some cool dancers and stuff. I met a guy named Kodai who is presenting on a noise-resilient RBM circuit. It was kind of hard to hear him at the reception but I’m planning on going to his lecture tomorrow.&lt;/p&gt;
+
+&lt;h3 id=&quot;day-2-captain-canada-civilly-warring&quot;&gt;Day 2: Captain Canada: Civilly Warring&lt;/h3&gt;
+
+&lt;p&gt;I woke up pretty early to go the conference in Le Centre Sheraton. Waking up is hard. A bunch of people moved out. The opening ceremony for the conference had talks by several notable people, including the mayor of Montreal, followed by a really fascinating keynote speech about modeling biological processes with “cytomorphic chips”. The gist was that a lot of physical concepts are shared between biology and electronics, like Boltzmann energy, which is a model for both enzyme action and the current across a transistor. Analog circuits provide basis functions for every mathematical concept needed to model any biological system, and the speaker had literally made a compiler that would turn a chemical model into an electronic circuit. He had used this to generate an electronic model for the mechanism of action of cancer to make a circuit for rapidly testing drug effects; models that would take 12 years to run at a sufficient accuracy on a digital computer could be simulated in 7 minutes. All around, really cool. It weirdly seems like analog electronics are resurfacing as a major direction for electronics development.&lt;/p&gt;
+
+&lt;p&gt;I went to a couple more talks. I’ve been taking notes &lt;a href=&quot;https://github.com/codekansas/iscas2016&quot;&gt;here&lt;/a&gt; although I think they’re pretty messy and difficult to understand. The talks are 15 minutes each, followed by 3 minutes of questions. I think I went to 14 talks today. There were some cool demos as well. There was a lunch too, in a very fancy hotel. I walked over to the Google offices but they were closed because today was Victoria day. After the conference, Wei Wei and I got Tim Horton’s and watched Captain America. The whole movie seems like one long tag-team project between a 12-year-old with a 30 second attention span, a 17-year-old who reads a lot of fanfic, and a 38-year-old who thought The Dark Night needed more sarcastic teenagers. It was probably one of the top 3 superhero movies I’ve seen (although it didn’t top Guardians of the Galaxy, in my opinion). They did Black Panther’s origin story in about 30 seconds, it was very efficient; father loves son, father dies in superhero-initiated explosion, son becomes superhero to avenge him. He was a really cool character. The villain was well-done too.&lt;/p&gt;
 </description>
         <pubDate>Wed, 11 May 2016 08:00:00 -0400</pubDate>
         <link>http://codekansas.github.io/blog/2016/patriotism-tour.html</link>
