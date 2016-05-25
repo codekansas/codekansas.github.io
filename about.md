@@ -4,18 +4,18 @@ title: About
 permalink: /about/
 ---
 
-Hello! I am an undergraduate at Emory University in Atlanta, GA, the second best
-school in the Atlanta area. This summer I will be doing an internship at Amazon.com
-in Seattle. After that, I will return to Emory to do a master's thesis in neuroscience.
-I am looking for machine learning-type jobs or Ph.D. programs come May 2017. If you have
-information relating to this, send me an email at bkbolte18@gmail.com.
+Hello! I am an undergraduate at Emory University in Atlanta, GA, the second best school in the Atlanta area. I am looking for machine learning-type jobs or Ph.D. programs come May 2017. If you have information relating to this, send me an email at bkbolte18@gmail.com.
 
 [Email](mailto:bkbolte18@gmail.com) \| [LinkedIn](https://www.linkedin.com/in/benjamin-bolte-37337686) \| [Twitter](https://twitter.com/code__kansas) \| [Github](https://github.com/codekansas) \| [Transcripts](https://github.com/codekansas/jobs/blob/master/unofficial_transcript.pdf) \| [Resume](https://github.com/codekansas/jobs/blob/master/resume/cv_12.pdf)
 
 `s = 's = %r; print(s%%s)'; print(s%s)`
 
+News article: Is Betteridge's law ever correct?
+
 #### Presentations
 
+ - ISCAS 2016
+| [Github](https://github.com/codekansas/FpaaApp)
  - Weighted Sums of IT Firing Rates Predict Recognition Performance
 | [Slides](https://drive.google.com/file/d/0B4Po_rQ05VxJZ0Y2YUM0aEtncTA/view?usp=sharing)
 | [Original Paper](http://www.jneurosci.org/content/35/39/13402.short)
