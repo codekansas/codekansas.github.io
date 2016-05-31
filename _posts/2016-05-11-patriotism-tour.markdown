@@ -282,7 +282,7 @@ We visited my friend Noah today, who is an analyst for a company in Washington t
 
 ![Arttttttttttttttttttttttttttttttt](/resources/us_roadtrip/washington/other_statue.jpg)
 
-We went with Noah to a modern art museum, which was supposedly a memorial for the bombing of Hiroshima, but if it was, it was way, way to abstract for me to understand. The exhibits on the bottom floor were all animations, but not good animations. The closest approximation would be a mix of ASLR and Shrek is Love. We were only there for 30 minutes, because it closed, and it was probably much more fun to see buzzed. We went and hung out in a coffee shop / hotel lobby and talked for a while, which was fun.
+We went with Noah to a modern art museum, which was supposedly a memorial for the bombing of Hiroshima, but if it was, it was way, way to abstract for me to understand. The exhibits on the bottom floor were all animations, but not good animations. The closest approximation would be a mix of [ASMR](https://www.youtube.com/watch?v=ycgSzc4Grdo) and [Shrek is Love](https://www.youtube.com/watch?v=D4I9K_plx4s). We were only there for 30 minutes, because it closed, and it was probably much more fun to see buzzed. We went and hung out in a coffee shop / hotel lobby and talked for a while, which was fun.
 
 ### Day 4: Like Savoring some Nicely Turned Out Prose
 
