@@ -19,13 +19,6 @@ excerpt: My trip with Wei Wei across the United States and Canada, from Nashvill
 | [Montreal](#montreal)              | 1:50 pm, May 22    | 4:00 pm, May 26    | [Auberge-Bishop](http://www.hostelworld.com/hosteldetails.php/Auberge-Bishop/Montreal/63208) |
 | [Washington](#washington)          | 7:10 pm, May 26    | Different times    | Family |
 
-## Miscellaneous Thoughts
-
- - 3-4 days is a good amount of time to spend in a city, if the city is pretty big
- - Knowing someone in the city is fun, but so is not knowing anyone (it seems more adventurous)
- - Make sure to budget food well, and don't go to restaurants that just opened
- - Even blood-stained hostels are comfortable if you're tired enough
-
 ## Nashville
 
 {% highlight poem %}
@@ -251,6 +244,8 @@ I checked in for ISCAS at the Sheraton hotel. This conference is really expensiv
 
 I woke up pretty early to go the conference in Le Centre Sheraton. Waking up is hard. A bunch of people moved out. The opening ceremony for the conference had talks by several notable people, including the mayor of Montreal, followed by a really fascinating keynote speech about modeling biological processes with "cytomorphic chips". The gist was that a lot of physical concepts are shared between biology and electronics, like Boltzmann energy, which is a model for both enzyme action and the current across a transistor. Analog circuits provide basis functions for every mathematical concept needed to model any biological system, and the speaker had literally made a compiler that would turn a chemical model into an electronic circuit. He had used this to generate an electronic model for the mechanism of action of cancer to make a circuit for rapidly testing drug effects; models that would take 12 years to run at a sufficient accuracy on a digital computer could be simulated in 7 minutes. All around, really cool. It weirdly seems like analog electronics are resurfacing as a major direction for electronics development.
 
+![Captain America (actually in Reagan airport on the way back to Atlanta, but semantics)](/resources/us_roadtrip/washington/captain_america.jpg)
+
 I went to a couple more talks. I've been taking notes [here](https://github.com/codekansas/iscas2016) although I think they're pretty messy and difficult to understand. The talks are 15 minutes each, followed by 3 minutes of questions. I think I went to 14 talks today. There were some cool demos as well. There was a lunch too, in a very fancy hotel. I walked over to the Google offices but they were closed because today was Victoria day. After the conference, Wei Wei and I got Tim Horton's and watched Captain America. The whole movie seems like one long tag-team project between a 12-year-old with a 30 second attention span, a 17-year-old who reads a lot of fanfic, and a 38-year-old who thought The Dark Night needed more sarcastic teenagers. It was probably one of the top 3 superhero movies I've seen (although it didn't top Guardians of the Galaxy, in my opinion). They did Black Panther's origin story in about 30 seconds, it was very efficient; father loves son, father dies in superhero-initiated explosion, son becomes superhero to avenge him. He was a really cool character. The villain was well-done too.
 
 ### Day 3: Demo and Poutine
@@ -283,36 +278,22 @@ My aunt and uncle took us to see the new X-Men movie. It was very action-packed,
  
 ### Day 3: Drunk in DC: A Deeply Dizzy Day
 
-We visited my friend Noah today, who is an analyst for a company in Washington that does research for court cases, mostly between large corporations suing each other. He had apparently worked 85 hours this week, and in lieu of cocaine and dog-fighting he and some friends went to drink bottomless mimosas at El Chucho. Apparently getting bottomless beverages is a popular passtime for young people in Washington. His friends were also recent Emory grads, and it was fun talking to them about their experiences after college. There are a lot of Emory grads in DC and New York. We were super late because there is construction on the metro, so by the time we got there they had been drinking for an hour and a half, and we stayed for another hour and a half, so it made the bottomless part well worth it. Apparently there are hibiscus mimosas. Wei Wei couldn't drink, so she got the indomitable pleasure of hanging out sober with a bunch of drunk people.
+We visited my friend Noah today, who is an analyst for a company in Washington that does research for court cases, mostly between large corporations suing each other. He had apparently worked 85 hours this week, and in lieu of cocaine and dog-fighting he and some friends went to drink bottomless mimosas at El Chucho. Apparently getting bottomless beverages is a popular passtime for young people in Washington. His friends were also recent Emory grads, and it was fun talking to them about their experiences after college. There are a lot of Emory grads in DC and New York. We were super late because there is construction on the metro, so by the time we got there they had been drinking for an hour and a half, and we stayed for another hour and a half, so it made the bottomless part well worth it. Apparently there are hibiscus mimosas. Wei Wei couldn't drink, so she got the indomitable pleasure of hanging out sober with a bunch of drunk people. Also, random aside: DC metro is pretty expensive compared to other metro systems.
+
+![Arttttttttttttttttttttttttttttttt](/resources/us_roadtrip/washington/other_statue.jpg)
 
 We went with Noah to a modern art museum, which was supposedly a memorial for the bombing of Hiroshima, but if it was, it was way, way to abstract for me to understand. The exhibits on the bottom floor were all animations, but not good animations. The closest approximation would be a mix of ASLR and Shrek is Love. We were only there for 30 minutes, because it closed, and it was probably much more fun to see buzzed. We went and hung out in a coffee shop / hotel lobby and talked for a while, which was fun.
 
-### Day 4: Going Separate Ways
+### Day 4: Like Savoring some Nicely Turned Out Prose
 
 We actually woke up early this morning, which was weird. We fell asleep reading Sputnik Sweetheart pretty early last night. I'm going to miss being able to do that this summer. It was one of those moments when you're completely free to enjoy experiencing life, without having responsibilities, or worse, imagining responsibilities. I think if I've learned anything about traveling while on this trip it would be to do it with someone who has that effect on you. But we headed off to the city to see some more patriotic things before we caught flights later this evening. We walked through the National Art Gallery, which was incredible. A lot of the artists we saw also had art at the Chicago Art Museum, but the gallery in DC is completely free, so anyone traveling here can see world-class art. Wei Wei brought up that some of the art was actually originally French, part of what they paid the US as war reparations, which made it seem like the palace of a conquering empire. So that's sort of patriotic, in a barbaric way.
 
+![Arttttttttttttttttt](/resources/us_roadtrip/washington/statue.jpg)
+
 We went to the modern art museum we'd gone to yesterday and saw the rest of the exhibits. It confirmed my suspicion that it was the most pretentious art gallery I have ever been to. I think any art which leaves its interpretation completely up to the viewer is very lazy, and takes advantage of people who would give it the benefit of the doubt. In one sense, everything is art, in that it has some internal structure and, given enough time, we can place enough meaning on it to feel as if it is speaking to us in a non-superficial way, whether or not that meaning has any intention behind it. So people who do the same with art like this, yet hold it up as seeing further than others into some concept or another, come across as a bit closed-minded, because anything could convey the same feeling if you interpret it enough.
 
-We were debating between going to Arlington and going to the National Archives, and by the time we got out of the art gallery it was pretty late, so we opted for the National Archives. It was an appropriate finale to our patriotism tour to see the Declaration of Independence and the Constitution, and there was a parade outside where I bumped into my friend Fabian, Phillipe's brother, which was really surprising. We took the metro back to my aunt and uncle's, got our bags, said goodbyes and went to the airport. We were much less pressed for time, so we almost finished reading Sputnik Sweetheart. Here are some quotes we highlighted:
+We were debating between going to Arlington and going to the National Archives, and by the time we got out of the art gallery it was pretty late, so we opted for the National Archives. It was an appropriate finale to our patriotism tour to see the Declaration of Independence and the Constitution, and there was a parade outside where I bumped into my friend Fabian, Phillipe's brother, which was really surprising. We took the metro back to my aunt and uncle's, got our bags, said goodbyes and went to the airport.
 
-{% highlight poem %}
-Miu examined the color of the 1986 Médoc and then, as if savoring some nicely turned out
-prose, carefully tasted it.
+## Postscript
 
-Deep within Miu's eyes, as if in a quiet pool in a swift streem, wordless currents
-vied for one another. Only gradually did these clashing currents settle.
-
-But I might as well have been reciting some pastoral poems to myself in the middle of a
-pumpkin patch.
-
-A silence descended on us a sudden as the instant fresh oil is poured into a large frying
-pan.
-
-Her voice was like a line from an old black-and-white Jean-Luc Godard movie, filtering in
-just beyond the frame of my consciousness.
-
-You could see the glue and the heads of the nails holding it all together.
-
-It didn't look like she was trying to find the right words, rather that she was immersed
-in some personal memory, one without beginning and without end.
-{% endhighlight %}
+Traveling as a college student is romanticized to a stereotypical degree. It goes hand in hand with liking craft beer and supporting Bernie Sanders. I figured pretty much everywhere would be the same, and for the most part it all was, at least as far as people go. No one cared if we liked them, and we didn't care if anyone liked us, so it felt authentic, like improv comedy. There was a definite contrast in the feel of each place. Nashville stood out as a city with expectations to live up to, or maybe with a history that has been caulk-gunned into something more digestible. But the other cities we went to seemed to rest on the strengths of their residents, in that no one was trying to build up a central narrative, but there were so many distinct components that the central narrative was stronger than it could have been otherwise, like the inclusion-exclusion principle. Secondly, seeing someone we knew in a city maybe made it more real, because we didn't have to punch our own window into the landscape, we could use one that was already punched for us. I think my view of traveling is that new experiences are best shared with someone who makes them fuller and more worth writing down, so if you can find someone like that, I'd recommend it.
