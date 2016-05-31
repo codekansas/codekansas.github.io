@@ -271,6 +271,48 @@ The other weird thing about the flight was that it was way easier to get into Ca
 
 ### Day 1: Monuments are Confusing
 
-This is Wei Wei's first time in Washington, so it was funny to see how she didn't know what anything was called. We took the train into the city and walked around a few places, stopping at the Smithsonian, then going by the Washington Monument, then the World War 2 memorial and Lincoln Monument (turns out you can't sit on Lincoln's lap), then the Vietnam War memorial, then the Renwick Gallery (although they got rid of a bunch of stuff since I went there last time, but the permanent installations were still pretty cool), then the White House, then went back to the Holocaust museum, where we stayed for about two and a half hours until it closed.
+This is Wei Wei's first time in Washington, so it was funny to see how she didn't know what anything was called. We took the train into the city and walked around a few places, stopping at the Smithsonian, then going by the Washington Monument, then the World War 2 memorial and Lincoln Monument (turns out you can't sit on Lincoln's lap), then the Vietnam War memorial, then the Renwick Gallery (although they got rid of a bunch of stuff since I went there last time, but the permanent installations were still pretty cool), then the White House, then went back to the Holocaust museum, where we stayed for about two and a half hours until it closed. 
 
 We got dinner with my friend Phillipe, who has been teaching in DC for five years. We got Salvidorian food. Apparently DC has a huge Salvidorian population, so much so that if you get Hispanic food it is presumed Salvidorian. It was really good to see him. He did Teach for America and decided to stay as a teacher, and had some interesting thoughts on the program. We didn't get back to my aunt and uncle's until around midnight, but there was a futuristic bathroom at the metro station that had all these buttons for opening and closing doors and sensors for washing your hands.
+
+### Day 2: Important Stop on the Patriotism Train
+
+We visited my grandmother today, who is in a nursing home near where my aunt and uncle live. We talked for a while, it seems like she is doing well. We then went to Mount Vernon, which was George Washington's plantation. It is a really huge area, like 6000 acres. It has been really fantastically preserved and restored, so it feels very colonial. I've been a bunch of times because my aunt works there, but it was still cool to see, and I think Wei Wei liked the blacksmithing, among other things. The area around it has been maintained so that you can't see any of the surrounding neighborhoods, even across the Potomac (alternatively pronounced Pot-o-mac and Pa-tow-mic) River. We went to Wegman's, which is a nice grocery store, and got some snacks to eat in DC. We got Sriracha-flavored popcorn, which we ate while reading Sputnik Sweetheart on the couch.
+
+My aunt and uncle took us to see the new X-Men movie. It was very action-packed, but the story seemed all over the place, sort of like the loose threads in ripped clothing that needs to be patched up. Wei Wei didn't understand the story because she hadn't seen the previous two, and there are some central characters that you have to understand in order to make sense of it. The villain is Apocalypse, who is ridiculously overpowered, and I'd been concerned about how they could actually defeat him without breaking canon, but the way they did it made sense, even if it did seem like a bit of a cop-out on the part of the writers.
+ 
+### Day 3: Drunk in DC: A Deeply Dizzy Day
+
+We visited my friend Noah today, who is an analyst for a company in Washington that does research for court cases, mostly between large corporations suing each other. He had apparently worked 85 hours this week, and in lieu of cocaine and dog-fighting he and some friends went to drink bottomless mimosas at El Chucho. Apparently getting bottomless beverages is a popular passtime for young people in Washington. His friends were also recent Emory grads, and it was fun talking to them about their experiences after college. There are a lot of Emory grads in DC and New York. We were super late because there is construction on the metro, so by the time we got there they had been drinking for an hour and a half, and we stayed for another hour and a half, so it made the bottomless part well worth it. Apparently there are hibiscus mimosas. Wei Wei couldn't drink, so she got the indomitable pleasure of hanging out sober with a bunch of drunk people.
+
+We went with Noah to a modern art museum, which was supposedly a memorial for the bombing of Hiroshima, but if it was, it was way, way to abstract for me to understand. The exhibits on the bottom floor were all animations, but not good animations. The closest approximation would be a mix of ASLR and Shrek is Love. We were only there for 30 minutes, because it closed, and it was probably much more fun to see buzzed. We went and hung out in a coffee shop / hotel lobby and talked for a while, which was fun.
+
+### Day 4: Going Separate Ways
+
+We actually woke up early this morning, which was weird. We fell asleep reading Sputnik Sweetheart pretty early last night. I'm going to miss being able to do that this summer. It was one of those moments when you're completely free to enjoy experiencing life, without having responsibilities, or worse, imagining responsibilities. I think if I've learned anything about traveling while on this trip it would be to do it with someone who has that effect on you. But we headed off to the city to see some more patriotic things before we caught flights later this evening. We walked through the National Art Gallery, which was incredible. A lot of the artists we saw also had art at the Chicago Art Museum, but the gallery in DC is completely free, so anyone traveling here can see world-class art. Wei Wei brought up that some of the art was actually originally French, part of what they paid the US as war reparations, which made it seem like the palace of a conquering empire. So that's sort of patriotic, in a barbaric way.
+
+We went to the modern art museum we'd gone to yesterday and saw the rest of the exhibits. It confirmed my suspicion that it was the most pretentious art gallery I have ever been to. I think any art which leaves its interpretation completely up to the viewer is very lazy, and takes advantage of people who would give it the benefit of the doubt. In one sense, everything is art, in that it has some internal structure and, given enough time, we can place enough meaning on it to feel as if it is speaking to us in a non-superficial way, whether or not that meaning has any intention behind it. So people who do the same with art like this, yet hold it up as seeing further than others into some concept or another, come across as a bit closed-minded, because anything could convey the same feeling if you interpret it enough.
+
+We were debating between going to Arlington and going to the National Archives, and by the time we got out of the art gallery it was pretty late, so we opted for the National Archives. It was an appropriate finale to our patriotism tour to see the Declaration of Independence and the Constitution, and there was a parade outside where I bumped into my friend Fabian, Phillipe's brother, which was really surprising. We took the metro back to my aunt and uncle's, got our bags, said goodbyes and went to the airport. We were much less pressed for time, so we almost finished reading Sputnik Sweetheart. Here are some quotes we highlighted:
+
+{% highlight poem %}
+Miu examined the color of the 1986 Médoc and then, as if savoring some nicely turned out
+prose, carefully tasted it.
+
+Deep within Miu's eyes, as if in a quiet pool in a swift streem, wordless currents
+vied for one another. Only gradually did these clashing currents settle.
+
+But I might as well have been reciting some pastoral poems to myself in the middle of a
+pumpkin patch.
+
+A silence descended on us a sudden as the instant fresh oil is poured into a large frying
+pan.
+
+Her voice was like a line from an old black-and-white Jean-Luc Godard movie, filtering in
+just beyond the frame of my consciousness.
+
+You could see the glue and the heads of the nails holding it all together.
+
+It didn't look like she was trying to find the right words, rather that she was immersed
+in some personal memory, one without beginning and without end.
+{% endhighlight %}
