@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "BinaryConnect on an FPGA"
+title: "Binary Neural Networks"
 date: 2016-06-01 12:00:00
 categories: ml
 ---
@@ -12,13 +12,13 @@ This post provides a tutorial on implementing the BinaryConnect algorithm on an 
 
 # Introduction
 
-BinaryConnect is an algorithm which was introduced in [Courbariaux et. al.](bengio) for training neural networks using binary weights, in other words, weights that are one of two values. This is a smart thing to do for a couple of reasons:
+BinaryConnect is an algorithm which was introduced in [Courbariaux et. al.](bengio) for training neural networks using binary weights, that is, weights that are one of two values. This is a smart thing to do for a couple of reasons:
 
  - Binary weights could act as a regularizer, like dropout, which could help reduce overfitting
  - Weights take much less memory to represent: Instead of using 32-bit floating point values, a single bit value can be used
  - Accumulate operations are faster than multiply operations (this will be discussed further later in this post)
 
-# Some Foundations of Neural Networks
+# Perceptron Learning Rule
 
 This section will probably seem very elementary, but could offer a new way of looking at neural networks. The idea of binary operations has been interesting since the fledgling days of neural networks, starting with the perceptron learning rule. The output of a perceptron function depends on some set of weights, a bias and an input:
 
@@ -70,7 +70,9 @@ This is the perceptron learning rule. Conceptually, it looks at any training poi
 updates = [(W, W - lr * T.grad(cost, W))]
 {% endhighlight %}
 
-Fundamentally, the difference is that the nonlinear activation function does not allow us to use backpropagation, because the derivative of the step function is zero. This is the limitation of using binary values for a neural network; everything revolves around calculating gradients.
+Fundamentally, the difference is that the nonlinear activation function does not allow us to use gradient descent on some cost function, because the derivative of the step function is zero. Even if we did have a cost function, the term `T.grad(cost, W)` would always be zero. This is the limitation of using binary values for a neural network; everything revolves around calculating gradients, and getting good gradients requires good floating point accuracy.
+
+One strategy that has been used to approximate nonlinear functions in circuits is to use a winner-take-all (WTA) gate. [Wolfgang Maass](maass) demonstrated that WTA circuits are able to learn arbitrary continuous functions, using a learning rule much the same as the perceptron learning rule. However, this circuit is unable to learn highly complex manifolds such as those involved in vision, and more importantly cannot be stacked to increase complexity, due to the gradient descent issue.
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <script type="text/javascript">
@@ -85,3 +87,4 @@ $(document).ready(function() {
 
 [bengio]: http://arxiv.org/pdf/1511.00363v3.pdf
 [original code]: https://github.com/MatthieuCourbariaux/BinaryConnect
+[maass]: http://www.mitpressjournals.org/doi/abs/10.1162/089976600300014827?journalCode=neco#.V03BVZMrJE4
