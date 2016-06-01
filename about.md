@@ -27,6 +27,8 @@ News article: Is Betteridge's law ever correct?
 
 #### Projects
 
+ - Theano RNN Implementations
+| [Github](https://github.com/codekansas/theano-rnn)
  - Electric Longboard
 | [Side View](https://raw.githubusercontent.com/codekansas/electric-longboard/master/side_view.jpg)
 | [Top View](https://raw.githubusercontent.com/codekansas/electric-longboard/master/top_view.jpg)

@@ -6,8 +6,8 @@
 </description>
     <link>http://codekansas.github.io/</link>
     <atom:link href="http://codekansas.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 31 May 2016 19:40:50 -0400</pubDate>
-    <lastBuildDate>Tue, 31 May 2016 19:40:50 -0400</lastBuildDate>
+    <pubDate>Wed, 01 Jun 2016 07:42:27 -0700</pubDate>
+    <lastBuildDate>Wed, 01 Jun 2016 07:42:27 -0700</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -32,6 +32,8 @@
   &lt;li&gt;Weights take much less memory to represent: Instead of using 32-bit floating point values, a single bit value can be used&lt;/li&gt;
   &lt;li&gt;Accumulate operations are faster than multiply operations (this will be discussed further later in this post)&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;For the coding examples, I will be using &lt;a href=&quot;http://deeplearning.net/software/theano/&quot;&gt;Theano 0.8&lt;/a&gt; (the bleeding edge version, as of this writing) and Python 2.7. If you have a problem running some code, send me an email about it at &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#098;&amp;#107;&amp;#098;&amp;#111;&amp;#108;&amp;#116;&amp;#101;&amp;#049;&amp;#056;&amp;#064;&amp;#103;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#046;&amp;#099;&amp;#111;&amp;#109;&quot;&gt;&amp;#098;&amp;#107;&amp;#098;&amp;#111;&amp;#108;&amp;#116;&amp;#101;&amp;#049;&amp;#056;&amp;#064;&amp;#103;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#046;&amp;#099;&amp;#111;&amp;#109;&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h1 id=&quot;perceptron-learning-rule&quot;&gt;Perceptron Learning Rule&lt;/h1&gt;
 
@@ -100,7 +102,7 @@ $(document).ready(function() {
 &lt;/script&gt;
 
 </description>
-        <pubDate>Tue, 31 May 2016 08:00:00 -0400</pubDate>
+        <pubDate>Wed, 01 Jun 2016 05:00:00 -0700</pubDate>
         <link>http://codekansas.github.io/blog/2016/binary-nn-fpga.html</link>
         <guid isPermaLink="true">http://codekansas.github.io/blog/2016/binary-nn-fpga.html</guid>
         
@@ -111,7 +113,9 @@ $(document).ready(function() {
     
       <item>
         <title>Roadtrip Blog</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+        <description>&lt;p&gt;On May 10, I left with my girlfriend on a trip around the United States and Canada, originally dubbed “The Patriotism Tour” (despite going to Canada) because it would end in Washington DC on Memorial Day, and would hopefully lead to her getting her citizenship within the next few months.&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#itinerary&quot; id=&quot;markdown-toc-itinerary&quot;&gt;Itinerary&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#nashville&quot; id=&quot;markdown-toc-nashville&quot;&gt;Nashville&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#day-1-bongo--gumbo--dunn-bros&quot; id=&quot;markdown-toc-day-1-bongo--gumbo--dunn-bros&quot;&gt;Day 1: Bongo / Gumbo / Dunn Bro’s&lt;/a&gt;&lt;/li&gt;
@@ -467,7 +471,7 @@ And that has made all the difference&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Traveling as a college student is romanticized to a stereotypical degree. It goes hand in hand with liking craft beer and supporting Bernie Sanders. I figured pretty much everywhere would be the same, and for the most part it all was, at least as far as people go. No one cared if we liked them, and we didn’t care if anyone liked us, so it felt authentic, like improv comedy. There was a definite contrast in the feel of each place. Nashville stood out as a city with expectations to live up to, or maybe with a history that has been caulk-gunned into something more digestible. But the other cities we went to seemed to rest on the strengths of their residents, in that no one was trying to build up a central narrative, but there were so many distinct components that the central narrative was stronger than it could have been otherwise, like the inclusion-exclusion principle. Secondly, seeing someone we knew in a city maybe made it more real, because we didn’t have to punch our own window into the landscape, we could use one that was already punched for us. I think my view of traveling is that new experiences are best shared with people who makes them fuller and more worth writing down.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 11 May 2016 08:00:00 -0400</pubDate>
+        <pubDate>Wed, 11 May 2016 05:00:00 -0700</pubDate>
         <link>http://codekansas.github.io/blog/2016/patriotism-tour.html</link>
         <guid isPermaLink="true">http://codekansas.github.io/blog/2016/patriotism-tour.html</guid>
         
@@ -1235,7 +1239,7 @@ $(document).ready(function() {
 &lt;/script&gt;
 
 </description>
-        <pubDate>Wed, 27 Apr 2016 08:00:00 -0400</pubDate>
+        <pubDate>Wed, 27 Apr 2016 05:00:00 -0700</pubDate>
         <link>http://codekansas.github.io/blog/2016/keras-language-modeling.html</link>
         <guid isPermaLink="true">http://codekansas.github.io/blog/2016/keras-language-modeling.html</guid>
         
@@ -1246,7 +1250,9 @@ $(document).ready(function() {
     
       <item>
         <title>Evolving List of Opinions about Atlanta Craft Beers</title>
-        <description>&lt;h2 id=&quot;hopsecutioner&quot;&gt;Hopsecutioner&lt;/h2&gt;
+        <description>&lt;p&gt;These are some facts and opinions regarding craft beers that can be bought at the Krogers near my apartment. Originally I started it to help remember which beers I liked, but after I realized how yuppie-ish it is to have a beer blog it sort of evolved into sarcastic, holier-than-thou commentaries on hipster-isms. I update this page pretty regularly if I try a new beer.&lt;/p&gt;
+
+&lt;h2 id=&quot;hopsecutioner&quot;&gt;Hopsecutioner&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Brewed by&lt;/strong&gt; Terrapin Beer Company, Athens, Georgia, United States&lt;/p&gt;
 
@@ -1326,7 +1332,7 @@ $(document).ready(function() {
 
 &lt;p&gt;As with anyone who likes craft beers, PBR is my go-to beverage of choice. Kind of meta-ironically, I drink it because at 67 cents a can (in 2016 adjusted dollars) it is the cheapest one at Krogers that doesn’t advertise during the Super Bowl. Probably best if you want to get drunk, but don’t want to be associated with people who get drunk. All around: 3 ironic glasses.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 30 Mar 2016 08:00:00 -0400</pubDate>
+        <pubDate>Wed, 30 Mar 2016 05:00:00 -0700</pubDate>
         <link>http://codekansas.github.io/blog/2016/atlanta-craft-beers-list.html</link>
         <guid isPermaLink="true">http://codekansas.github.io/blog/2016/atlanta-craft-beers-list.html</guid>
         
@@ -1420,7 +1426,7 @@ $(document).ready(function() {
 &lt;p&gt;Here, we define our “train” and “test” functions. The “train” function updates the weights according to the update rules we provided earlier, after calculating the cost function. The “test” function gives us the output of the network. We then run the network through 60000 training steps. After training, we print the output, and lo and behold, it approximates our XOR function pretty well!&lt;/p&gt;
 
 </description>
-        <pubDate>Tue, 23 Feb 2016 07:00:00 -0500</pubDate>
+        <pubDate>Tue, 23 Feb 2016 04:00:00 -0800</pubDate>
         <link>http://codekansas.github.io/blog/2016/a-neural-network-in-28-lines-of-theano.html</link>
         <guid isPermaLink="true">http://codekansas.github.io/blog/2016/a-neural-network-in-28-lines-of-theano.html</guid>
         
