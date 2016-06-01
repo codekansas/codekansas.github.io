@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Binary Neural Networks"
-date: 2016-05-31 12:00:00
+date: 2016-06-01 12:00:00
 categories: ml
 ---
 

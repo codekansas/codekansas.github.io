@@ -3,8 +3,9 @@ layout: post
 title: "Roadtrip Blog"
 date: 2016-05-11 12:00:00
 categories: misc
-excerpt: My trip with Wei Wei across the United States and Canada, from Nashville to Chicago to Toronto to Montreal to our nation's capitol.
 ---
+
+On May 10, I left with my girlfriend on a trip around the United States and Canada, originally dubbed "The Patriotism Tour" (despite going to Canada) because it would end in Washington DC on Memorial Day, and would hopefully lead to her getting her citizenship within the next few months.
 
 * TOC
 {:toc}
