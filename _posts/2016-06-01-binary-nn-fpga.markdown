@@ -18,6 +18,8 @@ BinaryConnect is an algorithm which was introduced in [Courbariaux et. al.](beng
  - Weights take much less memory to represent: Instead of using 32-bit floating point values, a single bit value can be used
  - Accumulate operations are faster than multiply operations (this will be discussed further later in this post)
 
+For the coding examples, I will be using [Theano 0.8](http://deeplearning.net/software/theano/) (the bleeding edge version, as of this writing) and Python 2.7. If you have a problem running some code, send me an email about it at [bkbolte18@gmail.com](mailto:bkbolte18@gmail.com).
+
 # Perceptron Learning Rule
 
 The idea of binary operations has been interesting since the fledgling days of neural networks, starting with the perceptron learning rule. The output of a perceptron function depends on some set of weights, a bias and an input:
