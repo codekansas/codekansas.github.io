@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Binary Neural Networks"
-date: 2016-06-01 12:00:00
+date: 2016-05-31 12:00:00
 categories: ml
 ---
 
@@ -20,7 +20,7 @@ BinaryConnect is an algorithm which was introduced in [Courbariaux et. al.](beng
 
 # Perceptron Learning Rule
 
-This section will probably seem very elementary, but could offer a new way of looking at neural networks. The idea of binary operations has been interesting since the fledgling days of neural networks, starting with the perceptron learning rule. The output of a perceptron function depends on some set of weights, a bias and an input:
+The idea of binary operations has been interesting since the fledgling days of neural networks, starting with the perceptron learning rule. The output of a perceptron function depends on some set of weights, a bias and an input:
 
 $$
 \hat{y} = \left\{
@@ -32,6 +32,8 @@ $$
 $$
 
 This can be reformulated as a matrix multiply and bias (MMB) operation followed by a nonlinear function, in this case the step function. The step function can be formulated as `y = lambda x: 0 if x < 0 else 1`. In Theano, this could be written `y = lambda x: T.switch(T.lt(x, 0), 0, 1)`. We can put together a perceptron which learns a decision boundary with the code below.
+
+## Code Example
 
 {% highlight python %}
 import theano
@@ -72,8 +74,11 @@ updates = [(W, W - lr * T.grad(cost, W))]
 
 Fundamentally, the difference is that the nonlinear activation function does not allow us to use gradient descent on some cost function, because the derivative of the step function is zero. Even if we did have a cost function, the term `T.grad(cost, W)` would always be zero. This is the limitation of using binary values for a neural network; everything revolves around calculating gradients, and getting good gradients requires good floating point accuracy.
 
-One strategy that has been used to approximate nonlinear functions in circuits is to use a winner-take-all (WTA) gate. [Wolfgang Maass](maass) demonstrated that WTA circuits are able to learn arbitrary continuous functions, using a learning rule much the same as the perceptron learning rule. However, this circuit is unable to learn highly complex manifolds such as those involved in vision, and more importantly cannot be stacked to increase complexity, due to the gradient descent issue.
+## Winner-Take-All
 
+One strategy that has been used to approximate nonlinear functions in circuits is to use a winner-take-all (WTA) gate. [Wolfgang Maass](maass) demonstrated that WTA circuits are able to learn arbitrary continuous functions, using a learning rule much the same as the perceptron learning rule. However, this circuit is unable to learn highly complex manifolds such as those involved in necessary for object recognition, and more importantly cannot be stacked to increase complexity, due to the gradient descent issue.
+
+<!-- Add links back to the top -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <script type="text/javascript">
 // Turn all headers into links back to the table of contents

@@ -6,8 +6,8 @@
 </description>
     <link>http://codekansas.github.io/</link>
     <atom:link href="http://codekansas.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 31 May 2016 13:01:10 -0400</pubDate>
-    <lastBuildDate>Tue, 31 May 2016 13:01:10 -0400</lastBuildDate>
+    <pubDate>Tue, 31 May 2016 19:40:50 -0400</pubDate>
+    <lastBuildDate>Tue, 31 May 2016 19:40:50 -0400</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -16,7 +16,11 @@
 
 &lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#introduction&quot; id=&quot;markdown-toc-introduction&quot;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#perceptron-learning-rule&quot; id=&quot;markdown-toc-perceptron-learning-rule&quot;&gt;Perceptron Learning Rule&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#perceptron-learning-rule&quot; id=&quot;markdown-toc-perceptron-learning-rule&quot;&gt;Perceptron Learning Rule&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#code-example&quot; id=&quot;markdown-toc-code-example&quot;&gt;Code Example&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#winner-take-all&quot; id=&quot;markdown-toc-winner-take-all&quot;&gt;Winner-Take-All&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
@@ -31,7 +35,7 @@
 
 &lt;h1 id=&quot;perceptron-learning-rule&quot;&gt;Perceptron Learning Rule&lt;/h1&gt;
 
-&lt;p&gt;This section will probably seem very elementary, but could offer a new way of looking at neural networks. The idea of binary operations has been interesting since the fledgling days of neural networks, starting with the perceptron learning rule. The output of a perceptron function depends on some set of weights, a bias and an input:&lt;/p&gt;
+&lt;p&gt;The idea of binary operations has been interesting since the fledgling days of neural networks, starting with the perceptron learning rule. The output of a perceptron function depends on some set of weights, a bias and an input:&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
 \hat{y} = \left\{
@@ -42,6 +46,8 @@
     \right. %]]&gt;&lt;/script&gt;
 
 &lt;p&gt;This can be reformulated as a matrix multiply and bias (MMB) operation followed by a nonlinear function, in this case the step function. The step function can be formulated as &lt;code class=&quot;highlighter-rouge&quot;&gt;y = lambda x: 0 if x &amp;lt; 0 else 1&lt;/code&gt;. In Theano, this could be written &lt;code class=&quot;highlighter-rouge&quot;&gt;y = lambda x: T.switch(T.lt(x, 0), 0, 1)&lt;/code&gt;. We can put together a perceptron which learns a decision boundary with the code below.&lt;/p&gt;
+
+&lt;h2 id=&quot;code-example&quot;&gt;Code Example&lt;/h2&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;theano&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;theano.tensor&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;T&lt;/span&gt;
@@ -76,8 +82,11 @@
 
 &lt;p&gt;Fundamentally, the difference is that the nonlinear activation function does not allow us to use gradient descent on some cost function, because the derivative of the step function is zero. Even if we did have a cost function, the term &lt;code class=&quot;highlighter-rouge&quot;&gt;T.grad(cost, W)&lt;/code&gt; would always be zero. This is the limitation of using binary values for a neural network; everything revolves around calculating gradients, and getting good gradients requires good floating point accuracy.&lt;/p&gt;
 
-&lt;p&gt;One strategy that has been used to approximate nonlinear functions in circuits is to use a winner-take-all (WTA) gate. &lt;a href=&quot;maass&quot;&gt;Wolfgang Maass&lt;/a&gt; demonstrated that WTA circuits are able to learn arbitrary continuous functions, using a learning rule much the same as the perceptron learning rule. However, this circuit is unable to learn highly complex manifolds such as those involved in vision, and more importantly cannot be stacked to increase complexity, due to the gradient descent issue.&lt;/p&gt;
+&lt;h2 id=&quot;winner-take-all&quot;&gt;Winner-Take-All&lt;/h2&gt;
 
+&lt;p&gt;One strategy that has been used to approximate nonlinear functions in circuits is to use a winner-take-all (WTA) gate. &lt;a href=&quot;maass&quot;&gt;Wolfgang Maass&lt;/a&gt; demonstrated that WTA circuits are able to learn arbitrary continuous functions, using a learning rule much the same as the perceptron learning rule. However, this circuit is unable to learn highly complex manifolds such as those involved in necessary for object recognition, and more importantly cannot be stacked to increase complexity, due to the gradient descent issue.&lt;/p&gt;
+
+&lt;!-- Add links back to the top --&gt;
 &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js&quot;&gt;&lt;/script&gt;
 
 &lt;script type=&quot;text/javascript&quot;&gt;
