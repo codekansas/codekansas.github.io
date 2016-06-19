@@ -2,7 +2,9 @@
 layout: post
 title: "A Neural Network in 28 Lines of Theano"
 date: 2016-02-23 12:00:00
-categories: ml
+categories: machine-learning
+excerpt: >
+  A quick introduction to using Theano for deep learning.
 ---
 
 This tutorial is a bare-bones introduction to Theano, in the style of [Andrew Trask's Numpy example][trask]. For a more complete version, see the [official tutorial][theano-tut]. It is mostly to help me learn to use Theano, and feedback is more than welcome.

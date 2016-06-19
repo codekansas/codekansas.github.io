@@ -22,20 +22,6 @@
       </div>
     </nav>
  
- <script type="text/javascript">
- var tagline = document.getElementById("tagline");
- var letters = "{{ site.title }}".split("");
- var punctuation = new Array("", ") ", ", ", " (", ") (", "! ", " = ", "_", "|", "/", ".");
- var txt = "";
- 
- for (var i = 0; i < 5; i++) {
- 	txt += punctuation[Math.floor(Math.random()*punctuation.length)];
- 	if (i < 4) txt += letters[i];
- }
- 
- tagline.innerHTML = txt;
- </script>
- 
  <!-- LaTeX formatting: Use $$equation$$ -->
  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
  

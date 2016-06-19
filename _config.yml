@@ -1,8 +1,8 @@
 # Site settings
-title: ETZQ
+title: Ben's Blog
 email: bkbolte18@gmail.com
 description: >
-  def do_work: pass
+  s = 's = %r; print(s%%s)'; print(s%s)
 baseurl: ""
 url: "http://codekansas.github.io" 
 github_username: codekansas

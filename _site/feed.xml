@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ETZQ</title>
-    <description>def do_work: pass
+    <title>Ben&#39;s Blog</title>
+    <description>s = &#39;s = %r; print(s%%s)&#39;; print(s%s)
 </description>
     <link>http://codekansas.github.io/</link>
     <atom:link href="http://codekansas.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 01 Jun 2016 07:42:27 -0700</pubDate>
-    <lastBuildDate>Wed, 01 Jun 2016 07:42:27 -0700</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2016 12:46:44 -0700</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2016 12:46:44 -0700</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
         <title>Binary Neural Networks</title>
-        <description>&lt;p&gt;This post provides a tutorial on implementing the BinaryConnect algorithm on an FPGA. It is currently a work in progress, so I will be adding sections as I work on them (I find that explaining things in words helps me clarify my thought process some). Hopefully I’ll finish this in about a month. The Github repository where I will be adding code is located &lt;a href=&quot;https://github.com/codekansas/binary-ml&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+        <description>&lt;p&gt;The Github repository for this project can be found &lt;a href=&quot;https://github.com/codekansas/binary-ml&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#introduction&quot; id=&quot;markdown-toc-introduction&quot;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
@@ -107,15 +107,13 @@ $(document).ready(function() {
         <guid isPermaLink="true">http://codekansas.github.io/blog/2016/binary-nn-fpga.html</guid>
         
         
-        <category>ml</category>
+        <category>machine-learning</category>
         
       </item>
     
       <item>
         <title>Roadtrip Blog</title>
-        <description>&lt;p&gt;On May 10, I left with my girlfriend on a trip around the United States and Canada, originally dubbed “The Patriotism Tour” (despite going to Canada) because it would end in Washington DC on Memorial Day, and would hopefully lead to her getting her citizenship within the next few months.&lt;/p&gt;
-
-&lt;ul id=&quot;markdown-toc&quot;&gt;
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#itinerary&quot; id=&quot;markdown-toc-itinerary&quot;&gt;Itinerary&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#nashville&quot; id=&quot;markdown-toc-nashville&quot;&gt;Nashville&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#day-1-bongo--gumbo--dunn-bros&quot; id=&quot;markdown-toc-day-1-bongo--gumbo--dunn-bros&quot;&gt;Day 1: Bongo / Gumbo / Dunn Bro’s&lt;/a&gt;&lt;/li&gt;
@@ -423,7 +421,7 @@ And that has made all the difference&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;day-3-demo-and-poutine&quot;&gt;Day 3: Demo and Poutine&lt;/h3&gt;
 
-&lt;p&gt;Today I presented the demo. We got breakfast this morning at a café that near Concordia. I went to one set of talks which were really good, it gave me some ideas on things that would be cool to do. One person talked about using the Intel TrueNorth chip for some stuff for the Air Force, which was pretty awesome because I’d never actually heard of anyone using it for anything useful. Me and Dr. Hasler then presented the three demos that we brought along. People were pretty interested in using FPAAs. It was good to get a conference poster under my belt, and I feel like I can finally focus on getting ready for my internship this summer.&lt;/p&gt;
+&lt;p&gt;Today I presented the demo. We got breakfast this morning at a café that near Concordia. I went to one set of talks which were really good, it gave me some ideas on things that would be cool to do. One person talked about using the IBM TrueNorth chip for some stuff for the Air Force, which was pretty awesome because I’d never actually heard of anyone using it for anything useful. Me and Dr. Hasler then presented the three demos that we brought along. People were pretty interested in using FPAAs. It was good to get a conference poster under my belt, and I feel like I can finally focus on getting ready for my internship this summer.&lt;/p&gt;
 
 &lt;p&gt;Wei Wei wanted to see a play called “I Love You, You’re Perfect, Now Change”. Before the show we got chicken wings and poutine at a sort of greasy restaurant with a darts board and hockey on in the background. The play was a series of scenes about growing up and struggling through all the things related to loving someone. It was a musical comedy. There were only four actors in the entire production, but they played different characters in each scene. Pretty much everyone in the theater was relatively elderly couples, and the pockets of young people who were there seemed like they were other actors coming out to support their friends (we sat next to a few, and you could definitely tell they were actors). It was really nice to be there. Afterwards Wei Wei talked a lot about doing theater tech in high school. We got Canadian McDonalds, which is like regular McDonalds but you can substitute the fries for poutine (we didn’t).&lt;/p&gt;
 
@@ -459,7 +457,7 @@ And that has made all the difference&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;day-4-like-savoring-some-nicely-turned-out-prose&quot;&gt;Day 4: Like Savoring some Nicely Turned Out Prose&lt;/h3&gt;
 
-&lt;p&gt;We actually woke up early this morning, which was weird. We fell asleep reading Sputnik Sweetheart pretty early last night. I’m going to miss being able to do that this summer. It was one of those moments when you’re completely free to enjoy experiencing life, without having responsibilities, or worse, imagining responsibilities. I think if I’ve learned anything about traveling while on this trip it would be to do it with someone who has that effect on you. But we headed off to the city to see some more patriotic things before we caught flights later this evening. We walked through the National Art Gallery, which was incredible. A lot of the artists we saw also had art at the Chicago Art Museum, but the gallery in DC is completely free, so anyone traveling here can see world-class art. Wei Wei brought up that some of the art was actually originally French, part of what they paid the US as war reparations, which made it seem like the palace of a conquering empire. So that’s sort of patriotic, in a barbaric way.&lt;/p&gt;
+&lt;p&gt;We actually woke up early this morning, which was weird. We fell asleep reading Sputnik Sweetheart pretty early last night. I’m going to miss being able to do that this summer. It was one of those moments when you’re completely free to enjoy experiencing life, without having responsibilities, or worse, imagining responsibilities. I think if I’ve learned anything about traveling while on this trip it would be to do it with someone who has that effect on you. But we headed off to the city to see some more patriotic things before we caught flights later this evening. We walked through the National Art Gallery, which was incredible. A lot of the artists we saw also had art at the Chicago Art Museum, but the gallery in DC is completely free, so anyone traveling here can see world-class art.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/resources/us_roadtrip/washington/statue.jpg&quot; alt=&quot;Arttttttttttttttttt&quot; /&gt;&lt;/p&gt;
 
@@ -476,15 +474,13 @@ And that has made all the difference&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
         <guid isPermaLink="true">http://codekansas.github.io/blog/2016/patriotism-tour.html</guid>
         
         
-        <category>misc</category>
+        <category>personal</category>
         
       </item>
     
       <item>
         <title>Deep Language Modeling for Question Answering using Keras</title>
-        <description>&lt;p&gt;This post provides an in-depth introduction to using Keras for deep language modeling. Includes sections on word embedding, characterizing recurrent and convolutional neural networks, attentional RNNs, and similarity metrics for sentence vectors. Each section includes examples on how to implement it using &lt;a href=&quot;https://github.com/fchollet/keras&quot;&gt;Keras&lt;/a&gt;. This post explains the code in &lt;a href=&quot;https://github.com/codekansas/keras-language-modeling&quot;&gt;this Github repository&lt;/a&gt;.&lt;/p&gt;
-
-&lt;ul id=&quot;markdown-toc&quot;&gt;
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#introduction&quot; id=&quot;markdown-toc-introduction&quot;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#installing-keras&quot; id=&quot;markdown-toc-installing-keras&quot;&gt;Installing Keras&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#jumping-into-language-modeling&quot; id=&quot;markdown-toc-jumping-into-language-modeling&quot;&gt;Jumping into language modeling&lt;/a&gt;    &lt;ul&gt;
@@ -1244,15 +1240,13 @@ $(document).ready(function() {
         <guid isPermaLink="true">http://codekansas.github.io/blog/2016/keras-language-modeling.html</guid>
         
         
-        <category>ml</category>
+        <category>machine-learning</category>
         
       </item>
     
       <item>
         <title>Evolving List of Opinions about Atlanta Craft Beers</title>
-        <description>&lt;p&gt;These are some facts and opinions regarding craft beers that can be bought at the Krogers near my apartment. Originally I started it to help remember which beers I liked, but after I realized how yuppie-ish it is to have a beer blog it sort of evolved into sarcastic, holier-than-thou commentaries on hipster-isms. I update this page pretty regularly if I try a new beer.&lt;/p&gt;
-
-&lt;h2 id=&quot;hopsecutioner&quot;&gt;Hopsecutioner&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;hopsecutioner&quot;&gt;Hopsecutioner&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Brewed by&lt;/strong&gt; Terrapin Beer Company, Athens, Georgia, United States&lt;/p&gt;
 
@@ -1337,7 +1331,7 @@ $(document).ready(function() {
         <guid isPermaLink="true">http://codekansas.github.io/blog/2016/atlanta-craft-beers-list.html</guid>
         
         
-        <category>misc</category>
+        <category>personal</category>
         
       </item>
     
@@ -1431,7 +1425,7 @@ $(document).ready(function() {
         <guid isPermaLink="true">http://codekansas.github.io/blog/2016/a-neural-network-in-28-lines-of-theano.html</guid>
         
         
-        <category>ml</category>
+        <category>machine-learning</category>
         
       </item>
     

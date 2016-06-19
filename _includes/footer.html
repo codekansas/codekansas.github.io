@@ -2,12 +2,10 @@
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">{{ site.title }}</h2>
-
     <div class="footer-col-wrapper">
       <div class="footer-col  footer-col-1">
         <ul class="contact-list">
-          <li>{{ site.title }}</li>
+          <li id="site-title">{{ site.title }}</li>
           <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
         </ul>
       </div>
@@ -51,5 +49,23 @@
     </div>
 
   </div>
+ 
+ <script type="text/javascript">
+ var tagline = document.getElementById("site-title");
+ var letters = "{{ site.title }}".split("");
+ var punctuation = "eeeeeeeeeeeetttttttttaaaaaaaaooooooooiiiiiiinnnnnnnsssssshhhhhhrrrrrrddddllllcccuuummwwffggyyppbvk".split(""); // Approximates the frequency of English letter usage
+ var txt = "";
+ 
+ for (var i = 0; i < letters.length; i++) {
+  txt += letters[i];
+ 	if (letters[i] != ' ' && letters[i] != '\'' && letters[i] != 's') {
+ 	  if (Math.random() > 0.7) {
+   	  txt += punctuation[Math.floor(Math.random()*punctuation.length)];
+   	}
+ 	}
+ }
+ 
+ tagline.innerHTML = txt;
+ </script>
 
 </footer>

@@ -2,10 +2,12 @@
 layout: post
 title: "Binary Neural Networks"
 date: 2016-06-01 12:00:00
-categories: ml
+categories: machine-learning
+excerpt: >
+  This post provides a tutorial for implementing the BinaryConnect algorithm on an FPGA (currently a work-in-progress).
 ---
 
-This post provides a tutorial on implementing the BinaryConnect algorithm on an FPGA. It is currently a work in progress, so I will be adding sections as I work on them (I find that explaining things in words helps me clarify my thought process some). Hopefully I'll finish this in about a month. The Github repository where I will be adding code is located [here](https://github.com/codekansas/binary-ml).
+The Github repository for this project can be found [here](https://github.com/codekansas/binary-ml).
 
 * TOC
 {:toc}

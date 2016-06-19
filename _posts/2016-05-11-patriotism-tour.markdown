@@ -2,10 +2,10 @@
 layout: post
 title: "Roadtrip Blog"
 date: 2016-05-11 12:00:00
-categories: misc
+categories: personal
+excerpt: >
+  My trip with my girlfriend around the United States and Canada.
 ---
-
-On May 10, I left with my girlfriend on a trip around the United States and Canada, originally dubbed "The Patriotism Tour" (despite going to Canada) because it would end in Washington DC on Memorial Day, and would hopefully lead to her getting her citizenship within the next few months.
 
 * TOC
 {:toc}
