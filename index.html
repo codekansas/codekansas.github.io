@@ -4,7 +4,7 @@ layout: default
 
 <div class="home">
   {% for category in site.categories %}
-    <h1 class="index-category-title">{{ category | first}}</h1>
+    <h1 class="index-category-title">{{ category | first | replace:'-',' ' }}</h1>
     <ul class="index-post-list">
       {% for posts in category %}
         {% for post in posts %}
