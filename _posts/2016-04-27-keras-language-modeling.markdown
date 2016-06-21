@@ -247,7 +247,7 @@ from keras.models import Model
 
 import numpy as np
 
-input = Input(shape=(5,), dtype='int32')
+input = Input(shape=(1,), dtype='int32')
 double = Lambda(lambda x: 2 * x)(input)
 
 model = Model(input=[input], output=[double])
