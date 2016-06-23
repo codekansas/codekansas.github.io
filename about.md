@@ -14,6 +14,7 @@ Hello! You've reached the blog of Ben Bolte. I am a Master's candidate in Comput
   - [Electric Longboard](https://github.com/codekansas/electric-longboard)
   - [Smart Mirror](https://github.com/codekansas/hackemory-2016)
 - Misc
+  - [Keras Merge Layer Masking Pull Request](https://github.com/fchollet/keras/pull/2413) (first open-source contribution)
   - [Notes from ISCAS 2016](https://github.com/codekansas/iscas2016)
   - [ISCAS 2016 Poster](https://github.com/codekansas/FpaaApp)
   - [Hacker Video](https://www.youtube.com/watch?v=myT1HfmJ43Q)
