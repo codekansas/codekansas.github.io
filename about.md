@@ -18,3 +18,8 @@ Hello! You've reached the blog of Ben Bolte. I am a Master's candidate in Comput
   - [Notes from ISCAS 2016](https://github.com/codekansas/iscas2016)
   - [ISCAS 2016 Poster](https://github.com/codekansas/FpaaApp)
   - [Hacker Video](https://www.youtube.com/watch?v=myT1HfmJ43Q)
+
+## Cool stuff from around the web
+ - [Visualizing Deep Belief Networks](https://www.cs.toronto.edu/~hinton/adi/index.htm)
+ - [Neural Network Topology](http://colah.github.io/posts/2014-03-NN-Manifolds-Topology/)
+ - [Unreasonable Effective RNNs](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
