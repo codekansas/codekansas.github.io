@@ -18,6 +18,7 @@ Hello! You've reached the blog of Ben Bolte. I am a Master's candidate in Comput
   - [Notes from ISCAS 2016](https://github.com/codekansas/iscas2016)
   - [ISCAS 2016 Poster](https://github.com/codekansas/FpaaApp)
   - [Hacker Video](https://www.youtube.com/watch?v=myT1HfmJ43Q)
+  - [Wireworld Implementation](https://gist.github.com/codekansas/e0a94b5a5670e0a1228395885d618bb2)
 
 ## Cool stuff from around the web
  - [Visualizing Deep Belief Networks](https://www.cs.toronto.edu/~hinton/adi/index.htm)
