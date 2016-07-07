@@ -22,7 +22,7 @@ excerpt: >
 
 ## Nashville
 
-{% highlight poem %}
+{% highlight python %}
 And lo, humble Nashville, with many a sound
 Your Blues and your Gumbo were fine
 And though there was rubble and butts all around
@@ -97,7 +97,7 @@ We got back to the hostel and boiled the rest of our eggs so we can take them wi
 
 ## Chicago
 
-{% highlight poem %}
+{% highlight perl %}
 I saw the best minds of my generation
 Destroyed by madness, starving, hysterical, naked
 Dragging themselves to the suburbs at dusk, looking for an angry fix
@@ -181,7 +181,7 @@ Canada is pretty crazy. Some people seem nice, stereotypically. Their money is r
 
 ## Toronto
 
-{% highlight poem %}
+{% highlight ruby %}
 Two roads diverged in a mellow hood,
 And sorry I could not walk the two,
 In real fact, I probably could,
