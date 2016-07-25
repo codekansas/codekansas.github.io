@@ -49,6 +49,10 @@ img, video, audio {
 	display: block;
 }
 
+p:has(> img) {
+    text-align: center;
+}
+
 video {
 	margin-bottom: 15px;
 }
