@@ -771,6 +771,7 @@ model = Merge([question_output, answer_output], [similarity])
 The code is kind of awkward without the context, so I would recommend checking out the repository to see how it works.
 
 Links
+
  - [/r/MachineLearning](https://www.reddit.com/r/MachineLearning/comments/4h3moa/deep_language_modeling_for_question_answering/)
  - [Hacker News](https://news.ycombinator.com/item?id=11623287)
 
