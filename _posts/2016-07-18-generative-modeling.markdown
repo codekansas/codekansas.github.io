@@ -42,7 +42,7 @@ The question which RBMs are often used to answer is, "What do we do when we don'
 
 ![Comparison of filters learned by an autoencoder and an RBM](/resources/generative_modeling/autoencoder_rbm_mnist.png)
 
-It is clear that the filters learned by the RBM are more representative of the input than the features learned by the autoencoder. In [Boulanger-Lewandowski, Bengio, and Vincent (2012)][modeling-temporal-dependencies], they suggest that unlike a regular discriminative neural network, RBMs are better at modeling multi-modal data. This is evident when comparing the features learned by the RBM on the MNIST task with those learned by the autoencoder; even though the autoencoder did learn some spatially localized features, there aren't very many multi-modal features. In contast, the majority of the features learned by the RBM are multimodal; they actually look like penstrokes, and preserve a lot of the correlated structure in the dataset.
+[Boulanger-Lewandowski, Bengio, and Vincent (2012)][modeling-temporal-dependencies] suggests that unlike a regular discriminative neural network, RBMs are better at modeling multi-modal data. This is evident when comparing the features learned by the RBM on the MNIST task with those learned by the autoencoder; even though the autoencoder did learn some spatially localized features, there aren't very many multi-modal features. In contast, the majority of the features learned by the RBM are multimodal; they actually look like penstrokes, and preserve a lot of the correlated structure in the dataset.
 
 ## Formulas
 
