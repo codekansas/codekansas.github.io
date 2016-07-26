@@ -34,7 +34,7 @@ sudo python setup.py install
 
 One benefit of this is that if you want to add a custom layer, you can add it to the Keras installation and be able to use it across different projects. Even better, you could fork the project and clone your own fork, although this gets into areas of Git beyond my understanding.
 
-# Jumping into language modeling
+# Preliminaries
 
 There are actually a couple language models in the [Keras examples](https://github.com/fchollet/keras/blob/master/examples/imdb_lstm.py):
 
@@ -44,7 +44,7 @@ There are actually a couple language models in the [Keras examples](https://gith
 
 These are pretty interesting to play around with. It is really cool how easy it is to get one of these set up! With Keras, a high-level model design can be quickly implemented.
 
-## Word Embeddings
+# Word Embeddings
 
 Ok! Let's dive in. The first challenge that you might think of when designing a language model is what the units of the language might be. A reasonable dataset might have around 20000 distinct words, after lemmatizing them. If the average sentence is 40 words long, then you're left with a `20000 x 40` matrix just to represent one sentence, which is 3.2 megabytes if each word is represented in 32 bits. This obviously doesn't work, so the first step in developing a good language model is to figure out how to reduce the number of dimensions required to represent a word.
 
@@ -143,13 +143,13 @@ Each category is grouped in the 3-dimensional vector space. The network learned 
 
 ![Word distributions in vector space](/resources/attention_rnn/word_vectors.png)
 
-## Recurrent Neural Networks
+# Recurrent Neural Networks
 
 As the Keras examples illustrate, there are different philosophies on deep language modeling. [Feng et. al.][feng] did a bunch of benchmarks with convolutional networks, and ended up with some impressive results. [Tan et. al.][tan] used recurrent networks with some different parameters. I'll focus on recurrent neural networks first (What do pirates call neural networks? *Arrrgh*NNs). I'll assume some familiarity with both recurrent and convolutional neural networks. [Andrej Karpathy's blog](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) discusses recurrent neural networks in detail. Here is an image from that post which explains the core concept:
 
 ![Recurrent neural network](/resources/attention_rnn/karpathy_rnn.jpeg)
 
-### Vanilla
+## Vanilla
 
 The basic RNN architecture is essentially a feed-forward neural network that is stretched out over a bunch of time steps and has it's intermediate output added to the next input step. This idea can be expressed as an update equation for each input step:
 
@@ -159,7 +159,7 @@ new_hidden_state = tanh(dot(input_vector, W) + dot(prev_hidden, U) + b)
 
 Note that `dot` indicates vector-matrix multiplication. Multiplying a vector of dimensions `<m>` by a matrix of dimensions `<m, n>` can be done with `dot(<m>, <m, n>)` and yields a vector of dimensions `<n>`. This is consistent with its usage in Theano and Keras. In the update equation, we multiply each `input_vector` by our input weights `W`, multiply the `prev_hidden` vector by our hidden weights `U`, and add a bias, before passing the sum to the activation function `sigmoid`. To get the **many to one** behavior in the image, we can grab the last hidden state and use that as our output. To get the **one to many** behavior, we can pass one input vector and then just pass a bunch of zero vectors to get as many hidden states as we want.
 
-### LSTM
+## LSTM
 
 If the RNN gets really long, then we run into a lot of difficulty training the model. The effect of something a early in the sequence on the end result is very small relative to later components, so it is hard to use that information in updating the weights. To solve this, several methods have been proposed, and two have been implemented in Keras. The first is the Long Short-Term Memory (LSTM) unit, which was proposed by [Hochreiter and Schmidhuber 1997][hochreiter]. This model uses a second hidden state which stores information from further back in the model, allowing that information to have a stronger effect on the end result. The update equations for this model are:
 
@@ -176,7 +176,7 @@ new_hidden_state = tanh(memory_unit) * output_gate
 
 Note that `*` indicates element-wise multiplication. This is consistent with its usage in Theano and Keras. First, there are a bunch more parameters to train; not only do we have weights for the input-to-hidden and hidden-to-hidden matrices, but also we have an accompanying `candidate_state`. The candidate state is like a second hidden state that transfers information to and from the hidden state. It is like a safety deposit box for putting things in and taking things out.
 
-### GRU
+## GRU
 
 The second model is the Gated Recurrent Unit (GRU), which was proposed by [Cho et. al. 2014][cho]. The equations for this model are as follows:
 
@@ -193,7 +193,7 @@ In this model, there is an `update_gate` which controls how much of the previous
 
 My implementations of these models in Theano, as well as optimizers for training them, can be found in [this Github repository][theano-rnn].
 
-### RNN Example: Predicting Dummy Data
+## RNN Example: Predicting Dummy Data
 
 Now that we've seen the equations, let's see how Keras implementations compare on some sample data.
 
@@ -233,11 +233,11 @@ for rnn in rnns:
 
 The results will vary from trial to trial. RNNs are exceptionally difficult to train. However, in general, a model that can take advantage of long-term dependencies will have a much easier time seeing how two sequences are different.
 
-## Attentional RNNs
+# Attentional RNNs
 
 It isn't strictly important to understand the RNN part before looking at this part, but it will help everything make more sense. The next component of language modeling, which was the focus of the [Tan] paper, is the Attentional RNN. This essential components of model are described in "Show, Attend and Tell: Neural Image Caption Generation with Visual Attention" [(Xu et. al. 2016)][xu]. I'll try to hash it out in this blog post a little bit and look at how to build it in Keras.
 
-### Lambda Layer
+## Lambda Layer
 
 First, let's look at how to make a custom layer in Keras. There are a couple options. One is the `Lambda` layer, which does a specified operation. An example of this could be a layer that doubles the value it is passed:
 
@@ -259,7 +259,7 @@ print(model.predict(data))
 
 This doubles our input data. Note that there are no trainable weights anywhere in this model, so it couldn't actually learn anything. What if we wanted to multiply our input vector by some trainable scalar that predicts the output vector? In this case, we will have to write our own layer.
 
-### Building a Custom Layer Example
+## Building a Custom Layer Example
 
 Let's jump right in and write a layer that learns to multiply an input by a scalar value and produce an output.
 
@@ -349,7 +349,7 @@ def call(self, x, mask=None):
 
 This is the bread and butter of the the layer, where we actually perform the operation. We specify that the output of this layer is the input `x` matrix multiplied by our multiplicand tensor. Note that this method takes a while to run, because whatever backend we use (for example, Theano) has to put together the tensors in the right way. To make your layer run quickly, it is good practice to add `assert` checks in the `build` and `get_output_shape_for` methods.
 
-### Characterizing the Attentional LSTM
+## Characterizing the Attentional LSTM
 
 Now that we've got an idea of how to build a custom layer, let's look at the specifications for an attentional LSTM. Following [Tan et. al.][tan], we can augment our LSTM equations from earlier to include an attentional component. The attentional component requires some attention vector `attention_vec`.
 
@@ -376,7 +376,7 @@ $${\bf s}_{a}(t) = \tanh({\bf h}(t) {\bf W}_{a} + {\bf v}_a {\bf U}_{a})\\
 
 The attention parameter is a function of the current hidden state and the attention vector mixed together. Each is first put through a matrix, summed and put through an activation function to get an attention state, which is then put through another transformation to get an attention parameter. The attention parameter then re-updates the hidden state. Supposedly, this is conceptually similar to TF-IDF weighting, where the model learns to weight particular states at particular times.
 
-### Building an Attentional LSTM Example
+## Building an Attentional LSTM Example
 
 Now that we have all the components for an Attentional LSTM, let's see the code for how we could implement this. The attentional component can be tacked onto the LSTM code that already exists.
 
@@ -476,7 +476,7 @@ def get_constants(self, x):
 
 This method is used by the LSTM superclass to define components outside of the step function, so that they don't need to be recomputed every time step. In our case, the attentional vector doesn't need to be recomputed every time step, so we define it as a constant (we then grab it in the `step` function using `attention = states[4]`).
 
-## Convolutional Neural Networks
+# Convolutional Neural Networks
 
 Convolutional networks are better explained elsewhere, and all of the functions required for making a good CNN language model are already supported in Keras. Basically, with language modeling, a common strategy is to apply a ton (on the order of 1000) convolutional filters to the embedding layer followed by a max-1 pooling function and call it a day. It actually works stupidly well for question answering (see [Feng et. al.][feng] for benchmarks). This approach can be done fairly easily in Keras. One thing that may not be intuitive, however, is how to combine several filter lengths. This can be done as follows:
 
@@ -489,7 +489,7 @@ question = merge([cnn(question) for cnn in cnns], mode='concat')
 answer = merge([cnn(answer) for cnn in cnns], mode='concat')
 {% endhighlight %}
 
-## Similarity Metrics
+# Similarity Metrics
 
 The basic idea with question answering is to embed questions and answers as vectors, so that the question vector is close in vector space to the answer vector. For example, with the Attentional RNN, we take the question vector and use it as an input for generating the answer vector. A common approach is to then rank answer vectors according to their cosine similarities with the question vector. This doesn't follow the conventional neural network architecture, and takes some manipulation to achieve in Keras. To use equations, what we would like to do is:
 
@@ -511,7 +511,7 @@ loss = max(0, constant margin - sim(question, good answer) + sim(question, bad a
 
 where `sim` is our similarity metric. Hinge loss works well for this application, as opposed to something like mean squared error, because we don't want our question vectors to be orthogonal with the bad answer vectors, we just want the bad answer vectors to be a good distance away.
 
-### Cosine Similarity Example: Rotational Matrix
+## Cosine Similarity Example: Rotational Matrix
 
 First, let's look at how to do cosine similarity within the constraints of Keras. Fortunately, Keras has an implementation of cosine similarity, as a `mode` argument to the `merge` layer. This is done with:
 
@@ -609,7 +609,7 @@ Below, a unit square (blue) is multiplied by the first matrix to get the orange 
 
 ![Matrix transformation](/resources/attention_rnn/matrix_transform.png)
 
-### Other Similarity Metrics
+## Other Similarity Metrics
 
 [Feng et. al.][feng] provided a list of similarities along with their benchmarks for a CNN architecture. Some of these similarities, along with their implementations in Keras, are reproduced below. They rely on these helper functions:
 
@@ -622,7 +622,7 @@ l2_norm = lambda a, b: K.sqrt(K.sum((a - b) ** 2, axis=axis(a), keepdims=True))
 
 If the function requires extra parameters, they are usually supplied as arguments in a dictionary.
 
-#### Cosine
+### Cosine
 
 $$\frac{x y^T}{||x|| ||y||}$$
 
@@ -631,7 +631,7 @@ def cosine(x):
     return dot(x[0], x[1]) / K.sqrt(dot(x[0], x[0]) * dot(x[1], x[1]))
 {% endhighlight %}
 
-#### Polynomial
+### Polynomial
 
 $$(\gamma x y^T + c)^d$$
 
@@ -642,7 +642,7 @@ def polynomial(x):
 
 Values for `gamma` used in the paper were `[0.5,  1.0, 1.5]`. The value for `c` was usually `1`. Values for `d` were `[2, 3]`.
 
-#### Sigmoid
+### Sigmoid
 
 $$\tanh(\gamma x y^T + c)$$
 
@@ -653,7 +653,7 @@ def sigmoid(x):
 
 Values for `gamma` used in the paper were `[0.5, 1.0, 1.5]`, and `c` was `1`.
 
-#### RBF
+### RBF
 
 RBF stands for radial basis function.
 
@@ -666,7 +666,7 @@ def rbf(x):
 
 Values for `gamma` used in the paper were `[0.5, 1.0, 1.5]`.
 
-#### Euclidean
+### Euclidean
 
 $$\frac{1}{1 + ||x - y||}$$
 
@@ -675,7 +675,7 @@ def euclidean(x):
     return 1 / (1 + l2_norm(x[0], x[1]))
 {% endhighlight %}
 
-#### Exponential
+### Exponential
 
 $$\exp(-\gamma ||x - y||)$$
 
@@ -684,7 +684,7 @@ def exponential(x):
     return K.exp(-1 * params['gamma'] * l2_norm(x[0], x[1]))
 {% endhighlight %}
 
-#### GESD
+### GESD
 
 This was a custom metric developed by the authors which stands for Geometric mean of Euclidean and Sigmoid Dot product. It performed well for their benchmarks.
 
@@ -699,7 +699,7 @@ def gesd(x):
 
 Values for `gamma` used were `[0.5, 1.0, 1.5]` and `c` was `1`.
 
-#### AESD
+### AESD
 
 This was a custom metric developed by the authors which stands for Arithmetic mean of Euclidean and Sigmoid Dot product. It performed well for their benchmarks.
 
@@ -714,7 +714,7 @@ def gesd(x):
 
 Values for `gamma` used were `[0.5, 1.0, 1.5]` and `c` was `1`.
 
-## InsuranceQA Model Example
+# InsuranceQA Model Example
 
 A surprisingly good model for the [InsuranceQA dataset][feng] is as follows:
 
@@ -770,7 +770,7 @@ model = Merge([question_output, answer_output], [similarity])
 
 The code is kind of awkward without the context, so I would recommend checking out the repository to see how it works. The repository contains the necessary code for building a question answering model using Keras and evaluating it on the Insurance QA dataset.
 
-Links
+# Discussion Links
 
  - [/r/MachineLearning](https://www.reddit.com/r/MachineLearning/comments/4h3moa/deep_language_modeling_for_question_answering/)
  - [Hacker News](https://news.ycombinator.com/item?id=11623287)
