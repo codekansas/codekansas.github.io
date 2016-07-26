@@ -235,7 +235,7 @@ The results will vary from trial to trial. RNNs are exceptionally difficult to t
 
 ## Attentional RNNs
 
-It isn't strictly important to understand the RNN part before looking at this part, but it will help everything make more sense. The next component of language modeling, which was the focus of the [Tan] paper, is the Attentional RNN. This essential components of model is described in "Show, Attend and Tell: Neural Image Caption Generation with Visual Attention" [(Xu et. al. 2016)][xu]. I'll try to hash it out in this blog post a little bit and look at how to build it in Keras.
+It isn't strictly important to understand the RNN part before looking at this part, but it will help everything make more sense. The next component of language modeling, which was the focus of the [Tan] paper, is the Attentional RNN. This essential components of model are described in "Show, Attend and Tell: Neural Image Caption Generation with Visual Attention" [(Xu et. al. 2016)][xu]. I'll try to hash it out in this blog post a little bit and look at how to build it in Keras.
 
 ### Lambda Layer
 
@@ -474,11 +474,11 @@ def get_constants(self, x):
     return constants
 {% endhighlight %}
 
-This method is used by the LSTM superclass to define components outside of the step function, so that they don't need to be recomputed very time step. In our case, the attentional vector doesn't need to be recomputed every time step, so we define it as a constant (we then grab it in the `step` function using `attention = states[4]`).
+This method is used by the LSTM superclass to define components outside of the step function, so that they don't need to be recomputed every time step. In our case, the attentional vector doesn't need to be recomputed every time step, so we define it as a constant (we then grab it in the `step` function using `attention = states[4]`).
 
 ## Convolutional Neural Networks
 
-I will add something here when I actually understand how these work at a sufficient level. Basically, with language modeling, a common strategy is to apply a ton (on the order of 1000) convolutional filters to the embedding layer followed by a max-1 pooling function and call it a day. It actually works stupidly well for question answering (see [Feng et. al.][feng] for benchmarks). In the mean time, I will dump some code here that might be helpful to pour over.
+Convolutional networks are better explained elsewhere, and all of the functions required for making a good CNN language model are already supported in Keras. Basically, with language modeling, a common strategy is to apply a ton (on the order of 1000) convolutional filters to the embedding layer followed by a max-1 pooling function and call it a day. It actually works stupidly well for question answering (see [Feng et. al.][feng] for benchmarks). This approach can be done fairly easily in Keras. One thing that may not be intuitive, however, is how to combine several filter lengths. This can be done as follows:
 
 {% highlight python %}
 from keras.layers import Convolution1D
@@ -503,7 +503,7 @@ Training is generally done by minimizing hinge loss. In this case, we want the c
 loss = max(0, constant margin - cos(question, good answer) + cos(question, bad answer))
 {% endhighlight %}
 
-Note that for implementations, having a loss of zero can be troublesome, so a small value like `1e-6` is generally preferable instead. The loss is zero when the difference between the cosine similarities of the good and bad answers is greater than the constant margin we defined. In practice, the margins generally range from 0.001 to 0.2. If we want to use something besides cosine similarity, we can reformulate this as
+Note that for some implementations, having a loss of zero can be troublesome, so a small value like `1e-6` is preferable instead. The loss is zero when the difference between the cosine similarities of the good and bad answers is greater than the constant margin we defined. In practice, the margins generally range from 0.001 to 0.2. If we want to use something besides cosine similarity, we can reformulate this as
 
 {% highlight bash %}
 loss = max(0, constant margin - sim(question, good answer) + sim(question, bad answer))
@@ -564,7 +564,7 @@ A `Dense` layer with `linear` activation is the exact same as a matrix multiplic
  [ 0.99173903,  0.0078686 ]]
 {% endhighlight %}
 
-which is close to the rotation matrix for an angle of 90 degrees. Let's try this again, but with cosine similarity. This will require some manipulation. In the previous example, we had a clearly defined input, `a`, and output, `b`, and our model was designed to perform a transformaion on `a` to predict `b`. In this example, we have two inputs, `a` and `b`, and we will perform a transformation on `a` to make it close to `b`. As an output, we get the similarity of the two vectors, so we need to train our model to make this similarity high by providing it a bunch of 1's.
+which is close to the rotation matrix for an angle of 90 degrees. Let's try this again, but with cosine similarity. This will require some manipulation. In the previous example, we had a clearly defined input, `a`, and output, `b`, and our model was designed to perform a transformation on `a` to predict `b`. In this example, we have two inputs, `a` and `b`, and we will perform a transformation on `a` to make it close to `b`. As an output, we get the similarity of the two vectors, so we need to train our model to make this similarity high by providing it a bunch of 1's as the target values, since a similarity of 1 indicates perfect similarity.
 
 {% highlight python %}
 from keras.layers import Input, Dense, merge
@@ -768,7 +768,7 @@ similarity = merge([question_output, answer_output], mode='cos', dot_axes=-1)
 model = Merge([question_output, answer_output], [similarity])
 {% endhighlight %}
 
-The code is kind of awkward without the context, so I would recommend checking out the repository to see how it works.
+The code is kind of awkward without the context, so I would recommend checking out the repository to see how it works. The repository contains the necessary code for building a question answering model using Keras and evaluating it on the Insurance QA dataset.
 
 Links
 
