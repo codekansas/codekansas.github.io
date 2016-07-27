@@ -74,21 +74,11 @@ The best way to think about what an RBM is doing during learning is that it is i
 
 As described above, there is some reason to think that an RBM model may learn higher-order correlations better than a traditional neural network. However, as they are conventionally described, they can't model time-varying statistics very well. For many applications this presents a serious drawback. The top answer on Quora for the question [Are Deep Belief Networks useful for Time Series Forecasting?](https://www.quora.com/Are-Deep-Belief-Networks-useful-for-Time-Series-Forecasting) is by Yoshua Bengio, who suggests looking at the work of his Ph.D. student, Nicolas Boulanger-Lewandowski, who wrote the tutorial that much of this blog post is modeled around. In particular, the paper [Modeling Temporal Dependencies in High-Dimensional Sequences: Application to Polyphonic Music Generation and Transcription][modeling-temporal-dependencies] and it's corresponding [tutorial][deeplearning-rnnrbm] provide a good demonstration of doing almost exactly what Andrej Karpathy's [blog post][karpathy-effectiveness] does, although instead of using RNNs to continually predict the next element of a sequence, it does something a little differrent.
 
-The RNN-RBM uses an RNN to generate a visible and hidden bias vector for an RBM, and train it normally (to reduce the energy of the model when initialized with those bias vectors and the visible vector at the first time step). Then the next visible vector is fed into the RNN and RBM, the RNN generated another set of bias vectors, and the RBM reduces the energy of that new configuration. This is repeated for the whole sequence.
+The RNN-RBM uses an RNN to generate a visible and hidden bias vector for an RBM, and then trains the RBM normally (to reduce the energy of the model when initialized with those bias vectors and the visible vector at the first time step). Then the next visible vector is fed into the RNN and RBM, the RNN generated another set of bias vectors, and the RBM reduces the energy of that new configuration. This is repeated for the whole sequence.
 
-What exactly does this training process do? Let's consider the application that is described in both the paper and tutorial, generating polyphonic music (polyphonic here just means there may be multiple notes at the same time step). The weight matrix of the RBM, which has dimensions `<n_visible, n_hidden>`, provides features that activate individual hidden units in response to a particular pattern of visible units. For music, these features are individual chords; for video, these features are individual frames, very similar to the features learned on the MNIST dataset.
+What exactly does this training process do? Let's consider the application that is described in both the paper and tutorial, generating polyphonic music (polyphonic here just means there may be multiple notes at the same time step). The weight matrix of the RBM, which has dimensions `<n_visible, n_hidden>`, provides features that activate individual hidden units in response to a particular pattern of visible units. For music, these features are chords, which played at each timestep to generate a song; for video, these features are individual frames, which are very similar to the features learned on the MNIST dataset.
 
-The RNN part is trained to generate biases that activate the right features of the RBM; in other words, the RNN tries to predict the next set of features. When we switch the RBM from learning a probability distribution to generating one, the RNN is used to generate biases for the RBM, defining a pattern of activating filters.
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-    $("article").find("h1, h2, h3, h4, h5, h6").each(function(index) {
-        var content = $(this).text();
-        $(this).html("<a href=\"#markdown-toc\" style=\"color: black;\">" + content + "</a>");
-    });
-});
-</script>
+The RNN part is trained to generate biases that activate the right features of the RBM in the right order; in other words, the RNN tries to predict the next set of features given a past set. When we switch the RBM from learning a probability distribution to generating one, the RNN is used to generate biases for the RBM, defining a pattern of activating filters. The stochasticity of the RBM is what gives the model its nondeterminism.
 
 
 [graves-speech]: http://www.cs.toronto.edu/~fritz/absps/RNN13.pdf
