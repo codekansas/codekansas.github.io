@@ -617,7 +617,7 @@ Below, a unit square (blue) is multiplied by the first matrix to get the orange 
 from keras import backend as K
 axis = lambda a: len(a._keras_shape) - 1
 dot = lambda a, b: K.batch_dot(a, b, axes=axis(a))
-l2_norm = lambda a, b: K.sqrt(K.sum((a - b) ** 2, axis=axis(a), keepdims=True))
+l2_norm = lambda a, b: K.sqrt(((a - b) ** 2).sum())
 {% endhighlight %}
 
 If the function requires extra parameters, they are usually supplied as arguments in a dictionary.
