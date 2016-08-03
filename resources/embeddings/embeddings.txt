@@ -25,6 +25,9 @@ def create_embeddings(data_dir, embeddings_path, vocab_path, **params):
     :param vocab_path: where to save the word-index map
     """
 
+    assert os.path.exists(data_dir), 'Directory not found: {}'.format(data_dir)
+    assert os.listdir(data_dir), 'No files found in "{}"'.format(data_dir)
+
     class SentenceGenerator(object):
         def __init__(self, dirname):
             self.dirname = dirname
@@ -65,7 +68,7 @@ def word2vec_embedding_layer(embeddings_path):
     :param embeddings_path: where the embeddings are saved (as a numpy file)
     :return: the generated embedding layer
     """
-    
+
     weights = np.load(open(embeddings_path, 'rb'))
     layer = Embedding(input_dim=weights.shape[0], output_dim=weights.shape[1], weights=[weights])
     return layer
@@ -77,45 +80,51 @@ def main():
     parser.add_argument('-v', '--vocab', help='Where to save vocabulary map (default: map.json)', default='map.json')
     parser.add_argument('-m', '--demo', help='Download some demo data', action='store_true', default=False)
     parser.add_argument('-n', '--no-train', dest='train', help='Don\'t train embeddings', action='store_false', default=True)
+    parser.add_argument('-t', '--tokens', dest='print_tokens', help='Print tokens', action='store_true', default=False)
 
     options = parser.parse_args()
 
     if options.demo:
-        print('Downloading demo data...')
         import urllib2
         mach = 'http://www.gutenberg.org/cache/epub/1232/pg1232.txt'
-        with open(os.path.join(options.data, 'pg1232.txt'), 'w') as f:
-            response = urllib2.urlopen(mach)
-            f.write(response.read())
+        save_path = os.path.join(options.data, 'machiavelli.txt')
+        if not os.path.exists(save_path):
+            print('Downloading demo data...')
+            with open(save_path, 'w') as f:
+                response = urllib2.urlopen(mach)
+                f.write(response.read())
 
     # variable arguments are passed to gensim's word2vec model
     if options.train:
+        print('Training Word2Vec...')
         create_embeddings(options.data, options.embeddings, options.vocab, size=100, min_count=5, window=5, sg=1, iter=25)
 
     word2idx, idx2word = load_vocab(options.vocab)
+    if options.print_tokens:
+        print('Tokens:', ', '.join(word2idx.keys()))
 
     # cosine similarity model
+    print('Building model...')
     input_a = Input(shape=(1,), dtype='int32', name='input_a')
     input_b = Input(shape=(1,), dtype='int32', name='input_b')
     embeddings = word2vec_embedding_layer(options.embeddings)
     embedding_a = embeddings(input_a)
     embedding_b = embeddings(input_b)
     similarity = merge([embedding_a, embedding_b], mode='cos', dot_axes=2)
-
-    model = Model(input=[input_a, input_b], output=[similarity])
-    model.compile(optimizer='sgd', loss='mse') # optimizer and loss don't matter for this example
+    model = Model(input=[input_a, input_b], output=similarity)
+    model.compile(optimizer='sgd', loss='mse') # optimizer and loss don't matter
 
     while True:
         word_a = raw_input('First word: ')
         if word_a not in word2idx:
-            print('Word "%s" is not in the index' % word_a)
+            print('"%s" is not in the index' % word_a)
             continue
         word_b = raw_input('Second word: ')
         if word_b not in word2idx:
-            print('Word "%s" is not in the index' % word_b)
+            print('"%s" is not in the index' % word_b)
             continue
         output = model.predict([np.asarray([word2idx[word_a]]), np.asarray([word2idx[word_b]])])
-        print(output)
+        print('%f' % output)
 
 if __name__ == '__main__':
     main()

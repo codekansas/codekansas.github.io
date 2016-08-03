@@ -172,7 +172,6 @@
 /**
  * Table of contents
  */
-
 .index-post-list {
     margin-left: 0;
     list-style: none;
@@ -256,6 +255,14 @@
             font-size: 12px;
         }
     }
+}
+
+/**
+ * Notes
+ */
+.note {
+    width: 100%;
+    font-size: 80%;
 }
 
 table {
