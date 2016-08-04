@@ -1,10 +1,19 @@
 ---
 layout: code
 filename: "embeddings.py"
+description: Command line tool for demonstrating how to use Gensim word embeddings in Keras.
 ---
 
 {% highlight python %}
 #!/usr/bin/python2.7
+
+"""
+To get started, save this file to a directory using the link above, then run:
+
+chmod +x embeddings.py
+mkdir data
+./embeddings.py -d data --demo
+"""
 
 from __future__ import print_function
 

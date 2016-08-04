@@ -32,8 +32,9 @@ function downloadPage(filename) {
 </script>
 
   <div style="margin: 10px;">
-    <table style="width: 100%;">
-      <tr style="font-size: 80%;"><th>{{ page.filename }} - <a href="#" onclick="downloadPage('{{ page.filename }}')">save</a></th></tr>
+    <table class="note">
+      <tr><th style="padding: 0;"><a href="#" style="display: block; padding: 6px; padding-left: 12px;" onclick="downloadPage('{{ page.filename }}')">{{ page.filename }}</a></th></tr>
+      {% if page.description %}<tr><td>{{ page.description }}</td></tr>{% endif %}
     </table>
     <div id="contents">{{ content }}</div>
   </div>

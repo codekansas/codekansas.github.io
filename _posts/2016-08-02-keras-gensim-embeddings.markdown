@@ -8,7 +8,7 @@ excerpt: >
 ---
 
 <table class="note">
-<tr><th>Note</th></tr>
+<tr><th>Download</th></tr>
 <tr><td>
 The full script for generating and testing word embeddings, as described in this post, can be found <a href="/resources/embeddings/embeddings.html" target="_blank">here</a>.
 </td></tr>

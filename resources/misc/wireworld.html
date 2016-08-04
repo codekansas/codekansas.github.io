@@ -1,5 +1,8 @@
-<html>
-<head>
+---
+layout: code
+filename: "wireworld.html"
+---
+
 <style>
 #container {
     border: 1px solid black;
@@ -39,7 +42,7 @@
 <button onclick="randomCircle()">Draw Circle</button>
 <button onclick="clearNonConductors()">Reset Conductors</button>
 
-<h3>Getting Started</h3>
+<h3 style="padding-top: 15px;">Getting Started</h3>
 
 <p>
 Click the "Start" button to run it. Click "Reset" to clear the screen and "Randomize" to fill it randomly with different types of cells. Click "Draw Circle" to draw a circle somewhere on the map (usually circles are a good starting point for more complicated structures). Click "Reset Conductors" to reset all head and tail cells to conductors. Each cell can be modified by clicking it.
@@ -62,10 +65,6 @@ The Wikipedia article <a href="https://en.wikipedia.org/wiki/Wireworld">here</a>
 
 <p>
 This is a self-contained HTML page, so it can be downloaded and modified (in particular, the parameters in the script can be changed). I also wrote a command-line version in Python which can be found <a href="https://gist.github.com/codekansas/e0a94b5a5670e0a1228395885d618bb2">here</a>. Both were written after midnight, so take the code like you take your password hashes, with a grain of salt.
-</p>
-
-<p>
-If you got here from my homepage, you can go back <a href="/">here</a>.
 </p>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -242,5 +241,3 @@ $(document).ready(function() {
     init();
 });
 </script>
-</body>
-</html>
