@@ -120,7 +120,7 @@ To calculate the true IDF ratings would take linear time, as we would still have
 
 # Generating Citations for Sentences
 
-If you have a bunch of documents which you want to use as citations for a paper you're writing, you can treat the sentences in your paper as query strings to find documents that might be related. TF-IDF is not ideal for these types of applications, as it throws context out the window. Ideal applications involve searching for a few unique keywords from a large corpus. However, I didn't write this blog post about one of those methods.
+If you have a bunch of documents which you want to use as citations for a paper you're writing, you can treat the sentences in your paper as query strings to find documents that might be related. TF-IDF is not ideal for these types of applications, as it throws context out the window. Ideal applications involve searching for a few unique keywords from a large corpus. However, it works moderately well.
 
 Donald Trump is well-known for using gut-based rather than publically-available citations in his speeches, so they seemed like an ideal application. The speech in question is his [2016 RNC speech][trump-speech]. To generate a training corpus, I wrote a simple Chrome extension to quickly download Wikipedia pages, which you can get [from Github][chrome-extension].
 
