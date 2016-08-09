@@ -12,9 +12,9 @@ excerpt: >
 
 # Introduction
 
-As a college student, I have to write a lot of papers with relevant citations. My usual approach is to this is to dump everything out in a post-midnight binge with Netflix or Pandora on in the background, then go back through the next morning, armed with a Bibtex containing the top twenty results from Web of Science and Google, and randomly add citations after sentences based on the few words I picked up while reading the abstract. This is obviously a blatantly flippant attitude towards the dignity of the scientific process; decades of work in information retrieval should have made hand-processing of these citations totally outmoded. In this spirit, I wanted to make a tool that would take a corpus of documents and automatically insert relevant citations after each sentence.
+As a college student, I have to write a lot of papers with relevant citations. My usual approach to this is to dump everything out in a post-midnight binge with Netflix or Pandora on in the background, then go back through the next morning, armed with a Bibtex containing the top twenty results from Web of Science and Google, and randomly add citations after sentences based on the few words I picked up while reading the abstract. This is obviously a blatantly flippant attitude towards the dignity of the scientific process; decades of work in information retrieval should have made hand-processing of these citations totally outmoded. In this spirit, I wanted to make a tool that would take a corpus of documents and automatically insert relevant citations after each sentence.
 
-In this blog post, I'll describe a simple information retrieval metric, TF-IDF, and how to use it to build a scalable index for retrieving documents from a large corpus. I'll mention some more advanced methods as well, in case you, the reader, want to improve on this. Finally, I applied this method to a speech by Donald Trump.
+In this blog post, I'll describe a simple information retrieval metric, TF-IDF, and how to use it to build a scalable index for retrieving documents from a large corpus. I'll mention some more advanced methods as well, in case you, the reader, want to improve on this. Finally, I'll describe how I applied this method to a speech by Donald Trump.
 
 # Language Models
 
@@ -141,4 +141,3 @@ The full annotated text can be found <a href="/resources/tfidf/tfidf_trump.html"
 [lda]: https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation
 [lsi]: https://en.wikipedia.org/wiki/Latent_semantic_analysis
 [github-repo]: https://github.com/codekansas/citation-generator
-
