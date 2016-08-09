@@ -77,7 +77,7 @@ We can also calculate the **inverse document frequency** for each term.
 |sing|3|1|0|
 |mermaid|1|0.333|0.477|
 
-Using these values, we get final TF-IDF values for "sing" of:
+Using these values, we get final TF-IDF values of:
 
 | |1|2|3|
 |-|-|-|-|
