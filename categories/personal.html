@@ -1,0 +1,23 @@
+---
+layout: default
+title: Personal
+category: personal
+permalink: /personal/
+---
+
+<div class="home">
+  <ul class="index-post-list">
+    {% for post in site.categories[page.category] %}
+      {% if post.title %}
+        <li>
+          <span class="index-post-meta">{{ post.date | date: "%B %-d, %Y" }}</span>
+          <h2>
+            <a class="index-post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          </h2>
+          <p class="index-post-excerpt">{{ post.excerpt }}</p>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+
