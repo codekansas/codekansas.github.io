@@ -104,12 +104,12 @@ n_words = len(words)
 n_embed_dims = 3
 
 # put together a model to predict 
-from keras.layers import Input, Embedding, merge, Flatten, RNN
+from keras.layers import Input, Embedding, merge, Flatten, SimpleRNN
 from keras.models import Model
 
 input_sentence = Input(shape=(sentence_maxlen,), dtype='int32')
 input_embedding = Embedding(n_words, n_embed_dims)(input_sentence)
-color_prediction = RNN(1)(input_embedding)
+color_prediction = SimpleRNN(1)(input_embedding)
 
 predict_green = Model(input=[input_sentence], output=[color_prediction])
 predict_green.compile(optimizer='sgd', loss='binary_crossentropy')
