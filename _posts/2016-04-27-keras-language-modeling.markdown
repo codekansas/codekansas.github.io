@@ -7,6 +7,15 @@ excerpt: >
   An in-depth introduction to using Keras for language modeling. Includes sections on word embedding, characterizing recurrent and convolutional neural networks, attentional RNNs, and similarity metrics for vector embeddings, each with example code.
 ---
 
+<table class="note">
+<tr><th>Github Repository</th></tr>
+<tr><td>
+The repository associated with this post can be found <a
+href="https://github.com/codekansas/keras-language-modeling"
+target="_blank">here</a>.
+</td></tr>
+</table>
+
 * TOC
 {:toc}
 
