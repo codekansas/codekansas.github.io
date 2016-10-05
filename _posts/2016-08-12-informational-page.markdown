@@ -10,6 +10,12 @@ excerpt: >
 * TOC
 {:toc}
 
+# PyData Carolinas 2016
+
+I gave a tutorial about using Keras for language modeling, basically about a
+blog post I wrote. It is available on YouTube
+[here](https://www.youtube.com/watch?v=bvZnphPgz74).
+
 # ISCAS 2016
 
 When I went to ISCAS in Montreal (I wrote a blog post about it [here](http://127.0.0.1:4000/blog/2016/patriotism-tour.html#montreal))
