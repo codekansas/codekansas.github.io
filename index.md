@@ -8,10 +8,6 @@ Google. Check out <a href="/resources/misc/wireworld.html"
 target="_blank">wireworld</a> and <a href="/resume.html" target="_blank">my
 resume</a>.
 
-I'm really interested in problems at the intersection of machine learning and
-neuroscience. If you have any such problems that you'd like to collaborate on,
-let me know!
-
 ## Cool stuff from around the web
  - [Visualizing Deep Belief Networks](https://www.cs.toronto.edu/~hinton/adi/index.htm)
  - [Neural Network Topology](http://colah.github.io/posts/2014-03-NN-Manifolds-Topology/)
