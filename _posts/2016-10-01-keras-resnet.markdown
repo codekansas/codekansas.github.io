@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Analyzing Residual Networks using Keras"
-date: 2016-09-30 12:00:00
+title: "Looking at Residual Networks"
+date: 2016-11-01 12:00:00
 categories: machine-learning
 excerpt: >
-  A tutorial on interpreting residual networks, as well as how to build them using Keras.
+  Some thoughts on residual networks (and skip connections in general).
 ---
 
 <table class="note">
@@ -48,6 +48,9 @@ When people talk about "ResNet" as an abbreviaion for "Residual Network", it is 
 The central idea of the ResNet paper is that it is a good idea, when adding more layers to a network, to keep the representation more or less the same. In other words, extra layers shouldn't warp the representation very much. Suppose a shallow network perfectly represents the data, and more layers are added. Since the shallow network works perfectly, the best thing for the new layers to do would be to learn the identity function. If the shallow network made a few errors, we would want the new layers to learn to correct the errors, but otherwise not affect the output very much.
 
 Phrased another way, it is an easier learning problem if the network learns to correct the *residual* error. Once a good representation is learned, the network shouldn't mess with it too much. The other side to this problem is that we want the shallow network to be able to learn a good solution, without having to learn gradients through higher level layers.
+
+Phrased yet another way, the residual part should ensure that the representation
+learned is strictly better than whatever we can get without the residual part.
 
 ## Comparison with Highway Networks
 
@@ -93,8 +96,26 @@ However, for the second network, there are two routes it can go, with one of the
 
 $$\frac{\partial \vec{y}_1}{\partial h_1} = \frac{\partial \text{sigm}}{\partial \text{dot}} \frac{\partial \text{dot}}{\partial h_1} + \frac{\partial \text{sigm}}{\partial h_1}$$
 
-To take the concept of information flow a step further, we can use a rectified linear unit instead of a sigmoid for our activation function. If we use ReLUs and stack multiple layers together, any positive outputs of any layer are passed along completely, which is really good information flow.
+To take the concept of information flow a step further, we can use a rectified
+linear unit instead of a sigmoid for our activation function. If we use ReLUs
+and stack multiple layers together, any positive outputs of any layer are passed
+along completely, which is really good information flow (mathematicians, I
+look forward to your hatemail).
 
+# Plug-and-play Keras Wrapper
+
+I  wrote an Keras wrapper which can be applied to any layer with the same input
+and output dimensions to add residual connections. I provided a link to that
+repository at the top of this post, which also has some examples of how to use
+them in the context of RNNs and ConvNets. If you use it for something
+interesting, let me know!
+
+I generated some visualizations of the activations of some convolutional filters
+at each layer of of a ResNet model trained on MNIST data, which can be seen
+below. The code for generating these images is also available in the repository
+as well.
+
+![Visualization of some ResNet layers trained on MNIST.](/resources/resnet/visualizations.png)
 
 [highway-schmid]: https://arxiv.org/abs/1505.00387
 [colah-lstm]: http://colah.github.io/posts/2015-08-Understanding-LSTMs/
