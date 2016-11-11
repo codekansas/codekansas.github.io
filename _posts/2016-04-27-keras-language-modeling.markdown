@@ -96,7 +96,7 @@ is_green = np.asarray([[0, 1, 1, 1, 1, 0, 0, 0]], dtype='int32').T
 lemma = lambda x: x.strip().lower().split(' ')
 sentences_lemmatized = [lemma(sentence) for sentence in sentences]
 words = set(itertools.chain(*sentences_lemmatized))
-# set(['boy', 'fed', 'ate', 'cat', 'kicked', 'hat'])
+# {'hannah', 'not', 'sam', 'is', 'red', 'green', 'bob', 'sarah'}
 
 # dictionaries for converting words to integers and vice versa
 word2idx = dict((v, i) for i, v in enumerate(words))
@@ -115,6 +115,7 @@ n_embed_dims = 3
 # put together a model to predict 
 from keras.layers import Input, Embedding, merge, Flatten, SimpleRNN
 from keras.models import Model
+import keras.backend as K
 
 input_sentence = Input(shape=(sentence_maxlen,), dtype='int32')
 input_embedding = Embedding(n_words, n_embed_dims)(input_sentence)
@@ -125,7 +126,7 @@ predict_green.compile(optimizer='sgd', loss='binary_crossentropy')
 
 # fit the model to predict what color each person is
 predict_green.fit([sentences_array], [is_green], nb_epoch=5000, verbose=1)
-embeddings = predict_green.layers[1].W.get_value()
+embeddings = K.get_value(predict_green.layers[1].W)
 
 # print out the embedding vector associated with each word
 for i in range(n_words):
