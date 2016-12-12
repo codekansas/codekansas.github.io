@@ -35,7 +35,7 @@ One of the simplest language models uses a metric called Term Frequency, Inverse
 
 TF-IDF is really a score for how much information a particular word gives us. We would like words such as "this", "we" or "and" to have a very low score, while words such as "numerical", "document" or "Trump" to have a higher score. There are two terms in TF-IDF: the first, **Term Frequency**, is how many times a term appears in a document. The second, **Inverse Document Frequency**, is the inverse of how many documents the term appears in. The two terms are multiplied together to get TF-IDF. Mathematically, this is represented as:
 
-$$tfidf(t, d, D) = tf(t, d) \times idf(t, D)$$
+$$\text{tfidf}(t, d, D) = \text{tf}(t, d) \times \text{idf}(t, D)$$
 
 where $$t$$ is the term (word) we are considering, $$d$$ is the document we are considering, and $$D$$ is the set of all documents.
 
@@ -45,7 +45,7 @@ We can represent **term frequency** $$tf$$ in different ways, based on further a
 
 Similarly, we can represent **inverse document frequency** $$idf$$ in different ways. For this purpose, I'll represent it using the equation
 
-$$idf(t, D) = \log{\frac{N}{n_t}}$$
+$$\text{idf}(t, D) = \log{\frac{N}{n_t}}$$
 
 where $$N$$ is the total number of documents in the document set $$D$$, and $$n_t$$ is the number of documents that our term $$t$$ appears in.
 
@@ -61,7 +61,7 @@ Here is a dummy set to illustrate the above math.
 
 Let's calculate the TF-IDF for the terms "sing" and "mermaid". First, let's do some simple preprocessing on this dataset. We'll say that "singing", "sings" and "sing" are basically the same, as are "mermaids" and "mermaid" (in practice, this is called lemmatization). Then we can calculate the **term frequency** for each document as:
 
-|ID|$$tf(\text{sing},d)$$|$$tf(\text{mermaid},d)$$|
+|ID|$$\text{tf}(\text{sing},d)$$|$$\text{tf}(\text{mermaid},d)$$|
 |--|---------------------|------------------------|
 |1|2|1|
 |2|1|0|
@@ -69,7 +69,7 @@ Let's calculate the TF-IDF for the terms "sing" and "mermaid". First, let's do s
 
 We can also calculate the **inverse document frequency** for each term.
 
-|Term|$$df(t,D)$$|$$\frac{N}{n_t}$$|$$idf(t,D) = \log{\frac{N}{n_t}}$$|
+|Term|$$\text{df}(t,D)$$|$$\frac{N}{n_t}$$|$$\text{idf}(t,D) = \log{\frac{N}{n_t}}$$|
 |----|-----------|-----------------|----------------------------------|
 |sing|3|1|0|
 |mermaid|1|0.333|0.477|
@@ -95,11 +95,11 @@ To use TF-IDF for queries that contain multiple words, we can add the TF-IDF sco
 
 indicating that we should choose the first document, the document with the maximum TF-IDF score. We can therefore formalize our "search engine" as
 
-$$\text{best document}(T) = \text{argmax}_{d \in D} \sum_{t \in T}{tfidf(t, d, D)}$$
+$$\text{best document}(T) = \text{argmax}_{d \in D} \sum_{t \in T}{\text{tfidf}(t, d, D)}$$
 
 The user provides the query terms $$T = t_1, t_2, ..., t_m$$ while we provide the document set $$D$$. To use the notation we established for a language model, the TF-IDF language model defines a probability distribution
 
-$$P(w_1, w_2, ..., w_m) \propto \sum_{d \in D} \sum_{w \in w_1, w_2, ..., w_m}{tfidf(w, d, D)}$$
+$$P(w_1, w_2, ..., w_m) \propto \sum_{d \in D} \sum_{w \in w_1, w_2, ..., w_m}{\text{tfidf}(w, d, D)}$$
 
 ## Other Language Models
 
