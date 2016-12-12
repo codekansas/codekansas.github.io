@@ -2,11 +2,7 @@
 layout: default
 ---
 
-Hello! You've reached the site of Ben Bolte. I am a Master's candidate in
-Computer Science at Emory University in Atlanta, GA, currently also an intern at
-Google. Check out <a href="/resources/misc/wireworld.html"
-target="_blank">wireworld</a> and <a href="/resume.html" target="_blank">my
-resume</a>, as well as my <a href="/ml">machine learning blog</a>.
+Hello! You've reached the site of Ben Bolte. I am a Master's candidate in Computer Science at Emory University in Atlanta, GA. Check out <a href="/resources/misc/wireworld.html" target="_blank">wireworld</a> and <a href="/resume.html" target="_blank">my resume</a>, as well as my <a href="/ml">machine learning blog</a>.
 
 ## Cool stuff from around the web
  - [Visualizing Deep Belief Networks](https://www.cs.toronto.edu/~hinton/adi/index.htm)
