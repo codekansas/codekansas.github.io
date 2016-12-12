@@ -2,7 +2,7 @@
 title: Ben Bolte's Blog
 email: bkbolte18@gmail.com
 description: >
-  s = 's = %r; print(s%%s)'; print(s%s)
+  Another machine learning blog.
 baseurl: ""
 url: "http://codekansas.github.io" 
 github_username: codekansas
