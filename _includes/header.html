@@ -2,8 +2,6 @@
 
   <div class="wrapper">
 
-    <a class="site-title" id="tagline" href="{{ site.baseurl }}/">{{ site.title }}</a>
-
     <nav class="site-nav">
       <a href="#" class="menu-icon">
         <svg viewBox="0 0 18 15">
@@ -14,6 +12,7 @@
       </a>
 
       <div class="trigger">
+        <a class="page-link" href="{{ site.baseurl }}/">Home</a>
         {% for page in site.pages %}
           {% if page.title %}
           <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>

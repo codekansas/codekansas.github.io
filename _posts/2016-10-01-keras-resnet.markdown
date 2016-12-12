@@ -16,9 +16,6 @@ target="_blank">here</a>.
 </td></tr>
 </table>
 
-* TOC
-{:toc}
-
 # Introduction
 
 Residual networks are one of the hot new ways of thinking about neural networks, ever since they were used to win the ImageNet competition in 2015. ResNets were originally introduced in the paper [Deep Residual Learning for Image Recognition][sun-resnet-paper] by He et. al. The remarkable thing about the ResNet architecture is just how crazy deep it is. For comparison, the Oxford Visual Geometry Group released a [Very Deep Convolutional Network for Large-Scale Visual Recognition][vgg16], which even has "Very Deep" in the name, and it had either 16 or 19 layers. ResNet architectures were demonstrated with 50, 101, and even *152* layers. More surprising than dectupling the number of layers of another architecture, the deeper ResNet got, the more its performance grew. It [did very well][imagenet2015] in the 2015 ImageNet competition, and seems to be the best single model out there for object recognition, with most of the [2016 ImageNet models][imagenet2016] being ensembles of other models.

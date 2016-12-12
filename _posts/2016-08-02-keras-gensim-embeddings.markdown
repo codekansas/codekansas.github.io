@@ -14,9 +14,6 @@ The full script for generating and testing word embeddings, as described in this
 </td></tr>
 </table>
 
-* TOC
-{:toc}
-
 # Introduction
 
 This will be a quick post about using Gensim's Word2Vec embeddings in Keras. This topic has been covered elsewhere by other people, but I thought another code example and explanation might be useful.

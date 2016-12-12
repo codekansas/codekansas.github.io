@@ -16,9 +16,6 @@ target="_blank">here</a>.
 </td></tr>
 </table>
 
-* TOC
-{:toc}
-
 # Introduction
 
 [Question answering][qa wiki] has received more focus as large search engines have basically mastered general information retrieval and are starting to cover more edge cases. Question answering happens to be one of those edge cases, because it could involve a lot of syntatic nuance that doesn't get captured by standard information retrieval models, like LDA or LSI. Hypothetically, deep learning models would be better suited to this type of task because of their ability to capture higher-order syntax. Two papers, "Applying deep learning to answer selection: a study and an open task" [(Feng et. al. 2015)][feng] and "LSTM-based deep learning models for non-factoid answer selection" [(Tan et. al. 2016)][tan], are recent examples which have applied deep learning to question-answering tasks with good results.

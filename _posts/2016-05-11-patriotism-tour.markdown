@@ -7,9 +7,6 @@ excerpt: >
   My trip with my girlfriend around the United States and Canada.
 ---
 
-* TOC
-{:toc}
-
 ## Itinerary
 
 | City                               | Arrive             | Depart             | Hostel |

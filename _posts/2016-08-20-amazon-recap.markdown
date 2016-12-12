@@ -7,9 +7,6 @@ excerpt: >
   Recap of my internship at Amazon during the summer of 2016.
 ---
 
-* TOC
-{:toc}
-
 All the opinions I express in this post are strictly my own.
 
 **TL;DNR** Amazon is a good place to go if you want to do things well and be pushed to do them better.

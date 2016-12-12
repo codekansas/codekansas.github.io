@@ -7,9 +7,6 @@ excerpt: >
   Explaining how to use TF-IDF scores for document similarity and applying those to choose documents to cite for particular sentences.
 ---
 
-* TOC
-{:toc}
-
 # Introduction
 
 As a college student, I have to write a lot of papers with relevant citations. My usual approach to this is to dump everything out in a post-midnight binge with Netflix or Pandora on in the background, then go back through the next morning, armed with a Bibtex containing the top twenty results from Web of Science and Google, and randomly add citations after sentences based on the few words I picked up while reading the abstract. This is obviously a blatantly flippant attitude towards the dignity of the scientific process; decades of work in information retrieval should have made hand-processing of these citations totally outmoded. In this spirit, I wanted to make a tool that would take a corpus of documents and automatically insert relevant citations after each sentence.
