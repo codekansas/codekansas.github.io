@@ -66,8 +66,9 @@ figure > img {
     display: block;
 }
 
-figcaption {
+figcaption, .figcaption {
     font-size: $small-font-size;
+    color: $grey-color;
 }
 
 
@@ -106,7 +107,7 @@ a {
     text-decoration: none;
 
     &:visited {
-        color: darken($brand-color, 15%);
+        color: darken($brand-color, 5%);
     }
 
     &:hover {

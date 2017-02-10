@@ -1,5 +1,7 @@
 _site/
 .sass-cache/
 
+# weird os / ide things
 *~
+.DS_Store
 
