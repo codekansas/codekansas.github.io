@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "My Internship Experience"
-date: 2016-08-20 12:00:00
+date: 2017-02-11 12:00:00
 categories: personal
 excerpt: >
   An overview of my internship experiences at Amazon and Google.
