@@ -1,4 +1,6 @@
-<table class="image">
-  <caption class="figcaption" align="bottom">{{ include.description }}</caption>
-  <tr><td><img src="{{ include.url }}" alt="{{ include.description }}"/></td></tr>
-</table>
+<figure class="image">
+  <a href="{{ include.url }}" target="_blank">
+    <img src="{{ include.url }}" alt="{{ include.description }}"/>
+  </a>
+  <figcaption align="bottom">{{ include.description }}</figcaption>
+</figure>

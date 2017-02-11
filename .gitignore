@@ -4,4 +4,5 @@ _site/
 # weird os / ide things
 *~
 .DS_Store
+*.swp
 
