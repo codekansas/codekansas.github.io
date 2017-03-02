@@ -4,7 +4,7 @@ layout: default
 
 <h1 style="text-align: center; width: 100%; font-size: 50px;">Ben Bolte</h1>
 
-Hello! You've reached my homepage. I am a Master's candidate in Computer Science at Emory University in Atlanta, GA.
+Hello! You've reached my homepage. I am a Master's student in Computer Science at Emory University.
 
 ## Personal Links
  - [Wireworld](/resources/misc/wireworld.html)
