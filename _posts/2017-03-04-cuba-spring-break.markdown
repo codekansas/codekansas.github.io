@@ -144,3 +144,5 @@ In the end, if they were scammers, they were (in my naive opinion) masters of th
 # Conclusion
 
 Cuba was a load of fun, and definitely a learning experience. It was very interesting to contrast this experience with what I've read and learned about Cuba from other sources. The face of the country that I was exposed to as a passer-though was very beautiful, but I go the sense from interacting with people and learning about their day-to-day lives that there were many downsides to living in the country as well. All around, it was a fascinating, unusual, exciting and informative experience, one that I would gladly repeat and strongly endorse.
+
+The photo album from the trip can be found [here](https://goo.gl/photos/18updqNwBfJxn81a8).
