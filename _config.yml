@@ -1,13 +1,14 @@
 # Site settings
 title: Ben Bolte's Blog
-email: bkbolte18@gmail.com
-description: >
-  Another machine learning blog.
+email: ben@bolte.cc
+description: Yet Another Machine Learning Blog.
 baseurl: ""
 url: "http://codekansas.github.io" 
 github_username: codekansas
 twitter_username: code__kansas
+facebook_username: benjamin.bolte
 
 # Build settings
 markdown: kramdown
 permalink: /blog/:year/:title:output_ext
+

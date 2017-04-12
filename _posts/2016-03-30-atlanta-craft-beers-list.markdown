@@ -3,6 +3,7 @@ layout: post
 title: "Evolving List of Opinions about Atlanta Craft Beers"
 date: 2016-03-30 12:00:00
 categories: personal
+image: /resources/index/atlanta.jpeg
 excerpt: >
   Some facts and opinions regarding craft beers that can be bought at the Krogers near my apartment.
 ---

@@ -5,6 +5,9 @@ date: 2017-03-04 12:00:00
 categories: personal
 excerpt: >
   Field guide to traveling to Cuba for spring break as a naive college student.
+image: /resources/index/cuba.jpg
+links:
+ - Photo Album: https://goo.gl/photos/18updqNwBfJxn81a8
 ---
 
 # Hook
@@ -77,7 +80,7 @@ We landed in Cuba around 1:00. Going through customs was pretty easy (see above)
 
 We also walked over to the Plaza de la Revolución, which we'd seen coming from the airport. The security guard wouldn't let us take pictures of the giant statue of Jose Marti form any angle except straight-on, which reminded me of how I've read North Korea is. The Plaza is also bordered by large images of Che Guevara and Fidel Castro.
 
-![Image of Che on the side of a hotel](/resources/cuba_roadtrip/che_plaza.jpg)
+{% include image.html description="Image of Che on the side of a hotel" url="/resources/cuba_roadtrip/che_plaza.jpg" %}
 
 # Monday
 
@@ -87,13 +90,13 @@ We walked back over to John Lennon Park. I sat on a bench which had wet paint on
 
 We walked to Miramar, which is where all the hotels are. The waterfront is really nice, and there weren't just tourists walking along it.
 
-![View of the waterfront](/resources/cuba_roadtrip/waterfront.jpg)
+{% include image.html description="View of the waterfront" url="/resources/cuba_roadtrip/waterfront.jpg" %}
 
 We went into a grocery store inside a shopping mall where most of the patrons were Cubans rather than tourists. The lines were extremely slow; we stood in line for probably 30 minutes. Waiting a while for things was a common theme. We got a bottle of sparkling water to drink as we walked. There was also a Nike outlet inside the mall, which was interesting.
 
 We got a cab to Habana Vieja, which is the "tourist" part of Havana. It cost $8 for about 15 minutes. The cab was an old VW Bug. It dropped us off in the Parque Central, and we walked over to El Floridita, which is mostly known as the bar that Hemmingway liked to sit in and drink Daiquiris. It was really crowded so we didn't order anything. Instead, we went to the Museo de la Revolución, which was really incredible. It had the original bullet holes from when revolutionary troops stormed in and took over.
 
-![Bullet holes in the walls](/resources/cuba_roadtrip/bullet_holes.jpg)
+{% include image.html description="Bullet holes in the walls" url="/resources/cuba_roadtrip/bullet_holes.jpg" %}
 
 We walked around the walls on the coast and were confronted by some street musicians. We walked down the waterfront some more and ended up off the map, near the house where Jose Marti was born. There were artist galleries all around as well. We got dinner at a very tourist restaurant called Cafe Paris. Food took about an hour and a half.
 
@@ -107,13 +110,13 @@ We decided to get on a tour bus around Havana, which costed $10 each but lasted 
 
 We took the Lancha Casablanca (Ferry) to the other side of the bay. It was the best way to get to the Cristo de la Habana. The ferry didn't have doors, so people stood right on the edge next to the water.
 
-![Standing right next to the water on the Lancha Casablanca](/resources/cuba_roadtrip/ferry.jpg)
+{% include image.html description="Standing right next to the water on the Lancha Casablanca" url="/resources/cuba_roadtrip/ferry.jpg" %}
 
 The view from the top of the hill with the Cristo de la Habana was spectacular. Unlike most cities I've visited, Havana isn't very bright, so you can see the stars much more easily. We took the ferry back across the bay and then took a cab to Chinatown.
 
 Havana's Chinatown hardly has any Asian people. Someone we talked to said that they all emmigrated a few years ago, but we didn't figure out why. We ate at a restaurant called Tien Tan, which was very strange. There were cats walking all over the place, and the waitress was wearing a Qipao. The menu also had to be double-translated, so it had it's fair share of amusing typos. The food was very good though, and a break from the fried food we'd been eating.
 
-![Menu at Tien Tan](/resources/cuba_roadtrip/chinese_menu.jpg)
+{% include image.html description="Menu at Tien Tan" url="/resources/cuba_roadtrip/chinese_menu.jpg" %}
 
 We also stumbled upon the University of Havana's Confucius Institute, although it was closed. Our Taxi home costed $5.
 
@@ -125,7 +128,7 @@ We took a cab to Jaimanitas for $10. The driver picked up and dropped off other 
 
 Jaimanitas is home to Casa Fuster, which is home to Jose Fuster, and it is really extraordinary. It is a whole house decorated with murals. I took some panoramas which are available in the attached photo album; these are probably the best way to view the house.
 
-![Mural in Casa Fuster](/resources/cuba_roadtrip/mural.jpg)
+{% include image.html description="Mural in Casa Fuster" url="/resources/cuba_roadtrip/mural.jpg" %}
 
 Afterwards I got Ropa Vieja from a cafeteria in Jaimanitas. We took a cab to Copellia, which is a pretty famous ice cream place. We made the fatal mistake of going in the "tourist" line, which took us to a dingy back room.
 
@@ -139,10 +142,8 @@ Even at that point we still didn't think we'd been had. It was only after we lef
 
 In the end, if they were scammers, they were (in my naive opinion) masters of their craft. Either way, we had a great conversation and learned a lot.
 
-![Jose and Luiz, either awesome students or scammers](/resources/cuba_roadtrip/jose_luiz.jpg)
+{% include image.html description="Jose and Luiz, either awesome students or scammers" url="/resources/cuba_roadtrip/jose_luiz.jpg" %}
 
 # Conclusion
 
 Cuba was a load of fun, and definitely a learning experience. It was very interesting to contrast this experience with what I've read and learned about Cuba from other sources. The face of the country that I was exposed to as a passer-though was very beautiful, but I go the sense from interacting with people and learning about their day-to-day lives that there were many downsides to living in the country as well. All around, it was a fascinating, unusual, exciting and informative experience, one that I would gladly repeat and strongly endorse.
-
-The photo album from the trip can be found [here](https://goo.gl/photos/18updqNwBfJxn81a8).

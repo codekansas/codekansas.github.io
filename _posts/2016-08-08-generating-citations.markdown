@@ -5,6 +5,10 @@ date: 2016-08-08 12:00:00
 categories: machine-learning
 excerpt: >
   Explaining how to use TF-IDF scores for document similarity and applying those to choose documents to cite for particular sentences.
+image: /resources/index/donald_trump.jpg
+links:
+ - Wikipedia Downloader: https://github.com/codekansas/chrome-downloader
+ - View Code: https://github.com/codekansas/citation-generator
 ---
 
 # Introduction
@@ -15,7 +19,7 @@ In this blog post, I'll describe a simple information retrieval metric, TF-IDF, 
 
 # Language Models
 
-According to Wikipedia, a [language model][language-model-wiki] is "a statistical language model is a probability distribution over sequences of words". Phrased mathematically, given a sequence of words, a 
+According to Wikipedia, a [language model][language-model-wiki] is "a statistical language model is a probability distribution over sequences of words". Phrased mathematically, given a sequence of words, a
 language model tells you
 
 $$P(w_1, w_2, ..., w_m)$$
@@ -53,33 +57,111 @@ where $$N$$ is the total number of documents in the document set $$D$$, and $$n_
 
 Here is a dummy set to illustrate the above math.
 
-|ID|Text|
-|--|----|
-|1|I have heard the mermaids singing, each to each. I do not think that they will sing to me.|
-|2|He who sings scares away his woes.|
-|3|Elvish singing is not a thing to miss, in June under the stars, not if you care for such things.|
+<table class="ui celled compact table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="collapsing">1</td>
+      <td>I have heard the mermaids singing, each to each. I do not think that they will sing to me.</td>
+    </tr>
+    <tr>
+      <td class="collapsing">2</td>
+      <td>He who sings scares away his woes.</td>
+    </tr>
+    <tr>
+      <td class="collapsing">3</td>
+      <td>Elvish singing is not a thing to miss, in June under the stars, not if you care for such things.</td>
+    </tr>
+  </tbody>
+</table>
 
 Let's calculate the TF-IDF for the terms "sing" and "mermaid". First, let's do some simple preprocessing on this dataset. We'll say that "singing", "sings" and "sing" are basically the same, as are "mermaids" and "mermaid" (in practice, this is called lemmatization). Then we can calculate the **term frequency** for each document as:
 
-|ID|$$\text{tf}(\text{sing},d)$$|$$\text{tf}(\text{mermaid},d)$$|
-|--|---------------------|------------------------|
-|1|2|1|
-|2|1|0|
-|3|1|0|
+<table class="ui celled compact definition table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>$$\text{tf}(\text{sing},d)$$</th>
+      <th>$$\text{tf}(\text{mermaid},d)$$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="collapsing">1</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td class="collapsing">2</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td class="collapsing">3</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
 
 We can also calculate the **inverse document frequency** for each term.
 
-|Term|$$\text{df}(t,D)$$|$$\frac{N}{n_t}$$|$$\text{idf}(t,D) = \log{\frac{N}{n_t}}$$|
-|----|-----------|-----------------|----------------------------------|
-|sing|3|1|0|
-|mermaid|1|0.333|0.477|
+<table class="ui celled compact definition table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>$$\text{df}(t,D)$$</th>
+      <th>$$\frac{N}{n_t}$$</th>
+      <th>$$\text{idf}(t,D) = \log{\frac{N}{n_t}}$$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="collapsing">sing</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td class="collapsing">mermaid</td>
+      <td>1</td>
+      <td>0.333</td>
+      <td>0.477</td>
+    </tr>
+  </tbody>
+</table>
 
 Using these values, we get final TF-IDF values of:
 
-| |1|2|3|
-|-|-|-|-|
-|sing|0|0|0|
-|mermaid|0.477|0|0|
+<table class="ui celled compact definition table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="collapsing">sing</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td class="collapsing">mermaid</td>
+      <td>0.477</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
 
 In this case, "sing" doesn't help us choose a document, since it shows up in all the documents, while "mermaid" does, since it only appears in one of the documents. If we were trying to select the best document for either term, this metric tells us that all the documents are equally useful (or unhelpful) for telling us about singing, but the first document is more useful than the other two for telling us about mermaids.
 
@@ -87,11 +169,28 @@ In this case, "sing" doesn't help us choose a document, since it shows up in all
 
 To use TF-IDF for queries that contain multiple words, we can add the TF-IDF scores for each term. For the above example, if we were querying the phrase "mermaids singing", we would get compiled TF-IDF scores of
 
-|ID|Score|
-|--|-----|
-|1|0.477|
-|2|0|
-|3|0|
+<table class="ui celled table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>0.477</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
 
 indicating that we should choose the first document, the document with the maximum TF-IDF score. We can therefore formalize our "search engine" as
 
@@ -121,18 +220,31 @@ If you have a bunch of documents which you want to use as citations for a paper 
 
 Donald Trump is well-known for using gut-based rather than publically-available citations in his speeches, so they seemed like an ideal application. The speech in question is his [2016 RNC speech][trump-speech]. To generate a training corpus, I wrote a simple Chrome extension to quickly download Wikipedia pages, which you can get [from Github][chrome-extension].
 
-The full annotated text can be found <a href="/resources/tfidf/tfidf_trump.html" target="_blank">here</a>. Additionally, if you want to generate your own citations, the code for this project is available [here][github-repo]. I cherry-picked some examples:
+Below are some example "citations".
 
-|Quotes from Donald Trump's RNC Speech|
-|-------------------------------------|
-|We must have the best intelligence gathering operation in the world [[china](https://en.wikipedia.org/wiki/china)]. We must abandon the failed policy of nation building and regime change that Hillary Clinton pushed in Iraq Libya Egypt and Syria [[hillary_clinton](https://en.wikipedia.org/wiki/hillary_clinton)]. Instead we must work with all of our allies who share our goal of destroying ISIS and stamping out Islamic terror [[islam](https://en.wikipedia.org/wiki/islam)].|
-|Anyone who endorses violence hatred or oppression is not welcome in our country and never will be [[mexico](https://en.wikipedia.org/wiki/hillary_clinton)]. Decades of record immigration have produced lower wages and higher unemployment for our citizens especially for African American and Latino workers [[mexico](https://en.wikipedia.org/wiki/mexico)]. We are going to have an immigration system that works but one that works for the American people [[barack_obama](https://en.wikipedia.org/wiki/barack_obama)].|
-|You have so much to contribute to our politics yet our laws prevent you from speaking your minds from your own pulpits [[hillary_clinton](https://en.wikipedia.org/wiki/hillary_clinton)]. An amendment pushed by Lyndon Johnson many years ago threatens religious institutions with a loss of their tax exempt status if they openly advocate their political views [[united_states_constitution](https://en.wikipedia.org/wiki/united_states_constitution)]. I am going to work very hard to repeal that language and protect free speech for all Americans [[hillary_clinton](https://en.wikipedia.org/wiki/hillary_clinton)].|
+<table class="ui celled table">
+  <thead>
+    <tr>
+      <th>Quotes from Donald Trump's RNC Speech</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>We must have the best intelligence gathering operation in the world [<a href="https://en.wikipedia.org/wiki/china">china</a>]. We must abandon the failed policy of nation building and regime change that Hillary Clinton pushed in Iraq Libya Egypt and Syria [<a href="https://en.wikipedia.org/wiki/hillary_clinton">hillary_clinton</a>]. Instead we must work with all of our allies who share our goal of destroying ISIS and stamping out Islamic terror [<a href="https://en.wikipedia.org/wiki/islam">islam</a>].</td>
+    </tr>
+    <tr>
+      <td>Anyone who endorses violence hatred or oppression is not welcome in our country and never will be [<a href="https://en.wikipedia.org/wiki/hillary_clinton">mexico</a>]. Decades of record immigration have produced lower wages and higher unemployment for our citizens especially for African American and Latino workers [<a href="https://en.wikipedia.org/wiki/mexico">mexico</a>]. We are going to have an immigration system that works but one that works for the American people [<a href="https://en.wikipedia.org/wiki/barack_obama">barack_obama</a>].</td>
+    </tr>
+    <tr>
+      <td>You have so much to contribute to our politics yet our laws prevent you from speaking your minds from your own pulpits [<a href="https://en.wikipedia.org/wiki/hillary_clinton">hillary_clinton</a>]. An amendment pushed by Lyndon Johnson many years ago threatens religious institutions with a loss of their tax exempt status if they openly advocate their political views [<a href="https://en.wikipedia.org/wiki/united_states_constitution">united_states_constitution</a>]. I am going to work very hard to repeal that language and protect free speech for all Americans [<a href="https://en.wikipedia.org/wiki/hillary_clinton">hillary_clinton</a>].</td>
+    </tr>
+  </tbody>
+</table>
 
 [trump-speech]: http://www.politico.com/story/2016/07/full-transcript-donald-trump-nomination-acceptance-speech-at-rnc-225974
 [colbert-correspondents]: https://www.youtube.com/watch?v=2X93u3anTco
 [wikicorpus]: http://www.cs.upc.edu/~nlp/wikicorpus/
-[chrome-extension]: https://github.com/codekansas/citation-generator
+[chrome-extension]: https://github.com/codekansas/chrome-downloader
 [language-model-wiki]: https://en.wikipedia.org/wiki/Language_model
 [bm25]: https://en.wikipedia.org/wiki/Okapi_BM25
 [lda]: https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation

@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+<div style="margin-bottom: 2rem;" class="ui secondary segment">
+  <h1 class="ui header">Machine Learning</h1>
+</div>
+
+<div class="ui four stackable cards">
+  {% for post in site.categories["machine-learning"] %}
+  {% if post.title %}
+  <a href="{{ post.url | prepend: site.baseurl }}" class="ui card">
+    <div class="image">
+      <img src="{{ post.image }}" alt="{{ post.title }}">
+    </div>
+    <div class="content">
+      <div class="header">{{ post.title }}</div>
+      <div class="meta">{{ post.date | date: "%B %-d, %Y" }}</div>
+      <div class="description">{{ post.excerpt }}</div>
+    </div>
+  </a>
+  {% endif %}
+  {% endfor %}
+</div>
+
+<div style="margin-top: 2rem;" class="ui secondary segment">
+  <h1 class="ui header">Personal</h1>
+</div>
+
+<div class="ui four stackable cards">
+  {% for post in site.categories["personal"] %}
+  {% if post.title %}
+  <a href="{{ post.url | prepend: site.baseurl }}" class="ui card">
+    <div class="image">
+      <img src="{{ post.image }}" alt="{{ post.title }}">
+    </div>
+    <div class="content">
+      <div class="header">{{ post.title }}</div>
+      <div class="meta">{{ post.date | date: "%B %-d, %Y" }}</div>
+      <div class="description">{{ post.excerpt }}</div>
+    </div>
+  </a>
+  {% endif %}
+  {% endfor %}
+</div>

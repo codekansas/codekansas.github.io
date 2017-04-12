@@ -1,16 +1,22 @@
-<figure class="image">
-  <div style="">
-    <a href="{{ include.url1 }}" target="_blank">
-      <img style="width: 60%; outline: 1px solid white; outline-offset: -1px; max-height: none;" src="{{ include.url1 }}" alt="{{ include.description }}"/>
-    </a>
-    <div style="width: 60%; vertical-align; auto; margin: 0 auto; display: flex; justify-content: space-between;">
-      <a href="{{ include.url2 }}" target="_blank">
-        <img style="max-width: none; outline: 1px solid white; outline-offset: -1px; max-height: none; width: 100%;" src="{{ include.url2 }}" alt="{{ include.description }}"/>
-      </a>
-      <a href="{{ include.url3 }}" target="_blank">
-        <img style="max-width: none; outline: 1px solid white; outline-offset: -1px; max-height: none; width: 100%;" src="{{ include.url3 }}" alt="{{ include.description }}"/>
-      </a>
+<div class="ui segments">
+  <div class="ui segment">
+    <div class="ui fluid image">
+      <img class="ui fluid image" src="{{ include.url1 }}">
     </div>
   </div>
-  <figcaption align="bottom">{{ include.description }}</figcaption>
-</figure>
+  <div class="ui horizontal segments">
+    <div class="ui segment">
+      <div class="ui fluid image">
+        <img src="{{ include.url2 }}">
+      </div>
+    </div>
+    <div class="ui segment">
+      <div class="ui fluid image">
+        <img src="{{ include.url3 }}">
+      </div>
+    </div>
+  </div>
+  <div class="ui secondary segment">
+    {{ include.description }}
+  </div>
+</div>

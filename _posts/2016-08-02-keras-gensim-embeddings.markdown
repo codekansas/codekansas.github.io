@@ -5,14 +5,10 @@ date: 2016-08-02 12:00:00
 categories: machine-learning
 excerpt: >
   A short post and script regarding using Gensim Word2Vec embeddings in Keras.
+image: /resources/index/gensim.png
+links:
+ - View Code: https://gist.github.com/codekansas/15b3c2a2e9bc7a3c345138a32e029969
 ---
-
-<table class="note">
-<tr><th>Download</th></tr>
-<tr><td>
-The full script for generating and testing word embeddings, as described in this post, can be found <a href="/resources/embeddings/embeddings.html" target="_blank">here</a>.
-</td></tr>
-</table>
 
 # Introduction
 
@@ -128,10 +124,10 @@ model = Model(input=[input_a, input_b], output=similarity)
 
 The canonical usage for word embeddings is to see that similar words are near each other. We can measure the cosine similarity between words with a simple model like this (note that we aren't training it, just using it to get the similarity).
 
+<script src="https://gist.github.com/codekansas/15b3c2a2e9bc7a3c345138a32e029969.js"></script>
 
 [script-link]: /resources/embeddings/embeddings.py
 [keras-blog]: https://blog.keras.io/using-pre-trained-word-embeddings-in-a-keras-model.html
 [github-issue]: https://github.com/fchollet/keras/issues/853
 [google-group-discussion]: https://groups.google.com/forum/#!topic/keras-users/4wUnPDutY5o
 [my-gist]: https://gist.github.com/codekansas/15b3c2a2e9bc7a3c345138a32e029969
-

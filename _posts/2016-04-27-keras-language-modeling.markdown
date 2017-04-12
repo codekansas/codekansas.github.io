@@ -4,17 +4,13 @@ title: "Deep Language Modeling for Question Answering using Keras"
 date: 2016-04-27 12:00:00
 categories: machine-learning
 excerpt: >
-  An in-depth introduction to using Keras for language modeling. Includes sections on word embedding, characterizing recurrent and convolutional neural networks, attentional RNNs, and similarity metrics for vector embeddings, each with example code.
+  An in-depth introduction to using Keras for language modeling; word embedding, recurrent and convolutional neural networks, attentional RNNs, and similarity metrics for vector embeddings.
+image: /resources/attention_rnn/word_vectors.png
+links:
+ - Hacker News: https://news.ycombinator.com/item?id=11623287
+ - /r/MachineLearning: https://www.reddit.com/r/MachineLearning/comments/4h3moa/deep_language_modeling_for_question_answering/
+ - View Code: https://github.com/codekansas/keras-language-modeling
 ---
-
-<table class="note">
-<tr><th>Github Repository</th></tr>
-<tr><td>
-The repository associated with this post can be found <a
-href="https://github.com/codekansas/keras-language-modeling"
-target="_blank">here</a>.
-</td></tr>
-</table>
 
 # Introduction
 
@@ -73,7 +69,7 @@ input_sentence = Input(shape=(sentence_maxlen,), dtype='int32')
 embedding = Embedding(n_words, n_embed_dims)(input_sentence)
 {% endhighlight %}
 
-Let's try this out! We can train a recurrent neural network to predict some dummy data and examine the embedding layer for each vector. This model takes a sentence like "sam is red" or "sarah not green" and predicts what color the person is. It is a very simple example, but it will illustrate what the Embedding layer is doing, and also illustrate how we can turn a bunch of sentences into vectors of indices by building a dictionary. 
+Let's try this out! We can train a recurrent neural network to predict some dummy data and examine the embedding layer for each vector. This model takes a sentence like "sam is red" or "sarah not green" and predicts what color the person is. It is a very simple example, but it will illustrate what the Embedding layer is doing, and also illustrate how we can turn a bunch of sentences into vectors of indices by building a dictionary.
 
 {% highlight python %}
 import itertools
@@ -109,7 +105,7 @@ sentence_maxlen = 3
 n_words = len(words)
 n_embed_dims = 3
 
-# put together a model to predict 
+# put together a model to predict
 from keras.layers import Input, Embedding, merge, Flatten, SimpleRNN
 from keras.models import Model
 
@@ -147,13 +143,13 @@ green:	[-0.05930901 -0.33241618 -0.06948926]
 
 Each category is grouped in the 3-dimensional vector space. The network learned each of these categories from how each word was used; Sarah and Sam are the red people, while Bob and Hannah are the green people. However, it did not differentiate well between `not`, `is`, `red`, and `green`, because those weren't immediately obvious for the decision task.
 
-![Word distributions in vector space](/resources/attention_rnn/word_vectors.png)
+{% include image.html description="Word distributions in vector space. The word distributions are learned so that the red people, Sarah and Sam, are in one part of the space, and the green people, Bob and Hannah, are in another part." url="/resources/attention_rnn/word_vectors.png" %}
 
 # Recurrent Neural Networks
 
 As the Keras examples illustrate, there are different philosophies on deep language modeling. [Feng et. al.][feng] did a bunch of benchmarks with convolutional networks, and ended up with some impressive results. [Tan et. al.][tan] used recurrent networks with some different parameters. I'll focus on recurrent neural networks first (What do pirates call neural networks? *Arrrgh*NNs). I'll assume some familiarity with both recurrent and convolutional neural networks. [Andrej Karpathy's blog](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) discusses recurrent neural networks in detail. Here is an image from that post which explains the core concept:
 
-![Recurrent neural network](/resources/attention_rnn/karpathy_rnn.jpeg)
+{% include image.html description="Recurrent neural network architectures, from <a href='http://karpathy.github.io/2015/05/21/rnn-effectiveness/'>Andrej Karpathy's blog</a>." url="/resources/attention_rnn/karpathy_rnn.jpeg" %}
 
 ## Vanilla
 
@@ -278,15 +274,15 @@ class MultiplicationLayer(Layer):
 	def __init__(self, **kwargs):
 		self.init = initializations.get('glorot_uniform')
 		super(MultiplicationLayer, self).__init__(**kwargs)
-	
+
 	def build(self, input_shape):
 		# each sample should be a scalar
 		assert len(input_shape) == 2 and input_shape[1] == 1
 		self.multiplicand = self.init(input_shape[1:], name='multiplicand')
-		
+
 		# let Keras know that we want to train the multiplicand
 		self.trainable_weights = [self.multiplicand]
-	
+
 	def get_output_shape_for(self, input_shape):
 		# we're doing a scalar multiply, so we don't change the input shape
 		assert input_shape and len(input_shape) == 2 and input_shape[1] == 1
@@ -331,7 +327,7 @@ def build(self, input_shape):
 	# each sample should be a scalar
 	assert len(input_shape) == 2 and input_shape[1] == 1
 	self.multiplicand = self.init(input_shape[1:], name='multiplicand')
-	
+
 	# let Keras know that we want to train the multiplicand
 	self.trainable_weights = [self.multiplicand]
 {% endhighlight %}
@@ -613,7 +609,7 @@ This looks a bit like cosine similarity, but the scaling seems off. Cosine simil
 
 Below, a unit square (blue) is multiplied by the first matrix to get the orange square, and by the second matrix to get the yellow square.
 
-![Matrix transformation](/resources/attention_rnn/matrix_transform.png)
+{% include image.html description="Matrix transformations on a square. The orange square is the result of training a 90 degree rotation transformation by minimizing mean squared error. The yellow square is the result of training the same transformation by minimizing cosine distance." url="/resources/attention_rnn/matrix_transform.png" %}
 
 ## Other Similarity Metrics
 
@@ -722,9 +718,7 @@ Values for `gamma` used were `[0.5, 1.0, 1.5]` and `c` was `1`.
 
 # InsuranceQA Model Example
 
-A surprisingly good model for the [InsuranceQA dataset][feng] is as follows:
-
-![Model diagram](/resources/attention_rnn/model_diagram.jpeg)
+{% include image.html description="This surprisingly simple model performed very well on the task." url="/resources/attention_rnn/model_diagram.jpeg" %}
 
 This model achieved relatively good marks for Top-1 Accuracy (how often did the model rank a ground truth the highest out of 500 results) and Mean Reciprocal Rank (MRR), which is defined as
 
@@ -732,11 +726,32 @@ $$MRR = \frac{1}{|Q|} \sum_{i=1}^{|Q|}{\frac{1}{rank_i}}$$
 
 The results after learning the training set are summaraized in the following table.
 
-|Test set|Top-1 Accuracy|Mean Reciprocal Rank|
-|------|------|------|
-|Test 1|0.4933|0.6189|
-|Test 2|0.4606|0.5968|
-|Dev   |0.4700|0.6088|
+<table class="ui celled compact definition table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Top-1 Accuracy</th>
+      <th>Mean Reciprocal Rank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="collapsing">Test 1</td>
+      <td>0.4933</td>
+      <td>0.6189</td>
+    </tr>
+    <tr>
+      <td class="collapsing">Test 2</td>
+      <td>0.4606</td>
+      <td>0.5968</td>
+    </tr>
+    <tr>
+      <td class="collapsing">Dev</td>
+      <td>0.4700</td>
+      <td>0.6088</td>
+    </tr>
+  </tbody>
+</table>
 
 For comparison, the best model from [Feng et. al.][feng] achieved an accuracy of 0.653 on Test 1, and the model in [Tan et. al.][tan] achieved an accuracy of 0.681 on Test 1. This model isn't exceptional, but it works pretty well for how simple it is.  It outperforms the baseline bag of words model, and performs on par with the Metzler-Bendersky IR model introduced in "Learning concept importance using a weighted dependence model" ([Bendersky and Metzler, 2010][bendersky]). Here's how we build it in Keras:
 
@@ -775,12 +790,6 @@ model = Merge([question_output, answer_output], [similarity])
 {% endhighlight %}
 
 The code is kind of awkward without the context, so I would recommend checking out the repository to see how it works. The repository contains the necessary code for building a question answering model using Keras and evaluating it on the Insurance QA dataset.
-
-# Discussion Links
-
- - [/r/MachineLearning](https://www.reddit.com/r/MachineLearning/comments/4h3moa/deep_language_modeling_for_question_answering/)
- - [Hacker News](https://news.ycombinator.com/item?id=11623287)
-
 
 [bendersky]: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.157.2597&rep=rep1&type=pdf
 [theano-rnn]: https://github.com/codekansas/theano-rnn

@@ -5,6 +5,9 @@ date: 2016-02-23 12:00:00
 categories: machine-learning
 excerpt: >
   A quick introduction to using Theano for deep learning.
+image: /resources/index/theano.jpeg
+links:
+ - View Gist: https://gist.github.com/codekansas/87dd63ca4e2286e332c7967520ce143c#file-theano_two_layer-py
 ---
 
 This tutorial is a bare-bones introduction to Theano, in the style of [Andrew Trask's Numpy example][trask]. For a more complete version, see the [official tutorial][theano-tut]. It is mostly to help me learn to use Theano, and feedback is more than welcome.
@@ -13,40 +16,8 @@ I used Python 3.5 and Theano 0.8. If you already have Theano set up, skip this. 
 <h2>Straight Code</h2>
 Here is just the code. The network has 5 hidden neurons and learns the XOR function, which takes two inputs and returns a high output only if exactly one of the inputs is high. Otherwise, it returns a low output.
 
-{% highlight python %}
-import theano
-import theano.tensor as T
-import numpy as np
+<script src="https://gist.github.com/codekansas/87dd63ca4e2286e332c7967520ce143c.js"></script>
 
-X = theano.shared(value=np.asarray([[1, 0], [0, 0], [0, 1], [1, 1]]), name='X')
-y = theano.shared(value=np.asarray([[1], [0], [1], [0]]), name='y')
-rng = np.random.RandomState(1234)
-LEARNING_RATE = 0.01
-
-def layer(n_in, n_out):
-    return theano.shared(value=np.asarray(rng.uniform(low=-1.0, high=1.0,
-    	   size=(n_in, n_out)), dtype=theano.config.floatX), name='W', borrow=True)
-
-W1 = layer(2, 3)
-W2 = layer(3, 1)
-
-output = T.nnet.sigmoid(T.dot(T.nnet.sigmoid(T.dot(X, W1)), W2))
-cost = T.sum((y - output) ** 2)
-updates = [(W1, W1 - LEARNING_RATE * T.grad(cost, W1)),
-           (W2, W2 - LEARNING_RATE * T.grad(cost, W2))]
-
-train = theano.function(inputs=[], outputs=[], updates=updates)
-test = theano.function(inputs=[], outputs=[output])
-
-for i in range(60000):
-    if (i+1) % 10000 == 0:
-        print(i+1)
-    train()
-
-print(test())
-{% endhighlight %}
-
-This code can also be found [here][code-src].
 <h2>Explanation</h2>
 Ok, let's see what's going on here.
 

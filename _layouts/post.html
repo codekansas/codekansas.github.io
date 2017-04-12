@@ -1,20 +1,37 @@
----
-layout: default
----
-<div class="post">
-	<a name="top"></a>
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include head.html %}
 
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">{{ page.date | date: "%B %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-  </header>
+    <!-- Adds MathJax as a dependency. -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-  <article class="post-content">
-    {{ content }}
-    
-    <sub style="text-align: right;">
-    	<div>Send corrections to <a href="mailto:bkbolte18@gmail.com">bkbolte18@gmail.com</a> &#9702; <a href="#top">Back to top</a></div>
-    </sub>
-  </article>
+  </head>
+  <body>
+    {% include header.html %}
 
-</div>
+    <div class="ui main text container post">
+      <div class="ui fluid card">
+        <div data-content="this is a popup" class="content">
+          <img class="right floated tiny ui image" src="{{ page.image }}">
+          <div class="header"><h1>{{ page.title }}</h1></div>
+          <div class="meta">{{ page.date | date: "%B %-d, %Y" }}</div>
+          <div class="description">{{ page.excerpt }}</div>
+        </div>
+        {% if page.links %}
+        <div class="extra content">
+          {% for link_hash in page.links %}
+          {% for link in link_hash %}
+          <a href="{{ link[1] }}" class="ui right floated small basic green button">{{ link[0] }}</a>
+          {% endfor %}
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      {{ content }}
+    </div>
+
+    {% include footer.html %}
+  </body>
+</html>

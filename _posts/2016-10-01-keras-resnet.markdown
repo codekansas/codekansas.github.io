@@ -5,16 +5,10 @@ date: 2016-11-01 12:00:00
 categories: machine-learning
 excerpt: >
   Some thoughts on residual networks (and skip connections in general).
+image: /resources/index/resnet.png
+links:
+ - View Project: https://github.com/codekansas/keras-resnet,https://github.com/codekansas/keras-resnet
 ---
-
-<table class="note">
-<tr><th>Github Repository</th></tr>
-<tr><td>
-The repository associated with this post can be found <a
-href="https://github.com/codekansas/keras-resnet"
-target="_blank">here</a>.
-</td></tr>
-</table>
 
 # Introduction
 
@@ -24,7 +18,7 @@ Residual networks are one of the hot new ways of thinking about neural networks,
 
 First, here is a graphic illustrating the concept of a "residual network".
 
-![ResNet general architecture](/resources/resnet/resnet_general.png)
+{% include image.html description="ResNet general architecture" url="/resources/resnet/resnet_general.png" %}
 
 Note that this "network" is really just a building block. In the ResNet architecture, a whole bunch of these were stuck together.
 
@@ -57,7 +51,7 @@ $$m(x, f(x)) = x * g(x) + f(x) * (1 - g(x))$$
 
 where $$g(x)$$ is a gating function dependent on $$x$$. Depending on how the problem is formulated, the gating function can significantly increate the number of parameters. Aside from that, this formulation might get in the way of the idea discussed earlier; we want the lower layers to learn a near-perfect representation, so we should avoid modifying this representation at all in upper layers.
 
-![ResNet information flow](/resources/resnet/resnet_infoflow.png)
+{% include image.html description="ResNet information flow" url="/resources/resnet/resnet_infoflow.png" %}
 
 The graphic above illustrates how the residual network achieves better information flow by passing more information through identity mapping to avoid going through the residual function.
 
@@ -77,7 +71,7 @@ $$\vec{y}_2 = g_2(h_1(\vec{x}))$$
 
 Here's a visual representation of these equations:
 
-![Fully connected network and residual](/resources/resnet/feedforward_resnet.png)
+{% include image.html description="Fully connected network and residual" url="/resources/resnet/feedforward_resnet.png" %}
 
 Allegedly, the key advantage of doing this is so that more information can flow from the output of the first layer to the end result. Let's take advantage of some loose mathematical notation to characterize what we mean by "information flow". Intuitively, high information flow between two parameters means that changing one parameter significantly affects the other parameter. In other words, the partial derivative (usually called a "gradient") is relatively large.
 
@@ -112,7 +106,7 @@ at each layer of of a ResNet model trained on MNIST data, which can be seen
 below. The code for generating these images is also available in the repository
 as well.
 
-![Visualization of some ResNet layers trained on MNIST.](/resources/resnet/visualizations.png)
+{% include image.html description="Visualization of some ResNet layers trained on MNIST." url="/resources/resnet/visualizations.png" %}
 
 [highway-schmid]: https://arxiv.org/abs/1505.00387
 [colah-lstm]: http://colah.github.io/posts/2015-08-Understanding-LSTMs/

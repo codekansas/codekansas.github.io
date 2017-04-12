@@ -3,8 +3,9 @@ layout: post
 title: "My Internship Experience"
 date: 2017-02-11 12:00:00
 categories: personal
+image: /resources/index/gomazon.png
 excerpt: >
-  An overview of my internship experiences at Amazon and Google.
+  An overview of my internship experiences at Amazon and Google (I will probably update this after I finish at Facebook).
 ---
 
 All the opinions I express in this post are strictly my own.
@@ -84,4 +85,3 @@ Google's internal tools make Amazon's seem like they're from the stone age. Thei
 This was my least favorite part about Google; their interview process is really complicated. When I applied for a Summer internship, I went through three phone interviews, then got put in the "host matching" pool. I sat around in it for about two months, during which time I interviewed for and got an offer from Amazon, then found out that I didn't get any follow-up interviews. So basically you can only get an internship if someone at Google sees your resume and likes you.
 
 I think this might be a drawback for people from less well-known schools, since it isn't as data-based. When I got to Google in the fall, I got to look at the other side of this process. Without breaking any NDAs, it's pretty much a webpage that people look through. Some people are "starred" but most people aren't. You can filter by related interests. My recruiter said I would have the best chances if I made it seem like I was open to doing anything, but when I did that in the summer, no one was interested in me. I think better advice is to taylor your resume towards a specific area, and say you're interested in that area, because when hosts are matching people they are looking for people who are interested in their area. Plus, if you do get an offer, you'll end up doing exactly what you want to do.
-
