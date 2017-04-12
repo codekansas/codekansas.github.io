@@ -19,10 +19,10 @@
           <div class="description">{{ page.excerpt }}</div>
         </div>
         {% if page.links %}
-        <div class="extra content">
+        <div class="ui extra content horizontal link list">
           {% for link_hash in page.links %}
           {% for link in link_hash %}
-          <a href="{{ link[1] }}" class="ui right floated small basic green button">{{ link[0] }}</a>
+          <a href="{{ link[1] }}" target="_blank" class="green item">{{ link[0] }} <i class="ui angle right icon"></i></a>
           {% endfor %}
           {% endfor %}
         </div>

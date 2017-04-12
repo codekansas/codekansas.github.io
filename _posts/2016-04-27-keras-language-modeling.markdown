@@ -7,9 +7,9 @@ excerpt: >
   An in-depth introduction to using Keras for language modeling; word embedding, recurrent and convolutional neural networks, attentional RNNs, and similarity metrics for vector embeddings.
 image: /resources/attention_rnn/word_vectors.png
 links:
- - Hacker News: https://news.ycombinator.com/item?id=11623287
- - /r/MachineLearning: https://www.reddit.com/r/MachineLearning/comments/4h3moa/deep_language_modeling_for_question_answering/
  - View Code: https://github.com/codekansas/keras-language-modeling
+ - Hacker News: https://news.ycombinator.com/item?id=11623287
+ - Reddit: https://www.reddit.com/r/MachineLearning/comments/4h3moa/deep_language_modeling_for_question_answering/
 ---
 
 # Introduction

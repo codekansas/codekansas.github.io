@@ -68,6 +68,10 @@ for i in range(60000):
 print(test())
 {% endhighlight %}
 
+<div class="ui left rail">
+  Left Rail Content
+</div>
+
 Here, we define our "train" and "test" functions. The "train" function updates the weights according to the update rules we provided earlier, after calculating the cost function. The "test" function gives us the output of the network. We then run the network through 60000 training steps. After training, we print the output, and lo and behold, it approximates our XOR function pretty well!
 
 [trask]: https://iamtrask.github.io/2015/07/12/basic-python-network
