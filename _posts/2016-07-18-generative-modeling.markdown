@@ -10,13 +10,15 @@ keywords:
 image: /resources/index/rnnrbm.png
 excerpt: >
   Building on the Recurrent RBM for sequence modeling. This post relates to what I am doing for my Master's thesis.
+links:
+ - View Code: https://github.com/codekansas/generative-modeling
 ---
-
-{% include multiimage.html url1="/resources/generative_modeling/rnnrbm.png" url2="/resources/generative_modeling/rnnrbm2.png" url3="/resources/generative_modeling/rnnrbm3.png" description="Samples from the RNN-RBM applied to spectrograms of animal vocalizations." %}
 
 # Introduction
 
-For my Master's thesis, I'm working on modeling some time-dependent sequences. There is a pretty rich set of literature associated with doing this, much of it related to addressing the unique challenges posed in voice recognition. The respository associated with this can be found [here][github-repo].
+For my Master's thesis, I'm working on modeling some time-dependent sequences. There is a pretty rich set of literature associated with doing this, much of it related to addressing the unique challenges posed in voice recognition.
+
+{% include multiimage.html url1="/resources/generative_modeling/rnnrbm.png" url2="/resources/generative_modeling/rnnrbm2.png" url3="/resources/generative_modeling/rnnrbm3.png" description="Samples from the RNN-RBM applied to spectrograms of animal vocalizations." %}
 
 ## Terminology
 
