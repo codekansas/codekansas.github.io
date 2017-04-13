@@ -7,7 +7,7 @@ figure.highlight {
 /**
  * Code formatting
  */
-.highlight pre, code {
+.highlight pre, code, pre.highlight {
     font-size: 13px;
     border: 1px solid $grey-color-light;
     border-radius: 3px;
@@ -18,7 +18,7 @@ code {
     padding: 3px 5px;
 }
 
-.highlight pre {
+.highlight pre, pre.highlight {
     padding: 8px 12px;
     overflow-x: auto;
 
