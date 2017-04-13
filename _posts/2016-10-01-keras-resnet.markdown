@@ -3,8 +3,13 @@ layout: post
 title: "Looking at Residual Networks"
 date: 2016-11-01 12:00:00
 categories: machine-learning
+keywords:
+ - Residuals
+ - Keras
+ - ResNet
 excerpt: >
-  Some thoughts on residual networks (and skip connections in general).
+  Some thoughts on residual networks (and skip connections in general),
+  including how to build a wrapper for Keras layers.
 image: /resources/index/resnet.png
 links:
  - View Project: https://github.com/codekansas/keras-resnet,https://github.com/codekansas/keras-resnet

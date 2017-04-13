@@ -2,8 +2,14 @@
 title: Ben Bolte's Blog
 email: ben@bolte.cc
 description: Yet Another Machine Learning Blog.
+keywords:
+  - Machine Learning
+  - Neural Networks
+  - Neuroscience
+  - Data Science
+  - Information Retrieval
 baseurl: ""
-url: "http://codekansas.github.io" 
+url: "http://codekansas.github.io"
 github_username: codekansas
 twitter_username: code__kansas
 facebook_username: benjamin.bolte
@@ -11,4 +17,3 @@ facebook_username: benjamin.bolte
 # Build settings
 markdown: kramdown
 permalink: /blog/:year/:title:output_ext
-

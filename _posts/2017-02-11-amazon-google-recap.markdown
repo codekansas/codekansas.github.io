@@ -3,6 +3,10 @@ layout: post
 title: "My Internship Experience"
 date: 2017-02-11 12:00:00
 categories: personal
+keywords:
+ - Amazon
+ - Google
+ - Internship
 image: /resources/index/gomazon.png
 excerpt: >
   An overview of my internship experiences at Amazon and Google (I will probably update this after I finish at Facebook).

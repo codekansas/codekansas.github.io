@@ -3,6 +3,12 @@ layout: post
 title: "Deep Language Modeling for Question Answering using Keras"
 date: 2016-04-27 12:00:00
 categories: machine-learning
+keywords:
+ - Keras
+ - Language Modeling
+ - Question Answering
+ - Word Vectors
+ - Deep Learning
 excerpt: >
   An in-depth introduction to using Keras for language modeling; word embedding, recurrent and convolutional neural networks, attentional RNNs, and similarity metrics for vector embeddings.
 image: /resources/attention_rnn/word_vectors.png

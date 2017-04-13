@@ -2,15 +2,14 @@
 layout: default
 ---
 
-<div style="margin-bottom: 2rem;" class="ui secondary segment">
-  <h1 class="ui header">Machine Learning</h1>
-</div>
+<h1 style="margin-bottom: 2rem;" class="ui centered header">Machine Learning</h1>
 
-<div class="ui four stackable cards">
+<div class="ui two stackable cards">
   {% for post in site.categories["machine-learning"] %}
   {% if post.title %}
   <a href="{{ post.url | prepend: site.baseurl }}" class="ui card">
     <div class="content">
+      <img class="right floated tiny ui image" src="{{ post.image }}">
       <div class="header">{{ post.title }}</div>
       <div class="meta">{{ post.date | date: "%B %-d, %Y" }}</div>
       <div class="description">{{ post.excerpt }}</div>
@@ -20,15 +19,14 @@ layout: default
   {% endfor %}
 </div>
 
-<div style="margin-top: 2rem;" class="ui secondary segment">
-  <h1 class="ui header">Personal</h1>
-</div>
+<h1 style="margin-top: 2rem;" class="ui centered header">Personal</h1>
 
-<div class="ui four stackable cards">
+<div class="ui two stackable cards">
   {% for post in site.categories["personal"] %}
   {% if post.title %}
   <a href="{{ post.url | prepend: site.baseurl }}" class="ui card">
     <div class="content">
+      <img class="right floated tiny ui image" src="{{ post.image }}">
       <div class="header">{{ post.title }}</div>
       <div class="meta">{{ post.date | date: "%B %-d, %Y" }}</div>
       <div class="description">{{ post.excerpt }}</div>

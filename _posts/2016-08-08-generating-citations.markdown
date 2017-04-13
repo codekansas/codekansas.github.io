@@ -3,6 +3,10 @@ layout: post
 title: "Using TF-IDF to Annotate to a Trump Speech"
 date: 2016-08-08 12:00:00
 categories: machine-learning
+keywords:
+ - TF-IDF
+ - Donald Trump
+ - Annotations
 excerpt: >
   Explaining how to use TF-IDF scores for document similarity and applying those to choose documents to cite for particular sentences.
 image: /resources/index/donald_trump.jpg

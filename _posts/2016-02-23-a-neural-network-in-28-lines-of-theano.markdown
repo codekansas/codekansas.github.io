@@ -3,8 +3,13 @@ layout: post
 title: "A Neural Network in 28 Lines of Theano"
 date: 2016-02-23 12:00:00
 categories: machine-learning
+keywords:
+ - Theano
+ - Neural Network
+ - Python
 excerpt: >
-  A quick introduction to using Theano for deep learning.
+  A quick introduction to using Theano for deep learning, from the bare-bones
+  to a full neural network.
 image: /resources/index/theano.jpeg
 links:
  - View Gist: https://gist.github.com/codekansas/87dd63ca4e2286e332c7967520ce143c#file-theano_two_layer-py

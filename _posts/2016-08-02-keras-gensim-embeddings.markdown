@@ -3,8 +3,14 @@ layout: post
 title: "Using Gensim Word2Vec Embeddings in Keras"
 date: 2016-08-02 12:00:00
 categories: machine-learning
+keywords:
+ - Gensim
+ - Keras
+ - Word2Vec
+ - Word Embeddings
 excerpt: >
-  A short post and script regarding using Gensim Word2Vec embeddings in Keras.
+  A short post and script regarding using Gensim Word2Vec embeddings in Keras,
+  with example code.
 image: /resources/index/gensim.png
 links:
  - View Code: https://gist.github.com/codekansas/15b3c2a2e9bc7a3c345138a32e029969

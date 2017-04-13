@@ -3,8 +3,13 @@ layout: post
 title: "Cuba Blog"
 date: 2017-03-04 12:00:00
 categories: personal
+keywords:
+ - Cuba
+ - Traveling to Cuba
+ - College Students
 excerpt: >
-  Field guide to traveling to Cuba for spring break as a naive college student.
+  A field guide to traveling to Cuba, written by naive college students for
+  naive college students, mostly as exposition.
 image: /resources/index/cuba.jpg
 links:
  - Photo Album: https://goo.gl/photos/18updqNwBfJxn81a8

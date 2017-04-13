@@ -3,9 +3,17 @@ layout: post
 title: "Roadtrip Blog"
 date: 2016-05-11 12:00:00
 categories: personal
+keywords:
+ - Roadtrip
+ - Nashville
+ - Chicago
+ - Toronto
+ - Montreal
+ - Washington
 image: /resources/index/music_city_center.jpg
 excerpt: >
-  My trip with my girlfriend around the United States and Canada.
+  Narration from my trip with my girlfriend through Nashville, Chicago,
+  Toronto, Montreal, and Washington DC.
 ---
 
 <table class="ui celled table">

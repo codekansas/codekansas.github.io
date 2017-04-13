@@ -3,11 +3,18 @@ layout: post
 title: "Building an Unsupervised Representation of Calcium Imaging"
 date: 2017-04-13 12:00:00
 categories: machine-learning
+keywords:
+ - Calcium Imaging
+ - Deep Learning
+ - Autoencoder
+ - Keras
 excerpt: >
-  A tutorial on applying deep learning to calcium imaging.
+  A tutorial on applying deep learning to calcium imaging, which can be applied
+  to more general time-series modeling.
 image: /resources/index/calcium_autoencoder.png
 links:
  - View Code: https://github.com/codekansas/calcium-gan
+ - Spikefinder Competition: http://spikefinder.codeneuro.org/
 ---
 
 ## Autoencoders
@@ -405,7 +412,7 @@ model.train(calcium, epochs=100)
 
     progress: [....................................................................................................]
 
-Now that we've got a trained model, we can visualize what it thinks the calcium traces look like a) when there is a spike and b) when there isn't a spike. First, let's look at how well the model reconstructs the inputs it's given.
+Now that we've got a trained model, we can visualize how well the model reconstructs the data that we give it.
 
 
 ```python
@@ -481,7 +488,7 @@ plt.show()
         Principal component 9: 0.009
 
 
-{% include image.html description="The completely unsupervised model learns a representation of the data that is fairly well separated into spiking and non-spiking parts along the first principle component. This means that the most *important* components of the calcium fluorescences, in the sense that the autoencoder cares about, are byproducts of spiking, even though the autoencoder has no knowledge of when spiking takes place." url="/resources/calcium_autoencoder/autoencoder_15_1.png" %}
+{% include image.html description="The completely unsupervised model learns a representation of the data that is fairly well separated into spiking and non-spiking parts along the first principle component. This means that the most *important* components of the calcium fluorescences, in the sense that the autoencoder cares about, are byproducts of spiking, even though the autoencoder has no knowledge of when spiking takes place. However, the first principle component explains only 22% of the variance in the latent space; this means there is a lot of variance coming from other sources besides spiking (noise, basically)." url="/resources/calcium_autoencoder/autoencoder_15_1.png" %}
 
 Because the data is mostly split along the first principle component, that means that spiking (according to our variational autoencoder model) causes more variance than other noisy artifacts. This is a pretty weak conclusion (we expected as much, because calcium imaging is supposed to correlate with spiking), but it is still a good sanity check that this shows up in our model. We can visualize this by simply plotting a histogram of the first principle component.
 
