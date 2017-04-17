@@ -15,8 +15,6 @@ links:
  - View Code: https://github.com/codekansas/gibberish-decoder
 ---
 
-This is a simple experiment in predicting a word's meaning purely from it's spelling. A recurrent neural network is first trained to predict word embeddings from spelling, from a subset of 2000 word-embedding pairs [trained using Glove on a Wikipedia crawl](https://nlp.stanford.edu/projects/glove/). This subset is filtered for common words that are at least five letters long, so a lot of words won't appear in the search results. Next, a new word is fed to the network to get it's word embedding. The nearest neighbors to that embedding are shown; these represent the words that the network thinks are closest in meaning to the presented word. This happens entirely in your browser using <a href="https://github.com/transcranial/keras-js">Keras JS</a>. Nearest neighbor decoding is done using [NumJS](https://github.com/nicolaspanel/numjs).
-
 <div class="ui segments">
     <div class="ui secondary header segment">
         Use a Neural Network to Infer Meaning from Gibberish
@@ -31,6 +29,8 @@ This is a simple experiment in predicting a word's meaning purely from it's spel
         The nearest neighbor words will show up here.
     </div>
 </div>
+
+This is a simple experiment in predicting a word's meaning purely from it's spelling. A recurrent neural network is first trained to predict word embeddings from spelling, from a subset of 2000 word-embedding pairs [trained using Glove on a Wikipedia crawl](https://nlp.stanford.edu/projects/glove/). This subset is filtered for common words that are at least five letters long, so a lot of words won't appear in the search results. Next, a new word is fed to the network to get it's word embedding. The nearest neighbors to that embedding are shown; these represent the words that the network thinks are closest in meaning to the presented word. This happens entirely in your browser using <a href="https://github.com/transcranial/keras-js">Keras JS</a>. Nearest neighbor decoding is done using [NumJS](https://github.com/nicolaspanel/numjs).
 
 ## Neural Networks in your Browser
 
