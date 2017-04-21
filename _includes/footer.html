@@ -11,11 +11,11 @@
     <div class="ui fitted inverted divider"></div>
 
     <div class="ui horizontal inverted small divided link list">
-      {% if site.twitter_username %}
-      <a href="https://twitter.com/{{ site.twitter_username }}" class="item"><i class="twitter icon"></i> {{ site.twitter_username }}</a>
-      {% endif %}
       {% if site.github_username %}
       <a href="https://github.com/{{ site.github_username }}" class="item"><i class="github icon"></i> {{ site.github_username }}</a>
+      {% endif %}
+      {% if site.twitter_username %}
+      <a href="https://twitter.com/{{ site.twitter_username }}" class="item"><i class="twitter icon"></i> {{ site.twitter_username }}</a>
       {% endif %}
       {% if site.facebook_username %}
       <a href="https://facebook.com/{{ site.facebook_username }}" class="item"><i class="facebook icon"></i> {{ site.facebook_username }}</a>
@@ -24,6 +24,5 @@
       <a href="mailto:{{ site.email }}" class="item"><i class="mail icon"></i> {{ site.email }}</a>
       {% endif %}
     </div>
-
   </div>
 </div>
