@@ -2,12 +2,13 @@
 <html>
   <head>
     {% include head.html %}
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
   </head>
   <body>
     {% include header.html %}
 
     <div class="ui main text container post">
+      <!--
       <div class="ui fluid card">
         <div data-content="this is a popup" class="content">
           <img class="right floated tiny ui image" src="{{ page.image }}">
@@ -25,6 +26,21 @@
         </div>
         {% endif %}
       </div>
+      -->
+
+      <h1 class="ui center aligned header">
+        {{ page.title }}
+      </h1>
+
+      <div class="ui basic center aligned segment">
+        {{ page.excerpt }}
+      </div>
+
+      <div class="ui basic segment">
+        <img class="ui centered small circular image" src="{{ page.image }}">
+      </div>
+
+      <div class="ui divider"></div>
 
       {{ content }}
     </div>
