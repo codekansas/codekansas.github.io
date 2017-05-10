@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Cuba Blog"
+title: "Cuba"
 date: 2017-03-04 12:00:00
 categories: personal
 keywords:
