@@ -2,36 +2,33 @@
 layout: default
 ---
 
-<h1 style="margin-bottom: 2rem;" class="ui centered header">Machine Learning</h1>
+<h2 style="margin-bottom: 2rem;" class="ui centered header">Machine Learning</h2>
 
-<div class="ui two stackable cards">
-  {% for post in site.categories["machine-learning"] %}
-  {% if post.title %}
-  <a href="{{ post.url | prepend: site.baseurl }}" class="ui card">
-    <div class="content">
-      <img class="right floated tiny ui image" src="{{ post.image }}">
-      <div class="header">{{ post.title }}</div>
-      <div class="meta">{{ post.date | date: "%B %-d, %Y" }}</div>
-      <div class="description">{{ post.excerpt }}</div>
+<div class="ui text container">
+    <div class="ui relaxed divided list">
+        {% for post in site.categories["machine-learning"] %}
+        <div class="item">
+            <div class="content">
+                <a class="header" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                <div class="description">{{ post.excerpt }}</div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-  </a>
-  {% endif %}
-  {% endfor %}
 </div>
 
-<h1 style="margin-top: 2rem;" class="ui centered header">Personal</h1>
+<h2 style="margin-top: 2rem;" class="ui centered header">Personal</h2>
 
-<div class="ui two stackable cards">
-  {% for post in site.categories["personal"] %}
-  {% if post.title %}
-  <a href="{{ post.url | prepend: site.baseurl }}" class="ui card">
-    <div class="content">
-      <img class="right floated tiny ui image" src="{{ post.image }}">
-      <div class="header">{{ post.title }}</div>
-      <div class="meta">{{ post.date | date: "%B %-d, %Y" }}</div>
-      <div class="description">{{ post.excerpt }}</div>
+<div class="ui text container">
+    <div class="ui relaxed divided list">
+        {% for post in site.categories["personal"] %}
+        <div class="item">
+            <div class="content">
+                <a class="header" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                <div class="description">{{ post.excerpt }}</div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-  </a>
-  {% endif %}
-  {% endfor %}
 </div>
+

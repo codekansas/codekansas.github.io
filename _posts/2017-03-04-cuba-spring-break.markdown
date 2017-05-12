@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Cuba"
+title: "How I Spent Spring Break in Cuba"
 date: 2017-03-04 12:00:00
 categories: personal
 keywords:

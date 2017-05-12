@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Roadtrip Blog"
+title: "Touring the United States and Canada"
 date: 2016-05-11 12:00:00
 categories: personal
 keywords:

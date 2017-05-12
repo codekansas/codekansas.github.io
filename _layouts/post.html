@@ -8,26 +8,6 @@
     {% include header.html %}
 
     <div class="ui main text container post">
-      <!--
-      <div class="ui fluid card">
-        <div data-content="this is a popup" class="content">
-          <img class="right floated tiny ui image" src="{{ page.image }}">
-          <div class="header"><h1>{{ page.title }}</h1></div>
-          <div class="meta">{{ page.date | date: "%B %-d, %Y" }}</div>
-          <div class="description">{{ page.excerpt }}</div>
-        </div>
-        {% if page.links %}
-        <div class="ui extra content horizontal link list">
-          {% for link_hash in page.links %}
-          {% for link in link_hash %}
-          <a href="{{ link[1] }}" target="_blank" class="green item">{{ link[0] }} <i class="ui angle right icon"></i></a>
-          {% endfor %}
-          {% endfor %}
-        </div>
-        {% endif %}
-      </div>
-      -->
-
       <h1 class="ui center aligned header">
         {{ page.title }}
       </h1>
@@ -36,8 +16,10 @@
         {{ page.excerpt }}
       </div>
 
-      <div class="ui basic segment">
-        <img class="ui centered small circular image" src="{{ page.image }}">
+      <div class="ui basic center aligned segment">
+        <div class="ui medium rounded image">
+          <img src="{{ page.image }}">
+        </div>
       </div>
 
       <div class="ui divider"></div>

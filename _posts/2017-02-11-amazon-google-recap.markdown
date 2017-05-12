@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "My Internship Experience"
+title: "What It's Like to Intern at Amazon and Google"
 date: 2017-02-11 12:00:00
 categories: personal
 keywords:
