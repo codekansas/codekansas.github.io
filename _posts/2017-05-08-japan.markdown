@@ -7,7 +7,7 @@ keywords:
  - Japan
  - Travel
 excerpt: >
-  Exploring the Land of the Rising Sun by train; alternatively, how to take advantage of overwhelming hospitality.
+  Exploring the Land of the Rising Sun for 19 days by train, through Tokyo, Nikko, Sendai, Sapporo, Kyoto, Osaka and Nagoya.
 image: /resources/index/japan.png
 ---
 
@@ -20,21 +20,21 @@ I slept pretty fitfully on the flights, and had two Ice Capps in the layover in 
 Landing in Japan after flying almost dead even with the sun for twelve hours left me with a weird mix of exhaustion and euphoria. It reinforced the dream-like feeling that you get from arriving in a new country for the first time.
 
 <div class="ui segments">
-    <div class="ui horizontal segments">
-        <div class="ui segment">
-            <div class="ui fluid image">
-                <img src="/resources/japan/customs_form.jpg">
-            </div>
-        </div>
-        <div class="ui segment">
-            <div class="ui fluid image">
-                <img src="/resources/japan/fromscratch_welcome.jpg">
-            </div>
-        </div>
-    </div>
-    <div class="ui secondary segment">
-        On the left, the customs form that I filled out to get a 90 day tourist visa. On the right, the welcome card and paper crange that my AirBnb host in Koto Ward, Tokyo left for me. The AirBnb where I stayed was very clean and the bed was super comfortable - very welcome after a day 12 hours longer than normal.
-    </div>
+<div class="ui horizontal segments">
+<div class="ui segment">
+<div class="ui fluid image">
+<img src="/resources/japan/customs_form.jpg">
+</div>
+</div>
+<div class="ui segment">
+<div class="ui fluid image">
+<img src="/resources/japan/fromscratch_welcome.jpg">
+</div>
+</div>
+</div>
+<div class="ui secondary segment">
+On the left, the customs form that I filled out to get a 90 day tourist visa. On the right, the welcome card and paper crane that my AirBnb host in Koto Ward, Tokyo left for me. The AirBnb where I stayed was very clean and the bed was super comfortable - very welcome after a day 12 hours longer than normal.
+</div>
 </div>
 
 # First impressions
@@ -49,6 +49,15 @@ All around, though, I definitely had a positive first impression. I walked for a
 
 It turned out I was really jetlagged, because I woke up before 6 AM after my first night in Tokyo. I spent the first two hours of my day studying hiragana and waiting for some food places to open. I started talking to two of the other people who were staying in my AirBnb, Ben and Vivian, and they very kindly let me tag along with them to get food. They were college students from Singapore, and were traveling to Japan for Vivian's graduation trip.
 
+<div class="ui basic center aligned segment">
+<div class="ui medium rounded image">
+<img src="/resources/japan/ben_vivian.jpg">
+<div class="ui green right ribbon label">
+Ben and Vivian
+</div>
+</div>
+</div>
+
 We took the subway to the Tsukiji Fish Market, where we got coffee and tried some pretty delicious oysters fried in soy sauce. We got more filling food from a sushi resturaunt, too. Ben and Vivian told me a lot about Singapore and their experience so far in Japan - they'd been here for two weeks already, and were planning to leave tomorrow. They were very helpful with figuring out the subway, and after we ate they pointed me in the right direction to get over to Tokyo Station.
 
 # Nikko
@@ -57,30 +66,28 @@ By that time it was around noon and I figured I'd head to my next destination, N
 
 Once I got to Nikko, I walked and ran around the woods for about an hour to try to relieve the jetlag. It didn't work super well, but at least I didn't get lost. I walked over to the supermarket and got food to eat, which was really good and pretty reasonably priced. Around dusk, I walked about 30 minutes down to one of the main shrines, a world heritage site. There are few things in my life that have made me feel as uneasy and spiritual as walking through the graves and shrines here while no one is around after the sun has just set.
 
-<div class="ui segments">
-    <div class="ui secondary segment">
-        The view from the top of a shrine, showing most of Nikko. A large graveyard was behind me, as well as the shrine, but it seemed inappropriate to photograph. It was definitely a very powerful experience, though.
-    </div>
-    <div class="ui segment">
-        <div class="ui fluid image">
-            <img src="/resources/japan/nikko_shrine_view.jpg">
-        </div>
-    </div>
-    <div class="ui horizontal segments">
-        <div class="ui segment">
-            <div class="ui fluid image">
-                <img src="/resources/japan/nikko_supermarket_food.jpg">
-            </div>
-        </div>
-        <div class="ui segment">
-            <div class="ui fluid image">
-                <img src="/resources/japan/nikko_bridge_selfie.jpg">
-            </div>
-        </div>
-    </div>
-    <div class="ui secondary segment">
-        Grocery and convenience stores have really good prepackaged food for relatively good prices. The sushi only costed 390 Yen, which is about $3.40. They have this type of food at 7/11s (which are actually good-quality stores in Japan). The bridge behind me in the photo on the right looked very cool, but it was closed when I saw it so I couldn't walk on it. Much of Nikko is a World Heritage site.
-    </div>
+<div class="ui basic center aligned segment">
+<div class="ui two column grid">
+
+<div class="column">
+<div class="ui fluid rounded image">
+<img src="/resources/japan/nikko_supermarket_food.jpg">
+<div class="ui red ribbon label">
+Supermarket food in Nikko
+</div>
+</div>
+</div>
+
+<div class="column">
+<div class="ui fluid rounded image">
+<img src="/resources/japan/nikko_mountains.jpg">
+<div class="ui teal right ribbon label">
+Mountains from the treetops
+</div>
+</div>
+</div>
+
+</div>
 </div>
 
 My AirBnb in Nikko was shared with a former Swiss Banker, who says that Japan is very well organized, as a country. He was spending his vacation biking around different parts, and stopped in Nikko because it's such a beautiful area. There's an ultramarathon here, which seems like it would be pretty cool to run.
@@ -101,8 +108,15 @@ I also checked out the library, the Sendai Mediatheque, which was pretty amazing
 
 I went back to the guesthouse and spent a lot of time talking to the other people there. Two of them were from France, two were from Australia, one was from Switzerland and one was from the US, in addition to the Japanese woman who ran the guesthouse, a Japanese businessman who liked drinking with foreigners and another Japanese woman who was there with her baby. The Swiss guy had worked at a startup for some time and had some interesting thoughts on tech, and told me a lot about Geneva (basically, he thinks it's a lot less beautiful than movies would have you believe). The French guys raved for a long time about Japanese marijuana, which apparently is extremely powerful. Japan is fairly opposed to drug use, so it was apparently pretty hard to find, but worth the effort.
 
-<div class="ui segment">
-In Japan, there's a phenomenon of <b>Gaijin Hunters</b>, or Japanese people who are attracted to white people. It was pretty obvious that the two Australians were looking to take advantage of this; in other words, they were Gaijin Hunter Hunters. It was pretty weird, or maybe I had just been too naive to realize people did that. I'm glad they weren't from the United States, though - I felt like they were representing Australia poorly.
+<div class="ui fluid card">
+<div class="ui content">
+<div class="ui header">
+Gaijin Hunter Hunters
+</div>
+<div class="ui description">
+In Japan, there's a phenomenon of Gaijin Hunters, or Japanese people who are attracted to white people. It was pretty obvious that the two Australians were looking to take advantage of this; in other words, they were Gaijin Hunter Hunters. It was pretty weird, or maybe I had just been too naive to realize people did that. I'm glad they weren't from the United States, though - I felt like they were representing Australia poorly.
+</div>
+</div>
 </div>
 
 The room I stayed in had ten beds, each with a curtain but otherwise no sound insulation. The guy next to my bed snored really loudly all night, and I hadn't had the foresight to bring earplugs, so I slept really poorly, flickering in and out of consciousness. At one point I dreamed that I was studying for finals and needed to find somewhere quiet in the library to work. Everywhere I went was filled by the sound of snoring, until I eventually realized the snoring was coming from a shoe in my backpack. I woke up and realized it was just the really loud guy. I got earplugs the next morning.
@@ -113,9 +127,43 @@ I got up around 9, had some instant coffee at the guesthouse, and headed over Se
 
 I'd arranged to eat dinner Kodai, a friend who I met at ISCAS last year. He showed me his lab in the University of Hokkaido, then we and two other graduate students went to eat ramen. Kodai told me a lot about Japan, and the ramen was very good. Kodai helped me get on the train over to the guesthouse where I stayed, called Waya. I checked in around 10:30, and I was pretty tired so I just went to bed (the earplugs turned out to be very useful). The next morning, I talked to two other guests, Kris and Blake, who were planning to rent a car to go to the zoo in Asahikawa, and I joined in. The zoo was about a two hours drive away, and we stopped at another ramen shop in Asahikawa. The toll turned out to be really expensive (about 25 yen per kilometer, which turned out to be around 30 dollars). The zoo was really cool though, and we got to catch the tail end of the cherry blossoms.
 
-<div class="ui segment">
+<div class="ui fluid card">
+<div class="ui content">
+<div class="ui header">
+Food in Sapporo
+</div>
+<div class="ui description">
 Sapporo, and Hokkaido more generally, is known for really good food and beer. The ramen and sushi that I ate was easily the best I've ever had. Sapporo specifically is known for miso ramen, miso being the base, as opposed to salt or soy. Several people I talked to said that the sushi here is fresher than in Tokyo or Kyoto, since there is more fishing, although this could just be hometown pride. The fatty salmon was really, really good though.
 </div>
+</div>
+</div>
 
-After we got back from the zoo, we went to eat at a sushi place that had been recommended by Koki, by one of the guys that ran the guesthouse. When we went back to the guesthouse, things were in full swing; a number of people had come over to hang out. One of the people in the guesthouse was dressed up as a maid with rabbit ears, and everyone collectively "blessed" each drink by making a heart and saying something in Japanese. It was pretty funny. I went with Koki, Kris, Blake and two other people out to an izakaya, which is a kind of Japanese bar. Japanese bar food consisted of raw salmon, mochi, some eel doused heavily in wasabi, and a number of other interesting foods that went surprisingly well with a draft. We also played darts at a resturaunt next door; me and Koki won. All around, I felt like I learned a lot about what being a young adult in Japan is like by talking to Kodai and Koki.
+After we got back from the zoo, we went to eat at a sushi place that had been recommended by Koki, one of the guys that ran the guesthouse. When we went back to the guesthouse, things were in full swing; a number of people had come over to hang out. One of the people in the guesthouse was dressed up as a maid with rabbit ears, and everyone collectively "blessed" each drink by making a heart and saying something in Japanese. It was pretty funny. I went with Koki, Kris, Blake and two other people out to an izakaya, which is a kind of Japanese bar. Japanese bar food consisted of raw salmon, mochi, some eel doused heavily in wasabi, and a number of other interesting foods that went surprisingly well with a draft. We also played darts at a resturaunt next door; me and Koki won. All around, I felt like I learned a lot about what being a young adult in Japan is like by talking to Kodai and Koki.
+
+# Kyoto
+
+I woke up really early (around 6:30) to catch the train down to Tokyo, because Wei Wei was flying in at 3:45. I had more instant coffee and walked over to the subway. It may have just been early in the morning, but it seemed like Sapporo had a lot fewer English-language resources for booking tickets (the ticket I got was in Japanese and I had to pattern-match the characters). The train ride between Sapporo and Tokyo is very beautiful, but pretty long - I didn't get to Tokyo until 5. I met Wei Wei in Tokyo Station, and almost immediately got back on the train to take the three hour ride down to Kyoto.
+
+In Kyoto we stayed with Junki, a student at Kyoto University, although we never actually saw him. We stayed two nights in his room, but both nights he stayed somewhere else, so we only met him through email. His room was a studio apartment in the north part of Kyoto, in a kind of suburb, but it was near a train station that let us get around without too much difficulty.
+
+We realized in retrospect that train tickets can run pretty expensive, and it might have been worth getting a pass. The JR pass doesn't work for local trains (since most of the local lines are not associated with the JR company). A typical train or bus ride in Kyoto costs 2 to 6 dollars, and we rode the train a lot. This is kind of the same in most cities, but most of the attractions we were interested in visiting were distributed pretty widely around the city.
+
+<div class="ui fluid card">
+<div class="content">
+<div class="ui header">
+Temples and Shrines
+</div>
+<div class="ui description">
+Kyoto as a huge number of temples and shrines. We visited <i>Fushimi Inari-taisha</i>, which is where everyone takes cool photos of the red arches; <i>Kiyomizu-dera</i>, which felt very spiritual and had a cool handwashing waterfall; and <i>Kinkaku-ji</i>, which looks amazing in photos but significantly less amazing in real life once you're close enough to see that the gold is just painted on (rather poorly, too). Beforehand I'd ignored what many people had told me about getting "templed out", thinking that I had more appreciation for the spiritual significance that they presented or something, but nope, those people were right; after walking through Fushimi Inari for four hours and seeing tons of small shrines I definitely felt like they were beginning to repeat themselves, especially when there's huge throngs of people going for to see the same thing. However, it was very cool to walk through the arches and around the woods, something that we couldn't really experience anywhere else.
+</div>
+</div>
+</div>
+
+After the first full day in Kyoto, we ate ramen at a local ramen shop, and made our way over to downtown Kyoto, Kawaramachi. Parts of Kyoto definitely look very international, and Kawaramachi is one of them. We stopped by a arcade where Wei Wei played a crane machine to try to win a stuffed bear (they guy working the booth told us the trick, which is to try to push it into the drop hole instead of lifting it up). We somehow ended up in an adult part of Kawaramachi, and passed a few host clubs, people that looked like pimps, and an "otaku bar" which we regrettably didn't go in. We ended up in an izakaya where we got pretty decent-sized glasses of sake, some tofu and some strange fries that tasted like sweet potatoes, with honey and sugar on them.
+
+After that, we both slept for a pretty long time. When we woke up we took the train north for 40 minutes to an <i>onsen</i>, which is a Japanese hotspring. It was basically a public hot tub with enforced nudity where you had to shower before and after and couldn't fart, talk or move too much. Something about this combination made it a very relaxing experience. It costed us each 10 dollars, and we stayed in it for 30 or 40 minutes until we started feeling woozy from the heat.
+
+# Osaka
+
+It turns out that there are commuter trains between Kyoto and Osaka that only cost about 5 dollars to ride, which made the JR pass seem a lot less valuable. We left Junki's around 7 PM and took the hour and a half ride over to Osaka on the "Elegant Saloon 8000 Series".
 
