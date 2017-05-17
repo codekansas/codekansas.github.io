@@ -50,7 +50,7 @@ All around, though, I definitely had a positive first impression. I walked for a
 It turned out I was really jetlagged, because I woke up before 6 AM after my first night in Tokyo. I spent the first two hours of my day studying hiragana and waiting for some food places to open. I started talking to two of the other people who were staying in my AirBnb, Ben and Vivian, and they very kindly let me tag along with them to get food. They were college students from Singapore, and were traveling to Japan for Vivian's graduation trip.
 
 <div class="ui basic center aligned segment">
-<div class="ui medium rounded image">
+<div class="ui large rounded image">
 <img src="/resources/japan/ben_vivian.jpg">
 <div class="ui green right ribbon label">
 Ben and Vivian
@@ -104,6 +104,16 @@ There were way fewer non-Japanese in Sendai than there had been in Tokyo or Nikk
 
 There was a parade of some sort walking though the mall. The people in it looked to be mostly high schoolers, and a lot of them were dressed up in costumes. They were chanting something in unison. I had no idea what was going on. An interviewer and cameraman came up to me to see if I had thoughts on the matter; I had a lot of thoughts, but when they realized I didn't speak Japanese they moved to someone else. If only I'd spoken Japanese, I might have been on a Sendai TV channel!
 
+<div class="ui basic center aligned segment">
+<div class="ui large rounded image">
+<img src="/resources/japan/strange_march.jpg">
+<div class="ui blue right ribbon label">
+Kigu march
+</div>
+</div>
+</div>
+
+
 I also checked out the library, the Sendai Mediatheque, which was pretty amazing. A lot of its architecture was devoted to the 3.11 earthquake. I found out later that Japan has earthquakes almost every week, but that one was particularly destructive.
 
 I went back to the guesthouse and spent a lot of time talking to the other people there. Two of them were from France, two were from Australia, one was from Switzerland and one was from the US, in addition to the Japanese woman who ran the guesthouse, a Japanese businessman who liked drinking with foreigners and another Japanese woman who was there with her baby. The Swiss guy had worked at a startup for some time and had some interesting thoughts on tech, and told me a lot about Geneva (basically, he thinks it's a lot less beautiful than movies would have you believe). The French guys raved for a long time about Japanese marijuana, which apparently is extremely powerful. Japan is fairly opposed to drug use, so it was apparently pretty hard to find, but worth the effort.
@@ -140,6 +150,25 @@ Sapporo, and Hokkaido more generally, is known for really good food and beer. Th
 
 After we got back from the zoo, we went to eat at a sushi place that had been recommended by Koki, one of the guys that ran the guesthouse. When we went back to the guesthouse, things were in full swing; a number of people had come over to hang out. One of the people in the guesthouse was dressed up as a maid with rabbit ears, and everyone collectively "blessed" each drink by making a heart and saying something in Japanese. It was pretty funny. I went with Koki, Kris, Blake and two other people out to an izakaya, which is a kind of Japanese bar. Japanese bar food consisted of raw salmon, mochi, some eel doused heavily in wasabi, and a number of other interesting foods that went surprisingly well with a draft. We also played darts at a resturaunt next door; me and Koki won. All around, I felt like I learned a lot about what being a young adult in Japan is like by talking to Kodai and Koki.
 
+<div class="ui segments">
+<div class="ui horizontal segments">
+<div class="ui segment">
+<div class="ui fluid image">
+<img src="/resources/japan/bar_food.jpg">
+</div>
+</div>
+<div class="ui segment">
+<div class="ui fluid image">
+<img src="/resources/japan/ramen_sapporo.jpg">
+</div>
+</div>
+</div>
+<div class="ui secondary segment">
+Some examples of food I ate in Sapporo. On the left, bar food at an izakaya. This was just a starter; we also ordered other food. On the right, some ramen from Asahikawa, which is two hours north of Sapporo. The ramen was about as good as the Sapporo ramen, in my opinion, although my palet may not be refined enough.
+</div>
+</div>
+
+
 # Kyoto
 
 I woke up really early (around 6:30) to catch the train down to Tokyo, because Wei Wei was flying in at 3:45. I had more instant coffee and walked over to the subway. It may have just been early in the morning, but it seemed like Sapporo had a lot fewer English-language resources for booking tickets (the ticket I got was in Japanese and I had to pattern-match the characters). The train ride between Sapporo and Tokyo is very beautiful, but pretty long - I didn't get to Tokyo until 5. I met Wei Wei in Tokyo Station, and almost immediately got back on the train to take the three hour ride down to Kyoto.
@@ -160,6 +189,16 @@ Kyoto as a huge number of temples and shrines. We visited <i>Fushimi Inari-taish
 </div>
 
 After the first full day in Kyoto, we ate ramen at a local ramen shop, and made our way over to downtown Kyoto, Kawaramachi. Parts of Kyoto definitely look very international, and Kawaramachi is one of them. We stopped by a arcade where Wei Wei played a crane machine to try to win a stuffed bear (they guy working the booth told us the trick, which is to try to push it into the drop hole instead of lifting it up). We somehow ended up in an adult part of Kawaramachi, and passed a few host clubs, people that looked like pimps, and an "otaku bar" which we regrettably didn't go in. We ended up in an izakaya where we got pretty decent-sized glasses of sake, some tofu and some strange fries that tasted like sweet potatoes, with honey and sugar on them.
+
+<div class="ui basic center aligned segment">
+<div class="ui large rounded image">
+<img src="/resources/japan/rock_stacks.jpg">
+<div class="ui green right ribbon label">
+Rocks on rocks
+</div>
+</div>
+</div>
+
 
 After that, we both slept for a pretty long time. When we woke up we took the train north for 40 minutes to an <i>onsen</i>, which is a Japanese hotspring. It was basically a public hot tub with enforced nudity where you had to shower before and after and couldn't fart, talk or move too much. Something about this combination made it a very relaxing experience. It costed us each 10 dollars, and we stayed in it for 30 or 40 minutes until we started feeling woozy from the heat.
 
