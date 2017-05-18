@@ -204,5 +204,20 @@ After that, we both slept for a pretty long time. When we woke up we took the tr
 
 # Osaka
 
-It turns out that there are commuter trains between Kyoto and Osaka that only cost about 5 dollars to ride, which made the JR pass seem a lot less valuable. We left Junki's around 7 PM and took the hour and a half ride over to Osaka on the "Elegant Saloon 8000 Series".
+It turns out that there are commuter trains between Kyoto and Osaka that only cost about 5 dollars to ride, which made the JR pass seem a lot less valuable. We left Junki's around 7 PM and took the hour and a half ride over to Osaka on the "Elegant Saloon 8000 Series". Our apartment in Osaka was similar to Junki's, but no one else was living there. Many Japanese houses seem to be very small, but they use the space efficiently. For example, the shower is a complete, sealed room, with a dual-purpose shower head / sink. There's no dryer here for clothes, either.
+
+Our first full day in Osaka was also Wei Wei's 21st birthday. We got breakfast at a pretty good breakfast place that reminded me a lot of a diner in the US, except that they served the sausages with soy sauce and the eggs are eaten over rice. We then went to the Osaka Art Museum, which had an arrangement up by Ryan Gander, some British artist. Next, we searched for the Pokemon Gym, but first went to the wrong one (which was in a mall in Osaka). The actual gym was a 40 minute train ride north of the city. It turned out to be pretty underwhelming, basically a nostalgic version of Chuck-E-Cheese, in the middle of an expo. We did get to go to a Muji store, which was pretty strange; it was a bunch of regular junk that you'd buy at a 7-11, but with the Muji brand, which made it seem "minimalist" and "good value". I got some pens to take home, though, because apparently the pens are pretty nice.
+
+We took the train back into town and got food at a resturaunt called Ajinoya, which serves Okonomiyaki, a type of pancake that Osaka is known for. It was really good, with enough vegitables to prevent it from being too heavy. After we left, we happened upon an idol group next to a river which was performing for a huge croud of people. The group was called "Kamen Joshi". It was pretty hilarious to watch everyone going so crazy for them. We watched them for a while, then walked around to look at the shops, which were pretty much the same as shops elsewhere, apart from having more anime figurines. When it started to get dark, we went over to the Tempozan Ferris Wheel, which had an amazing view of the city from 100 meters up in the air. 8 of the gondolas were entirely clear, so you could see everything, although we had to wait in line for about 15 minutes to be able to sit in one of them.
+
+<div class="ui fluid card">
+<div class="ui content">
+<div class="ui header">
+Hiroshima
+</div>
+<div class="ui description">
+While we were staying in Osaka, we took an hour and a half trip on the Shinkansen down to Hiroshima for a day. The city is defined by the atomic blast, so when we visited historical sites, although they looked like they'd been standing since the 17th century, there were usually photos from before and immediately after the bombing showing the original version and how it was completely obliterated. There is one building left standing in ruins in the middle of the city called the A-bomb Dome, which is only standing because the bomb was dropped almost directly overhead, so it didn't experience much lateral force. We visited the Hiroshima Castle and learned about the history of the city, which has a lot to do with the unification of Japan and the Meiji restoration. We also visited Shukkei-en, a garden which was built by a warlord in the sixteen hundreds. The garden had a huge pond with a ton of koi, and we got some food to feed them. Both the garden and the castle were completely destroyed by the bomb; only one tree in the garden was left standing, and its leaves have since been sent out across the world as a symbol against nuclear proliferation.
+</div>
+</div>
+</div>
 
