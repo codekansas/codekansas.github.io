@@ -175,6 +175,16 @@ I woke up really early (around 6:30) to catch the train down to Tokyo, because W
 
 In Kyoto we stayed with Junki, a student at Kyoto University, although we never actually saw him. We stayed two nights in his room, but both nights he stayed somewhere else, so we only met him through email. His room was a studio apartment in the north part of Kyoto, in a kind of suburb, but it was near a train station that let us get around without too much difficulty.
 
+<div class="ui basic center aligned segment">
+<div class="ui large rounded image">
+<img src="/resources/japan/golden_arches.jpg">
+<div class="ui orange ribbon label">
+Fushimi Inari-taisha
+</div>
+</div>
+</div>
+
+
 We realized in retrospect that train tickets can run pretty expensive, and it might have been worth getting a pass. The JR pass doesn't work for local trains (since most of the local lines are not associated with the JR company). A typical train or bus ride in Kyoto costs 2 to 6 dollars, and we rode the train a lot. This is kind of the same in most cities, but most of the attractions we were interested in visiting were distributed pretty widely around the city.
 
 <div class="ui fluid card">
@@ -240,8 +250,6 @@ At night, we went to something like an Izakaya, except most of the clients were 
 
 We got up pretty early to check out of our AirBnb by 10, and hopped on the Shinkansen to Tokyo. I stopped in Nagoya for a bit, while Wei Wei went straight there. Nagoya seemed pretty similar to Osaka, although they had a pretty huge science museum. I was nervous about going in, because it seemed like a place where understanding Japanese would be important, so I went to the art museum instead, and walked through an exhibit detailing the evolution of photography in Manchoukuo. Between that exhibit and Hiroshima, it made me a lot more aware how prominent World War II seems to be in the Japanese consciousness, even today. I got Nagoya-style ramen, which tasted pretty similar to Osaka-style ramen; my favorite so far is still the ramen in Sapporo.
 
-In Tokyo, we dropped our stuff off in our AirBnb and went over to Shibuya, which is a trendy downtown area perhaps best known for a really crowded intersection. We got sushi form a pretty good resturaunt called Genki Sushi, which was a chain resturaunt but had good prices. You would place an order, and a tray would slide over to your seat with your food - it was very efficient. We then went over to a video arcade to play some games. The top floor, four floors up, was completely devoted to VR games. Most of the games were in Japanese, but we stumbled our way through the instructions. Several people we saw playing before us were very, very skilled, like you might see in a viral YouTube video of someone playing Guitar Hero.
-
 <div class="ui basic center aligned segment">
 <div class="ui large rounded image">
 <img src="/resources/japan/shibuya_intersection.jpg">
@@ -250,4 +258,27 @@ The intersection in Shibuya
 </div>
 </div>
 </div>
+
+In Tokyo, we dropped our stuff off in our AirBnb and went over to Shibuya, which is a trendy downtown area perhaps best known for a really crowded intersection. We got sushi form a pretty good resturaunt called Genki Sushi, which was a chain resturaunt but had good prices. You would place an order, and a tray would slide over to your seat with your food - it was very efficient. We then went over to a video arcade to play some games. The top floor, four floors up, was completely devoted to VR games. Most of the games were in Japanese, but we stumbled our way through the instructions. Several people we saw playing before us were very, very skilled, like you might see in a viral YouTube video of someone playing Guitar Hero.
+
+<div class="ui fluid card">
+<div class="ui content">
+<div class="ui header">
+Sanja Matsuri
+</div>
+<div class="ui description">
+Almost by accident, we got to experience one of the wildest festivals in Tokyo, Sanja Matsuri, in Asakusa. Wei Wei heard about it and we decided to head over on Sunday after lunch. It was bonkers. The festival celebrates the <a href="https://en.wikipedia.org/wiki/Sanja_Matsuri">three wise men who founded the Senso-ji Temple in Asakusa</a>, but to summarize the experience, picture a group of twenty to fourty Japanese men and women, about half of them visibly and olfactibly wasted, carrying around a one ton replica of the temple, directed by other drunk people and surrounded by about a million Japanese people and tourists who came for the weekend, with people banging on drums every couple of hundred yards. This went on for pretty much the whole day, until after dusk when they brought the replicas (there were three that were sent to different parts of the city) back to the main temple. At several points, busses had to get through, so teams of police officers came out and, much like Moses parted the Red Sea, they parted the thousands of people. It turns out this happens on the third Sunday of May each year, so it was pretty lucky that we caught it!
+</div>
+</div>
+</div>
+
+<div class="ui basic center aligned segment">
+<div class="ui large rounded image">
+<img src="/resources/japan/sanja_matsuri.jpg">
+<div class="ui brown right ribbon label">
+Sanja Matsuri
+</div>
+</div>
+</div>
+
 
