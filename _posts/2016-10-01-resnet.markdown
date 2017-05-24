@@ -12,7 +12,7 @@ excerpt: >
   including how to build a wrapper for Keras layers.
 image: /resources/index/resnet.png
 links:
- - View Project: https://github.com/codekansas/keras-resnet,https://github.com/codekansas/keras-resnet
+ - View Project: https://github.com/codekansas/keras-resnet
 ---
 
 # Introduction
