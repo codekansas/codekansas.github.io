@@ -252,7 +252,7 @@ May 17
 
 Our first full day in Osaka was also Wei Wei's 21st birthday. We got breakfast at a pretty good breakfast place that reminded me a lot of a diner in the US, except that they served the sausages with soy sauce and the eggs are eaten over rice. We then went to the Osaka Art Museum, which had an arrangement up by Ryan Gander, some British artist. Next, we searched for the Pokemon Gym, but first went to the wrong one (which was in a mall in Osaka). The actual gym was a 40 minute train ride north of the city. It turned out to be pretty underwhelming, basically a nostalgic version of Chuck-E-Cheese, in the middle of an expo. We did get to go to a Muji store, which was pretty strange; it was a bunch of regular junk that you'd buy at a 7-11, but with the Muji brand, which made it seem "minimalist" and "good value". I got some pens to take home, though, because apparently the pens are pretty nice.
 
-We took the train back into town and got food at a restauraunt called Ajinoya, which serves Okonomiyaki, a type of pancake that Osaka is known for. It was really good, with enough vegitables to prevent it from being too heavy. After we left, we happened upon an idol group next to a river which was performing for a huge croud of people. The group was called "Kamen Joshi". It was pretty hilarious to watch everyone going so crazy for them. We watched them for a while, then walked around to look at the shops, which were pretty much the same as shops elsewhere, apart from having more anime figurines. When it started to get dark, we went over to the Tempozan Ferris Wheel, which had an amazing view of the city from 100 meters up in the air. 8 of the gondolas were entirely clear, so you could see everything, although we had to wait in line for about 15 minutes to be able to sit in one of them.
+We took the train back into town and got food at a restauraunt called Ajinoya, which serves Okonomiyaki, a type of pancake that Osaka is known for. It was really good, with enough vegitables to prevent it from being too heavy. After we left, we happened upon an idol group next to a river which was performing for a huge crowd of people. The group was called "Kamen Joshi". It was pretty hilarious to watch everyone going so crazy for them. We watched them for a while, then walked around to look at the shops, which were pretty much the same as shops elsewhere, apart from having more anime figurines. When it started to get dark, we went over to the Tempozan Ferris Wheel, which had an amazing view of the city from 100 meters up in the air. 8 of the gondolas were entirely clear, so you could see everything, although we had to wait in line for about 15 minutes to be able to sit in one of them.
 
 <div class="ui basic center aligned segment">
 <div class="ui large rounded image">
@@ -377,4 +377,65 @@ In the Chidoya ward on the east side of Tokyo, there's an area called Akihabara,
 </div>
 </div>
 </div>
+
+While we were in Akihabara, we went to eat at a McDonalds, since we'd heard that McDonalds was different in Japan from how it was in the United States. I ordered a Teriyaki Burger with fries and a coke, and Wei Wei ordered some kind of Chicken burger. The food was still pretty greasy here, although a different flavor of greasy. It would seem that hamburgers have universal appeal. The portions seemed smaller here than in America; too small for how hungry we were, so afterwards we got Takoyaki elsewhere.
+
+<div class="ui segments">
+<div class="ui horizontal segments">
+<div class="ui segment">
+<div class="ui fluid image">
+<img src="/resources/japan/git_book.jpg" />
+</div>
+</div>
+<div class="ui segment">
+<div class="ui fluid image">
+<img src="/resources/japan/git_push.jpg" />
+</div>
+</div>
+</div>
+<div class="ui secondary segment">
+A book from one of the lower floors of the book tower in Akihabara, showing the reader how to use Git, complete with helpful drawings.
+</div>
+</div>
+
+<h4 class="ui olive horizontal divider header">
+May 24
+</h4>
+
+Nippon Professional Baseball, or NPB, officially began in 1934 when Matsutaro Shoriki, founder of Japan's first commercial television station, drafted a professional team to go barnstorm in the United States (in other words, play against second-tier teams for entertainment purposes). It grew in popularity until in 1949 it was reorganized into the NPB, with two leagues, the Central and Pacific leagues. Today, each league consists of six teams, although there isn't a clear geographical boundary between the two leagues. Although the NPB is considered less competitive than the MLB, baseball remains an extremely popular sport throught Japan.
+
+<div class="ui basic center aligned segment">
+<div class="ui large rounded image">
+<img src="/resources/japan/yokohama_stadium.jpg">
+<div class="ui gray right ribbon label">
+View from Outside
+</div>
+</div>
+</div>
+
+We took a 40 minute train down to Yokohama to watch the Yokohama DeNA BayStars take on the Chunichi Dragons, from Nagoya, in the open-air Yokohama Stadium. We got there around 2:00, but the game didn't start until 6:00, so we whiled away the four hours in the Yokohama Chinatown at an all-you-can-eat resturaunt called 中国飯店フカ eating shrimp and mapo doufu. We got nosebleed tickets for 1900 yen each, and shuffled our way through the crowd of people standing on the very top row of the stadium to find a spot.
+
+<div class="ui fluid card">
+<div class="ui content">
+<div class="ui header">
+Baseball
+</div>
+<div class="ui description">
+All in all, the baseball game was pretty similar to an American sports game, almost aggressively so. The announcer spoke English with a classic American accent (and probably was American), but also spoke fluent Japanese, so he was able to provide running commentary for the crowd while also throwing in phrases like "Nice hustle!" when someone on the BayStars made a good play. Japanese girls walked around with backpack coolers selling overpriced beer. The organizer entertained the crowd between innings in much the same way they might in America, with T-shirt cannons and dancers, although American baseball probably has fewer anime songs. I didn't catch many of the players names, but a few stood out; Joe "Don't Let Me Down" Wieland, the Yokohama pitcher, so monikered because they played that song every time he went up to bat; Jose "Hula Hoop" Lopez, named for a similar reason (although they also alternated in other songs that sounded vaguely hispanic); and Yoshitomo Tsutsugoh, the crowd favorite, whose name had been adapted to a few long chants in Japanese, and a shorter, pithier "Go, Go Tsu-tsu-goh!"
+</div>
+</div>
+</div>
+
+Both the home and away fans were pretty wild, and very well-coordinated. It seemed like they picked up on cheers really quickly, although it probably helps if you actually understand them. The Dragons scored two early on, answered right away by the BayStars, then the Dragons got two more. In the bottom of the 9th, the BayStars got runners on first and second, and Tsutsugoh stepped up to the plate; unfortunately, he didn't connect well enough and sent it straight to the center outfielder. It was a pretty exciting match, though, and definitely a cool experience.
+
+<div class="ui basic center aligned segment">
+<div class="ui large rounded image">
+<img src="/resources/japan/yokohama_baseball.jpg">
+<div class="ui blue ribbon label">
+Post-Fireworks Fog
+</div>
+</div>
+</div>
+
+It turned out today was the third and final day of the Blue Light Series, which meant that after the game helpers laid down mats and started setting off fireworks in the middle of the field. Definitely couldn't have that back in the US!
 
