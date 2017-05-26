@@ -16,13 +16,11 @@ layout: default
                 </div>
                 <div class="ui horizontal link list">
                     <div class="item">{{ post.date | date:"%B %-d, %Y" }}</div>
-                    {% if post.links %}
                     {% for link_hash in post.links %}
                     {% for link in link_hash %}
                     <a class="item" target="_blank" href="{{ link[1] }}"><i class="ui angle right icon"></i>{{ link[0] | strip }}</a>
                     {% endfor %}
                     {% endfor %}
-                    {% endif %}
                 </div>
                 <div class="description">{{ post.excerpt }}</div>
             </div>
