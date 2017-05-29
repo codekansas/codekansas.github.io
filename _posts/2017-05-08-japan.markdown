@@ -129,17 +129,6 @@ I also checked out the library, the Sendai Mediatheque, which was pretty amazing
 
 I went back to the guesthouse and spent a lot of time talking to the other people there. Two of them were from France, two were from Australia, one was from Switzerland and one was from the US, in addition to the Japanese woman who ran the guesthouse, a Japanese businessman who liked drinking with foreigners and another Japanese woman who was there with her baby. The Swiss guy had worked at a startup for some time and had some interesting thoughts on tech, and told me a lot about Geneva (basically, he thinks it's a lot less beautiful than movies would have you believe). The French guys raved for a long time about Japanese marijuana, which apparently is extremely powerful. Japan is fairly opposed to drug use, so it was apparently pretty hard to find, but worth the effort.
 
-<div class="ui fluid card">
-<div class="ui content">
-<div class="ui header">
-Gaijin Hunter Hunters
-</div>
-<div class="ui description">
-In Japan, there's a phenomenon of Gaijin Hunters, or Japanese people who are attracted to white people. It was pretty obvious that the two Australians were looking to take advantage of this; in other words, they were Gaijin Hunter Hunters. It was pretty weird, or maybe I had just been too naive to realize people did that. I'm glad they weren't from the United States, though - I felt like they were representing Australia poorly.
-</div>
-</div>
-</div>
-
 The room I stayed in had ten beds, each with a curtain but otherwise no sound insulation. The guy next to my bed snored really loudly all night, and I hadn't had the foresight to bring earplugs, so I slept really poorly, flickering in and out of consciousness. At one point I dreamed that I was studying for finals and needed to find somewhere quiet in the library to work. Everywhere I went was filled by the sound of snoring, until I eventually realized the snoring was coming from a shoe in my backpack. I woke up and realized it was just the really loud guy. I got earplugs the next morning.
 
 <h4 class="ui olive horizontal divider header">
@@ -474,7 +463,7 @@ Our Airbnb host gave us some of the chowder he made with the fish he and his wif
 
 # Conclusion
 
-Japan = Segoi. I was very pleasently surprised by how diverse the country is, in terms of the types of things I was able to experience in each location. Just in Tokyo, there was a huge variety of people and places, but outside Tokyo, in particular Hokkaido, there were more things that challenged my preconceptions about the country. Some bullet points:
+I was very pleasently surprised by how diverse the country is, in terms of the types of things I was able to experience in each location. Just in Tokyo, there was a huge variety of people and places, but outside Tokyo, in particular Hokkaido, there were more things that challenged my preconceptions about the country. Some bullet points:
 
 <div class="ui message">
 <div class="ui header">Miscellaneous Thoughts</div>
