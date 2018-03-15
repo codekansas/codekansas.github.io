@@ -4,6 +4,23 @@
   </a>
 
   <div class="ui simple dropdown item">
+    Posts
+    <div class="menu">
+      {% for post in site.categories["machine-learning"] %}
+      {% if post.title %}
+      <a class="item" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- <div class="ui fixed menu">
+  <a href="{{ site.baseurl }}/" class="header item">
+    {{ site.title }}
+  </a>
+
+  <div class="ui simple dropdown item">
     Machine Learning
     <div class="menu">
       {% for post in site.categories["machine-learning"] %}
@@ -24,4 +41,4 @@
       {% endfor %}
     </div>
   </div>
-</div>
+</div> -->
