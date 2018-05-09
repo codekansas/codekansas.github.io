@@ -2,7 +2,7 @@
 layout: post
 title: "Deep Learning for Calcium Imaging"
 date: 2017-04-13 12:00:00
-categories: machine-learning
+categories: deep-learning neuroscience
 keywords:
  - Calcium Imaging
  - Deep Learning

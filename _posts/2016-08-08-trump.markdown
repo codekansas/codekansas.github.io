@@ -2,7 +2,7 @@
 layout: post
 title: "Using TF-IDF to Annotate to a Trump Speech"
 date: 2016-08-08 12:00:00
-categories: machine-learning
+categories: language
 keywords:
  - TF-IDF
  - Donald Trump

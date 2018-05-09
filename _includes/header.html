@@ -6,7 +6,7 @@
   <div class="ui simple dropdown item">
     Posts
     <div class="menu">
-      {% for post in site.categories["machine-learning"] %}
+      {% for post in site.posts %}
       {% if post.title %}
       <a class="item" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
       {% endif %}

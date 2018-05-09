@@ -2,7 +2,7 @@
 layout: post
 title: "Decoding Gibberish using Neural Networks"
 date: 2017-04-16 12:00:00
-categories: machine-learning
+categories: deep-learning language
 keywords:
  - Word Embeddings
  - Glove
