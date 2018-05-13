@@ -2,14 +2,20 @@
 layout: default
 ---
 
-{% for category_hash in site.categories %}
-{% assign category = category_hash[0] %}
-{% if site.categories[category] %}
-{% assign category_name = category | replace:'-',' ' | replace:'_',' ' %}
-<h4 style="margin-bottom: 2rem; text-transform: capitalize;" class="ui centered header">{{ category_name }}</h4>
-
 <div class="ui text container">
-    <div class="ui relaxed divided list">
+  <div class="ui fluid accordion">
+    {% for category_hash in site.categories %}
+    {% assign category = category_hash[0] %}
+    {% if site.categories[category] %}
+    {% assign category_name = category | replace:'-',' ' | replace:'_',' ' %}
+    <div class="title{% if forloop.first %} active{% endif %}">
+      <div style="text-transform: capitalize; text-align: center;">
+        {{ category_name }}
+        <i class="dropdown icon"></i>
+      </div>
+    </div>
+    <div class="content{% if forloop.first %} active{% endif %}">
+      <div class="ui list">
         {% for post in site.categories[category] %}
         <div class="item">
             <div class="content">
@@ -28,7 +34,13 @@ layout: default
             </div>
         </div>
         {% endfor %}
+      </div>
     </div>
+    {% endif %}
+    {% endfor %}
+  </div>
 </div>
-{% endif %}
-{% endfor %}
+
+<script>
+$('.ui.accordion').accordion();
+</script>
