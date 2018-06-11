@@ -1,22 +1,17 @@
-<div class="ui segments">
-  <div class="ui segment">
-    <div class="ui fluid image">
-      <img class="ui fluid image" src="{{ include.url1 }}">
+<div class="row">
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <img src="{{ include.url1 }}" style="width: 100%">
     </div>
   </div>
-  <div class="ui horizontal segments">
-    <div class="ui segment">
-      <div class="ui fluid image">
-        <img src="{{ include.url2 }}">
-      </div>
-    </div>
-    <div class="ui segment">
-      <div class="ui fluid image">
-        <img src="{{ include.url3 }}">
-      </div>
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <img src="{{ include.url2 }}" style="width: 100%">
     </div>
   </div>
-  <div class="ui secondary segment">
-    {{ include.description }}
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <img src="{{ include.url3 }}" style="width: 100%">
+    </div>
   </div>
 </div>

@@ -2,45 +2,33 @@
 layout: default
 ---
 
-<div class="ui text container">
-  <div class="ui fluid accordion">
-    {% for category_hash in site.categories %}
-    {% assign category = category_hash[0] %}
-    {% if site.categories[category] %}
-    {% assign category_name = category | replace:'-',' ' | replace:'_',' ' %}
-    <div class="title{% if forloop.first %} active{% endif %}">
-      <div style="text-transform: capitalize; text-align: center;">
-        {{ category_name }}
-        <i class="dropdown icon"></i>
-      </div>
+{% assign num_posts = site.posts | size %}
+
+{% for category_hash in site.categories %}
+{% assign category = category_hash[0] %}
+{% if site.categories[category] %}
+{% assign category_name = category | replace:'-',' ' | replace:'_',' ' %}
+<h1 data-toggle="collapse" data-target="#{{ category }}_container" class="page-header text-center" style="text-transform: capitalize; margin: 0 0 0.5em 0; cursor: pointer;">
+  {{ category_name }}
+  <small><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></small>
+</h1>
+<div class="container-fluid collapse" id="{{ category }}_container">
+  <div class="row">
+    {% for page in site.categories[category] %}
+    {% assign mod = forloop.index0 | modulo: 3 %}
+    <div class="col-xs-12 col-sm-4">
+      <a href="{{ site.baseurl }}{{ page.url }}" class="no-highlight">
+        <h3 class="color-{{ page.excerpt.size | modulo: 3 }}" style="line-height: 1.2em; margin: 0;">{{ page.title }}</h3>
+      </a>
+      <h4 style="margin: 0;">{{ page.date | date: "%B %-d, %Y" }}</h4>
+      <p style="margin: 0 0 1em 0;">{{ page.excerpt }}</p>
     </div>
-    <div class="content{% if forloop.first %} active{% endif %}">
-      <div class="ui list">
-        {% for post in site.categories[category] %}
-        <div class="item">
-            <div class="content">
-                <div class="header">
-                    <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-                </div>
-                <div class="ui horizontal link list">
-                    <div class="item">{{ post.date | date:"%B %-d, %Y" }}</div>
-                    {% for link_hash in post.links %}
-                    {% for link in link_hash %}
-                    <a class="item" target="_blank" href="{{ link[1] }}"><i class="ui angle right icon"></i>{{ link[0] | strip }}</a>
-                    {% endfor %}
-                    {% endfor %}
-                </div>
-                <div class="description">{{ post.excerpt }}</div>
-            </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
+    {% if mod == 2 %}
+  </div>
+  <div class="row">
     {% endif %}
     {% endfor %}
   </div>
 </div>
-
-<script>
-$('.ui.accordion').accordion();
-</script>
+{% endif %}
+{% endfor %}

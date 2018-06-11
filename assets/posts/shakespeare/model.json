@@ -1,0 +1,431 @@
+{
+    "backend": "tensorflow",
+    "class_name": "Model",
+    "config": {
+        "input_layers": [
+            [
+                "input_sequence",
+                0,
+                0
+            ]
+        ],
+        "layers": [
+            {
+                "class_name": "InputLayer",
+                "config": {
+                    "batch_input_shape": [
+                        1,
+                        1
+                    ],
+                    "dtype": "float32",
+                    "name": "input_sequence",
+                    "sparse": false
+                },
+                "inbound_nodes": [],
+                "name": "input_sequence"
+            },
+            {
+                "class_name": "Embedding",
+                "config": {
+                    "activity_regularizer": null,
+                    "batch_input_shape": [
+                        null,
+                        null
+                    ],
+                    "dtype": "int32",
+                    "embeddings_constraint": null,
+                    "embeddings_initializer": {
+                        "class_name": "RandomUniform",
+                        "config": {
+                            "maxval": 0.05,
+                            "minval": -0.05,
+                            "seed": null
+                        }
+                    },
+                    "embeddings_regularizer": null,
+                    "input_dim": 66,
+                    "input_length": null,
+                    "mask_zero": false,
+                    "name": "embedding_6",
+                    "output_dim": 32,
+                    "trainable": true
+                },
+                "inbound_nodes": [
+                    [
+                        [
+                            "input_sequence",
+                            0,
+                            0,
+                            {}
+                        ]
+                    ]
+                ],
+                "name": "embedding_6"
+            },
+            {
+                "class_name": "GRU",
+                "config": {
+                    "activation": "tanh",
+                    "activity_regularizer": null,
+                    "bias_constraint": null,
+                    "bias_initializer": {
+                        "class_name": "Zeros",
+                        "config": {}
+                    },
+                    "bias_regularizer": null,
+                    "dropout": 0.0,
+                    "go_backwards": false,
+                    "implementation": 0,
+                    "kernel_constraint": null,
+                    "kernel_initializer": {
+                        "class_name": "VarianceScaling",
+                        "config": {
+                            "distribution": "uniform",
+                            "mode": "fan_avg",
+                            "scale": 1.0,
+                            "seed": null
+                        }
+                    },
+                    "kernel_regularizer": null,
+                    "name": "gru_16",
+                    "recurrent_activation": "hard_sigmoid",
+                    "recurrent_constraint": null,
+                    "recurrent_dropout": 0.0,
+                    "recurrent_initializer": {
+                        "class_name": "Orthogonal",
+                        "config": {
+                            "gain": 1.0,
+                            "seed": null
+                        }
+                    },
+                    "recurrent_regularizer": null,
+                    "return_sequences": true,
+                    "stateful": true,
+                    "trainable": true,
+                    "units": 128,
+                    "unroll": false,
+                    "use_bias": true
+                },
+                "inbound_nodes": [
+                    [
+                        [
+                            "embedding_6",
+                            0,
+                            0,
+                            {}
+                        ]
+                    ]
+                ],
+                "name": "gru_16"
+            },
+            {
+                "class_name": "BatchNormalization",
+                "config": {
+                    "axis": -1,
+                    "beta_constraint": null,
+                    "beta_initializer": {
+                        "class_name": "Zeros",
+                        "config": {}
+                    },
+                    "beta_regularizer": null,
+                    "center": true,
+                    "epsilon": 0.001,
+                    "gamma_constraint": null,
+                    "gamma_initializer": {
+                        "class_name": "Ones",
+                        "config": {}
+                    },
+                    "gamma_regularizer": null,
+                    "momentum": 0.99,
+                    "moving_mean_initializer": {
+                        "class_name": "Zeros",
+                        "config": {}
+                    },
+                    "moving_variance_initializer": {
+                        "class_name": "Ones",
+                        "config": {}
+                    },
+                    "name": "batch_normalization_16",
+                    "scale": true,
+                    "trainable": true
+                },
+                "inbound_nodes": [
+                    [
+                        [
+                            "gru_16",
+                            0,
+                            0,
+                            {}
+                        ]
+                    ]
+                ],
+                "name": "batch_normalization_16"
+            },
+            {
+                "class_name": "GRU",
+                "config": {
+                    "activation": "tanh",
+                    "activity_regularizer": null,
+                    "bias_constraint": null,
+                    "bias_initializer": {
+                        "class_name": "Zeros",
+                        "config": {}
+                    },
+                    "bias_regularizer": null,
+                    "dropout": 0.0,
+                    "go_backwards": false,
+                    "implementation": 0,
+                    "kernel_constraint": null,
+                    "kernel_initializer": {
+                        "class_name": "VarianceScaling",
+                        "config": {
+                            "distribution": "uniform",
+                            "mode": "fan_avg",
+                            "scale": 1.0,
+                            "seed": null
+                        }
+                    },
+                    "kernel_regularizer": null,
+                    "name": "gru_17",
+                    "recurrent_activation": "hard_sigmoid",
+                    "recurrent_constraint": null,
+                    "recurrent_dropout": 0.0,
+                    "recurrent_initializer": {
+                        "class_name": "Orthogonal",
+                        "config": {
+                            "gain": 1.0,
+                            "seed": null
+                        }
+                    },
+                    "recurrent_regularizer": null,
+                    "return_sequences": true,
+                    "stateful": true,
+                    "trainable": true,
+                    "units": 128,
+                    "unroll": false,
+                    "use_bias": true
+                },
+                "inbound_nodes": [
+                    [
+                        [
+                            "batch_normalization_16",
+                            0,
+                            0,
+                            {}
+                        ]
+                    ]
+                ],
+                "name": "gru_17"
+            },
+            {
+                "class_name": "BatchNormalization",
+                "config": {
+                    "axis": -1,
+                    "beta_constraint": null,
+                    "beta_initializer": {
+                        "class_name": "Zeros",
+                        "config": {}
+                    },
+                    "beta_regularizer": null,
+                    "center": true,
+                    "epsilon": 0.001,
+                    "gamma_constraint": null,
+                    "gamma_initializer": {
+                        "class_name": "Ones",
+                        "config": {}
+                    },
+                    "gamma_regularizer": null,
+                    "momentum": 0.99,
+                    "moving_mean_initializer": {
+                        "class_name": "Zeros",
+                        "config": {}
+                    },
+                    "moving_variance_initializer": {
+                        "class_name": "Ones",
+                        "config": {}
+                    },
+                    "name": "batch_normalization_17",
+                    "scale": true,
+                    "trainable": true
+                },
+                "inbound_nodes": [
+                    [
+                        [
+                            "gru_17",
+                            0,
+                            0,
+                            {}
+                        ]
+                    ]
+                ],
+                "name": "batch_normalization_17"
+            },
+            {
+                "class_name": "GRU",
+                "config": {
+                    "activation": "tanh",
+                    "activity_regularizer": null,
+                    "bias_constraint": null,
+                    "bias_initializer": {
+                        "class_name": "Zeros",
+                        "config": {}
+                    },
+                    "bias_regularizer": null,
+                    "dropout": 0.0,
+                    "go_backwards": false,
+                    "implementation": 0,
+                    "kernel_constraint": null,
+                    "kernel_initializer": {
+                        "class_name": "VarianceScaling",
+                        "config": {
+                            "distribution": "uniform",
+                            "mode": "fan_avg",
+                            "scale": 1.0,
+                            "seed": null
+                        }
+                    },
+                    "kernel_regularizer": null,
+                    "name": "gru_18",
+                    "recurrent_activation": "hard_sigmoid",
+                    "recurrent_constraint": null,
+                    "recurrent_dropout": 0.0,
+                    "recurrent_initializer": {
+                        "class_name": "Orthogonal",
+                        "config": {
+                            "gain": 1.0,
+                            "seed": null
+                        }
+                    },
+                    "recurrent_regularizer": null,
+                    "return_sequences": true,
+                    "stateful": true,
+                    "trainable": true,
+                    "units": 128,
+                    "unroll": false,
+                    "use_bias": true
+                },
+                "inbound_nodes": [
+                    [
+                        [
+                            "batch_normalization_17",
+                            0,
+                            0,
+                            {}
+                        ]
+                    ]
+                ],
+                "name": "gru_18"
+            },
+            {
+                "class_name": "BatchNormalization",
+                "config": {
+                    "axis": -1,
+                    "beta_constraint": null,
+                    "beta_initializer": {
+                        "class_name": "Zeros",
+                        "config": {}
+                    },
+                    "beta_regularizer": null,
+                    "center": true,
+                    "epsilon": 0.001,
+                    "gamma_constraint": null,
+                    "gamma_initializer": {
+                        "class_name": "Ones",
+                        "config": {}
+                    },
+                    "gamma_regularizer": null,
+                    "momentum": 0.99,
+                    "moving_mean_initializer": {
+                        "class_name": "Zeros",
+                        "config": {}
+                    },
+                    "moving_variance_initializer": {
+                        "class_name": "Ones",
+                        "config": {}
+                    },
+                    "name": "batch_normalization_18",
+                    "scale": true,
+                    "trainable": true
+                },
+                "inbound_nodes": [
+                    [
+                        [
+                            "gru_18",
+                            0,
+                            0,
+                            {}
+                        ]
+                    ]
+                ],
+                "name": "batch_normalization_18"
+            },
+            {
+                "class_name": "Dense",
+                "config": {
+                    "activation": "sigmoid",
+                    "activity_regularizer": null,
+                    "bias_constraint": null,
+                    "bias_initializer": {
+                        "class_name": "Zeros",
+                        "config": {}
+                    },
+                    "bias_regularizer": null,
+                    "kernel_constraint": null,
+                    "kernel_initializer": {
+                        "class_name": "VarianceScaling",
+                        "config": {
+                            "distribution": "uniform",
+                            "mode": "fan_avg",
+                            "scale": 1.0,
+                            "seed": null
+                        }
+                    },
+                    "kernel_regularizer": null,
+                    "name": "dense_6",
+                    "trainable": true,
+                    "units": 66,
+                    "use_bias": true
+                },
+                "inbound_nodes": [
+                    [
+                        [
+                            "batch_normalization_18",
+                            0,
+                            0,
+                            {}
+                        ]
+                    ]
+                ],
+                "name": "dense_6"
+            },
+            {
+                "class_name": "Activation",
+                "config": {
+                    "activation": "linear",
+                    "name": "prediction",
+                    "trainable": true
+                },
+                "inbound_nodes": [
+                    [
+                        [
+                            "dense_6",
+                            0,
+                            0,
+                            {}
+                        ]
+                    ]
+                ],
+                "name": "prediction"
+            }
+        ],
+        "name": "model_6",
+        "output_layers": [
+            [
+                "prediction",
+                0,
+                0
+            ]
+        ]
+    },
+    "keras_version": "2.0.4"
+}

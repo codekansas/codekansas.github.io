@@ -1,0 +1,23 @@
+<footer class="mastfoot">
+  <div class="container text-center">
+    <a href="{{ site.baseurl }}/"><h3>{{ site.title }}</h3></a>
+    <p>{{ site.tagline }}</p>
+    <ul class="pager">
+      {% if site.email %}
+      <li><a target="_blank" href="mailto:{{ site.email }}">email</a></li>
+      {% endif %}
+      {% if site.usernames %}
+      {% if site.usernames.github %}
+      <li><a target="_blank" href="https://github.com/{{ site.usernames.github }}">github</a></li>
+      {% endif %}
+      {% if site.usernames.twitter %}
+      <li><a target="_blank" href="https://twitter.com/{{ site.usernames.twitter }}">twitter</a></li>
+      {% endif %}
+      {% if site.usernames.facebook %}
+      <li><a target="_blank" href="https://facebook.com/{{ site.usernames.facebook }}">facebook</a></li>
+      {% endif %}
+      {% endif %}
+      <li><a target="_blank" href="/assets/resume.pdf">resume</a></li>
+    </ul>
+  </div>
+</footer>

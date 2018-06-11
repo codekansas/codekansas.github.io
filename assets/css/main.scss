@@ -1,0 +1,25 @@
+---
+---
+@charset "utf-8";
+
+$background-color:      #fcfcfc;
+
+// Three shades of grey.
+$grey-color:            #828282;
+$grey-color-light:      lighten($grey-color, 40%);
+$grey-color-dark:       darken($grey-color, 25%);
+
+// Cool color scheme.
+$header-color:          #52788b;
+$footer-color:          #e3d2d7;
+$a:                     #f2ae72;
+$b:                     #d96459;
+$c:                     #8c4646;
+
+$spacing-unit:          30px;
+$base-line-height:      1.7em;
+
+@import
+  "base",
+  "select",
+  "syntax-highlighting";

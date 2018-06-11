@@ -3,17 +3,14 @@ layout: post
 title: "Using TF-IDF to Annotate to a Trump Speech"
 date: 2016-08-08 12:00:00
 categories: language
-keywords:
- - TF-IDF
- - Donald Trump
- - Annotations
 excerpt: >
   Explaining how to use TF-IDF scores for document similarity and applying those to choose documents to cite for particular sentences.
-image: /resources/index/donald_trump.jpg
 links:
  - Wikipedia Downloader: https://github.com/codekansas/chrome-downloader
  - View Code: https://github.com/codekansas/citation-generator
 ---
+
+<script defer src="{{ site.cdn.mathjax }}"></script>
 
 # Introduction
 
@@ -61,7 +58,7 @@ where $$N$$ is the total number of documents in the document set $$D$$, and $$n_
 
 Here is a dummy set to illustrate the above math.
 
-<table class="ui celled compact table">
+<table class="table table-hover">
   <thead>
     <tr>
       <th>ID</th>
@@ -86,7 +83,7 @@ Here is a dummy set to illustrate the above math.
 
 Let's calculate the TF-IDF for the terms "sing" and "mermaid". First, let's do some simple preprocessing on this dataset. We'll say that "singing", "sings" and "sing" are basically the same, as are "mermaids" and "mermaid" (in practice, this is called lemmatization). Then we can calculate the **term frequency** for each document as:
 
-<table class="ui celled compact definition table">
+<table class="table table-hover">
   <thead>
     <tr>
       <th></th>
@@ -115,7 +112,7 @@ Let's calculate the TF-IDF for the terms "sing" and "mermaid". First, let's do s
 
 We can also calculate the **inverse document frequency** for each term.
 
-<table class="ui celled compact definition table">
+<table class="table table-hover">
   <thead>
     <tr>
       <th></th>
@@ -142,7 +139,7 @@ We can also calculate the **inverse document frequency** for each term.
 
 Using these values, we get final TF-IDF values of:
 
-<table class="ui celled compact definition table">
+<table class="table table-hover">
   <thead>
     <tr>
       <th></th>
@@ -173,7 +170,7 @@ In this case, "sing" doesn't help us choose a document, since it shows up in all
 
 To use TF-IDF for queries that contain multiple words, we can add the TF-IDF scores for each term. For the above example, if we were querying the phrase "mermaids singing", we would get compiled TF-IDF scores of
 
-<table class="ui celled table">
+<table class="table table-hover">
   <thead>
     <tr>
       <th>ID</th>
@@ -226,7 +223,7 @@ Donald Trump is well-known for using gut-based rather than publically-available 
 
 Below are some example "citations".
 
-<table class="ui celled table">
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Quotes from Donald Trump's RNC Speech</th>

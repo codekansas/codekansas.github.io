@@ -3,14 +3,9 @@ layout: post
 title: "A Neural Network in 28 Lines of Theano"
 date: 2016-02-23 12:00:00
 categories: deep-learning
-keywords:
- - Theano
- - Neural Network
- - Python
 excerpt: >
   A quick introduction to using Theano for deep learning, from the bare-bones
   to a full neural network.
-image: /resources/index/theano.jpeg
 links:
  - View Gist: https://gist.github.com/codekansas/87dd63ca4e2286e332c7967520ce143c#file-theano_two_layer-py
 ---
@@ -72,10 +67,6 @@ for i in range(60000):
 
 print(test())
 {% endhighlight %}
-
-<div class="ui left rail">
-  Left Rail Content
-</div>
 
 Here, we define our "train" and "test" functions. The "train" function updates the weights according to the update rules we provided earlier, after calculating the cost function. The "test" function gives us the output of the network. We then run the network through 60000 training steps. After training, we print the output, and lo and behold, it approximates our XOR function pretty well!
 

@@ -1,8 +1,4 @@
-<div class="ui segments">
-  <div class="ui segment">
-    <img class="ui fluid image" src="{{ include.url }}" />
-  </div>
-  <div class="ui secondary segment">
-    {{ include.description }}
-  </div>
+<div class="thumbnail">
+  <img src="{{ include.url }}" alt="{{ include.description }}" style="width:100%">
+  <div class="caption">{{ include.description }}</div>
 </div>

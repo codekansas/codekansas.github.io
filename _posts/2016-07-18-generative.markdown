@@ -3,11 +3,6 @@ layout: post
 title: "The Unreasonable Effectiveness of Restricted Boltzmann Machines"
 date: 2016-07-18 12:00:00
 categories: deep-learning
-keywords:
- - Restricted Boltzmann Machines
- - Time Series Modeling
- - Deep Learning
-image: /resources/index/rnnrbm.png
 excerpt: >
   Building on the Recurrent RBM for sequence modeling. This post relates to what I am doing for my Master's thesis.
 links:
@@ -18,7 +13,7 @@ links:
 
 For my Master's thesis, I'm working on modeling some time-dependent sequences. There is a pretty rich set of literature associated with doing this, much of it related to addressing the unique challenges posed in voice recognition.
 
-{% include multiimage.html url1="/resources/generative_modeling/rnnrbm.png" url2="/resources/generative_modeling/rnnrbm2.png" url3="/resources/generative_modeling/rnnrbm3.png" description="Samples from the RNN-RBM applied to spectrograms of animal vocalizations." %}
+{% include multiimage.html url1="/assets/pics/posts/generative/rnnrbm.png" url2="/assets/pics/posts/generative/rnnrbm2.png" url3="/assets/pics/posts/generative/rnnrbm3.png" %}
 
 ## Terminology
 
@@ -46,7 +41,7 @@ Most of this post will rely on using Theano. The general concepts can probably b
 
 The question which RBMs are often used to answer is, "What do we do when we don't have enough labeled data?" Approaching this question from a neural network perspective would probably lead you to the [autoencoder](https://en.wikipedia.org/wiki/Autoencoder), where instead of training a model to produce some output given an input, you train a model to reproduce the input. Autoencoders are easy to think about, because they build on the knowledge that most people have about conventional neural networks. However, in practice, RBMs tend to outperform autoencoders for important tasks. In the example below, both models are trained on the MNIST dataset and learn some filters (the weights connecting the visible vector to a single hidden unit).
 
-{% include image.html description="Comparison of filters learned by an autoencoder and an RBM" url="/resources/generative_modeling/autoencoder_rbm_mnist.png" %}
+{% include image.html description="Comparison of filters learned by an autoencoder and an RBM" url="/assets/pics/posts/generative/autoencoder_rbm_mnist.png" %}
 
 [Boulanger-Lewandowski, Bengio, and Vincent (2012)][modeling-temporal-dependencies] suggests that unlike a regular discriminative neural network, RBMs are better at modeling multi-modal data. This is evident when comparing the features learned by the RBM on the MNIST task with those learned by the autoencoder; even though the autoencoder did learn some spatially localized features, there aren't very many multi-modal features. In contast, the majority of the features learned by the RBM are multimodal; they actually look like penstrokes, and preserve a lot of the correlated structure in the dataset.
 

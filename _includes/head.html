@@ -1,18 +1,21 @@
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width initial-scale=1" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<head>
+  <meta charset="UTF-8">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
 
-<link rel="icon" href="{{ "/favicon.ico" | prepend: site.baseurl }}" />
+  <!-- Viewport disables mobile zooming -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip }}{% else %}{{ site.description | strip }}{% endif %}" />
-<meta name="keywords" content="{% if page.keywords %}{{ page.keywords | join: ", " }}{% else %}{{ site.keywords | join: ", " }}{% endif %}" />
+  <!-- Favicon -->
+  <link rel="icon" href="{{ site.baseurl }}/assets/pics/favicon.ico">
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="{{ "/design/semantic.min.css" | prepend: site.baseurl }}" />
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{{ site.cdn.bscss }}">
+  <script defer src="{{ site.cdn.jquery }}"></script>
+  <script defer src="{{ site.cdn.bsjs }}"></script>
 
-<script type="text/javascript" src="{{ "/design/semantic.min.js" | prepend: site.baseurl }}" ></script>
-<link rel="stylesheet" href="{{ "/design/main.css" | prepend: site.baseurl }}">
+  <!-- Custom Sass -->
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
 
-<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
-
+  <!-- Custom JS -->
+  <script defer src="{{ site.baseurl }}/assets/js/main.js"></script>
+</head>
