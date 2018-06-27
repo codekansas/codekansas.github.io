@@ -1,0 +1,64 @@
+---
+layout: post
+title: "Making Neural Networks Functional"
+date: 2018-06-11 12:00:00
+categories: deep-learning
+excerpt: >
+  Building neural networks in a functional programming language with Hy
+---
+
+<link rel="stylesheet" href="/assets/posts/hytorch/main.css">
+
+<script defer src="{{ site.cdn.d3js }}"></script>
+<script defer src="/assets/posts/hytorch/tree.js"></script>
+<script defer src="/assets/posts/hytorch/main.js"></script>
+
+# Functional Programming, LISP, and Compilers
+
+Functional programming is something of a meme in the tech world, because of how easy it is to geek out about. I'll give a bit of intuition for functional programming languages like LISP, which requires understanding something called the **Abstract Syntax Tree (AST)**. The AST is the intermediary form which a programming language is converted to before it can be compiled to assembly or byte code. I think it's usually easier to see examples, so here's an example using a pretty simple C program:
+
+```c
+#include <stdio.h>
+
+int x = 5, y = 3;
+
+int my_function(int a, int b) {
+  int c = a + b + y;
+  printf("c: %d\n", c);
+  return c;
+}
+
+int main() {
+  int d = my_function(5, x);
+  printf("d: %d\n", d);
+  return 0;
+}
+```
+
+To run this program, copy and paste it into a file and do something like `gcc simple.c && ./a.out`. The Abstract Syntax Tree is an abstract representation of the program which defines how the program can be traversed during execution. In a full AST, each node will have extra metadata defining it's type, but the graph below gives a rough representation of the AST for this program. When the program is compiled, an AST is generated from the text, which is then used to do some optimizations before finally generating the byte or assembly code defining the executable program itself.
+
+<div id="simple-prog-container"></div>
+
+This intermediary representation is important, because it makes it easy to do things like check variable scoping (in other words, that you don't use a function or variable which you haven't previously defined) or perform optimizations by caching common subtrees or moving around nodes.
+
+If you were designing a programming language, and knew that, during compilation, you needed to eventually convert the program into an AST before compiling it, you might think it would be a good idea to make your programming language as similar to an AST as possible. This is what LISP is! In **LISP** (and it's closely related cousin **Scheme**) the number of open parentheses corresponds directly to the depth in the corresponding AST. To illustrate, here is the above program, (approximately) rewritten in Scheme.
+
+```scheme
+(define x 5)
+(define y 3)
+(define my_function
+  (lambda
+    (a b)
+    (define c
+      (+ a b y))
+    (display c)
+    c))
+(define main
+  (lambda ()
+    (define d
+      (my_function 5 x))
+    (display d)
+    0))
+```
+
+If you want to avoid installing Scheme to run this example, check out [this online Scheme interpreter](https://scheme.cs61a.org/).
