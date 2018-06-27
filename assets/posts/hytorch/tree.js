@@ -1,8 +1,16 @@
 const tree = (function() {
   function render_ast(container_ref, svg_width, svg_height, tree_data) {
-    const margin = { top: 30, right: 50, bottom: 30, left: 50 },
+    const margin = {
+        top: svg_height * 0.0125,
+        right: svg_width * 0.075,
+        bottom: svg_height * 0.0125,
+        left: svg_width * 0.075,
+      },
       width = svg_width - margin.left - margin.right,
-      height = svg_height - margin.top - margin.bottom;
+      height = svg_height - margin.top - margin.bottom,
+      font_size = svg_width / 800,
+      duration = 250,
+      radius = svg_width / 80;
 
     const svg = d3.select(container_ref).append('svg')
       .attr('width', svg_width)
@@ -11,9 +19,6 @@ const tree = (function() {
       .attr('class', 'ast-plot')
       .append('g')
       .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
-
-    const duration = 250,
-      radius = 10;
 
     function collapse(d) {
       if (d.children) {
@@ -76,10 +81,10 @@ const tree = (function() {
         .attr('r', 1e-6)
         .style('fill', d => d._children ? 'lightsteelblue' : '#fff');
       node_enter.append('text')
-        .attr('dy', '0.35em')
-        .attr('x', radius + 3)
-        .attr('y', radius + 3)
-        .attr('text-anchor', 'start')
+        .attr('y', -radius)
+        .attr('x', -radius)
+        .attr('text-anchor', 'end')
+        .style('font-size', font_size + 'em')
         .text(d => d.data.name);
 
       const node_update = node_enter.merge(node);
