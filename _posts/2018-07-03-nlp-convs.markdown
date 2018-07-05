@@ -1,0 +1,28 @@
+---
+layout: post
+title: "Visualizing Convolutions in NLP"
+date: 2018-07-03 12:00:00
+categories: deep-learning language
+excerpt: >
+  A visualization of convolutional neural networks, applied to deep learning
+---
+
+<link rel="stylesheet" href="/assets/posts/nlp_convs/main.css">
+
+<script defer src="{{ site.cdn.tfjs }}" type="text/javascript"></script>
+<script defer src="{{ site.cdn.d3js }}" type="text/javascript"></script>
+<script defer src="/assets/posts/nlp_convs/main.js" type="text/javascript"></script>
+
+# Introduction
+
+Deep learning has been applied widely in natural language processing <sup><a href="#">[citation needed]</a></sup>. In this post I hope to apply some of the intuition for convolutional neural networks from the object recognition world to the NLP world, using a simple classification problem (sentiment analysis) as our testbed. Hopefully, after reading through it, you'll have a better understanding of how to design neural networks for NLP tasks that are easier to interpret and debug, and hopefully get better results on practical NLP tasks. I personally really believe in having interactive visualizations as well, so this won't just be a dry, explanatory blog post.
+
+<div class="form-horizontal">
+  <div class="form-group">
+    <div class="col-sm-12">
+      <input type="email" class="form-control" id="sentiment-test-input" placeholder="Enter an example sentence">
+    </div>
+  </div>
+</div>
+
+<div id="sentiment-test-output" class="label-block"></div>

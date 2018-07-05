@@ -27,6 +27,7 @@ cdn:
   jquery:         https://code.jquery.com/jquery-3.2.1.min.js
   jq-cookie:      https://cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js
   porter:         https://rawgit.com/codekansas/porter-stemmer-js/master/porter.min.js
+  tfjs:           https://cdn.jsdelivr.net/npm/@tensorflow/tfjs
 
 # Other
 markdown:         kramdown

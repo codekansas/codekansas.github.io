@@ -1,0 +1,10 @@
+.label-block {
+  float: left;
+  width: 100%;
+}
+
+.label-block span {
+  display: inline-block;
+  background-color: black;
+  margin: 0 0 0 3px;
+}

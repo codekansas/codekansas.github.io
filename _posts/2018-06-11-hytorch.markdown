@@ -44,7 +44,7 @@ So, back to the Abstract Syntax Tree. The AST is an abstract representation of t
 
 <div id="fib-prog-container"></div>
 
-This intermediary representation is important, because it makes it easy to do things like **check variable scoping** (in other words, that you don't use a function or variable which you haven't previously defined) or **perform optimizations** by caching common subtrees or moving around nodes.
+This intermediary representation is important, because it makes it easy to do things like **check variable scoping** (in other words, that you don't use a function or variable which you haven't previously defined) or **perform optimizations** by caching common subtrees, moving around nodes and parsing dependencies.
 
 If you were designing a programming language, and knew that, during compilation, you needed to eventually convert the program into an AST before compiling it, you might think it would be a good idea to make your programming language as similar to an AST as possible. This is what Lisp is! In **Lisp** (and it's closely related cousin **Scheme**) the number of open parentheses corresponds directly to the depth in the corresponding AST.
 
@@ -62,7 +62,7 @@ Perhaps notably, in a *functional* programming language, you usually try to avoi
 
 <div id="fib-naive-scheme-prog-container"></div>
 
-Wow, that's much more simple than the corresponding AST in C! And, hopefully, it is easier to see how it maps onto the program itself. But can you spot what's wrong with this implementation? If you try putting in a much larger number, the program will start going very, very slowly (in fact, $$O(2^n)$$). If we want to write good programs in Scheme, we need to be cleverer about how we do recursion. The program below is a *tail recursive* version of the Fibonacci Scheme program above:
+Wow, that's much more simple than the corresponding AST in C! And, hopefully, it is easier to see how it maps onto the program itself. But can you spot what's wrong with this implementation? If you try putting in a much larger number, the program will start going very, very slowly (in fact, in `O(2^n)` time). If we want to write good programs in Scheme, we need to be cleverer about how we do recursion. The program below is a *tail recursive* version of the Fibonacci Scheme program above:
 
 ```scheme
 (define fib
@@ -100,7 +100,7 @@ After doing that, you should be able to start the **Hy interpreter** (I'm runnin
 ```
 $ hy
 hy 0.14.0 using CPython(default) 3.5.1 on Darwin
-=> (import torch
+=> (import torch)
 => (print torch.__version__)
 0.4.0
 ```
@@ -146,7 +146,7 @@ It's kind of cool to see how the Hy code corresponds to the Python code. Hy is *
 
 # Neural Networks
 
-Ok, now tha we have an understanding of Hy and functional programming, let's get into the weeds of what this post is actually about - **extending functional programming to neural networks**.
+Ok, now that we have an understanding of Hy and functional programming, let's get into the weeds of what this post is actually about - **extending functional programming to neural networks**.
 
 ## MNIST Example
 
