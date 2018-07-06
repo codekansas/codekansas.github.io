@@ -151,3 +151,5 @@ Ok, now that we have an understanding of Hy and functional programming, let's ge
 ## MNIST Example
 
 Let's replicate the [MNIST example from the PyTorch repo](https://github.com/pytorch/examples/blob/master/mnist/main.py) using Hy. However, we're going to do it using our new "functional" programming language, so it won't exactly be a one-to-one mapping.
+
+# WORK IN PROGRESS

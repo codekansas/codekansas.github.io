@@ -1,4 +1,4 @@
 <div class="thumbnail">
   <img src="{{ include.url }}" alt="{{ include.description }}" style="width:100%">
-  <div class="caption">{{ include.description }}</div>
+  {% if include.description %}<div class="caption">{{ include.description }}</div>{% endif %}
 </div>

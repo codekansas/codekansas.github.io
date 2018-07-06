@@ -1,24 +1,58 @@
 ---
 layout: post
-title: "Visualizing Convolutions in NLP"
+title: "Convolutional Neural Networks in NLP"
 date: 2018-07-03 12:00:00
-categories: deep-learning language
+categories: deep-learning language visualizations
 excerpt: >
-  A visualization of convolutional neural networks, applied to deep learning
+  A visualization of convolutional neural networks in natural language processing
 ---
 
-<link rel="stylesheet" href="/assets/posts/nlp_convs/main.css">
+<link rel="stylesheet" href="/assets/posts/nlp-convs/main.css">
 
 <script defer src="{{ site.cdn.tfjs }}" type="text/javascript"></script>
 <script defer src="{{ site.cdn.d3js }}" type="text/javascript"></script>
-<script defer src="/assets/posts/nlp_convs/main.js" type="text/javascript"></script>
+<script defer src="/assets/posts/nlp-convs/main.js" type="text/javascript"></script>
 
 # Introduction
 
-Deep learning has been applied widely in natural language processing <sup><a href="#">[citation needed]</a></sup>. In this post I hope to apply some of the intuition for convolutional neural networks from the object recognition world to the NLP world, using a simple classification problem (sentiment analysis) as our testbed. Hopefully, after reading through it, you'll have a better understanding of how to design neural networks for NLP tasks that are easier to interpret and debug, and hopefully get better results on practical NLP tasks. I personally really believe in having interactive visualizations as well, so this won't just be a dry, explanatory blog post.
+Deep learning has been applied widely in natural language processing. In this post, I apply some of the intuition for convolutional neural networks from the object recognition world to the NLP world, using a simple classification problem (sentiment analysis) as our testbed. I trained a model to do sentiment analysis on the [IMDB movie reviews dataset](https://www.kaggle.com/c/sentiment-analysis-on-imdb-movie-reviews), and demonstrate how it can be decomposed to get phrase-wise predictions and how we can inspect the receptive fields of the convolutional layer to see what is being learnt. All of the code for training, visualizing and deploying this model can be seen in [this Github repo](https://github.com/codekansas/language_conv_visualizations).
+
+# Model
+
+You can play with the trained model below, to see the phrase-wise sentiment for some example sentences. The model is running in your browser using [Tensorflow-JS](https://js.tensorflow.org/), so it might not work for some older browsers. The model architecture is defined in Keras as follows:
+
+```python
+from tensorflow import keras as ks
+
+i = ks.layers.Input(shape=(None,))
+x = ks.layers.Embedding(
+    vocab_size,
+    embed_size,
+    embeddings_initializer=ks.initializers.RandomNormal(stddev=0.05),
+    name='embeddings',
+)(i)
+x = ks.layers.Conv1D(
+    num_convolutions, conv_length,
+    kernel_initializer=ks.initializers.RandomNormal(stddev=0.05),
+    padding='same',
+    use_bias=False,
+    name='convs',
+)(x)
+x = ks.layers.Conv1D(
+    1, 1,
+    name='word_preds',
+)(x)
+x = ks.layers.GlobalAveragePooling1D()(x)
+x = ks.layers.Activation('sigmoid')(x)
+return ks.models.Model(inputs=[i], outputs=[x])
+```
+
+# Phrase-wise Sentiments
+
+Note the last two layers; the first one does mean pooling over the time axis to get a single vector, and the second one applies an activation function to squash the output to the range `[0, 1]`. To get phrase-wise sentiments, we can simply get the output of the `word_preds` layer (before pooling and squashing) because each output of the convolutional layer independently predicts the sentiment of that phrase. To understand what this means, consider a model with a convolution length of 3 applied to the sentence "That movie was excellent! I really enjoyed it." Each filter in the `convs` layer will have an output for each 3-gram in the input sentence; there will be an output for `[that, movie, was]`, `[movie, was, excellent]`, `[was, excellent, i]` and so on. Because the `word_preds` convolutional layer only has a filter length of one, it and the average pooling layer are transitive, so we can consider the output of the model to be the average output of each filter in the `convs` layer weighted by it's corresponding weight in the `word_preds` layer.
 
 <div class="form-horizontal">
-  <div class="form-group">
+  <div class="form-group" id="sentiment-test-input-group">
     <div class="col-sm-12">
       <input type="email" class="form-control" id="sentiment-test-input" placeholder="Enter an example sentence">
     </div>
@@ -26,3 +60,16 @@ Deep learning has been applied widely in natural language processing <sup><a hre
 </div>
 
 <div id="sentiment-test-output" class="label-block"></div>
+
+# Receptive Fields
+
+Next, let's think about the *receptive field* for the convolutional layers. If we were training an object recognition network, the receptive field would be the input patches which are **orthogonal** to their respective convolutions. We can apply the same logic here, but because the inputs to the convolutional layer are embeddings rather than continuous pixel space, we can only find words which are **nearest neighbors** to the maximally-activating receptive field for the particular convolution.
+
+To visualize these receptive fields, we need to find the nearest neighbor to each vector in the convolutional filter; if the filter length is 3, then the convolutional filter will have 3 vectors, and we need to find the nearest neighbors for each position. For this particular task, the model effectively learns a bag-of-words model, with each convolution basically maximally responding to either positive or negative words.
+
+<div id="convolution-knns"></div>
+<div id="convolution-knn-vis" class="label-block"></div>
+
+Another way of visualizing this is by doing dimensionality reduction, like Principle Components Analysis, on the embeddings and the vectors in the convolutional layer. The figure below shows PCA applied to the trained sentiment analysis model, showing that the vectors in the convolutional layer are all trained to basically respond to either positive or negative sentiment.
+
+{% include image.html url='/assets/posts/nlp-convs/dimensionality_reduction.png' %}
