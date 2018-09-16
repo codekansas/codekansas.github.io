@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Making Neural Networks Functional"
+title: "Functional Programming with Python"
 date: 2018-06-11 12:00:00
-categories: deep-learning
+categories: visualizations
 excerpt: >
-  Building neural networks in a functional programming language with Hy
+  Using Python for functional programming
 ---
 
 <link rel="stylesheet" href="/assets/posts/hytorch/main.css">
@@ -13,8 +13,6 @@ excerpt: >
 <script defer src="/assets/posts/hytorch/tree.js"></script>
 <script defer src="/assets/posts/hytorch/main.js"></script>
 <script defer src="{{ site.cdn.mathjax }}"></script>
-
-# Functional Programming, LISP, and Compilers
 
 If you're reading this, you've probably heard something or another about Lisp, Scheme, Racket, Haskell or some other language, and you may or may not have used it (for example, in a compilers class in college). Functional programming is *cool*, and definitely worth exploring more, even if it's just to geek out about and not for any practical purposes. I'm going to assume a very basic understanding of computer science, but most examples will have a bit about how to get them running.
 
@@ -143,13 +141,3 @@ Like before, we can rewrite this function using Hy. If you want to go much more 
 ```
 
 It's kind of cool to see how the Hy code corresponds to the Python code. Hy is *interoperable* with Python because it simply gets converted to a Python AST, meaning that you can import Hy functions in Python and vice versa. Pretty neat!
-
-# Neural Networks
-
-Ok, now that we have an understanding of Hy and functional programming, let's get into the weeds of what this post is actually about - **extending functional programming to neural networks**.
-
-## MNIST Example
-
-Let's replicate the [MNIST example from the PyTorch repo](https://github.com/pytorch/examples/blob/master/mnist/main.py) using Hy. However, we're going to do it using our new "functional" programming language, so it won't exactly be a one-to-one mapping.
-
-# WORK IN PROGRESS
