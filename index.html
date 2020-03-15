@@ -2,33 +2,32 @@
 layout: default
 ---
 
-{% assign num_posts = site.posts | size %}
+<h1 class="padded bottom">{{ site.tagline }}</h1>
 
-{% for category_hash in site.categories %}
-{% assign category = category_hash[0] %}
-{% if site.categories[category] %}
-{% assign category_name = category | replace:'-',' ' | replace:'_',' ' %}
-<h1 data-toggle="collapse" data-target="#{{ category }}_container" class="page-header text-center" style="text-transform: capitalize; margin: 0 0 0.5em 0; cursor: pointer;">
-  {{ category_name }}
-  <small><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></small>
-</h1>
-<div class="container-fluid collapse" id="{{ category }}_container">
-  <div class="row">
-    {% for page in site.categories[category] %}
-    {% assign mod = forloop.index0 | modulo: 3 %}
-    <div class="col-xs-12 col-sm-4">
-      <a href="{{ site.baseurl }}{{ page.url }}" class="no-highlight">
-        <h3 class="color-{{ page.excerpt.size | modulo: 3 }}" style="line-height: 1.2em; margin: 0;">{{ page.title }}</h3>
-      </a>
-      <h4 style="margin: 0;">{{ page.date | date: "%B %-d, %Y" }}</h4>
-      <p style="margin: 0 0 1em 0;">{{ page.excerpt }}</p>
-    </div>
-    {% if mod == 2 %}
-  </div>
-  <div class="row">
-    {% endif %}
-    {% endfor %}
-  </div>
+{% for post in site.posts %}
+<div class="padded bottom" style="font-size: 80%">
+  <h1>
+    <a class="no-highlight" href="{{ post.url }}">📖</a>
+    {{ post.title }}
+    <small>
+      | {{ post.date | date: "%B %-d, %Y" }}
+      | {{ post.category }}
+    </small>
+  </h1>
+  <h3>{{ post.excerpt }}</h3>
 </div>
-{% endif %}
 {% endfor %}
+
+<small class="padded bottom">
+  Links:
+  <a href="/assets/resume.pdf">Resume</a>
+  {% if site.usernames.github %}
+  <a href="https://github.com/{{ site.usernames.github }}">Github</a>
+  {% endif %}
+  {% if site.usernames.twitter %}
+  <a href="https://twitter.com/{{ site.usernames.twitter }}">Twitter</a>
+  {% endif %}
+  {% if site.email %}
+  <a href="mailto://{{ site.email }}">Email</a>
+  {% endif %}
+</small>

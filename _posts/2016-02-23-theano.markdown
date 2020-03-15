@@ -2,23 +2,24 @@
 layout: post
 title: "A Neural Network in 28 Lines of Theano"
 date: 2016-02-23 12:00:00
-categories: deep-learning
+category: 🔨
 excerpt: >
   A quick introduction to using Theano for deep learning, from the bare-bones
   to a full neural network.
-links:
- - View Gist: https://gist.github.com/codekansas/87dd63ca4e2286e332c7967520ce143c#file-theano_two_layer-py
 ---
 
 This tutorial is a bare-bones introduction to Theano, in the style of [Andrew Trask's Numpy example][trask]. For a more complete version, see the [official tutorial][theano-tut]. It is mostly to help me learn to use Theano, and feedback is more than welcome.
 
 I used Python 3.5 and Theano 0.8. If you already have Theano set up, skip this. Otherwise, see the installation instructions [here][theano-install]; usually this means doing a `pip install Theano`.
-<h2>Straight Code</h2>
+
+# Straight Code
+
 Here is just the code. The network has 5 hidden neurons and learns the XOR function, which takes two inputs and returns a high output only if exactly one of the inputs is high. Otherwise, it returns a low output.
 
 <script src="https://gist.github.com/codekansas/87dd63ca4e2286e332c7967520ce143c.js"></script>
 
-<h2>Explanation</h2>
+# Explanation
+
 Ok, let's see what's going on here.
 
 {% highlight python %}

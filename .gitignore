@@ -6,3 +6,6 @@ _site/
 .DS_Store
 *.swp
 
+# jekyll stuff
+.jekyll-cache/
+

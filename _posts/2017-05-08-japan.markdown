@@ -2,7 +2,7 @@
 layout: post
 title: "Roaming through Japan"
 date: 2017-05-08 12:00:00
-categories: personal
+category: 😜
 excerpt: >
   Exploring the Land of the Rising Sun for 19 days by train, through Tokyo, Nikko, Sendai, Sapporo, Kyoto, Osaka and Nagoya.
 ---
@@ -16,8 +16,6 @@ I slept pretty fitfully on the flights, and had two Ice Capps in the layover in 
 ### May 9
 
 Landing in Japan after flying almost dead even with the sun for twelve hours left me with a weird mix of exhaustion and euphoria. It reinforced the dream-like feeling that you get from arriving in a new country for the first time.
-
-{% include multiimage.html url1='/assets/pics/posts/japan/customs_form.jpg' url2='/assets/pics/posts/japan/fromscratch_welcome.jpg' url3='/assets/pics/posts/japan/ben_vivian.jpg' %}
 
 # First impressions
 
@@ -40,8 +38,6 @@ We took the subway to the Tsukiji Fish Market, where we got coffee and tried som
 By that time it was around noon and I figured I'd head to my next destination, Nikko. It took quite a long time to figure out where to redeem my JR pass, but once I did I realized how awesome of a deal it is. I can use it an unlimited number of times each day, for 6 days out of the next 14 (that I choose). To get to Nikko, I first took the train to Utsonomia, which required that I reserve a seat beforehand. I then took the smaller Nikko train from Utsonomia.
 
 Once I got to Nikko, I walked and ran around the woods for about an hour to try to relieve the jetlag. It didn't work super well, but at least I didn't get lost. I walked over to the supermarket and got food to eat, which was really good and pretty reasonably priced. Around dusk, I walked about 30 minutes down to one of the main shrines, a world heritage site. There are few things in my life that have made me feel as uneasy and spiritual as walking through the graves and shrines here while no one is around after the sun has just set.
-
-{% include multiimage.html url1='/assets/pics/posts/japan/nikko_supermarket_food.jpg' url2='/assets/pics/posts/japan/nikko_mountains.jpg' url3='/assets/pics/posts/japan/strange_march.jpg' %}
 
 My AirBnb in Nikko was shared with a former Swiss Banker, who says that Japan is very well organized, as a country. He was spending his vacation biking around different parts, and stopped in Nikko because it's such a beautiful area. There's an ultramarathon here, which seems like it would be pretty cool to run.
 
@@ -81,8 +77,6 @@ Sapporo, and Hokkaido more generally, is known for really good food and beer. Th
 
 After we got back from the zoo, we went to eat at a sushi place that had been recommended by Koki, one of the guys that ran the guesthouse. When we went back to the guesthouse, things were in full swing; a number of people had come over to hang out. One of the people in the guesthouse was dressed up as a maid with rabbit ears, and everyone collectively "blessed" each drink by making a heart and saying something in Japanese. It was pretty funny. I went with Koki, Kris, Blake and two other people out to an izakaya, which is a kind of Japanese bar. Japanese bar food consisted of raw salmon, mochi, some eel doused heavily in wasabi, and a number of other interesting foods that went surprisingly well with a draft. We also played darts at a restauraunt next door; me and Koki won. All around, I felt like I learned a lot about what being a young adult in Japan is like by talking to Kodai and Koki.
 
-{% include multiimage.html url1='/assets/pics/posts/japan/bar_food.jpg' url2='/assets/pics/posts/japan/ramen_sapporo.jpg' url3='/assets/pics/posts/japan/golden_arches.jpg' %}
-
 ### May 14
 
 I woke up really early (around 6:30) to catch the train down to Tokyo, because Wei Wei was flying in at 3:45. I had more instant coffee and walked over to the subway. It may have just been early in the morning, but it seemed like Sapporo had a lot fewer English-language resources for booking tickets (the ticket I got was in Japanese and I had to pattern-match the characters). The train ride between Sapporo and Tokyo is very beautiful, but pretty long - I didn't get to Tokyo until 5. I met Wei Wei in Tokyo Station, and almost immediately got back on the train to take the three hour ride down to Kyoto.
@@ -98,8 +92,6 @@ We realized in retrospect that train tickets can run pretty expensive, and it mi
 Kyoto as a huge number of temples and shrines. We visited <i>Fushimi Inari-taisha</i>, which is where everyone takes cool photos of the red arches; <i>Kiyomizu-dera</i>, which felt very spiritual and had a cool handwashing waterfall; and <i>Kinkaku-ji</i>, which looks amazing in photos but significantly less amazing in real life once you're close enough to see that the gold is just painted on (rather poorly, too). Beforehand I'd ignored what many people had told me about getting "templed out", thinking that I had more appreciation for the spiritual significance that they presented or something, but nope, those people were right; after walking through Fushimi Inari for four hours and seeing tons of small shrines I definitely felt like they were beginning to repeat themselves, especially when there's huge throngs of people going for to see the same thing. However, it was very cool to walk through the arches and around the woods, something that we couldn't really experience anywhere else.
 
 After the first full day in Kyoto, we ate ramen at a local ramen shop, and made our way over to downtown Kyoto, Kawaramachi. Parts of Kyoto definitely look very international, and Kawaramachi is one of them. We stopped by a arcade where Wei Wei played a crane machine to try to win a stuffed bear (they guy working the booth told us the trick, which is to try to push it into the drop hole instead of lifting it up). We somehow ended up in an adult part of Kawaramachi, and passed a few host clubs, people that looked like pimps, and an "otaku bar" which we regrettably didn't go in. We ended up in an izakaya where we got pretty decent-sized glasses of sake, some tofu and some strange fries that tasted like sweet potatoes, with honey and sugar on them.
-
-{% include multiimage.html url1='/assets/pics/posts/japan/rock_stacks.jpg' url2='/assets/pics/posts/japan/osaka_wheel.jpg' url3='/assets/pics/posts/japan/cat_bike.jpg' %}
 
 ### May 16
 
@@ -135,8 +127,6 @@ We got up pretty early to check out of our AirBnb by 10, and hopped on the Shink
 
 In Tokyo, we dropped our stuff off in our AirBnb and went over to Shibuya, which is a trendy downtown area perhaps best known for a really crowded intersection. We got sushi form a pretty good resturaunt called Genki Sushi, which was a chain resturaunt but had good prices. You would place an order, and a tray would slide over to your seat with your food - it was very efficient. We then went over to a video arcade to play some games. The top floor, four floors up, was completely devoted to VR games. Most of the games were in Japanese, but we stumbled our way through the instructions. Several people we saw playing before us were very, very skilled, like you might see in a viral YouTube video of someone playing Guitar Hero.
 
-{% include multiimage.html url1='/assets/pics/posts/japan/shibuya_intersection.jpg' url2='/assets/pics/posts/japan/sanja_matsuri.jpg' url3='/assets/pics/posts/japan/kusama_art.jpg' %}
-
 ### May 21
 
 We took the advise of our AirBnB host and decided to check out Sanja Matsuri, a festival in Asakusa. We spent pretty much the entire day there, but it was totally worth it.
@@ -159,8 +149,6 @@ In the Chidoya ward on the east side of Tokyo, there's an area called Akihabara,
 
 While we were in Akihabara, we went to eat at a McDonalds, since we'd heard that McDonalds was different in Japan from how it was in the United States. I ordered a Teriyaki Burger with fries and a coke, and Wei Wei ordered some kind of Chicken burger. The food was still pretty greasy here, although a different flavor of greasy. It would seem that hamburgers have universal appeal. The portions seemed smaller here than in America; too small for how hungry we were, so afterwards we got Takoyaki elsewhere.
 
-{% include multiimage.html url1='/assets/pics/posts/japan/git_book.jpg' url2='/assets/pics/posts/japan/git_push.jpg' url3='/assets/pics/posts/japan/yokohama_stadium.jpg' %}
-
 ### May 24
 
 Nippon Professional Baseball, or NPB, officially began in 1934 when Matsutaro Shoriki, founder of Japan's first commercial television station, drafted a professional team to go barnstorm in the United States (in other words, play against second-tier teams for entertainment purposes). It grew in popularity until in 1949 it was reorganized into the NPB, with two leagues, the Central and Pacific leagues. Today, each league consists of six teams, although there isn't a clear geographical boundary between the two leagues. Although the NPB is considered less competitive than the MLB, baseball remains an extremely popular sport throught Japan.
@@ -170,8 +158,6 @@ We took a 40 minute train down to Yokohama to watch the Yokohama DeNA BayStars t
 All in all, the baseball game was pretty similar to an American sports game, almost aggressively so. The announcer spoke English with a classic American accent (and probably was American), but also spoke fluent Japanese, so he was able to provide running commentary for the crowd while also throwing in phrases like "Nice hustle!" when someone on the BayStars made a good play. Japanese girls walked around with backpack coolers selling overpriced beer. The organizer entertained the crowd between innings in much the same way they might in America, with T-shirt cannons and dancers, although American baseball probably has fewer anime songs. I didn't catch many of the players names, but a few stood out; Joe "Don't Let Me Down" Wieland, the Yokohama pitcher, so monikered because they played that song every time he went up to bat; Jose "Hula Hoop" Lopez, named for a similar reason (although they also alternated in other songs that sounded vaguely hispanic); and Yoshitomo Tsutsugoh, the crowd favorite, whose name had been adapted to a few long chants in Japanese, and a shorter, pithier "Go, Go Tsu-tsu-goh!"
 
 Both the home and away fans were pretty wild, and very well-coordinated. It seemed like they picked up on cheers really quickly, although it probably helps if you actually understand them. The Dragons scored two early on, answered right away by the BayStars, then the Dragons got two more. In the bottom of the 9th, the BayStars got runners on first and second, and Tsutsugoh stepped up to the plate; unfortunately, he didn't connect well enough and sent it straight to the center outfielder. It was a pretty exciting match, though, and definitely a cool experience.
-
-{% include image.html url='/assets/pics/posts/japan/yokohama_baseball.jpg' description='Post-fireworks fog at the Yokohama baseball game' %}
 
 It turned out today was the third and final day of the Blue Light Series, which meant that after the game helpers laid down mats and started setting off fireworks in the middle of the field. Definitely couldn't have that back in the US!
 

@@ -1,71 +1,71 @@
-.masthead, .mastfoot {
-  > .container * {
-    text-decoration: none;
-    color: inherit;
-  }
-}
-.masthead {
-  background-color: $header-color;
-  color: $grey-color-light;
-}
-.mastfoot {
-  background-color: $footer-color;
-  color: $grey-color-dark;
-  margin-top: 2em;
-}
-
-a.no-highlight {
-  text-decoration: none;
-  color: inherit;
-}
-
-.color-0, .color-a { color: $a !important; }
-.color-1, .color-b { color: $b !important; }
-.color-2, .color-c { color: $c !important; }
-.color-head { color: $header-color !important; }
-.color-foot { color: $footer-color !important; }
-.tooltip { color: white !important; }
-
-.bgcolor-0, .bgcolor-a { background-color: $a }
-.bgcolor-1, .bgcolor-b { background-color: $b }
-.bgcolor-2, .bgcolor-c { background-color: $c }
-.bgcolor-head { background-color: $header-color; }
-.bgcolor-foot { background-color: $footer-color; }
-
-.top-buffer { margin-top: 1em; }
-.bottom-buffer { margin-bottom: 1em; }
-
-
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-ul, ol, dl, figure,
-%vertical-rhythm {
-  margin-bottom: $spacing-unit / 2;
-  line-height: $base-line-height;
-}
+.post {
+  h1, h2, h3, h4, h5, h6,
+  p, blockquote, pre,
+  ul, ol, dl, figure,
+  %vertical-rhythm {
+    margin-bottom: 1em;
+  }
 
-figure.highlight {
-  padding: 0;
-  margin: 0 1em 1em 0;
-  font-size: 90%;
-}
-
-/**
- * Code formatting
- */
-.highlight pre, code, pre.highlight {
-    border-radius: 3px;
+  figure.highlight {
+    padding: 0;
+    margin: 0 1em 1em 0;
+    font-size: 90%;
     background-color: #f7f7ff;
+
+    pre {
+      padding: 1em;
+    }
+  }
 }
 
 blockquote {
   font-size: 95%;
   opacity: 80%;
+  margin: 1em;
 }
 
-pre code{
-  white-space: pre;
+code {
+  color: $font-color;
+  background-color: #f7f7ff;
+}
+
+.emphasis {
+  &.top {
+    padding-top: $emphasis-padding;
+  }
+
+  &.bottom {
+    padding-bottom: $emphasis-padding;
+  }
+
+  &.top-bottom {
+    padding-top: $emphasis-padding;
+    padding-bottom: $emphasis-padding;
+  }
+
+  &.all {
+    padding: $emphasis-padding;
+  }
+}
+
+.padded {
+  &.top {
+    padding-top: $base-padding;
+  }
+
+  &.bottom {
+    padding-bottom: $base-padding;
+  }
+
+  &.top-bottom {
+    padding-top: $base-padding;
+    padding-bottom: $base-padding;
+  }
+
+  &.all {
+    padding: $base-padding;
+  }
 }

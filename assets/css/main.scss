@@ -2,24 +2,23 @@
 ---
 @charset "utf-8";
 
-$background-color:      #fcfcfc;
+/* -------------- *
+ * Font variables *
+ * -------------- */
+$base-font-size: 1em;
+$base-font-weight: 300;
+$font-color: #121314;
+$highlight-color: rgba(79, 193, 141, 0.5);
 
-// Three shades of grey.
-$grey-color:            #828282;
-$grey-color-light:      lighten($grey-color, 40%);
-$grey-color-dark:       darken($grey-color, 25%);
-
-// Cool color scheme.
-$header-color:          #52788b;
-$footer-color:          #e3d2d7;
-$a:                     #f2ae72;
-$b:                     #d96459;
-$c:                     #8c4646;
-
-$spacing-unit:          30px;
-$base-line-height:      1.9em;
+/* ---------------- *
+ * Layout variables *
+ * ---------------- */
+$base-padding: 1em;
+$emphasis-padding: 3em;
 
 @import
   "base",
+  "fonts",
+  "links",
   "select",
   "syntax-highlighting";

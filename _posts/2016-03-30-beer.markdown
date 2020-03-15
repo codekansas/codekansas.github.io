@@ -2,100 +2,75 @@
 layout: post
 title: "Evolving List of Opinions about Atlanta Craft Beers"
 date: 2016-03-30 12:00:00
-categories: personal
+category: 🧐
 keywords:
  - Atlanta
  - Craft Beers
  - Pretentiousness
-image: /resources/index/atlanta.jpeg
 excerpt: >
   Some facts and very sarcastic opinions regarding craft beers that can be bought at the Krogers near my apartment.
 ---
 
-Hopsecutioner
--------------
+# Hopsecutioner
 
-**Brewed by** Terrapin Beer Company, Athens, Georgia, United States
+> Terrapin Beer Company, Athens, Georgia, United States, American Indian Pale Ale, 7.3% ABV
 
-**Style** American Indian Pale Ale
+I realized that I drink a lot of American IPA's because I am having more difficulty coming up with puns I haven't used. This beer has a good orange color and a nice head when poured, I guess, although I don't think I've complained about enough nightclubs to have a valid opinion on that issue. I like the Teenage Mutant Ninja Turtle on the can. The brewery is based out of Athens, which is the ideal city for a craft brewery to be based out of. There are 6 varieties of hops in this beer, which is the smallest positive integer with two prime factors, much like this beer has two prime factors: it's commitment to scaring away people who only drink beer "recreationally", and the fact that it's from the same city as R.E.M.
 
-**ABV** 7.3%
+### Rating: 4 flannel-shirted bouncers.
 
-I realized that I drink a lot of American IPA's because I am having more difficulty coming up with puns I haven't used. This beer has a good orange color and a nice head when poured, I guess, although I don't think I've complained about enough nightclubs to have a valid opinion on that issue. I like the Teenage Mutant Ninja Turtle on the can. The brewery is based out of Athens, which is the ideal city for a craft brewery to be based out of. There are 6 varieties of hops in this beer, which is the smallest positive integer with two prime factors, much like this beer has two prime factors: it's commitment to scaring away people who only drink beer "recreationally", and the fact that it's from the same city as R.E.M. All around: 4 flannel-shirted bouncers.
+# Not Your Father's Root Beer
 
-Not Your Father's Root Beer
----------------------------
+> Small Town Brewery, Illiois, United States, Secret Blend of Herbed / Spiced Beer, 5.9% ABV
 
-**Brewed by** Small Town Brewery, Illiois, United States
+This is literally root beer. Everyone on beer advocate complains about how "the head isn't frothy enough" or "the coloration is too dark" or "you'll get diabetes before you get alcohol poisoning" but c'mon, it's literally root beer. With alcohol though, so that's pretty redeeming. It's not your father's root beer because it's your drunk uncle's root beer. It is to beer what Mike's Hard Lemonade is to vodka.
 
-**Style** Secret Blend of Herbed / Spiced Beer
+### Rating: 4 well-groomed mustaches.
 
-**ABV** 5.9%
+# Samuel Smith's Winter Welcome Ale
 
-This is literally root beer. Everyone on beer advocate complains about how "the head isn't frothy enough" or "the coloration is too dark" or "you'll get diabetes before you get alcohol poisoning" but c'mon, it's literally root beer. With alcohol though, so that's pretty redeeming. It's not your father's root beer because it's your drunk uncle's root beer. It is to beer what Mike's Hard Lemonade is to vodka. All around: 4 well-groomed mustaches.
+> Samuel Smith Old Brewery (Tadcaster), Ye Ol' Pubbery, The Queen, Great Britain, Winter Warmer? You 'ardly know 'er! 6.0% ABV
 
-Samuel Smith's Winter Welcome Ale
----------------------------------
+This beer is called a "Winter Warmer", which pretty much explains everything about it. It gets really good reviews on Beer Advocate, probably because it's foreign ("In America, we tend to like our hoppy IPA's, funky saisons and roasty stouts, but this time of year, sometimes to give a shout out to a style that is often overlooked" - Back_in_the_Saddle, Nov 19 2015) This is one of the few beers that I got at a liquor store instead of a grocery store, and I can't unassociate it from the jankyness of buying vodka from a drive-thru. I imagine that more than a few people have this beer in their refrigerator for the same reason Zooey Deschanel had a comedy tour, to show everyone how quirky and authentic they are despite not really taking it seriously. Whoever did the bottle art seemed inspired by Dr. Bronner's Castile soap. By shipping it to the United States, Samuel Smith shrewdly hones in on his target audience of Ren Fair attendees who have beer blogs.
 
-**Brewed by** Samuel Smith Old Brewery (Tadcaster), Ye Ol' Pubbery, The Queen, Great Britain
+### Rating: 3 LARP swords.
 
-**Style** Winter Warmer? You 'ardly know 'er!
+# Slow Ride Session IPA
 
-**ABV** 6.0%
+> New Belgium Brewing, Colorado, United States, AmeriCAN IPA ("More flavorful than the withering English IPA" according to Beer Advocate, suck on those tea bags England) 4.5% ABV
 
-This beer is called a "Winter Warmer", which pretty much explains everything about it. It gets really good reviews on Beer Advocate, probably because it's foreign ("In America, we tend to like our hoppy IPA's, funky saisons and roasty stouts, but this time of year, sometimes to give a shout out to a style that is often overlooked" - Back_in_the_Saddle, Nov 19 2015) This is one of the few beers that I got at a liquor store instead of a grocery store, and I can't unassociate it from the jankyness of buying vodka from a drive-thru. I imagine that more than a few people have this beer in their refrigerator for the same reason Zooey Deschanel had a comedy tour, to show everyone how quirky and authentic they are despite not really taking it seriously. Whoever did the bottle art seemed inspired by Dr. Bronner's Castile soap. By shipping it to the United States, Samuel Smith shrewdly hones in on his target audience of Ren Fair attendees who have beer blogs. All around: 3 LARP swords.
+On the lighter side for an American IPA. It tastes a bit like apple. It's the kind of beer a beer snob would say is "not very flavorful" because people actually like to drink it. The picture on the front is of a couch with a steering wheel, which is probably a play on "Slow Ride". A bit of a chicken and egg situation here though because it's not clear if the name or the picture came first.
 
-Slow Ride Session IPA
----------------------
+### Rating: 3.5 electric cars.
 
-**Brewed by** New Belgium Brewing, Colorado, United States
+# Drafty Kilt Scotch Ale
 
-**Style** AmeriCAN IPA ("More flavorful than the withering English IPA" according to Beer Advocate, suck on those tea bags England)
+> Monday Night Brewing, Georgia, United States, Scottish Ale (Not completely Scott, only Scott-ish) 7.2% ABV
 
-**ABV** 4.5%
+Monday Night Brewing is the SweetWater Brewing Company of Atlanta Breweries. It tastes like air until it goes in your stomach, when it tastes like acid. Doesn't get fantastic reviews on Beer Advocate, but it's still pretty good.
 
-On the lighter side for an American IPA. It tastes a bit like apple. It's the kind of beer a beer snob would say is "not very flavorful" because people actually like to drink it. The picture on the front is of a couch with a steering wheel, which is probably a play on "Slow Ride". A bit of a chicken and egg situation here though because it's not clear if the name or the picture came first. All around: 3.5 electric cars.
+### Rating: 2.5 selfie sticks.
 
-Drafty Kilt Scotch Ale
-----------------------
+# SweetWater IPA
 
-**Brewed by** Monday Night Brewing, Georgia, United States
+> SweetWater Brewing Company, Georgia, United States, 'Merican IPA, 6.3% ABV
 
-**Style** Scottish Ale (Not completely Scott, only Scott-ish)
+SweetWater is about as big an Atlanta institution as Coca Cola or The Varsity. Pretty good, really hopsy. They served it at the PyData meetup at MailChip, along with non-chain store pizza.
 
-**ABV** 7.2%
+### Rating: 4 alternative pizza joints.
 
-Monday Night Brewing is the SweetWater Brewing Company of Atlanta Breweries. It tastes like air until it goes in your stomach, when it tastes like acid. Doesn't get fantastic reviews on Beer Advocate, but it's still pretty good. All around: 2.5 selfie sticks.
+# Sand Island Lighthouse
 
-SweetWater IPA
----------------
+> Straight to Ale, Alabama, United States Kolsch (clear, with a bright yellow hue, warm fermented and conditioned by lagering, which means it was matured in cold storage; usually ABV of 4.4% to 5.2%, medium bitterness of 20 to 30 IBU) 5.1% ABV
 
-**Brewed by** SweetWater Brewing Company, Georgia, United States
+It goes down pretty easily. It seems kind of nutty. Not something I would drink to get drunk, but good for drinking while doing work or hanging out. A lot of people on beeradvocate.com think it is fruity. It comes in a can, although I don't think it had the nitrogren thing on the lid, so it is either too mainstream or way, way underground. The can itself has some cool art on it, but not in-your-face avant garde art. The brewer, "Straight to Ale", might be a pun, but if it is, I don't get it. It tastes pretty good, though.
 
-**Style** 'Merican IPA
+### Rating: 4 plaid shirts.
 
-**ABV** 6.3%
+# Pabst Blue Ribbon
 
-SweetWater is about as big an Atlanta institution as Coca Cola or The Varsity. Pretty good, really hopsy. They served it at the PyData meetup at MailChip, along with non-chain store pizza. All around: 4 alternative pizza joints.
+> Pabst Brewing Company, California, United States, American Adjunct Lager (light bodied, pale, fizzy, less bitter with moderate (4.0% to 6.0%) alcohol, focus less on flavor and more on mass production; probably the beer your dad drinks) 4.74% ABV
 
-Sand Island Lighthouse
-----------------------
+As with anyone who likes craft beers, PBR is my go-to beverage of choice. Kind of meta-ironically, I drink it because at 67 cents a can (in 2016 adjusted dollars) it is the cheapest one at Krogers that doesn't advertise during the Super Bowl. Probably best if you want to get drunk, but don't want to be associated with people who get drunk.
 
-**Brewed by** Straight to Ale, Alabama, United States
-
-**Style** Kolsch (clear, with a bright yellow hue, warm fermented and conditioned by lagering, which means it was matured in cold storage; usually ABV of 4.4% to 5.2%, medium bitterness of 20 to 30 IBU)
-
-**ABV** 5.1%
-
-It goes down pretty easily. It seems kind of nutty. Not something I would drink to get drunk, but good for drinking while doing work or hanging out. A lot of people on beeradvocate.com think it is fruity. It comes in a can, although I don't think it had the nitrogren thing on the lid, so it is either too mainstream or way, way underground. The can itself has some cool art on it, but not in-your-face avant garde art. The brewer, "Straight to Ale", might be a pun, but if it is, I don't get it. It tastes pretty good, though. All around: 4 plaid shirts.
-
-Pabst Blue Ribbon
------------------
-
-**Brewed by** Pabst Brewing Company, California, United States
-
-**Style** American Adjunct Lager (light bodied, pale, fizzy, less bitter with moderate (4.0% to 6.0%) alcohol, focus less on flavor and more on mass production; probably the beer your dad drinks)
-
-**ABV** 4.74%
-
-As with anyone who likes craft beers, PBR is my go-to beverage of choice. Kind of meta-ironically, I drink it because at 67 cents a can (in 2016 adjusted dollars) it is the cheapest one at Krogers that doesn't advertise during the Super Bowl. Probably best if you want to get drunk, but don't want to be associated with people who get drunk. All around: 3 ironic glasses.
+### Rating: 3 ironic glasses.

@@ -1,0 +1,31 @@
+a {
+  text-decoration: none;
+  color: $font-color;
+  position: relative;
+}
+
+a:hover {
+  text-decoration: none;
+  color: $font-color;
+}
+
+a:after {
+  border-radius: 0.2em;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -0.1em;
+  right: -0.1em;
+  bottom: 0;
+  height: 0.1em;
+  transition: all 200ms ease;
+  background-color: $highlight-color;
+}
+
+a:hover:after {
+  height: 100%;
+}
+
+a.no-highlight:after {
+  content: none;
+}
