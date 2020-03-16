@@ -5,14 +5,18 @@
   <meta charset="UTF-8">
   <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
 
+  {% if page.excerpt %}
+  <meta name="description" content="{{ page.excerpt | strip_newlines }}" />
+  {% endif %}
+
   <!-- For saving page to mobile device -->
   <link rel="manifest" href="{{ site.baseurl }}/assets/manifest.json" />
 
   <!-- Viewport disables mobile zooming -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  <!-- MathJax -->
   {% if page.mathjax %}
+  <!-- MathJax -->
   <script defer src="{{ site.cdn.mathjax }}"></script>
   {% endif %}
 
@@ -22,6 +26,39 @@
 
   <!-- Custom Sass -->
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
+
+  {% if site.analytics.google %}
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google.analytics-id }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', '{{ site.google.analytics-id }}');
+  </script>
+  {% endif %}
+
+  {% if site.analytics.facebook %}
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '{{ site.analytics.facebook }}');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id={{ site.analytics.facebook }}&ev=PageView&noscript=1" /></noscript>
+  <!-- End Facebook Pixel Code -->
+  {% endif %}
 </head>
 
 <body>

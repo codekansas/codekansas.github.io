@@ -22,3 +22,8 @@ cdn:
 # Other
 markdown:         kramdown
 permalink:        :title
+
+# Analytics
+analytics:
+  google:         UA-77147392-2
+  facebook:       516160742657752
