@@ -10,6 +10,9 @@ layout: default
 </p>
 
 {% for post in site.posts %}
+{% capture words %}
+{{ post.content | number_of_words }}
+{% endcapture %}
 <div class="padded bottom" style="font-size: 80%">
   <h1>
     <a class="no-highlight" href="{{ post.url }}">📖</a>
@@ -17,6 +20,7 @@ layout: default
     <small>
       | {{ post.date | date: "%B %-d, %Y" }}
       | {{ post.category }}
+      | {{ words | divided_by: 250 }} - {{ words | divided_by: 180 }} minute read
     </small>
   </h1>
   <h3>{{ post.excerpt }}</h3>
