@@ -17,6 +17,7 @@ sass:
 # Some CDN-hosted scripts
 cdn:
   mathjax:        https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  bootstrap-css:  https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css
 
 # Other
 markdown:         kramdown

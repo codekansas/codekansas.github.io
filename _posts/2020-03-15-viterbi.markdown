@@ -1,0 +1,170 @@
+---
+layout: post
+title: "Coding the Viterbi Algorithm in Numpy"
+date: 2020-03-15 12:00:00
+category: 🔨
+excerpt: >
+  A demo of how to code the Viterbi algorithm in Numpy.
+mathjax: true
+---
+
+This tutorial explains how to code the Viterbi algorithm in Numpy, and gives a minor explanation. I'm using Numpy version `1.18.1` and Python `3.7`, although this should work for any future Python or Numpy versions.
+
+# Resources
+
+The Viterbi algorithm has been widely covered in many areas. One of my favorite explanations is from the Youtuber [Mathematical Monk][mathematical-monk]. This tutorial expects some background familiarity with hidden Markov models; if you've never heard of them, check out those videos! The [Wikipedia][wikipedia] page is also pretty good.
+
+# Problem Statement
+
+The goal of the Viterbi algorithm is to compute the most probable sequence of hidden states \\( z^* \\) for a Hidden Markov Model defined by an input sequence \\( x \\) and a sequence of hidden states \\( z \\):
+
+$$z^* = \underset{z}{\mathrm{argmin}}[p(z|x)]$$
+
+$$z^* = \underset{z}{\mathrm{argmin}}[p(z,x)]$$
+
+We assume that we know the input sequence \\( x = (x_1, ..., x_n) \\), the set of initial hidden probabilities \\( z_1 = (z_1^1, ..., z_1^L) \\), the emission probabilities \\( p(x_i \| z_j) \\) and the transition probabilities \\( p(z_i \| z_{i-1}) \\). In Numpy, these can be represented as arrays:
+
+{% highlight python %}
+import numpy as np
+from typing import List, Optional, Tuple
+
+num_hidden_states = 3
+num_observed_states = 2
+num_time_steps = 4
+
+# Initializes the transition probability matrix.
+transition_probs = np.array([
+    [0.1, 0.2, 0.7],
+    [0.1, 0.1, 0.8],
+    [0.5, 0.4, 0.1],
+])
+assert transition_probs.shape == (num_hidden_states, num_hidden_states)
+assert transition_probs.sum(1).mean() == 1
+
+# Initializes the emission probability matrix.
+emission_probs = np.array([
+    [0.1, 0.9],
+    [0.3, 0.7],
+    [0.5, 0.5],
+])
+assert emission_probs.shape == (num_hidden_states, num_observed_states)
+assert emission_probs.sum(1).mean()
+
+# Initalizes the initial hidden probabilities.
+init_hidden_probs = np.array([0.1, 0.3, 0.6])
+assert init_hidden_probs.shape == (num_hidden_states,)
+
+# Defines the sequence of observed states.
+observed_states = [1, 1, 0, 1]
+assert len(observed_states) == num_time_steps
+
+# Placeholder defining how we'll call the Viterbi algorithm.
+max_seq, seq_prob = viterbi(
+    transition_probs,
+    emission_probs,
+    init_hidden_probs,
+    observed_states,
+)
+# max_seq: [2, 0, 2, 0]
+# seq_prob: 0.0212625
+{% endhighlight %}
+
+Note that these matrices represent the probability distributions in *column-major* format, meaning that the column dimension sums to 1. Note also that if we represent the hidden state probabilities as a vector, then doing vector-matrix multiplication into the `transition_probs` matrix will give us the new hidden states, and doing vector-matrix multiplication into the `emission_probs` matrix will give us the observed states.
+
+# Maximizing Value
+
+The maximum value of \\( p(z, x) \\) for all the inputs \\( 1, ..., k \\) is
+
+$$\mu_k(z_k) = \max_{z_{1:k-1}} p(z_{1:k}, x_{1:k})$$
+
+$$\mu_k(z_k) = \max_{z_{1:k-1}} p(x_k|z_k) p(z_k|z_{k-1}) p(z_{1:k-1}, x_{1:k-1})$$
+
+$$\mu_k(z_k) = \max_{z_{k-1}} p(x_k|z_k) p(z_k|z_{k-1}) \max_{z_{1:k-2}} p(z_{1:k-1},x_{1:k-1})$$
+
+Since the first two terms aren't dependent on anything besides \\( z_{k-1} \\), you can take them out of the whole max operation.
+
+$$\mu_k(z_k) = p(x_k|z_k) \max_{z_{k-1}} p(z_k|z_{k-1}) \mu_{k-1}(z_{k-1})$$
+
+For the recursion base case, we get
+
+$$\mu_1(z_1) = p(z_1, x_1)$$
+
+$$\mu_1(z_1) = p(z_1) p(x_1 | z_1)$$
+
+Knowing the maximizing value, we can find the *argmax* by using *backpointers* - for some max value \\( \mu_k(z_k) \\), we get the incoming index as the \\( arg \max_{z_{k-1}} p(z_k \| z_{k-1}) \mu_{k-1}(z_{k-1}) \\). By doing this recursively, we can get the (reversed) sequence of indices that led to the final maximum value.
+
+{% highlight python %}
+def step(mu_prev: np.ndarray,
+         emission_probs: np.ndarray,
+         transition_probs: np.ndarray,
+         input_state: int) -> Tuple[np.ndarray, np.ndarray]:
+    """Runs one step of the Viterbi algorithm.
+    
+    Args:
+        mu_prev: probability distribution with shape (num_hidden),
+            the previous mu
+        emission_probs: the emission probability matrix (num_hidden,
+            num_input)
+        transition_probs: the transition probability matrix, with
+            shape (num_hidden, hidden)
+        input_state: the observed input state at the current step
+    
+    Returns:
+        - the mu for the next step
+        - the maximizing previous state, before the current state,
+          as an int array with shape (num_hidden)
+    """
+    
+    pre_max = mu_prev * transition_probs.T
+    max_prev_states = np.argmax(pre_max, axis=1)
+    max_vals = pre_max[np.arange(len(max_prev_states)), max_prev_states]
+    mu_new = max_vals * emission_probs[:, input_state]
+    
+    return mu_new, max_prev_states
+
+
+def viterbi(emission_probs: np.ndarray,
+            transition_probs: np.ndarray,
+            start_probs: np.ndarray,
+            input_states: List[int]) -> List[int]:
+    """Runs the Viterbi algorithm to get the most likely state sequence.
+    
+    Args:
+        emission_probs: the emission probability matrix (num_hidden,
+            num_input)
+        transition_probs: the transition probability matrix, with
+            shape (num_hidden, num_hidden)
+        start_probs: the initial probabilies for each state, with shape
+            (num_hidden)
+        input_states: the observed input states at each step
+    
+    Returns:
+        - the most likely series of states
+        - the joint probability of that series of states and the input
+    """
+    
+    # Runs the forward pass, storing the most likely previous state.
+    mu = start_probs * emission_probs[:, input_states[0]]
+    all_prev_states = []
+    for input_state in input_states[1:]:
+        mu, prevs = step(mu, emission_probs, transition_probs, input_state)
+        all_prev_states.append(prevs)
+    
+    # Traces backwards to get the maximum likelihood sequence.
+    state = np.argmax(mu)
+    sequence_prob = mu[state]
+    state_sequence = [state]
+    for prev_states in all_prev_states[::-1]:
+        state = prev_states[state]
+        state_sequence.append(state)
+    
+    return state_sequence[::-1], sequence_prob
+{% endhighlight %}
+
+# Complexity
+
+The **time complexity** of the whole inference is \\( O(N M^2) \\) for \\( N \\) time steps and \\( M \\) input states (although the \\( M^2 \\) term represents a matrix-matrix multiplication, which Numpy helps accelerate using [BLAS][blas-wikipedia]). The **space complexity** is \\( O(N M) \\), since we have to store the most likely previous state for each time step.
+
+[mathematical-monk]: https://www.youtube.com/watch?v=RwwfUICZLsA&list=PLD0F06AA0D2E8FFBA&index=105
+[wikipedia]: https://en.wikipedia.org/wiki/Viterbi_algorithm
+[blas-wikipedia]: https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms

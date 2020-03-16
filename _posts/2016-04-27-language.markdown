@@ -5,9 +5,8 @@ date: 2016-04-27 12:00:00
 category: 🔬
 excerpt: >
   An in-depth introduction to using Keras for language modeling; word embedding, recurrent and convolutional neural networks, attentional RNNs, and similarity metrics for vector embeddings.
+mathjax: true
 ---
-
-<script defer src="{{ site.cdn.mathjax }}"></script>
 
 # Introduction
 
