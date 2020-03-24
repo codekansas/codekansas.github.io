@@ -16,14 +16,18 @@ sass:
 
 # Some CDN-hosted scripts
 cdn:
-  mathjax:        https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML
   bootstrap-css:  https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css
+  mathjax:        https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  katex:          https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css
 
 # Other
 markdown:         kramdown
+kramdown:
+  math_engine:    katex
 permalink:        :title
 
 # Analytics
 analytics:
   google:         UA-77147392-2
   facebook:       516160742657752
+

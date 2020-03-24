@@ -5,7 +5,7 @@ date: 2016-07-18 12:00:00
 category: 🔬
 excerpt: >
   Building on the Recurrent RBM for sequence modeling. This post relates to what I am doing for my Master's thesis.
-mathjax: true
+katex: true
 ---
 
 # Introduction
@@ -25,10 +25,10 @@ In order to understand the details of this post, it would be good to familiarize
 
 Some references which explore this topic in greater detail can be found here:
 
- - [Modeling Temporal Dependencies in High-Dimensional Sequences: Application to Polyphonic Music Generation and Transcription][modeling-temporal-dependencies]: This paper from the University of Montreal in 2012 presented a Restricted Boltzmann Machine model which was used to generate music. They tied together timesteps of a Restricted Boltzmann Machine with recurrent units, allowing it to generatively model time-varying sequences. They wrote a very nice tutorial on how to build their model [here][deeplearning-rnnrbm].
- - [The Unreasonable Effectiveness of Recurrent Neural Networks][karpathy-effectiveness]: This was a really popular blog post about using neural networks to generate text based on a reference text. There are many cool examples of applying this to other things, including [generating Irish Folk music](https://soundcloud.com/seaandsailor/sets/char-rnn-composes-irish-folk-music) and [speeches like Obama](https://medium.com/@samim/obama-rnn-machine-generated-political-speeches-c8abd18a2ea0#.38lq4zkal).
- - [Speech Recognition with Deep Recurrent Neural Networks][graves-speech]: A pretty influential paper from Geoff Hinton and company in 2013 which explains LSTMs in greater detail.
- - [Multimodal Learning with Deep Boltzmann Machines][multimodal-learning] This paper describes using a probabilistic model to couple data from different modalities (in particular, vision and text) and generate one given the other. For example, given some keywords, their model is able to generate relevant images, and given an image, is able to generate descriptive keywords.
+ - **Modeling Temporal Dependencies in High-Dimensional Sequences: Application to Polyphonic Music Generation and Transcription**: This [paper][modeling-temporal-dependencies] from the University of Montreal in 2012 presented a Restricted Boltzmann Machine model which was used to generate music. They tied together timesteps of a Restricted Boltzmann Machine with recurrent units, allowing it to generatively model time-varying sequences. They wrote a very nice tutorial on how to build their model [here][deeplearning-rnnrbm].
+ - **The Unreasonable Effectiveness of Recurrent Neural Networks**: [This][karpathy-effectiveness] was a really popular blog post about using neural networks to generate text based on a reference text. There are many cool examples of applying this to other things, including [generating Irish Folk music](https://soundcloud.com/seaandsailor/sets/char-rnn-composes-irish-folk-music) and [speeches like Obama](https://medium.com/@samim/obama-rnn-machine-generated-political-speeches-c8abd18a2ea0#.38lq4zkal).
+ - **Speech Recognition with Deep Recurrent Neural Networks**: A pretty influential [paper][graves-speech] from Geoff Hinton and company in 2013 which explains LSTMs in greater detail.
+ - **Multimodal Learning with Deep Boltzmann Machines**: [This paper][multimodal-learning] describes using a probabilistic model to couple data from different modalities (in particular, vision and text) and generate one given the other. For example, given some keywords, their model is able to generate relevant images, and given an image, is able to generate descriptive keywords.
 
 # Installing dependencies
 
@@ -38,7 +38,7 @@ Most of this post will rely on using Theano. The general concepts can probably b
 
 The question which RBMs are often used to answer is, "What do we do when we don't have enough labeled data?" Approaching this question from a neural network perspective would probably lead you to the [autoencoder](https://en.wikipedia.org/wiki/Autoencoder), where instead of training a model to produce some output given an input, you train a model to reproduce the input. Autoencoders are easy to think about, because they build on the knowledge that most people have about conventional neural networks. However, in practice, RBMs tend to outperform autoencoders for important tasks.
 
-[Boulanger-Lewandowski, Bengio, and Vincent (2012)][modeling-temporal-dependencies] suggests that unlike a regular discriminative neural network, RBMs are better at modeling multi-modal data. This is evident when comparing the features learned by the RBM on the MNIST task with those learned by the autoencoder; even though the autoencoder did learn some spatially localized features, there aren't very many multi-modal features. In contast, the majority of the features learned by the RBM are multimodal; they actually look like penstrokes, and preserve a lot of the correlated structure in the dataset.
+*Boulanger-Lewandowski, Bengio, and Vincent ([2012][modeling-temporal-dependencies])* suggests that unlike a regular discriminative neural network, RBMs are better at modeling multi-modal data. This is evident when comparing the features learned by the RBM on the MNIST task with those learned by the autoencoder; even though the autoencoder did learn some spatially localized features, there aren't very many multi-modal features. In contast, the majority of the features learned by the RBM are multimodal; they actually look like penstrokes, and preserve a lot of the correlated structure in the dataset.
 
 ## Formulas
 
@@ -68,7 +68,7 @@ The best way to think about what an RBM is doing during learning is that it is i
 
 # Modeling time-varying statistics
 
-As described above, there is some reason to think that an RBM model may learn higher-order correlations better than a traditional neural network. However, as they are conventionally described, they can't model time-varying statistics very well. For many applications this presents a serious drawback. The top answer on Quora for the question [Are Deep Belief Networks useful for Time Series Forecasting?](https://www.quora.com/Are-Deep-Belief-Networks-useful-for-Time-Series-Forecasting) is by Yoshua Bengio, who suggests looking at the work of his Ph.D. student, Nicolas Boulanger-Lewandowski, who wrote the tutorial that much of this blog post is modeled around. In particular, the paper [Modeling Temporal Dependencies in High-Dimensional Sequences: Application to Polyphonic Music Generation and Transcription][modeling-temporal-dependencies] and it's corresponding [tutorial][deeplearning-rnnrbm] provide a good demonstration of doing almost exactly what Andrej Karpathy's [blog post][karpathy-effectiveness] does, although instead of using RNNs to continually predict the next element of a sequence, it does something a little differrent.
+As described above, there is some reason to think that an RBM model may learn higher-order correlations better than a traditional neural network. However, as they are conventionally described, they can't model time-varying statistics very well. For many applications this presents a serious drawback. The top answer on Quora for the [question][deep-belief-networks] **Are Deep Belief Networks useful for Time Series Forecasting?** is by Yoshua Bengio, who suggests looking at the work of his Ph.D. student, Nicolas Boulanger-Lewandowski, who wrote the tutorial that much of this blog post is modeled around. In particular, the [paper][modeling-temporal-dependencies] **Modeling Temporal Dependencies in High-Dimensional Sequences: Application to Polyphonic Music Generation and Transcription** and it's corresponding [tutorial][deeplearning-rnnrbm] provide a good demonstration of doing almost exactly what Andrej Karpathy's [blog post][karpathy-effectiveness] does, although instead of using RNNs to continually predict the next element of a sequence, it does something a little differrent.
 
 The RNN-RBM uses an RNN to generate a visible and hidden bias vector for an RBM, and then trains the RBM normally (to reduce the energy of the model when initialized with those bias vectors and the visible vector at the first time step). Then the next visible vector is fed into the RNN and RBM, the RNN generated another set of bias vectors, and the RBM reduces the energy of that new configuration. This is repeated for the whole sequence.
 
@@ -85,3 +85,4 @@ The RNN part is trained to generate biases that activate the right features of t
 [modeling-temporal-dependencies]: http://www-etud.iro.umontreal.ca/~boulanni/ICML2012.pdf
 [multimodal-learning]: https://papers.nips.cc/paper/4683-multimodal-learning-with-deep-boltzmann-machines.pdf
 [github-repo]: https://github.com/codekansas/generative-modeling
+[deep-belief-networks]: https://www.quora.com/Are-Deep-Belief-Networks-useful-for-Time-Series-Forecasting

@@ -3,9 +3,7 @@ layout: post
 title: "Touring the United States and Canada"
 date: 2016-05-11 12:00:00
 category: 😜
-excerpt: >
-  Narration from my trip with my girlfriend through Nashville, Chicago,
-  Toronto, Montreal, and Washington DC.
+excerpt: Narration from my trip through Nashville, Chicago, Toronto, Montreal, and Washington DC.
 ---
 
 # Nashville

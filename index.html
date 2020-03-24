@@ -15,8 +15,7 @@ layout: default
 {% endcapture %}
 <div class="padded bottom" style="font-size: 80%">
   <h1>
-    <a class="no-highlight" href="{{ post.url }}">📖</a>
-    {{ post.title }}
+    <a class="no-highlight" href="{{ post.url }}">📖 {{ post.title }}</a>
     <small>
       | {{ post.date | date: "%B %-d, %Y" }}
       | {{ post.category }}

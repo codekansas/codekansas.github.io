@@ -15,9 +15,9 @@
   <!-- Viewport disables mobile zooming -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  {% if page.mathjax %}
-  <!-- MathJax -->
-  <script defer src="{{ site.cdn.mathjax }}"></script>
+  {% if page.katex %}
+  <!-- Katex -->
+  <link rel="stylesheet" href="{{ site.cdn.katex }}" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
   {% endif %}
 
   <!-- Boostrap -->
@@ -65,6 +65,25 @@
   <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/assets/favicon/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/assets/favicon/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/assets/favicon/favicon-16x16.png" />
+
+  <!-- Header links -->
+  <script defer type="text/javascript">
+    document.onreadystatechange = function () {
+      if (this.readyState === "complete") {
+        const postContainer = document.getElementsByClassName("post")[0];
+        if (!postContainer) {
+          return;
+        }
+        postContainer.querySelectorAll("h1, h2, h3, h4").forEach(function (node) {
+          const anchor = document.createElement("a");
+          anchor.className = "header-link no-highlight";
+          anchor.href = "#" + node.id;
+          anchor.innerHTML = "🔗";
+          node.appendChild(anchor);
+        });
+      }
+    };
+  </script>
 </head>
 
 <body>

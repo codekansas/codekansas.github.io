@@ -1,0 +1,175 @@
+---
+layout: post
+title: "Book Review of \"The Decadent Society\""
+date: 2020-03-22 12:00:00
+category: 📘
+excerpt: >
+  Summary and thoughts about <i>The Decadent Society: How We Became the Victims
+  of Our Own Success</i> by Ross Douthat.
+---
+
+*The Decadent Society* is a recent book by New York Times columnist Ross Douthat about "how our turbulent age is defined by dark forces seemingly beyond our control". Amazon recommended it to me after I finished reading "Cult of the Dead Cow", a similarly antiestablishmentarian book with technocratic overtones. I highly encourage anyone who finds this review interesting to pick up a copy of the actual book on [Amazon][amazon] or elsewhere, as it is much more dense than I could ever capture here.
+
+By way of preface, here is an excerpt from Douthat's [op][nytimes]-[ed][archive] advertising the book:
+
+> The truth of the first decades of the 21st century, a truth that helped give us the Trump presidency but will still be an important truth when he is gone, is that we probably aren’t entering a 1930-style crisis for Western liberalism or hurtling forward toward transhumanism or extinction. Instead, we are aging, comfortable and stuck, cut off from the past and no longer optimistic about the future, spurning both memory and ambition while we await some saving innovation or revelation, growing old unhappily together in the light of tiny screens.
+
+# Notes
+
+## Introduction
+
+- The space race showed that sending people to live on the moon would be a lot harder than we originally anticipated, which led to a country-wide resignation. Doing cool shit turned out to be harder than we had anticipated.
+  > For the first time since 1491, we have found the distances too fast and the technology too limited to take us to somewhere genuinely undiscovered, somewhere truly new.
+- The word "decadence" is often used incorrectly; in the context of this book, and civilization more broadly, it should mean a "falling off"; an open confession of malaise; economic stagnation; institutional decay; sclerosis; technological exhaustion despite a high level of material prosperity and technological development.
+- Some proponents of this pessimistic view include neoconservative blogger and columnist [Tyler Cowen][tyler-cowen], who coined the phrase "the great stagnation"; [Robert Gordon][robert-gordon], who literally wrote the book on macroeconomics; [Thomas Piketty][thomas-piketty], who has argued for a global wealth tax; [Francis Fukuyama][francis-fukuyama], who has described liberal democracy as the final stage of humanity and the end of history; the anthropologist and "Bullshit Jobs" author [David Graeber][david-graeber]; and the notably contrarian and pessimistic venture capitalist [Peter Thiel][peter-thiel]. The unifying feature among these thinkers is that Western society has grown stagnant, sclerotic and repetitive.
+- Trump and other populist uprisings are indicative of a backlash against the liberal democratic order.
+  > "Make America Great Again" is a precisely calibrated statement of what you might call reactionary futurism, a howl against a present that wasn't what was promised ... The question is whether in conjuring him up our politics have also revealed the underlying instability of our decadence.
+
+## Part 1: The Four Horsemen
+
+### Stagnation
+
+- Several headlines of the last decade are indicative of overpromising but underdelivering, including [Fyre Festival][fyre-festival], [Theranos][elizabeth-holmes], and [Uber][uber]. Investors dump money into over-hyped promises because there's not that much "real" innovation happening (or investors can't tell what is).
+- American median real income growth has [increased but decelerated][household-income]. We hit all-time highs in 2018 (at over $60,000 per household), but only after experiencing turbulence in the 90's, early 2000's, and the 2008 recession.
+  - Unemployment is also quite low (at least, pre-coronavirus), although wage and productivity growth was lower than in the 90's
+  - **Neoliberalism**: Lower taxes and deregulation, free trade and anti-inflationary monetary policy (although on Facebook, people usually just use it to mean anything they doesn't like).
+- The *doubling time* for global [economic growth][global-economy] has slowed since JFK, although the [US economy][us-economy] has grown consistently.
+- Many wealthy companies and investors shifted from growth to rent-seeking behavior.
+  - The investment-to-GDP ratio averaged 8 percent between 1947 and 1990, but was only 4 percent in 2019, per a [report][rubio-report] from Marco Rubio's office.
+- Neoliberalism led to wealthy knowledge workers while blue-collar jobs were off-shored.
+  > Antitrust policy has become so fixated on the supposed benefits of consolidation - lower prices for consumers - that it has ignored all the ways that market-dominant corporations can warp policies and strangle innovation. And anti-inflationary policies, forged to counteract a crisis that's now generations behind us, have been adopted as a dogma by the West's financial and political elite, which demands fiscal austerity under every circumstance and deprives struggling economies of the cash they need to grow.
+- Thomas Picketty was right; wealth has been concentrated and mobility and entrepreneurship are declining, even as the country grows ostensibly more meritocratic.
+  - Old solutions like monopoly-busting and wealth taxes might not address the root problems:
+    1. *Weight of demographics*: people in developed countries aren't having enough kids.
+    2. *Overhang of debt*: Historically low interest rates suggest that we actually have a weak private sector propped up by debt
+    3. *Constraints on education*: We've maxed out on education; the growth from a 6% graduation rate to a 70% is much more profound than from 70% to 90%.
+    4. *Constraints imposed by the environment*: We have to pay back the damage to the environment.
+    5. *Technological stagnation*: Despite boosterism to the contrary, we've actually gotten *less* innovative.
+- Internet-era innovations are fundamentally less inspiring and growth-inducing than Industrial-era innovations, but there is more associated boosterism (the miracle cancer treatment just around the corner, the AI revolution).
+
+### Sterility
+
+- As of 2018, birth rates around the world are much lower than the *replacement rate* of 2.1 births per woman.
+  - America is at 1.7, Europe and China are at 1.6, Japan is at 1.41, South Korea is at 1.25.
+  - There is also a marked increase in self-reported asexuality and lack of interest in real-world sex thanks to easily accessible pornography.
+- Sperm counts have fallen since 1973, as much as 50% by [some measures][sperm-count].
+- Having too many old people and not enough kids is a *big* social problem.
+  - Old people are inherently more risk-averse, and tend to elect sclerotic politicians.
+  - Societies with fewer children have less of a stake in the future and more intergenerational friction.
+  - Europe's solution of ramping up immigration has arguably led to the rise of far-right nationalism.
+- There are a number of "conventional" explanations, including the shifting roles of women, birth control, divorce rate, secularization, and the relative cost of having a child.
+- International variations aren't so easy to explain; Sweden is more secular than Poland but has more children; feminism leads to higher birth rates in some countries but lower in others.
+- Israel's super-high birth rate of 3.1 births per woman suggests that there is something inherent about living in comfort and "decadence" that leads to lower birth rates.
+- Older societies can become more *polarized* but are less likely to actually *change*.
+
+### Sclerosis
+
+- Political institutions are increasingly ineffective and slow. The defining feature of the Obama administration is how little actually changed. The Trump administration is much more talk than action.
+  > It was ordinary that after expanding the deficit, defensibly, to fight the recession, Obama would then fail to reach a bipartisan agreement to restrain the long-term growth of debt; after all, no major deal combining spending cuts and tax increases has been reached since 1991.
+- The nature of war today is such that we can involve ourselves in a conflict basically indefinitely, through targeted drone strikes and electronic attacks, without actually "winning" or "losing".
+- The government has been accumulating [kludge][kludge], inherent to it's size and scale and post-constitutional drift (this part felt a bit overtly Libertarian, but it's worth thinking about).
+  > The most sophisticated version of this explanation doesn't just emphasize the basic problems with centralization and expert control that the free-market right always tends to emphasize. It also stresses the way that time makes these problems worse, as popular programs become part of an informal social contract that makes them nearly impossible to reform; as the administrative state gets barnacled by interest groups that can buy off and bludgeon would-be reformers; and as the proliferation of regulations handcuffs administrators and deprives them of the room to respond to changing times.
+- The system is so partisan that major new reforms, like Obamacare, are done through the executive branch alone, meaning that they can easily be undone with changing administrations.
+  - Special interest groups have gotten substantially more influential in Congress since the reforms of FDR and LBJ.
+- Ironically, Democratic Party reformers removing "party bosses" in the 60's and 70's made dealmaking harder.
+- Newt Gingrich spent the 90's turning the Republican party into the ideologically-zealous party it is today.
+  - Democrats under Trump seem to be moving in the same direction.
+- America's constitutional checks and balances require some basic level of cooperation. The danger of *not* doing this is that people will start to want a strongman or Politburo to actually accomplish stuff.
+- The European Union has many of the problems of the United States, but worse; the Euro is horrible for countries like Spain and Greece, and the political system is more sclerotic than America's Congress.
+  - The EU illustrates the dangers of thinking just because something works, more of it will work even better.
+- Japan under Abe has seen some modest improvements in economic and population growth.
+
+### Repetition
+
+- Mostly, our cultural and social battles are basically repeats of past battles.
+  - Movie studios have shifted from franchises funding new movies, to franchises being the only movies.
+  - Star wars is a "pastiche of the original pastiche".
+- The most popular music has gotten measurably less creative; media distribution has become increasingly winner-take-all.
+- College campus debates and language, on both sides, mirrors the same debates and language from the 80's.
+- Gay marriage represents one of the few definite victories for liberalism.
+- Mainstream religious thought has become more stagnant and centrist, hence the drop in the number of cults, but increase in paganism. This is also seen in mainstream atheism; people stopped trying to innovate.
+- The consolidation of media platforms has led to more algorithmically-driven content distribution.
+  > Nor is it surprising that the two genres that currently dominate online are political polemic and pornography - because both are ideally suited for a click-here-then-there medium, in which the important thing is to be titillated, stimulated, get your spasm of pleasure, and move on.
+- Counterculturalism basically won (postmodernism started in the 80's), but everyone still wants to be counter-culture.
+
+### My thoughts
+
+I am personally a big fan of Peter Thiel's diagnosis of the problems facing innovation today, much of which is parroted in these sections. To paraphrase a section from [Zero to One][zero-to-one], Americans are "positive indefinite"; we have a general sense of positivity about the world, but no clear goals to accomplish, so our media ecosystem rewards the appearance of political action without anything fundamentally happening. Reading through this book was the first time that I had seen the innovation glut as a consequence of policy created by an aging society that is naturally more resistant to change.
+
+I found the portions about algorithmically-generated recommendations hurting the diversity of content to be an interesting technical question. Recommender systems are a pretty interesting area of machine learning. The simplest recommender system would just figure out the most popular movie and suggest it to everyone, since without knowing anything about you that would be the safest bet. In machine learning terms, this is a *bias*. I think this particular critique basically boils down to saying that algorithmic recommender systems don't work very well, but I suspect that as more modern machine learning approaches are applied to these problems and more data is collected about individual users and tastes, these recommender systems will exhibit less bias.
+
+It's important to note that there is a lag time before this takes effect, because the ecosystem takes time to adapt. For example, when I first started looking for video game streams on Facebook, all the top recommendations were for Fortnite and Call of Duty, which I've never really played, simply because the machine learning backend hadn't been built yet. As it improves, it will attract more streamers for a more diverse set of games, and users will learn to look for content they like from those outlets, encouraging this symbiotic relationship and fostering more creative approaches.
+
+Algorithmic classification problems can basically be distilled down to three components: some *features* to use as input, like a user's age, gender, interests, time spent using a computer, past interactions; a *signal* that measures something that you're trying to optimize, like the likelihood of someone clicking on an advertisement or the amount of time they spend watching a video; and a *model* that predicts the signal from the features, which can be used to make decisions, for example, about which ads or videos to show someone.
+
+Advertising has historically optimized for clicks because it is the easiest thing to optimize for, but I think the world is moving towards something more substantive, partly thanks to the massive surveillance state we've constructed, and partly thanks to the big gains that the AI world has seen in the last couple years. Facebook and Google have basically saturated the advertising market for large companies and are starting to try to onboard small and medium sized businesses. I think this will be a positive direction for people - we have the potential to use the massively effective advertising tools at our disposal to generate something akin to community engagement. I've wondered in the past whether or not advertising platforms could be used by well-meaning individuals to broadcast socially helpful messages, similar to public service announcements, although I suspect this would be a pretty tall order for our current government.
+
+The section about counterculturalism reminded me of David Foster Wallace's critiques of irony as tearing apart social fabric. Instead of proposing new ideas, it is simpler and oftentimes viewed more favorably to critique existing ideas, masking the weaknesses of your own argument behind layers of sarcasm and irony. If my girlfriend is any indication, this is a very unhealthy behavior on both an individual and social level. I think this parallels (in different language) some of the discussion about the sclerotic political system.
+
+## Part 2: Sustainable Decadence
+
+### Comfortably Numb
+
+- Pornography is bad for people.
+  - Dworkin-era feminists thought it would lead to more rapes because men would becomes accustomed to hyper-violent sex acts, and grow unsatisfied with what they can get digitally; instead, it seems to have led to an increasing asexuality, where men instead just sink further into online fantasies.
+  - [This study][ed-study] indicates that rates of erectile dysfunction more than doubled from 2010 to 2015, coinciding with the growing percentage of adult males accustomed to online pornography.
+- Young people are having less sex, doing fewer drugs, and getting in fewer fights; the only risky behavior that has increased is the rate of suicides.
+- Opiods are a fundamentally escapist drug, compared with weed, and it's emblematic that people would choose to use it.
+- Aldous Huxley's *Brave New World* gets mentioned a bunch - using *soma* to feel happy and escapist, the *Violent Passion Surrogate* which allows people to live out their fear and rage without having to act on any of it, the *feelies* for virtual entertainment. Versions of these are seen in modern life; opioids, Call of Duty, and VR sex.
+- Social media allows people to playact as radicals, on both the far left and far right; but the only people who actually act on these in the real world are people who aren't "in on the joke".
+  - The [Unite the Right][unite-the-right] rally, where white nationalists waved tiki torches and Nazi flags, was one of the most vivid examples of real-world violence, actually resulting in the death of Heather Heyer; but the following year, [virtually no one][unite-the-right-2] showed up for the anniversary rally, suggesting that while people like to playact when the stakes are low, they are mostly comfortable enough to not seriously disturb the established order.
+  - A similar trend can be seen with far-right and far-left groups in Europe; while they criticize globalism from afar, none has actually tried to spearhead a secessionist movement outside of Britain.
+- If you actually turn off social media and look around, the world is basically much more docile than it was in the 70's. It's only when filtered through social media that the world appears to be in tumult.
+
+### A Kindly Despotism
+
+- The new normal state of constant observation severely hampers creativity; China's "social credit" system is the most extreme version, but it also exists on Twitter, Facebook and Google.
+- The [pink police state][pink-state], coined by James Poulos, describes a system where individual freedoms are cultivated while fundamental societal freedoms are eroded.
+  > Rather than stamping out hedonistic pursuits and pleasure-centered living, 1984 style, the new statism creates a ‘safe’ space for their “healthy” experience. ([Poulos][pink-state])
+- Colleges today exemplify the "pink state"; they protect many kinds of personal liberties and the expense of many others.
+  > In the last few decades, our universities have distinguished themselves by promising seemingly incompatible things to their two customer bases: to the parents footing the bill, they promise safety, supervision, and an environment where the precious children of the upper-middle class will be tended with all the care that helicopter parents expect; to the kids actually making the choice, they promise a long *Rumspringa*.
+- The Internet is equated to the 18th-century social reformer [Jeremy Bentham][jeremy-bentham]'s Panopticon, where prisoners always have the possibility of being watched; any feelings of privacy are actually an illusion.
+  - (Most people are basically okay with this.)
+
+### Waiting for the Barbarians
+
+- A "big bad" can sometimes give people purpose; without it, what is there to struggle for? But Islam, Russia, and China don't offer truly threatening alternatives to the liberal world order.
+  > "Illiberal democracy" in practice is either just a liberal democracy with somewhat more nationalism than Western bien-pensants prefer, or pseudodemocracy dominated by a dictator who doesn't want to own up to his own authoritarianism - because, again, he's still tacitly accepting the legitimacy of the late-modern Western liberal order.
+  - China is a slightly different case because some aspects are admired by certain Western elites, such as their government's ability to push forward with big policy changes and big projects (without having to entertain democratic debate).
+  - In reality, despite boosterism about the "rise of the rest", it's probable that most other societies will also stagnate and become sclerotic in their own ways. Maybe the low-hanging technological fruit *really has* been picked.
+  - Xi Jinping's consolidation of power shows that the Chinese supposed meritocracy is not immune to autocrats. The question for our time is whether or not China is able to present a truly viable alternative to liberal democracy, or simply another country helmed by "de facto oligarchies trying to manage stagnation and its discontents".
+- Western meritocracy is still pretty good at brain-draining other countries and "potential rivals". This also happens within a country; the Western upper class co-opts exactly the kind of people likely to overthrow it.
+- Climate change is only going to cement the wealthy countries further ahead of the unwealthy countries.
+
+<!-- # Conclusions
+
+Overall, this book does a good job of building a comprehensive narrative around Douthat's vast cultural knowledge, although it is relatively sparse on details and some of the supporting evidence doesn't hold up under scrutiny. Nonetheless, I think the message is urgently important, especially for those working in highly technical fields.
+
+While looking for other reviews, I found [this one][other-review], which suggested checking out Peter Zeihan's *Disunited Nations*. I found the [Youtube video][disunited-nations-youtube] to be entertaining and informative. According to the comments he delivers a similar presentation whenever he releases a new book, so at least he's are consistent. -->
+
+[amazon]: https://www.amazon.com/Decadent-Society-Became-Victims-Success/dp/1476785244
+[nytimes]: https://www.nytimes.com/2020/02/07/opinion/sunday/western-society-decadence.html
+[archive]: https://archive.is/cMONh
+[tyler-cowen]: https://en.wikipedia.org/wiki/Tyler_Cowen
+[robert-gordon]: https://en.wikipedia.org/wiki/Robert_J._Gordon
+[thomas-piketty]: https://en.wikipedia.org/wiki/Thomas_Piketty
+[francis-fukuyama]: https://en.wikipedia.org/wiki/Francis_Fukuyama
+[david-graeber]: https://en.wikipedia.org/wiki/David_Graeber
+[peter-thiel]: https://en.wikipedia.org/wiki/Peter_Thiel
+[fyre-festival]: https://en.wikipedia.org/wiki/Fyre_Festival
+[elizabeth-holmes]: https://en.wikipedia.org/wiki/Elizabeth_Holmes
+[uber]: https://www.theverge.com/2019/8/8/20793793/uber-5-billion-quarter-loss-profit-lyft-traffic-2019
+[household-income]: https://en.wikipedia.org/wiki/Household_income_in_the_United_States
+[global-economy]: https://en.wikipedia.org/wiki/Gross_world_product
+[us-economy]: https://en.wikipedia.org/wiki/Economy_of_the_United_States
+[disunited-nations-youtube]: https://www.youtube.com/watch?v=_-1MquvFmUA
+[other-review]: https://www.librarything.com/work/23908335/reviews/175669510
+[rubio-report]: https://www.rubio.senate.gov/public/index.cfm/2019/5/rubio-releases-report-on-domestic-investment
+[kludge]: https://en.wikipedia.org/wiki/Kludge
+[zero-to-one]: https://en.wikipedia.org/wiki/Zero_to_One
+[ed-study]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5313296/
+[sperm-count]: https://www.theatlantic.com/family/archive/2018/10/sperm-counts-continue-to-fall/572794/
+[unite-the-right]: https://en.wikipedia.org/wiki/Unite_the_Right_rally
+[unite-the-right-2]: https://en.wikipedia.org/wiki/Unite_the_Right_2
+[pink-state]: https://thefederalist.com/2014/07/17/welcome-to-the-pink-police-state-regime-change-in-america/
+[jeremy-bentham]: https://en.wikipedia.org/wiki/Jeremy_Bentham
