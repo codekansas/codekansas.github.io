@@ -17,17 +17,20 @@ sass:
 # Some CDN-hosted scripts
 cdn:
   bootstrap-css:  https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css
-  mathjax:        https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML
   katex:          https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css
 
 # Other
 markdown:         kramdown
-kramdown:
-  math_engine:    katex
 permalink:        :title
+
+katex:
+  rendering_options:
+    throw_error:  true
 
 # Analytics
 analytics:
   google:         UA-77147392-2
   facebook:       516160742657752
 
+plugins:
+  - jekyll-katex
