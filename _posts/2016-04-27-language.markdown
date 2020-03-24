@@ -364,13 +364,13 @@ new_hidden_state = new_hidden_state * attention_param
 
 The new equations are the last three, which correspond to equations 9, 10 and 11 from the paper (approximately reproduced below, using different notation).
 
-{% katex display %}
+$$
 \begin{aligned}
 {\bf s}_{a}(t) & = \tanh({\bf h}(t) {\bf W}_{a} + {\bf v}_a {\bf U}_{a})\\
 {\bf p}_{a}(t) & = \exp({\bf s}_{a}(t) {\bf W}_{p})\\
 {\bf \tilde{h}}(t) & = {\bf h}(t) * {\bf p}_{a} (t)
 \end{aligned}
-{% endkatex %}
+$$
 
 The attention parameter is a function of the current hidden state and the attention vector mixed together. Each is first put through a matrix, summed and put through an activation function to get an attention state, which is then put through another transformation to get an attention parameter. The attention parameter then re-updates the hidden state. Supposedly, this is conceptually similar to TF-IDF weighting, where the model learns to weight particular states at particular times.
 
@@ -530,9 +530,7 @@ We define a function `similarity` which we will use to compute the similarity of
 
 A cool example might be to see if we can learn a rotation matrix. A rotation matrix in Euclidean space is a matrix which rotates a vector by a certain angle around the origin. It is defined as a function of `theta`, the angle to rotate by:
 
-{% katex display %}
-R = \begin{bmatrix}\cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta)\end{bmatrix}
-{% endkatex %}
+$$R = \begin{bmatrix}\cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta)\end{bmatrix}$$
 
 We can learn this matrix really simply with the right dataset and one dense layer, that is:
 
@@ -620,7 +618,7 @@ If the function requires extra parameters, they are usually supplied as argument
 
 ### Cosine
 
-{% katex display %}\frac{x y^T}{||x|| ||y||}{% endkatex %}
+$$\frac{x y^T}{||x|| ||y||}$$
 
 {% highlight python %}
 def cosine(x):
@@ -629,7 +627,7 @@ def cosine(x):
 
 ### Polynomial
 
-{% katex display %}(\gamma x y^T + c)^d{% endkatex %}
+$$(\gamma x y^T + c)^d$$
 
 {% highlight python %}
 def polynomial(x):
@@ -640,7 +638,7 @@ Values for `gamma` used in the paper were `[0.5,  1.0, 1.5]`. The value for `c` 
 
 ### Sigmoid
 
-{% katex display %}\tanh(\gamma x y^T + c){% endkatex %}
+$$\tanh(\gamma x y^T + c)$$
 
 {% highlight python %}
 def sigmoid(x):
@@ -653,7 +651,7 @@ Values for `gamma` used in the paper were `[0.5, 1.0, 1.5]`, and `c` was `1`.
 
 RBF stands for radial basis function.
 
-{% katex display %}\exp(-\gamma ||x - y||^2){% endkatex %}
+$$\exp(-\gamma ||x - y||^2)$$
 
 {% highlight python %}
 def rbf(x):
@@ -664,7 +662,7 @@ Values for `gamma` used in the paper were `[0.5, 1.0, 1.5]`.
 
 ### Euclidean
 
-{% katex display %}\frac{1}{1 + ||x - y||}{% endkatex %}
+$$\frac{1}{1 + ||x - y||}$$
 
 {% highlight python %}
 def euclidean(x):
@@ -673,7 +671,7 @@ def euclidean(x):
 
 ### Exponential
 
-{% katex display %}\exp(-\gamma ||x - y||){% endkatex %}
+$$\exp(-\gamma ||x - y||)$$
 
 {% highlight python %}
 def exponential(x):
@@ -684,7 +682,7 @@ def exponential(x):
 
 This was a custom metric developed by the authors which stands for Geometric mean of Euclidean and Sigmoid Dot product. It performed well for their benchmarks.
 
-{% katex display %}\frac{1}{1 + ||x - y||} * \frac{1}{1 + \exp(-\gamma (x y^T + c))}{% endkatex %}
+$$\frac{1}{1 + ||x - y||} * \frac{1}{1 + \exp(-\gamma (x y^T + c))}$$
 
 {% highlight python %}
 def gesd(x):
@@ -699,7 +697,7 @@ Values for `gamma` used were `[0.5, 1.0, 1.5]` and `c` was `1`.
 
 This was a custom metric developed by the authors which stands for Arithmetic mean of Euclidean and Sigmoid Dot product. It performed well for their benchmarks.
 
-{% katex display %}\frac{0.5}{1 + ||x - y||} + \frac{0.5}{1 + \exp(-\gamma (x y^T + c))}{% endkatex %}
+$$\frac{0.5}{1 + ||x - y||} + \frac{0.5}{1 + \exp(-\gamma (x y^T + c))}$$
 
 {% highlight python %}
 def gesd(x):
@@ -714,7 +712,7 @@ Values for `gamma` used were `[0.5, 1.0, 1.5]` and `c` was `1`.
 
 This model achieved relatively good marks for Top-1 Accuracy (how often did the model rank a ground truth the highest out of 500 results) and Mean Reciprocal Rank (MRR), which is defined as
 
-{% katex display %}MRR = \frac{1}{|Q|} \sum_{i=1}^{|Q|}{\frac{1}{rank_i}}{% endkatex %}
+$$MRR = \frac{1}{|Q|} \sum_{i=1}^{|Q|}{\frac{1}{rank_i}}$$
 
 The results after learning the training set are summaraized in the following table.
 

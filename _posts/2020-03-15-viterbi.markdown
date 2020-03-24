@@ -16,15 +16,11 @@ The Viterbi algorithm has been widely covered in many areas. One of my favorite 
 
 # Problem Statement
 
-{% katexmm %}
 The goal of the Viterbi algorithm is to compute the most probable sequence of hidden states $z^*$ for a Hidden Markov Model defined by an input sequence $x$ and a sequence of hidden states $z$:
-{% endkatexmm %}
 
-{% katex display %}z^* = \underset{z}{\mathrm{argmin}}[p(z,x)]{% endkatex %}
+$$z^* = \underset{z}{\mathrm{argmin}}[p(z,x)]$$
 
-{% katexmm %}
-We assume that we know the input sequence $x = (x_1, ..., x_n)$, the set of initial hidden probabilities $z_1 = (z_1^1, ..., z_1^L)$, the emission probabilities $p(x_i | z_j)$ and the transition probabilities $p(z_i | z_{i-1})$. In Numpy, these can be represented as arrays:
-{% endkatexmm %}
+We assume that we know the input sequence $x = (x_1, ..., x_n)$, the set of initial hidden probabilities $z_1 = (z_1^1, ..., z_1^L)$, the emission probabilities $p(x_i \| z_j)$ and the transition probabilities $p(z_i \| z_{i-1})$. In Numpy, these can be represented as arrays:
 
 {% highlight python %}
 import numpy as np
@@ -75,36 +71,30 @@ Note that these matrices represent the probability distributions in *column-majo
 
 # Maximizing Value
 
-{% katexmm %}
 The maximum value of $p(z, x)$ for all the inputs $1, ..., k$ is
-{% endkatexmm %}
 
-{% katex display %}
+$$
 \begin{aligned}
 \mu_k(z_k) & = \max_{z_{1:k-1}} p(z_{1:k}, x_{1:k}) \\
 & = \max_{z_{1:k-1}} p(x_k|z_k) p(z_k|z_{k-1}) p(z_{1:k-1}, x_{1:k-1}) \\
 & = \max_{z_{k-1}} p(x_k|z_k) p(z_k|z_{k-1}) \max_{z_{1:k-2}} p(z_{1:k-1},x_{1:k-1})
 \end{aligned}
-{% endkatex %}
+$$
 
-Since the first two terms aren't dependent on anything besides {% katex %}z_{k-1}{% endkatex %}, you can take them out of the whole max operation.
+Since the first two terms aren't dependent on anything besides $z_{k-1}$, you can take them out of the whole max operation.
 
-{% katex display %}
-\mu_k(z_k) = p(x_k|z_k) \max_{z_{k-1}} p(z_k|z_{k-1}) \mu_{k-1}(z_{k-1})
-{% endkatex %}
+$$\mu_k(z_k) = p(x_k|z_k) \max_{z_{k-1}} p(z_k|z_{k-1}) \mu_{k-1}(z_{k-1})$$
 
 For the recursion base case, we get
 
-{% katex display %}
+$$
 \begin{aligned}
 \mu_1(z_1) & = p(z_1, x_1) \\
 & = p(z_1) p(x_1 | z_1)
 \end{aligned}
-{% endkatex %}
+$$
 
-{% katexmm %}
 Knowing the maximizing value, we can find the *argmax* by using *backpointers* - for some max value $\mu_k(z_k)$, we get the incoming index as the $arg \max_{z_{k-1}} p(z_k \| z_{k-1}) \mu_{k-1}(z_{k-1})$. By doing this recursively, we can get the (reversed) sequence of indices that led to the final maximum value.
-{% endkatexmm %}
 
 {% highlight python %}
 def step(mu_prev: np.ndarray,
@@ -176,9 +166,7 @@ def viterbi(emission_probs: np.ndarray,
 
 # Complexity
 
-{% katexmm %}
 The **time complexity** of the whole inference is $O(N M^2)$ for $N$ time steps and $M$ input states (although the $M^2$ term represents a matrix-matrix multiplication, which Numpy helps accelerate using [BLAS][blas-wikipedia]). The **space complexity** is $O(N M)$, since we have to store the most likely previous state for each time step.
-{% endkatexmm %}
 
 [mathematical-monk]: https://www.youtube.com/watch?v=RwwfUICZLsA&list=PLD0F06AA0D2E8FFBA&index=105
 [wikipedia]: https://en.wikipedia.org/wiki/Viterbi_algorithm

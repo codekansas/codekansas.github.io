@@ -18,9 +18,14 @@ sass:
 cdn:
   bootstrap-css:  https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css
   katex:          https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css
+  mathjax:        http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG
 
 # Other
 markdown:         kramdown
+kramdown:
+  math_engine_opts:
+    preview:      true
+    preview_as_code: true
 permalink:        :title
 
 katex:
@@ -31,6 +36,3 @@ katex:
 analytics:
   google:         UA-77147392-2
   facebook:       516160742657752
-
-plugins:
-  - jekyll-katex
