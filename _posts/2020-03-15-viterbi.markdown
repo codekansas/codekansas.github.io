@@ -129,7 +129,7 @@ def step(mu_prev: np.ndarray,
 def viterbi(emission_probs: np.ndarray,
             transition_probs: np.ndarray,
             start_probs: np.ndarray,
-            input_states: List[int]) -> List[int]:
+            input_states: List[int]) -> Tuple[List[int], float]:
     """Runs the Viterbi algorithm to get the most likely state sequence.
     
     Args:

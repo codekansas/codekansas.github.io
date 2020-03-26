@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Book Review of \"The Decadent Society\""
+title: Notes on a Decadent Society
 date: 2020-03-22 12:00:00
 category: 📘
 excerpt: >
@@ -92,20 +92,6 @@ By way of preface, here is an excerpt from Douthat's [op][nytimes]-[ed][archive]
   > Nor is it surprising that the two genres that currently dominate online are political polemic and pornography - because both are ideally suited for a click-here-then-there medium, in which the important thing is to be titillated, stimulated, get your spasm of pleasure, and move on.
 - Counterculturalism basically won (postmodernism started in the 80's), but everyone still wants to be counter-culture.
 
-### My thoughts
-
-I am personally a big fan of Peter Thiel's diagnosis of the problems facing innovation today, much of which is parroted in these sections. To paraphrase a section from [Zero to One][zero-to-one], Americans are "positive indefinite"; we have a general sense of positivity about the world, but no clear goals to accomplish, so our media ecosystem rewards the appearance of political action without anything fundamentally happening. Reading through this book was the first time that I had seen the innovation glut as a consequence of policy created by an aging society that is naturally more resistant to change.
-
-I found the portions about algorithmically-generated recommendations hurting the diversity of content to be an interesting technical question. Recommender systems are a pretty interesting area of machine learning. The simplest recommender system would just figure out the most popular movie and suggest it to everyone, since without knowing anything about you that would be the safest bet. In machine learning terms, this is a *bias*. I think this particular critique basically boils down to saying that algorithmic recommender systems don't work very well, but I suspect that as more modern machine learning approaches are applied to these problems and more data is collected about individual users and tastes, these recommender systems will exhibit less bias.
-
-It's important to note that there is a lag time before this takes effect, because the ecosystem takes time to adapt. For example, when I first started looking for video game streams on Facebook, all the top recommendations were for Fortnite and Call of Duty, which I've never really played, simply because the machine learning backend hadn't been built yet. As it improves, it will attract more streamers for a more diverse set of games, and users will learn to look for content they like from those outlets, encouraging this symbiotic relationship and fostering more creative approaches.
-
-Algorithmic classification problems can basically be distilled down to three components: some *features* to use as input, like a user's age, gender, interests, time spent using a computer, past interactions; a *signal* that measures something that you're trying to optimize, like the likelihood of someone clicking on an advertisement or the amount of time they spend watching a video; and a *model* that predicts the signal from the features, which can be used to make decisions, for example, about which ads or videos to show someone.
-
-Advertising has historically optimized for clicks because it is the easiest thing to optimize for, but I think the world is moving towards something more substantive, partly thanks to the massive surveillance state we've constructed, and partly thanks to the big gains that the AI world has seen in the last couple years. Facebook and Google have basically saturated the advertising market for large companies and are starting to try to onboard small and medium sized businesses. I think this will be a positive direction for people - we have the potential to use the massively effective advertising tools at our disposal to generate something akin to community engagement. I've wondered in the past whether or not advertising platforms could be used by well-meaning individuals to broadcast socially helpful messages, similar to public service announcements, although I suspect this would be a pretty tall order for our current government.
-
-The section about counterculturalism reminded me of David Foster Wallace's critiques of irony as tearing apart social fabric. Instead of proposing new ideas, it is simpler and oftentimes viewed more favorably to critique existing ideas, masking the weaknesses of your own argument behind layers of sarcasm and irony. If my girlfriend is any indication, this is a very unhealthy behavior on both an individual and social level. I think this parallels (in different language) some of the discussion about the sclerotic political system.
-
 ## Part 2: Sustainable Decadence
 
 ### Comfortably Numb
@@ -141,11 +127,85 @@ The section about counterculturalism reminded me of David Foster Wallace's criti
 - Western meritocracy is still pretty good at brain-draining other countries and "potential rivals". This also happens within a country; the Western upper class co-opts exactly the kind of people likely to overthrow it.
 - Climate change is only going to cement the wealthy countries further ahead of the unwealthy countries.
 
-<!-- # Conclusions
+### Giving Decadence Its Due
+
+- Decadence provides stability; rapidly transforming society comes with many risks.
+  > Technological stagnation means that robots won't kill us all or even take our jobs; intellectual and religious and ideological stagnation means fewer fanaticisms and utopian follies; demographic decline is defusing the population bomb; and economic stagnation could be the only force capable of limiting carbon emissions and keeping climate change manageble.
+- Obama's supposed transformational presidency ended up just being more "managing decline" and "neoliberalism".
+- Even Douthat didn't vote for Donald Trump.
+- Embracing decadence as a destination risks leading to a Huxleyan *Brave New World* society, where social order is prioritized over the things that sustain humanity.
+
+## Part 3: The Death of Decadence
+
+### Catastrophe
+
+- Decadent societies can be sustainable without outside threats, but ware less able to deal with threats when they do happen.
+  > A great civilization is not conquered from without until it has destroyed itself from within.
+- Climate change, domino-like economic collapse throughout China and Europe, and uncontrolled technological advancements have the potential to be fundamentally distruptive.
+  - Climate change could cause massive human migration away from highly populated areas; Central America into the United States, or Africa into Europe. This has the potential to fundamentally upset the world order.
+  - California is already proving that even wealthy countries have a hard time dealing with the consequences of climate change.
+
+### Renaissance
+
+- Africa remains the distinctly non-decadent region in the world (high birth rates, cultural optimism).
+  - African migration into Europe has the potential to offer a fundamentally different path from the West and East Asia.
+- Lots of potential technological revolutions; the energy revolution, artificial intelligence, robotics, biotechnology and medicine, space flight.
+  - For some futurists, one (or all) of these outcomes are not just possible, but inevitable.
+  - The battle for technological dominance between China and the United States, and the associated ethical and economic consequences, could also fundamentally disrupt the decadent order.
+    > Indeed, nothing is more characteristic of a dynamic society than a new moral conflict driven by some sort of technological and economic change. So, in that sense, a war over what to do with a new eugenic science would demarcate the end of decadence even more clearly than a less morally complicated scientific leap.
+- Sclerosis at the institution level can potentially be subverted at the local level.
+  - Libertarian idea of "charter cities": cities with their own charter, different from the national laws.
+- The rise of nationalism, if managed properly, might not be a horrible thing. The many proto-nationalist experiments being done around the world may bear this out.
+  > In this theory, nationalism resupplies many of the things that are dissolving under decadence: the historical and religious memory required for real artistic greatness, the communal support required for marriage and family and ordinary human flourishing, the sense of competition and common purpose required to spur technological progress, and the common bonds that enable good government to triumph over factionalism and gridlock.
+- On the flip side, the left's answer to decadence is a socialist internationalism, a different utopian vision where workers and common people hold power rather than a global elite.
+  - Many [think-pieces][sex-under-socialism] about how socialism has the potential to fix the polarization of the sexes.
+- Both approaches feel basically authoritarian, and potentially have religious elements.
+  - The greater birth rate of Orthodox Jews than their Reform cousins indicates that future American Jews will be more Orthodox than they are today.
+  - Religious waves may sweep the world (a Western Islam or Christian China).
+- In all likelihood, the renaissance will not be one, but many.
+
+### Providence
+
+- Is decadence the ultimate destination of any civilization?
+- Maybe the true "filter" for civilizations is interplanetary flight. The laws of physics might actually prohibit true interplanetary travel.
+- In Douthat's assessment, space travel serves a fundamentally symbolic important roll for humanity.
+  > I suspect that what we see happening in our society today - the turn towards simulations and virtual realities; the declining birthrates; the sense of repetition, stagnation, and futility - is connected on a deep level to the post-Apollo mission sense that such a hope does not exist, that there is quite literally nowhere else for mankind to go, that we are stuck here waiting to either destroy ourselves accidentally or to have nature hit reboot, via comet or plague, on our entire up-from-hunter-gathering, east-of-Eden project.
+
+# My Thoughts
+
+## Related Media
+
+While looking for other reviews, I found [this one][other-review], which suggested checking out Peter Zeihan's *Disunited Nations*. I found the [Youtube video][disunited-nations-youtube] to be entertaining and informative. According to the comments he delivers a similar presentation whenever he releases a new book, so at least he's are consistent.
+
+I am personally a big fan of Peter Thiel's diagnosis of the problems facing innovation today, much of which is parroted in these sections. To paraphrase a section from [Zero to One][zero-to-one], Americans are "positive indefinite"; we have a general sense of positivity about the world, but no clear goals to accomplish, so our media ecosystem rewards the appearance of political action without anything fundamentally happening. Reading through this book was the first time that I had seen the innovation glut as a consequence of policy created by an aging society that is naturally more resistant to change.
+
+## Technology
+
+I found the portions about algorithmically-generated recommendations hurting the diversity of content to be an interesting technical question. Recommender systems are a pretty interesting area of machine learning. The simplest recommender system would just figure out the most popular movie and suggest it to everyone, since without knowing anything about you that would be the safest bet. In machine learning terms, this is a *bias*. I think this particular critique basically boils down to saying that algorithmic recommender systems don't work very well, but I suspect that as more modern machine learning approaches are applied to these problems and more data is collected about individual users and tastes, these recommender systems will exhibit less bias.
+
+It's important to note that there is a lag time before this takes effect, because the ecosystem takes time to adapt. For example, when I first started looking for video game streams on Facebook, all the top recommendations were for Fortnite and Call of Duty, which I've never really played, simply because the machine learning backend hadn't been built yet. As it improves, it will attract more streamers for a more diverse set of games, and users will learn to look for content they like from those outlets, encouraging this symbiotic relationship and fostering more creative approaches.
+
+Algorithmic classification problems can basically be distilled down to three components: some *features* to use as input, like a user's age, gender, interests, time spent using a computer, past interactions; a *signal* that measures something that you're trying to optimize, like the likelihood of someone clicking on an advertisement or the amount of time they spend watching a video; and a *model* that predicts the signal from the features, which can be used to make decisions, for example, about which ads or videos to show someone.
+
+Advertising has historically optimized for clicks because it is the easiest thing to optimize for, but I think the world is moving towards something more substantive, partly thanks to the massive surveillance state we've constructed, and partly thanks to the big gains that the AI world has seen in the last couple years. Facebook and Google have basically saturated the advertising market for large companies and are starting to try to onboard small and medium sized businesses. I think this will be a positive direction for people - we have the potential to use the massively effective advertising tools at our disposal to generate something akin to community engagement. I've wondered in the past whether or not advertising platforms could be used by well-meaning individuals to broadcast socially helpful messages, similar to public service announcements, although I suspect this would be a pretty tall order for our current government.
+
+## Irony
+
+The section about counterculturalism reminded me of David Foster Wallace's critiques of irony as tearing apart social fabric. Instead of proposing new ideas, it is simpler and oftentimes viewed more favorably to critique existing ideas, masking the weaknesses of your own argument behind layers of sarcasm and irony. If my girlfriend is any indication, this is a very unhealthy behavior on both an individual and social level. I think this parallels (in different language) some of the discussion about the sclerotic political system.
+
+## Coronavirus
+
+By odd coincidence, this book was released right in the middle of the global Covid-19 pandemic. My girlfriend, who is currently a 3rd year medical student, has been talking extensively about the effects that the pandemic is having on our medical system. The US healthcare system fits many of Douthat's definitions of "decadent"; it is bureaucratically bloated; expensive; monopolistic; risk-averse; patched together by kludge; resistent to any attempts at change.
+
+There have been (unsubstantiated) reports on the medical school subreddits that my girlfriend frequents of nurses in New York (where the pandemic is hitting hardest) being paid $200 an hour, while medical students are being graduated early if they volunteer to work in an unpaid capacity as sub-interns. Other reports have suggested that medical students and residents, who don't benefit from the strong unions that nurses have, are being used as meat shields for attendings, being sent into patient rooms without proper protective equiptment.
+
+The American medical system is a perfect example of a system co-opted by (mostly) well-intentioned people that has resulted in an absolute mess. Salaries for specialists can be upwards of $1 million a year, while the number of residency positions for those specialists is kept artifically low by the American Medical Association. For a resident who does manage to make it into such a position, the threat of $500k in loans without any transferable skills deters many from unionizing or dropping out of even the most demeaning residency positions. Lack of public support for strikes when patient well-being is on the line also hurts organized labor efforts.
+
+In some ways, the fact that the medical system is being hit first by this pandemic means that it's a canary for the economic and governmental institutions that are likely to feel more delayed effects. While it is sustainable under ordinary circumstances, it seems that the highly unusual circumstances of a global pandemic may expose its many cracks.
+
+## Conclusion
 
 Overall, this book does a good job of building a comprehensive narrative around Douthat's vast cultural knowledge, although it is relatively sparse on details and some of the supporting evidence doesn't hold up under scrutiny. Nonetheless, I think the message is urgently important, especially for those working in highly technical fields.
-
-While looking for other reviews, I found [this one][other-review], which suggested checking out Peter Zeihan's *Disunited Nations*. I found the [Youtube video][disunited-nations-youtube] to be entertaining and informative. According to the comments he delivers a similar presentation whenever he releases a new book, so at least he's are consistent. -->
 
 [amazon]: https://www.amazon.com/Decadent-Society-Became-Victims-Success/dp/1476785244
 [nytimes]: https://www.nytimes.com/2020/02/07/opinion/sunday/western-society-decadence.html
@@ -173,3 +233,4 @@ While looking for other reviews, I found [this one][other-review], which suggest
 [unite-the-right-2]: https://en.wikipedia.org/wiki/Unite_the_Right_2
 [pink-state]: https://thefederalist.com/2014/07/17/welcome-to-the-pink-police-state-regime-change-in-america/
 [jeremy-bentham]: https://en.wikipedia.org/wiki/Jeremy_Bentham
+[sex-under-socialism]: https://www.nytimes.com/2017/08/12/opinion/why-women-had-better-sex-under-socialism.html
