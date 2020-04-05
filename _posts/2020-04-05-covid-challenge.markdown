@@ -3,7 +3,7 @@ layout: post
 title: Recap from MIT Covid-19 Challenge
 date: 2020-04-05 00:00:00
 category: 🧐
-excerpt: Recap and potential future directions from the MID Covid-19 Challenge.
+excerpt: Recap and potential future directions from the MIT Covid-19 Challenge.
 ---
 
 This weekend I participated in the [MIT Covid-19 Challenge][challenge-link]. I thought it would be useful to write a blog post about some of the ideas seemed like they could be potentially fruitful moving forward.
