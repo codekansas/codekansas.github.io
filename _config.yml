@@ -18,7 +18,7 @@ sass:
 cdn:
   bootstrap-css:  https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css
   katex:          https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css
-  mathjax:        http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG
+  mathjax:        https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML
 
 # Other
 markdown:         kramdown
