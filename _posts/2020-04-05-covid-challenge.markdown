@@ -6,6 +6,8 @@ category: 🧐
 excerpt: Recap and potential future directions from the MIT Covid-19 Challenge.
 ---
 
+*Update - April 6th. It seems that [Facebook][zuck-facebook] is actually deploying a survey by CMU world-wide. This is pretty neat. It will be cool to see what kind of data emerges from this! And it's a good lesson in moving fast.*
+
 This weekend I participated in the [MIT Covid-19 Challenge][challenge-link]. I thought it would be useful to write a blog post about some of the ideas seemed like they could be potentially fruitful moving forward.
 
 ## Notes
@@ -55,3 +57,4 @@ If you're interested in fleshing out some of these ideas more, feel free to shoo
 [ben-striner]: https://github.com/bstriner
 [cough-detect-hack]: https://devpost.com/software/detect-now
 [cough-detect-hack-reddit]: https://www.reddit.com/r/MachineLearning/comments/frf02x/p_covid19_cough_detection_model_deep_learning/
+[zuck-facebook]: https://www.facebook.com/zuck
