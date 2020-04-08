@@ -36,3 +36,5 @@ katex:
 analytics:
   google:         UA-77147392-2
   facebook:       516160742657752
+
+theme: jekyll-theme-minimal
