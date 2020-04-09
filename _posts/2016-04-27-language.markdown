@@ -141,7 +141,9 @@ Each category is grouped in the 3-dimensional vector space. The network learned 
 
 # Recurrent Neural Networks
 
-As the Keras examples illustrate, there are different philosophies on deep language modeling. [Feng et. al.][feng] did a bunch of benchmarks with convolutional networks, and ended up with some impressive results. [Tan et. al.][tan] used recurrent networks with some different parameters. I'll focus on recurrent neural networks first (What do pirates call neural networks? *Arrrgh*NNs). I'll assume some familiarity with both recurrent and convolutional neural networks. [Andrej Karpathy's blog](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) discusses recurrent neural networks in detail.
+As the Keras examples illustrate, there are different philosophies on deep language modeling. [Feng et. al.][feng] did a bunch of benchmarks with convolutional networks, and ended up with some impressive results. [Tan et. al.][tan] used recurrent networks with some different parameters. I'll focus on recurrent neural networks first (What do pirates call neural networks? *Arrrgh*NNs). I'll assume some familiarity with both recurrent and convolutional neural networks. [Andrej Karpathy's blog](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) discusses recurrent neural networks in detail. Here is an image from that post which illustrates the core concept:
+
+{% include /images/rnn/rnn_structures.svg %}
 
 ## Vanilla
 
@@ -709,6 +711,10 @@ def gesd(x):
 Values for `gamma` used were `[0.5, 1.0, 1.5]` and `c` was `1`.
 
 # InsuranceQA Model Example
+
+For demonstrating the results, I used this model.
+
+{% include /images/embedding/simple_embedding_model.svg %}
 
 This model achieved relatively good marks for Top-1 Accuracy (how often did the model rank a ground truth the highest out of 500 results) and Mean Reciprocal Rank (MRR), which is defined as
 
