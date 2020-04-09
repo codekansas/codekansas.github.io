@@ -1,0 +1,31 @@
+<svg version="1.1" viewBox="0.0 0.0 500.0 500.0" fill="none" stroke="none" stroke-linecap="square" stroke-miterlimit="10" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" 
+    xmlns="http://www.w3.org/2000/svg">
+    <g>
+        <path stroke="#f3f3f3" stroke-width="2.0" d="M250,500 L250,0 M34,375 L466,125 M467,375 L33,125" fill-rule="evenodd"/>
+
+        <path fill="#f4cccc" d="M250,347 L290,226 L251,250 L250,347" fill-rule="evenodd" opacity="0.5"/>
+        <path stroke="#f4cccc" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="butt" stroke-dasharray="10 5" d="M250,347 L290,226 L251,250 L250,347" fill-rule="evenodd"/>
+        <path fill="#f4cccc" d="M250,345 L287,228 L255,253 L250,345" fill-rule="evenodd" opacity="0.5" />
+        <path stroke="#f4cccc" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="butt" stroke-dasharray="10 5" d="M250,345 L287,228 L255,253 L250,345" fill-rule="evenodd"/>
+        <text x="250" y="372" fill="#cc0000">Sarah Sam</text>
+        <path fill="#d9ead3" d="M250,65 L108,331 L265,259 L250,65" fill-rule="evenodd" opacity="0.5" />
+        <path stroke="#d9ead3" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="butt" stroke-dasharray="10 5" d="M250,65 L108,331 L265,259 L250,65" fill-rule="evenodd"/>
+        <path fill="#d9ead3" d="M250,62 L112,329 L269,261 L250,62" fill-rule="evenodd" opacity="0.5" />
+        <path stroke="#d9ead3" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="butt" stroke-dasharray="10 5" d="M250,62 L112,329 L269,261 L250,62" fill-rule="evenodd"/>
+        <text x="112" y="354" fill="#00cc00">Bob Hannah</text>
+        <path fill="#d9d2e9" d="M250,279 L292,225 L241,244 L250,279" fill-rule="evenodd" opacity="0.5" />
+        <path stroke="#d9d2e9" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="butt" stroke-dasharray="10 5" d="M250,279 L292,225 L241,244 L250,279" fill-rule="evenodd"/>
+        <path fill="#d9d2e9" d="M250,267 L300,220 L240,244 L250,267" fill-rule="evenodd" opacity="0.5" />
+        <path stroke="#d9d2e9" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="butt" stroke-dasharray="10 5" d="M250,267 L300,220 L240,244 L250,267" fill-rule="evenodd"/>
+        <text x="310" y="210" fill="#0000cc">not is</text>
+        <path fill="#f4cccc" d="M250,267 L294,224 L235,241 L250,267" fill-rule="evenodd" opacity="0.5" />
+        <path stroke="#f4cccc" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="butt" stroke-dasharray="10 5" d="M250,267 L294,224 L235,241 L250,267" fill-rule="evenodd"/>
+        <path fill="#d9ead3" d="M250,259 L297,222 L239,244 L250,259" fill-rule="evenodd" opacity="0.5" />
+        <path stroke="#d9ead3" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="butt" stroke-dasharray="10 5" d="M250,259 L297,222 L239,244 L250,259" fill-rule="evenodd"/>
+        <text x="360" y="234" fill="#cc0000">
+            red
+            <tspan fill="#00cc00">green</tspan>
+        </text>
+    </g>
+</svg>

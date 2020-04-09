@@ -137,6 +137,10 @@ red:	[-0.10381682 -0.31055665 -0.0975003 ]
 green:	[-0.05930901 -0.33241618 -0.06948926]
 {% endhighlight %}
 
+These embeddings are visualized in the chart below.
+
+{% include /images/embedding/word_embeddings_example.svg %}
+
 Each category is grouped in the 3-dimensional vector space. The network learned each of these categories from how each word was used; Sarah and Sam are the red people, while Bob and Hannah are the green people. However, it did not differentiate well between `not`, `is`, `red`, and `green`, because those weren't immediately obvious for the decision task.
 
 # Recurrent Neural Networks
