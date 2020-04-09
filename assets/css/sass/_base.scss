@@ -32,6 +32,18 @@ code {
   background-color: #f7f7ff;
 }
 
+svg {
+  width: 80%;
+  display: block;
+  margin: auto;
+  padding: 1em 0 1em 0;
+
+  text {
+    font-size: 25px;
+    text-anchor: middle;
+  }
+}
+
 .emphasis {
   &.top {
     padding-top: $emphasis-padding;

@@ -12,15 +12,17 @@ This tutorial explains how to code the Viterbi algorithm in Numpy, and gives a m
 
 # Resources
 
-The Viterbi algorithm has been widely covered in many areas. One of my favorite explanations is from the Youtuber [Mathematical Monk][mathematical-monk]. This tutorial expects some background familiarity with hidden Markov models; if you've never heard of them, check out those videos! The [Wikipedia][wikipedia] page is also pretty good.
+The Viterbi algorithm has been widely covered in many areas. One of my favorite explanations is from the Youtuber [Mathematical Monk][mathematical-monk]. This tutorial expects some background familiarity with hidden Markov models; if you've never heard of them, check out those videos! The [Wikipedia][wikipedia] page is also pretty good. Here's a diagram of an unfolded hidden Markov model:
+
+{% include /images/hmm/hmm_multi_timestep.svg %}
 
 # Problem Statement
 
-The goal of the Viterbi algorithm is to compute the most probable sequence of hidden states $z^*$ for a Hidden Markov Model defined by an input sequence $x$ and a sequence of hidden states $z$:
+The goal of the Viterbi algorithm is to compute the most probable sequence of hidden states $z^*$ for a Hidden Markov Model defined by an observed sequence $x$ and a set of possible sequences of hidden states $z$:
 
 $$z^* = \underset{z}{\mathrm{argmin}}[p(z,x)]$$
 
-We assume that we know the input sequence $x = (x_1, ..., x_n)$, the set of initial hidden probabilities $z_1 = (z_1^1, ..., z_1^L)$, the emission probabilities $p(x_i \| z_j)$ and the transition probabilities $p(z_i \| z_{i-1})$. In Numpy, these can be represented as arrays:
+We assume that we know the observed sequence $x = (x_1, ..., x_n)$, the set of initial hidden probabilities $z_1 = (z_1^1, ..., z_1^L)$, the emission probabilities $p(x_i \| z_j)$ and the transition probabilities $p(z_i \| z_{i-1})$. In Numpy, these can be represented as arrays:
 
 {% highlight python %}
 import numpy as np
@@ -71,7 +73,7 @@ Note that these matrices represent the probability distributions in *column-majo
 
 # Maximizing Value
 
-The maximum value of $p(z, x)$ for all the inputs $1, ..., k$ is
+The maximum value of $p(z, x)$ for all the preceding timesteps up to the current timestep $1, ..., k$ is
 
 $$
 \begin{aligned}
@@ -100,17 +102,17 @@ Knowing the maximizing value, we can find the *argmax* by using *backpointers* -
 def step(mu_prev: np.ndarray,
          emission_probs: np.ndarray,
          transition_probs: np.ndarray,
-         input_state: int) -> Tuple[np.ndarray, np.ndarray]:
+         observed_state: int) -> Tuple[np.ndarray, np.ndarray]:
     """Runs one step of the Viterbi algorithm.
     
     Args:
         mu_prev: probability distribution with shape (num_hidden),
             the previous mu
         emission_probs: the emission probability matrix (num_hidden,
-            num_input)
+            num_observed)
         transition_probs: the transition probability matrix, with
-            shape (num_hidden, hidden)
-        input_state: the observed input state at the current step
+            shape (num_hidden, num_hidden)
+        observed_state: the observed state at the current step
     
     Returns:
         - the mu for the next step
@@ -121,7 +123,7 @@ def step(mu_prev: np.ndarray,
     pre_max = mu_prev * transition_probs.T
     max_prev_states = np.argmax(pre_max, axis=1)
     max_vals = pre_max[np.arange(len(max_prev_states)), max_prev_states]
-    mu_new = max_vals * emission_probs[:, input_state]
+    mu_new = max_vals * emission_probs[:, observed_state]
     
     return mu_new, max_prev_states
 
@@ -129,28 +131,28 @@ def step(mu_prev: np.ndarray,
 def viterbi(emission_probs: np.ndarray,
             transition_probs: np.ndarray,
             start_probs: np.ndarray,
-            input_states: List[int]) -> Tuple[List[int], float]:
+            observed_states: List[int]) -> Tuple[List[int], float]:
     """Runs the Viterbi algorithm to get the most likely state sequence.
     
     Args:
         emission_probs: the emission probability matrix (num_hidden,
-            num_input)
+            num_observed)
         transition_probs: the transition probability matrix, with
             shape (num_hidden, num_hidden)
         start_probs: the initial probabilies for each state, with shape
             (num_hidden)
-        input_states: the observed input states at each step
+        observed_states: the observed states at each step
     
     Returns:
         - the most likely series of states
-        - the joint probability of that series of states and the input
+        - the joint probability of that series of states and the observed
     """
     
     # Runs the forward pass, storing the most likely previous state.
-    mu = start_probs * emission_probs[:, input_states[0]]
+    mu = start_probs * emission_probs[:, observed_states[0]]
     all_prev_states = []
-    for input_state in input_states[1:]:
-        mu, prevs = step(mu, emission_probs, transition_probs, input_state)
+    for observed_state in observed_states[1:]:
+        mu, prevs = step(mu, emission_probs, transition_probs, observed_state)
         all_prev_states.append(prevs)
     
     # Traces backwards to get the maximum likelihood sequence.
@@ -166,7 +168,7 @@ def viterbi(emission_probs: np.ndarray,
 
 # Complexity
 
-The **time complexity** of the whole inference is $O(N M^2)$ for $N$ time steps and $M$ input states (although the $M^2$ term represents a matrix-matrix multiplication, which Numpy helps accelerate using [BLAS][blas-wikipedia]). The **space complexity** is $O(N M)$, since we have to store the most likely previous state for each time step.
+The **time complexity** of the whole inference is $O(N M^2)$ for $N$ time steps and $M$ observed states (although the $M^2$ term represents a matrix-matrix multiplication, which Numpy helps accelerate using [BLAS][blas-wikipedia]). The **space complexity** is $O(N M)$, since we have to store the most likely previous state for each time step.
 
 [mathematical-monk]: https://www.youtube.com/watch?v=RwwfUICZLsA&list=PLD0F06AA0D2E8FFBA&index=105
 [wikipedia]: https://en.wikipedia.org/wiki/Viterbi_algorithm

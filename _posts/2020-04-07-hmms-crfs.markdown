@@ -1,0 +1,269 @@
+---
+layout: post
+title: "Hidden Markov Models and Conditional Random Fields"
+date: 2020-04-07 12:00:00
+category: 🔬
+excerpt: A comparison of Hidden Markov Models and Conditional Random Fields, two kinds of probabilistic graphical models.
+math: true
+---
+
+I found that there was a surprising lack of comparisons available online between linear chain conditional random fields and hidden Markov models, despite the many similarities between the two. So, in this post, I'll cover some of the differences between two types of probabilistic graphical models: **Hidden Markov Models** and **Conditional Random Fields**. Specifically, I'll describe the different interfaces that two algorithms, the **Viterbi algorithm** and the **forward-backward algorithm**, take when used for each kind of model.
+
+# Hidden Markov Models
+
+The diagram below illustrates the architecture of a hidden Markov model, with the **hidden states** on the left in blue and the **observed states** on the right in green. The parameters of the model are the arrows in the diagram, where the **transition probabilities** represent the probability of going from one hidden state to another, and the **emission probabilities** represent the probability of going from one hidden state to one observed state. This diagram illustrates a single time step. The observed states being modeled can be any kind of discrete data; for example, each observed state could represent a word (such as with the [Subreddit Simulator][subreddit-simulator]).
+
+{% include /images/hmm/hmm_single_timestep.svg %}
+
+To expand this model over multiple time steps, we can draw consecutive samples from the model. The probability of each state depends only on the probability distribution over the states in the previous timestep and the probability of transitioning between states. This leads to a forward-generative model, as in the image below.
+
+{% include /images/hmm/hmm_multi_timestep.svg %}
+
+Mathematically, the probability of an observed sequence $X = x_1, x_2, ..., x_N$ is here defined as a function of a sample sequence of hidden states $H = h_1, h_2, ..., h_N$ drawn from the space of all possible sequences of hidden states $\mathscr{H}$.
+
+$$p(X) = \sum_{H \in \mathscr{H}} \prod_{i = 1}^{N} p(x_i | h_i) p(h_i | h_{i - 1})$$
+
+The forward-backward algorithm is used to find the marginal probability $p(h_i \| X)$. Assuming we know the emission probabilities $p(x_i \| h_i)$ and the transition probabilities $p(h_i \| h_{i - 1})$, the forward backward algorithm is given by the equations below.
+
+$$p(h_i | X) \propto \alpha_i \beta_i$$
+
+where
+
+$$\alpha_i = p(h_i, x_{1 : i}) \qquad \beta_i = p(x_{i + 1 : N})$$
+
+These values are computed using the recurrence relations below.
+
+$$\alpha_i = \sum_{h_{i - 1}} p(x_i | h_i) p(h_i | h_{i - 1}) \alpha_{i - 1}$$
+
+$$\beta_i = \sum_{h_{i + 1}} p(x_{i + 1} | z_{i + 1}) p(z_{i + 1} | z_i) \beta_{i + 1}$$
+
+For a more in-depth math explanation, I highly recommend the Mathematical Monk [series][hmm-monk].
+
+## Interface
+
+The code below gives the interface for interacting with this model. Although the algorithms aren't actually filled in, here is a brief overview of what they do:
+
+- We can sample the most likely sequence of observed states using the *Viterbi algorithm*. I've covered this in a previous [post][viterbi-post]. Effectively, this finds the most probable sequence of hidden states, given the observed states.
+- Training this model involves using the *forward-backward algorithm* to find the marginal probability of each hidden state at each timestep (in other words, the probability independent of what any other hidden state is). We can then perform *expectation maximization* to push these probabilities in the direction that maximizes the likelihood of generating some training sample $X$. This procedure is known as the [Baum-Welch algorithm][baum-welch-wiki].
+
+{% highlight python %}
+"""Defines the Hidden Markov Model interface.
+
+Compare this interface with the CRF interface below. Helper types are added to
+make the code more readable.
+
+We assume that the hidden and output states are numbered [0, 1, ... , n - 1].
+Additionally, unlike in typical neural network notation, we assume we're dealing
+with one batch at a time, so the first dimension will not be a `bsz` dimension.
+"""
+
+import abc
+import numpy as np
+from typing import Tuple
+
+FloatVector = np.array          # 1-D with float values.
+FloatMatrix = np.array          # 2-D with float values.
+IntVector = np.array            # 1-D with int values.
+IntMatrix = np.array            # 2-D with int values.
+
+
+class HiddenMarkovModel(metaclass=abc.ABCMeta):
+    """Defines the HMM interface."""
+
+    def __init__(self, num_observed: int, num_hidden: int) -> None:
+        self.num_observed = num_observed
+        self.num_hidden = num_hidden
+
+        self.hidden_transitions = np.random.randn(num_output, num_output)
+
+    @abc.abstractmethod
+    def viterbi(self, observed_states: IntVector) -> Tuple[IntVector, float]:
+        """Returns the most likely sequence of hidden states.
+
+        Args:
+            observed_states: the sequence of `num_time` observed states.
+
+        Returns:
+            hidden_states: the most probable sequence of `num_time` hidden states
+                associated with in the sequence of observed states.
+            sequence_prob: the probability of the maximum-likelihood sequence.
+        """
+
+        raise NotImplementedError
+
+    @abc.abstractmethod
+    def forward_backward(self, observed_states: IntVector) -> FloatMatrix:
+        """Returns the marginal probability of each hidden state.
+
+        Args:
+            observed_states: the sequence of `num_time` observed states.
+
+        Returns:
+            hidden_state_probs: matrix with shape `(num_time, num_hidden)`, where
+                index `(i, j)` represents the marginal probability of the `j`th
+                hidden state at time `i`.
+        """
+
+        raise NotImplementedError
+{% endhighlight %}
+
+## Can we reframe this as a neural network layer?
+
+An interesting thought experiment to try is to consider how this model could be reframed in the way that we usually think about neural networks. HMMs are *generative* models that are trained to maximize the probability of the training data given some observed states.
+
+If we constrain the number of hidden states to equal the number of observed states, we can treat the HMM as a *refinement* layer, which takes a sequence of predictions from the neural networks and outputs the maximum likelihood sequence from the Viterbi algorithm as a *conditional* prediction. This is illustrated in the figure below, where the red text indicates the training procedure.
+
+{% include /images/hmm/hmm_backprop.svg %}
+
+## Connectionist Temporal Classification
+
+Another common application of HMMs in deep learning is the Connectionist Temporal Classification loss function, which is covered in a great article [here][distill-ctc]. In this formulation, the HMM takes on a specific form, where the transition probabilities are treated as uniform (where there is an equal likelihood of going from any state to any other state), meaning we can discard the $p(h_i \| h_{i - 1})$ term. If we flip the generative probability around using Bayes' rule, we get the CTC learning criteria:
+
+$$
+\begin{aligned}
+p(X) & \propto \sum_{H \in \mathscr{H}} \prod_{i = 1}^{N} \frac{p(h_i | x_i) p(x_i)}{p(h_i)} \\
+& \propto \sum_{H \in \mathscr{H}} \prod_{i = 1}^{N} p(h_i | X)
+\end{aligned}
+$$
+
+The training and inference algorithms associated with CTC learning can therefore be thought of in the same terms as HMM algorithms.
+
+# Conditional Random Fields
+
+The diagram below illustrates the architecture of a **linear chain conditional random field**, with the **input states** on the right in green and the **output states** on the left in blue. The parameters of the model are the arrows in the diagram, where the **unary potentials** represent the probability of going from one input state to one output state, and the **binary potentials** represent the probability of going from one output state to another output state. The diagram illustrates a single time step.
+
+Note that the only difference between this diagram and the HMM diagram above is the direction of the arrows! While HMMs are *generative*, CRFs are *conditional*.
+
+{% include /images/crf/crf_single_timestep.svg %}
+
+When we expand this model over multiple time steps, we get something like the image below. Note that the arrows of the binary potentials go in both directions. Rather than being forward generative, this model 
+
+{% include /images/crf/crf_multi_timestep.svg %}
+
+One reason for the popularity of CRFs over HMMs in recent literature is that the math is relatively more forgiving. Mathematically, the probability of an output sequence $$y = y_1, y_2, ..., y_N$$ given an input sequence $$X = \vec{x}_1, \vec{x}_2, ..., \vec{x}_N$$ is
+
+$$p(y | X) = \frac{\exp(\sum_{i=1}^{N} U(\vec{x}_i, y_i) + \sum_{i=1}^{N-1} T(y_i, y_{i+1}))}{Z(X)}$$
+
+$$U(\vec{x}_i, y_i)$$ is the learned *unary score*, proportional the probability of $y_i$ being generated by $$\vec{x}_i$$. $$T(y_i, y_{i + 1})$$ is the learned *binary score*, representing the likelihood of $y_i$ and $y_{i+1}$ appearing next to each other. These scores aren't probabilities, so they can be represented by neural networks.
+
+The *partition function* $Z(X)$ is the normalizing factor which gets the final probability. This represents the total score of all output possible sequences.
+
+$$
+\begin{aligned}
+Z(X) = & \sum_{y'_1 \in y} \sum_{y'_2 \in y} ... \sum_{y'_i \in y} ... \sum_{y'_N \in y} \exp(\sum_{i=1}^{N} U(\vec{x}_i, y'_i)) + \sum_{i=1}^{N-1} T(y'_i, y'_{i+1})) \\
+= & \sum_{y'_N \in y} \exp(U(\vec{x}_N, y'_N)) \\
+& \quad \sum_{y'_{N - 1} \in y} \exp(U(\vec{x}_{N - 1}, y'_{N - 1}) + T(y'_{N - 1}, y'_N)) \\
+& \quad \quad ... \quad \sum_{y'_1 \in y} \exp(U(\vec{x}_1, y'_1) + T(y'_1, y'_2))
+\end{aligned}
+$$
+
+This partition function is computed using the *forward backward algorithm*, an example of a dynamic programming algorithm. This algorithm is usually represented using $\alpha$ and $\beta$ to represent the forward and backward dynamic programming tables, where $\alpha_i$ and $\beta_i$ are the $i$th vectors in these tables.
+
+$$M_i = \sum_{y'_j \in y} \exp(U(\vec{x}_i, y'_j) + T(y'_j, y'_{j+1}))$$
+
+$$
+\alpha_{i + 1} = \alpha_i M \qquad \alpha_1 = \begin{cases}
+    1 & \text{if } y = \text{start} \\
+    0 & \text{otherwise}
+\end{cases}
+$$
+
+$$\beta_{i - 1}^T = M \beta_i \qquad \beta_{N + 1} = \begin{cases}
+    1 & \text{if } y = \text{stop} \\
+    0 & \text{otherwise}
+\end{cases}
+$$
+
+$$Z(X) = \alpha_{N}$$
+
+Once this table has been computed, the marginal probabilities are then expressable as
+
+$$p(Y_i = y | \vec{x}) = \frac{\alpha_i \beta_i}{Z(\vec{x})}$$
+
+On GPUs, it is more efficient to use the tree reduction approach described, for example, [here][torch-struct-paper].
+
+For CRFs and HMMs, since continually multiplying probabilities can often result in very small numbers, it is usually better to perform log-space operations, for numerical stability. Most implementations are done this way.
+
+## Interface
+
+The code below gives the interface for interacting with this model. The marginals returned by the forward-backward algorithm of this model are effectively
+
+{% highlight python %}
+"""Defines the Conditional Random Field interface.
+
+Compare this interface with the HMM interface above. This implementation uses the
+same helper types as above.
+"""
+
+import abc
+import numpy as np
+from typing import Tuple
+
+FloatVector = np.array          # 1-D with float values.
+FloatMatrix = np.array          # 2-D with float values.
+IntVector = np.array            # 1-D with int values.
+IntMatrix = np.array            # 2-D with int values.
+
+
+class ConditionalRandomField(metaclass=abc.ABCMeta):
+    """Defines the CRF interface."""
+
+    def __init__(self, num_input: int, num_output: int) -> None:
+        self.num_input = num_input
+        self.num_output = num_output
+
+        # Defines the transition matrices inside the model.
+        self.unary_probs = np.random.randn(num_input, num_output)
+        self.binary_probs = np.random.randn(num_output, num_output)
+
+    @abc.abstractmethod
+    def viterbi(self, unary_potentials: FloatMatrix) -> Tuple[IntVector, float]:
+        """Returns the most likely sequence of hidden states.
+
+        Args:
+            unary_potentials: matrix with shape `(num_time, num_input)`, where index
+                `(i, j)` represents the unary potential for the `j`th input state
+                at time `i`.
+
+        Returns:
+            output_states: the most probable sequence of `num_time` output states
+                associated with in the sequence of input states.
+            sequence_prob: the probability of the maximum-likelihood sequence.
+        """
+
+        raise NotImplementedError
+
+    @abc.abstractmethod
+    def forward_backward(self, unary_potentials: FloatMatrix) -> FloatMatrix:
+        """Returns the marginal probability of each output state.
+
+        Args:
+            unary_potentials: matrix with shape `(num_time, num_input)`, where index
+                `(i, j)` represents the unary potential for the `j`th input state
+                at time `i`.
+
+        Returns:
+            output_marginals: matrix with shape `(num_time, num_output)`, where
+                index `(i, j)` represents the marginal probability of the `j`th
+                hidden state at time `i`.
+        """
+
+        raise NotImplementedError
+{% endhighlight %}
+
+## Can we reframe this as a neural network layer?
+
+Hugo Larochelle has a great [series][crf-larochelle] about doing just this, and there is a PyTorch-based [package][torch-struct] from Harvard NLP which includes implementations of CRFs. CRFs can be used as a drop-in layer in a neural network architecture, as in the diagram below.
+
+{% include /images/crf/crf_backprop.svg %}
+
+Intuitively, CRFs are a way of doing "path-max" for a restricted type of model. Rather than choosing uncorrelated maximum values at each timestep, the CRF model can be used to sample a path. The Viterbi algorithm can be used to visualize the best path through the model.
+
+[subreddit-simulator]: https://www.reddit.com/r/SubredditSimulator/
+[baum-welch-wiki]: https://en.wikipedia.org/wiki/Baum%E2%80%93Welch_algorithm
+[viterbi-post]: {% post_url 2020-03-15-viterbi %}
+[distill-ctc]: https://distill.pub/2017/ctc/
+[crf-larochelle]: https://www.youtube.com/watch?v=GF3iSJkgPbA&list=PL6Xpj9I5qXYEcOhn7TqghAJ6NAPrNmUBH&index=18
+[torch-struct-paper]: https://arxiv.org/pdf/2002.00876.pdf
+[torch-struct]: https://github.com/harvardnlp/pytorch-struct
+[hmm-monk]: https://www.youtube.com/watch?v=7zDARfKVm7s&list=PLD0F06AA0D2E8FFBA&index=100
