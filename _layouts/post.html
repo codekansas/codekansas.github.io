@@ -15,7 +15,11 @@ layout: default
 
 <div class="container post emphasis top" style="max-width: 800px;">
   {{ content }}
-</div>
 
-<script src="https://utteranc.es/client.js" repo="codekansas/codekansas.github.io" issue-term="pathname"
-  theme="github-light" crossorigin="anonymous" async></script>
+  <script src="https://utteranc.es/client.js" repo="codekansas/codekansas.github.io" issue-term="pathname"
+    theme="github-light" crossorigin="anonymous" async></script>
+
+  <small class="padded bottom">
+    {% include links.html %}
+  </small>
+</div>

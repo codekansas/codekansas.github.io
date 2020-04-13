@@ -1,0 +1,12 @@
+Links:
+<a id="resume-link" href="/assets/resume.pdf">Resume</a>
+{% if site.usernames.github %}
+<a id="github-link" href="https://github.com/{{ site.usernames.github }}">Github</a>
+{% endif %}
+{% if site.usernames.twitter %}
+<a id="twitter-link" href="https://twitter.com/{{ site.usernames.twitter }}">Twitter</a>
+{% endif %}
+{% if site.email %}
+<a id="email-link" href="mailto://{{ site.email }}">Email</a>
+{% endif %}
+<a id="feed-link" href="{{ site.url }}/feed.xml">Feed</a>

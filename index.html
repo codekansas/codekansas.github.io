@@ -4,9 +4,13 @@ layout: default
 
 <h1 class="padded bottom">{{ site.tagline }}</h1>
 
-<p class="padded bottom">
+<p>
   This is my blog. I also have some interactive posts
   <a href="https://lightning.bolte.cc/#/">here</a>.
+</p>
+
+<p class="padded bottom">
+  {% include links.html %}
 </p>
 
 {% for post in site.posts %}
@@ -23,18 +27,3 @@ layout: default
   </a>
 </div>
 {% endfor %}
-
-<small class="padded bottom">
-  Links:
-  <a href="/assets/resume.pdf">Resume</a>
-  {% if site.usernames.github %}
-  <a href="https://github.com/{{ site.usernames.github }}">Github</a>
-  {% endif %}
-  {% if site.usernames.twitter %}
-  <a href="https://twitter.com/{{ site.usernames.twitter }}">Twitter</a>
-  {% endif %}
-  {% if site.email %}
-  <a href="mailto://{{ site.email }}">Email</a>
-  {% endif %}
-  <a href="{{ site.url }}/feed.xml">Feed</a>
-</small>
