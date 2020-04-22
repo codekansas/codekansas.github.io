@@ -1,6 +1,0 @@
----
-layout: none
----
-media_title_id,title,url,description,image[0].url,content_category
-{% for post in site.posts limit:10 %}{% capture post_id %}{{ post.url | remove: '-' | remove: '/' | escape }}{% endcapture %}{{ post_id }},"{{ post.title | escape | strip_newlines }}",{{ site.url }}{{ post.url }},"{{ post.excerpt | escape | strip_newlines }}",{{ site.url }}assets/main.png,post
-{% endfor %}
