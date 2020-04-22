@@ -2,20 +2,32 @@
 layout: none
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:g="http://base.google.com/ns/1.0">
   <channel>
-    <title>{{ site.name | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
+    <title>{{ site.title | xml_escape }}</title>
+    <description>{{ site.tagline | xml_escape }}</description>
     <link>{{ site.url }}</link>
     <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
     {% for post in site.posts limit:10 %}
-      <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape | math_in_rss }}</description>
-        <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-        <link>{{ site.url }}/{{ post.url }}</link>
-        <guid isPermaLink="true">{{ site.url }}/{{ post.url }}</guid>
-      </item>
+    {% capture page_id %}{{ post.url | remove: '-' | remove: '/' }}{% endcapture %}
+    <item>
+      <g:id>{{ page_id }}</g:id>
+      <g:title>{{ post.title | xml_escape }}</g:title>
+      <g:description>{{ post.excerpt | xml_escape }}</g:description>
+      <g:link>{{ site.url }}{{ post.url }}</g:link>
+      <g:image_link>{{ site.url }}assets/main.png</g:image_link>
+      <g:brand>{{ site.title | xml_escape }}</g:brand>
+      <g:condition>new</g:condition>
+      <g:availability>in stock</g:availability>
+      <g:price>1 USD</g:price>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>1 USD</g:price>
+      </g:shipping>
+    </item>
     {% endfor %}
   </channel>
 </rss>
