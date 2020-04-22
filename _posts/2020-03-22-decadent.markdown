@@ -6,6 +6,7 @@ category: 📘
 excerpt: >
   Summary and thoughts about The Decadent Society: How We Became the Victims
   of Our Own Success by Ross Douthat.
+image: https://images-na.ssl-images-amazon.com/images/I/819eA7gDvfL.jpg
 ---
 
 *The Decadent Society* is a recent book by New York Times columnist Ross Douthat about "how our turbulent age is defined by dark forces seemingly beyond our control". Amazon recommended it to me after I finished reading "Cult of the Dead Cow", a similarly antiestablishmentarian book with technocratic overtones. I highly encourage anyone who finds this review interesting to pick up a copy of the actual book on [Amazon][amazon] or elsewhere, as it is much more dense than I could ever capture here.

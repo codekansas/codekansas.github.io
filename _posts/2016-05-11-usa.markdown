@@ -4,6 +4,7 @@ title: "Touring the United States and Canada"
 date: 2016-05-11 12:00:00
 category: 😜
 excerpt: Narration from my trip through Nashville, Chicago, Toronto, Montreal, and Washington DC.
+image: https://upload.wikimedia.org/wikipedia/commons/9/94/U.S._Territorial_Acquisitions.png
 ---
 
 # Nashville

@@ -4,6 +4,7 @@ title: Recap from MIT Covid-19 Challenge
 date: 2020-04-05 00:00:00
 category: 🧐
 excerpt: Recap and potential future directions from the MIT Covid-19 Challenge.
+image: https://community.intersystems.com/sites/default/files/inline/images/mit_covid_challenge.jpg
 ---
 
 *Update - April 6th. It seems that [Facebook][zuck-facebook] is actually deploying a survey by CMU world-wide. This is pretty neat. It will be cool to see what kind of data emerges from this! And it's a good lesson in moving fast.*
