@@ -17,16 +17,6 @@ layout: none
       <g:title>{{ post.title | xml_escape }}</g:title>
       <g:description>{{ post.excerpt | xml_escape }}</g:description>
       <g:link>{{ site.url }}{{ post.url }}</g:link>
-      <g:image_link>{{ site.url }}assets/main.png</g:image_link>
-      <g:brand>{{ site.title | xml_escape }}</g:brand>
-      <g:condition>new</g:condition>
-      <g:availability>in stock</g:availability>
-      <g:price>1 USD</g:price>
-      <g:shipping>
-        <g:country>US</g:country>
-        <g:service>Standard</g:service>
-        <g:price>1 USD</g:price>
-      </g:shipping>
     </item>
     {% endfor %}
   </channel>
