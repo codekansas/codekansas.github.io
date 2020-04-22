@@ -10,7 +10,7 @@ layout: none
     <description>{{ site.tagline | xml_escape }}</description>
     <link>{{ site.url }}</link>
     <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
-    {% for post in site.posts limit:2 %}
+    {% for post in site.posts limit:10 %}
     {% capture page_id %}{{ post.url | remove: '-' | remove: '/' }}{% endcapture %}
     <item>
       <g:id>{{ page_id }}</g:id>
