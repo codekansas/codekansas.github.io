@@ -24,7 +24,7 @@ Mathematically, the probability of an observed sequence $X = x_1, x_2, ..., x_N$
 
 $$p(X) = \sum_{H \in \mathscr{H}} \prod_{i = 1}^{N} p(x_i | h_i) p(h_i | h_{i - 1})$$
 
-The forward-backward algorithm is used to find the marginal probability $p(h_i \| X)$. Assuming we know the emission probabilities $p(x_i \| h_i)$ and the transition probabilities $p(h_i \| h_{i - 1})$, the forward backward algorithm is given by the equations below.
+The forward-backward algorithm, as described in [this tutorial][fb-alg-collins] by Michael Collins, is used to find the marginal probability $p(h_i \| X)$. Assuming we know the emission probabilities $p(x_i \| h_i)$ and the transition probabilities $p(h_i \| h_{i - 1})$, the forward backward algorithm is given by the equations below.
 
 $$p(h_i | X) \propto \alpha_i \beta_i$$
 
@@ -169,7 +169,7 @@ $$
 \end{cases}
 $$
 
-$$\beta_{i - 1}^T = M \beta_i \qquad \beta_{N + 1} = \begin{cases}
+$$\beta_{i - 1} = M \beta_i^T \qquad \beta_{N + 1} = \begin{cases}
     1 & \text{if } y = \text{stop} \\
     0 & \text{otherwise}
 \end{cases}
@@ -268,3 +268,4 @@ Intuitively, CRFs are a way of doing "path-max" for a restricted type of model. 
 [torch-struct-paper]: https://arxiv.org/pdf/2002.00876.pdf
 [torch-struct]: https://github.com/harvardnlp/pytorch-struct
 [hmm-monk]: https://www.youtube.com/watch?v=7zDARfKVm7s&list=PLD0F06AA0D2E8FFBA&index=100
+[fb-alg-collins]: http://www.cs.columbia.edu/~mcollins/fb.pdf

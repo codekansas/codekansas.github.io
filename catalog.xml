@@ -16,7 +16,7 @@ layout: none
     <media_source>original</media_source>
     <url>{{ base_url }}{{ post.url }}</url>
     <image>
-      <url>{% if post.image %}{{ post.image }}{% else %}{{ base_url }}/images/main.png{% endif %}</url>
+      <url>{% if post.image %}{{ post.image }}{% else %}{{ base_url }}/images/default.png{% endif %}</url>
       <tag>{{ post_id }}</tag>
     </image>
   </listing>
