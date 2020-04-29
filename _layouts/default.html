@@ -96,25 +96,6 @@
             node.appendChild(anchor);
           });
         }
-
-        // Additional Facebook pixel tracking.
-        function trackClick(n) {
-          var link = document.getElementById(n + '-link');
-          if (link) {
-            link.addEventListener(
-              'click',
-              function () {
-                fbq('track', (n.charAt(0).toUpperCase() + n.slice(1)) + 'Click');
-              }
-            );
-          }
-        }
-
-        trackClick('resume');
-        trackClick('github');
-        trackClick('twitter');
-        trackClick('email');
-        trackClick('feed');
       }
     };
   </script>
