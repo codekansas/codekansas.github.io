@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<svg version="1.1" viewBox="0.0 0.0 500 400" fill="none" stroke="none" stroke-linecap="square" stroke-miterlimit="10" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" 
+    xmlns="http://www.w3.org/2000/svg">
+    <g>
+        <title>Layer 1</title>
+        <ellipse cx="70" cy="330" fill="#aaaaff" id="svg_5" rx="30" ry="30" stroke="#000000" stroke-width="2"/>
+        <ellipse cx="430" cy="330" fill="#aaffaa" id="svg_6" rx="30" ry="30" stroke="#000000" stroke-width="2"/>
+        <ellipse cx="170" cy="70" fill="#ffd4aa" id="svg_7" rx="30" ry="30" stroke="#000000" stroke-width="2"/>
+        <ellipse cx="330" cy="70" fill="#ffd4aa" id="svg_8" rx="30" ry="30" stroke="#000000" stroke-width="2"/>
+        <ellipse cx="170" cy="200" fill="#ffaad4" id="svg_9" rx="30" ry="30" stroke="#000000" stroke-width="2"/>
+        <ellipse cx="330" cy="200" fill="#ffaad4" id="svg_10" rx="30" ry="30" stroke="#000000" stroke-width="2"/>
+        <text fill="#000000" x="170" y="80">X</text>
+        <text fill="#000000" x="330" y="80">Y</text>
+        <text fill="#000000" x="170" y="210">+</text>
+        <text fill="#000000" x="330" y="210">*</text>
+        <text fill="#000000" x="430" y="340">B</text>
+        <text fill="#000000" x="70" y="340">A</text>
+        <line fill="none" id="svg_19" stroke="#000000" stroke-width="2" x1="170" x2="170" y1="100" y2="170"/>
+        <line fill="none" id="svg_20" stroke="#000000" stroke-width="2" x1="330" x2="330" y1="100" y2="170"/>
+        <line fill="none" id="svg_21" stroke="#000000" stroke-width="2" x1="170" x2="70" y1="230" y2="300"/>
+        <line fill="none" id="svg_22" stroke="#000000" stroke-width="2" x1="330" x2="430" y1="230" y2="300"/>
+        <line fill="none" id="svg_23" stroke="#000000" stroke-width="2" x1="200" x2="300" y1="200" y2="70"/>
+        <line fill="none" id="svg_24" stroke="#000000" stroke-width="2" x1="300" x2="200" y1="200" y2="70"/>
+    </g>
+</svg>

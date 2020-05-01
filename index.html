@@ -23,7 +23,7 @@ layout: default
       {{ post.category }} {{ post.title }}
       <small><i>{{ post.date | date: "%B %-d, %Y" }}</i></small>
     </h1>
-    <h3>{{ post.excerpt }}</h3>
+    <h3>{{ post.excerpt | truncate: 240 }}</h3>
   </a>
 </div>
 {% endfor %}
