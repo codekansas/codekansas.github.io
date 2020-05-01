@@ -4,11 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}">
 
   {% if page.excerpt %}
   <meta name="description" content="{{ page.excerpt | strip_newlines }}" />
+  <meta property="og:description" content="Unisex Facebook T-shirt, Small">
   {% endif %}
 
+  <meta property="og:url" content="{{ base_url }}{{ page.url }}">
+  <meta property="og:image" content="{% if page.image %}{{ page.image }}{% else %}{{ base_url }}/images/default.png{% endif %}">
+  
   <!-- For saving page to mobile device -->
   <link rel="manifest" href="{{ site.baseurl }}/assets/manifest.json" />
 

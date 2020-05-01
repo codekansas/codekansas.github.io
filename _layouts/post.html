@@ -24,6 +24,7 @@ layout: default
 <script>
   function t(s) {
     fbq('track', s, {
+      content_id: '{{ page_id }}',
       content_ids: '{{ page_id }}',
       content_type: 'product',
     });
@@ -31,5 +32,12 @@ layout: default
 
   t('ViewContent');
   t('AddToCart');
-  t('Purchase');
+
+  fbq('track', 'Purchase', {
+    value: 1,
+    currency: 'USD',
+    content_ids: '{{ page_id }}',
+    content_id: '{{ page_id }}',
+    content_type: 'product',
+  });
 </script>
