@@ -22,9 +22,14 @@ layout: default
 
 {% capture page_id %}{{ page.url | remove: '-' | remove: '/' }}{% endcapture %}
 <script>
-  fbq('track', 'ViewContent', {
-    content_name: '{{ page.title }}',
-    content_type: 'product',
-    content_ids: ['{{ page_id }}']
-  });
+  function t(s) {
+    fbq('track', s, {
+      content_ids: '{{ page_id }}',
+      content_type: 'product',
+    });
+  }
+
+  t('ViewContent');
+  t('AddToCart');
+  t('Purchase');
 </script>
