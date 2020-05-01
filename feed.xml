@@ -1,23 +1,27 @@
 ---
 layout: none
 ---
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" 
-  xmlns:atom="http://www.w3.org/2005/Atom" 
-  xmlns:g="http://base.google.com/ns/1.0">
-  <channel>
-    <title>{{ site.title | xml_escape }}</title>
-    <description>{{ site.tagline | xml_escape }}</description>
-    <link>{{ site.url }}</link>
-    <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
-    {% for post in site.posts limit:10 %}
-    {% capture page_id %}{{ post.url | remove: '-' | remove: '/' }}{% endcapture %}
-    <item>
-      <g:id>{{ page_id }}</g:id>
-      <g:title>{{ post.title | xml_escape }}</g:title>
-      <g:description>{{ post.excerpt | xml_escape }}</g:description>
-      <g:link>{{ site.url }}{{ post.url }}</g:link>
-    </item>
-    {% endfor %}
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.title | xml_escape }}</title>
+  <description>{{ site.tagline | xml_escape }}</description>
+  <link href="{{ site.url }}/feed.xml" rel="self" />
+  <link href="{{ site.url }}" />
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <author>
+    <name>{{ site.owner }}</name>
+    <email>{{ site.email }}</email>
+  </author>
+
+
+  {% for post in site.posts %}
+  <entry>
+    <title>{{ post.title | xml_escape }}</title>
+    <link href="{{ site.url }}{{ post.url }}" />
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    <id>{{ site.url }}{{ post.id }}</id>
+    <content type="html">{{ post.content | xml_escape }}</content>
+    <summary>{{ post.excerpt }}</summary>
+  </entry>
+  {% endfor %}
+</feed>
