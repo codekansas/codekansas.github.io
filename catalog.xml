@@ -20,6 +20,7 @@ layout: none
       <g:price>1 USD</g:price>
       <g:availability>in stock</g:availability>
       <g:condition>new</g:condition>
+      <g:google_product_category>784</g:google_product_category>
     </item>
     {% endfor %}
   </channel>

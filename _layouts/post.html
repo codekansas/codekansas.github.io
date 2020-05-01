@@ -24,20 +24,25 @@ layout: default
 <script>
   function t(s) {
     fbq('track', s, {
-      content_id: '{{ page_id }}',
       content_ids: '{{ page_id }}',
       content_type: 'product',
     });
   }
 
   t('ViewContent');
-  t('AddToCart');
 
-  fbq('track', 'Purchase', {
-    value: 1,
-    currency: 'USD',
-    content_ids: '{{ page_id }}',
-    content_id: '{{ page_id }}',
-    content_type: 'product',
-  });
+  // Considered an "AddToCart" if viewed for more than 20 seconds.
+  setTimeout(function () {
+    t('AddToCart');
+  }, 1000 * 20);
+
+  // Considered a "Purchase" if viewed for more than a minute.
+  setTimeout(function () {
+    fbq('track', 'Purchase', {
+      value: 1,
+      currency: 'USD',
+      content_ids: '{{ page_id }}',
+      content_type: 'product',
+    });
+  }, 1000 * 60);
 </script>
