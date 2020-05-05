@@ -5,12 +5,6 @@
   <meta charset="UTF-8">
   <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
   <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}">
-
-  {% if page.excerpt %}
-  <meta name="description" content="{{ page.excerpt | strip_newlines }}" />
-  <meta property="og:description" content="Unisex Facebook T-shirt, Small">
-  {% endif %}
-
   <meta property="og:url" content="{{ base_url }}{{ page.url }}">
   <meta property="og:image" content="{% if page.image %}{{ page.image }}{% else %}{{ base_url }}/images/default.png{% endif %}">
   
@@ -45,17 +39,6 @@
 
   <!-- Custom Sass -->
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
-
-  {% if site.analytics.google %}
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics.google }}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', '{{ site.analytics.google }}');
-  </script>
-  {% endif %}
 
   {% if site.analytics.facebook %}
   <!-- Facebook Pixel Code -->

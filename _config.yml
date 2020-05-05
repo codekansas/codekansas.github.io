@@ -4,7 +4,7 @@ tagline:          Hi! 👋 I'm Ben.
 baseurl:          ""
 
 # Contact
-owner:             Benjamin Bolte
+owner:            Benjamin Bolte
 email:            ben@bolte.cc
 
 usernames:
@@ -35,6 +35,5 @@ katex:
 
 # Analytics
 analytics:
-  google:         UA-77147392-2
-  facebook:       516160742657752
+  facebook:       559228364939475
 
