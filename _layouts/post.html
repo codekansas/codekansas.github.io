@@ -19,30 +19,3 @@ layout: default
     {% include links.html %}
   </small>
 </div>
-
-{% capture page_id %}{{ page.url | remove: '-' | remove: '/' }}{% endcapture %}
-<script>
-  function t(s) {
-    fbq('track', s, {
-      content_ids: '{{ page_id }}',
-      content_type: 'product',
-    });
-  }
-
-  t('ViewContent');
-
-  // Considered an "AddToCart" if viewed for more than 20 seconds.
-  setTimeout(function () {
-    t('AddToCart');
-  }, 1000 * 20);
-
-  // Considered a "Purchase" if viewed for more than a minute.
-  setTimeout(function () {
-    fbq('track', 'Purchase', {
-      value: 1,
-      currency: 'USD',
-      content_ids: '{{ page_id }}',
-      content_type: 'product',
-    });
-  }, 1000 * 60);
-</script>
