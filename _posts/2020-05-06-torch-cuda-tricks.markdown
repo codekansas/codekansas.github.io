@@ -2,7 +2,7 @@
 layout: post
 title: "Torch CUDA Extension Tricks"
 date: 2020-05-06 12:00:00
-category: 🧐
+category: 🔬
 excerpt: Some tricks I found useful for writing CUDA extensions for PyTorch.
 math: true
 ---
@@ -22,11 +22,29 @@ torch.set_printoptions(precision=6, sci_mode=False)
 
 [This answer](https://discuss.pytorch.org/t/whats-the-meaning-of-this-error-how-can-i-debug-when-i-use-gpu/8052/3) suggests the first step for debugging CUDA code is to enable CUDA launch blocking using this at the top of the Python file:
 
-```python
+{% highlight python %}
 os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
-```
+{% endhighlight %}
 
 However, this didn't work for a weird memory access issue I was having. This [guide](https://nanxiao.me/en/an-empirical-method-of-debugging-illegal-memory-access-bug-in-cuda-programming/) was more helpful.
+
+# Math Tricks
+
+I found it to be very important to know how to divide *rounding up*. Normally integer division *rounds down*. For example, the code below will print `0, 0, 0, 0, 1, 1, 1, 1, 1, 2`.
+
+{% highlight c++ %}
+int denominator = 5;
+for (int numerator = 1; numerator < 10; numerator++)
+  printf("%d\n", numerator / denominator);
+{% endhighlight %}
+
+To *round up*, you use the identity `(numerator + denominator - 1) / denominator`. The code below will print `1, 1, 1, 1, 1, 2, 2, 2, 2, 2`:
+
+{% highlight c++ %}
+int denominator = 5;
+for (int numerator = 1; numerator < 10; numerator++)
+  printf("%d\n", (numerator + denominator - 1) / denominator);
+{% endhighlight %}
 
 # C++ Definitions
 
