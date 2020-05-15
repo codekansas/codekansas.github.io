@@ -30,6 +30,8 @@ If you don't want to have the answer spoiled (or at least, my version of the ans
 
 {% include /images/riddles/two_students.svg %}
 
+------
+
 # Solution
 
 This can be broken down into four steps. Let's give student A the number $P$ and student B the number $Q$.

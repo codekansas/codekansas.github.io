@@ -26,7 +26,35 @@ torch.set_printoptions(precision=6, sci_mode=False)
 os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 {% endhighlight %}
 
-However, this didn't work for a weird memory access issue I was having. This [guide](https://nanxiao.me/en/an-empirical-method-of-debugging-illegal-memory-access-bug-in-cuda-programming/) was more helpful.
+However, this didn't work for a weird memory access issue I was having. This [guide](https://nanxiao.me/en/an-empirical-method-of-debugging-illegal-memory-access-bug-in-cuda-programming/) was more helpful. Actually, I had a minor improvement over that function with:
+
+{% highlight cuda %}
+#define CUDA_CHECK(X)                                                          \
+  do {                                                                         \
+    cudaError_t err = X;                                                       \
+    if (err != cudaSuccess) {                                                  \
+      std::cerr << "CUDA error in " << __FILE__ << "(" << __LINE__             \
+                << "): " << cudaGetErrorString(err) << std::endl;              \
+      exit(EXIT_FAILURE);                                                      \
+    }                                                                          \
+  } while (0);
+
+#define cudaMemoryTestREMOVE_WHEN_DONE()                                       \
+  do {                                                                         \
+    const int N = 1337, bytes = N * sizeof(float);                             \
+    std::vector<float> cpuvec(N);                                              \
+    for (size_t i = 0; i < N; i++)                                             \
+      cpuvec[i] = (float)i;                                                    \
+    float *gpuvec = NULL;                                                      \
+    CUDA_CHECK(cudaMalloc(&gpuvec, bytes));                                    \
+    assert(gpuvec != NULL);                                                    \
+    CUDA_CHECK(                                                                \
+        cudaMemcpy(gpuvec, cpuvec.data(), bytes, cudaMemcpyHostToDevice));     \
+    CUDA_CHECK(                                                                \
+        cudaMemcpy(cpuvec.data(), gpuvec, bytes, cudaMemcpyDeviceToHost));     \
+    CUDA_CHECK(cudaFree(gpuvec));                                              \
+  } while (0);
+{% endhighlight %}
 
 # Math Tricks
 
