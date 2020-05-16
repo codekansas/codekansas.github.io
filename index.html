@@ -2,7 +2,9 @@
 layout: default
 ---
 
-<h1 class="padded bottom">{{ site.tagline }}</h1>
+<a href="/" class="no-highlight">
+  <h1 class="padded bottom">{{ site.tagline }}</h1>
+</a>
 
 <p>
   This is my blog. I also have some interactive posts
@@ -13,10 +15,7 @@ layout: default
   {% include links.html %}
 </p>
 
-{% for post in site.posts %}
-{% capture words %}
-{{ post.content | number_of_words }}
-{% endcapture %}
+{% for post in paginator.posts %}
 <div class="padded bottom" style="font-size: 80%">
   <a class="no-highlight" href="{{ post.url }}">
     <h1>
@@ -27,3 +26,15 @@ layout: default
   </a>
 </div>
 {% endfor %}
+
+{% if paginator.total_pages > 1 %}
+<p class="padded bottom">
+  {% if paginator.previous_page %}
+  <a href="{{ paginator.previous_page_path | relative_url }}">Newer</a>
+  {% endif %}
+
+  {% if paginator.next_page %}
+  <a href="{{ paginator.next_page_path | relative_url }}">Older</a>
+  {% endif %}
+</p>
+{% endif %}

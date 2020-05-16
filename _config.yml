@@ -37,3 +37,8 @@ katex:
 analytics:
   facebook:       559228364939475
 
+paginate:         10
+paginate_path:    "/posts/:num/"
+
+plugins:
+  - jekyll-paginate

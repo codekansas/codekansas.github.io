@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<h1 class="padded bottom">Posts</h1>
+
+<p class="padded bottom">
+  <a href="/">Home</a>
+</p>
+
+{% for post in site.posts %}
+{% assign currentdate = post.date | date: "%Y" %}
+{% if currentdate != date %}
+{% if forloop.first == false %}<hr />{% endif %}
+<h2 class="padded top-bottom">{{ currentdate }}</h2>
+{% assign date = currentdate %}
+{% endif %}
+<div class="padded bottom" style="font-size: 80%">
+  <a class="no-highlight" href="{{ post.url }}">
+    <h1>
+      {{ post.category }} {{ post.title }}
+    </h1>
+    <h2><i>{{ post.date | date: "%B %-d, %Y" }}</i></h2>
+  </a>
+</div>
+{% endfor %}
