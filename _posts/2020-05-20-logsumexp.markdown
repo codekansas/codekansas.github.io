@@ -305,8 +305,6 @@ For the CUDA implementation below, I'm using some of the constants defined in [t
 #include <torch/extension.h>
 #include <vector>
 
-namespace logsumexp {
-
 // Type alias for packed tensor arguments.
 template <typename scalar_t, int dims>
 using PackedAccessor =
@@ -502,7 +500,6 @@ void init_py(pybind11::module &m) {
 
   sub_m.def("forward_pass", &forward_pass, "Forward pass function");
   sub_m.def("backward_pass", &backward_pass, "Gradient propagation function");
-}
 }
 {% endhighlight %}
 
