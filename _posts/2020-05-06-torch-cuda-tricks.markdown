@@ -114,6 +114,44 @@ These are some definitions which I found useful.
   CHECK_CONTIGUOUS(x)
 {% endhighlight %}
 
+Additionally, here's a useful struct to handle CUDA streams.
+
+{% highlight c++ %}
+template <int N> struct streams_t {
+  cudaStream_t streams[N];
+
+  streams_t() {
+    for (int i = 0; i < N; i++)
+      cudaStreamCreate(&streams[i]);
+  }
+
+  ~streams_t() {
+    sync();
+    destroy();
+  }
+
+  void destroy() {
+    for (int i = 0; i < N; i++)
+      cudaStreamDestroy(streams[i]);
+  }
+
+  void sync() {
+    for (int i = 0; i < N; i++)
+      cudaStreamSynchronize(streams[i]);
+  }
+
+  void sync(int i) {
+    assert(i < N);
+    cudaStreamSynchronize(streams[i]);
+  }
+
+  cudaStream_t get(int i) const {
+    assert(i < N);
+    return streams[i];
+  }
+};
+{% endhighlight %}
+
 # Additional Resources
 
 Below are some of the resources that I found useful.
