@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Roaming through Japan"
-date: 2017-05-08 12:00:00
 category: 😜
 excerpt: >
   Exploring the Land of the Rising Sun for 19 days by train, through Tokyo, Nikko, Sendai, Sapporo, Kyoto, Osaka and Nagoya.

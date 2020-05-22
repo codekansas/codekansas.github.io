@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Torch CUDA Extension Tricks"
-date: 2020-05-06 12:00:00
 category: 🔬
 excerpt: Some tricks I found useful for writing CUDA extensions for PyTorch.
 math: true

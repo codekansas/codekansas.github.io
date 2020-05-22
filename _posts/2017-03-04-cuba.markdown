@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "How I Spent Spring Break in Cuba"
-date: 2017-03-04 12:00:00
 category: 😜
 excerpt: >
   A field guide to traveling to Cuba, written by naive college students for

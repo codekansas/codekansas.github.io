@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Combination Lock Riddle"
-date: 2020-04-30 12:00:00
 category: 🧩
 excerpt: >
   A combination for a lock has 3 wheels, X, Y, and Z, each of which can be set to eight different positions. The lock is broken and when any two wheels of the lock are in the correct position, the lock will open. Thus, anyone can open the lock after 64 tries (let A and B run through all possible permutations). However, the safe can be opened in fewer tries! What is the minimum number of tries that can be guaranteed to open the lock?

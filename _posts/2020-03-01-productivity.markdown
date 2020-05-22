@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "How Not to Productively Work From Home"
-date: 2020-03-01 12:00:00
 category: 🧐
 excerpt: >
   Some of my thoughts about effectively controlling the elephant mind.

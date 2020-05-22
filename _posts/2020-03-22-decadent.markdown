@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Notes on a Decadent Society
-date: 2020-03-22 12:00:00
 category: 📘
 excerpt: >
   Summary and thoughts about The Decadent Society: How We Became the Victims
