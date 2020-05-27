@@ -4,7 +4,7 @@
 
 set -e
 
-ROOT_DIR=$HOME/.binaries/
+ROOT_DIR=$HOME/.binaries
 
 mkdir -p $ROOT_DIR/bin $ROOT_DIR/etc $ROOT_DIR/scripts
 
@@ -132,6 +132,7 @@ EOM
 
 tree $ROOT_DIR
 
-echo "Setup complete! Remember to add this to your .bashrc file:"
-echo "export PATH=\$PATH:$ROOT_DIR/bin"
-echo "source $ROOT_DIR/etc/bcomplete"
+echo -e "Setup complete! Add this to your \033[1;31mprofile\033[0m (.bashrc, .zshrc, .profile) file:"
+echo -e "\033[1;32mexport PATH=\$PATH:$ROOT_DIR/bin"
+echo -e "source $ROOT_DIR/etc/bcomplete\033[0m"
+
