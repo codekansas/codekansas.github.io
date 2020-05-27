@@ -1,6 +1,6 @@
 # Script for quickly installing .binaries extension.
 # Run this with:
-#   curl https://ben.bolte.cc/assets/scripts/setup_binaries.sh | sh
+#   curl https://ben.bolte.cc/assets/scripts/setup_binary.sh | sh
 
 set -e
 

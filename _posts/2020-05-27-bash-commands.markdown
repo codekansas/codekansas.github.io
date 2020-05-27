@@ -14,7 +14,7 @@ These are a bunch of additions I like to add to my local profile which I've foun
 `.binaries` is a small set of tools that I wrote for managing bash scripts. It is basically just a directory for bash scripts and provides a quick way to add, edit, delete or run them from the command line, with tab completion. I combined all of this into a single command that can be run using:
 
 {% highlight bash %}
-curl https://ben.bolte.cc/assets/scripts/setup_binaries.sh | sh
+curl https://ben.bolte.cc/assets/scripts/setup_binary.sh | sh
 {% endhighlight %}
 
 Here are more details about this tool.
