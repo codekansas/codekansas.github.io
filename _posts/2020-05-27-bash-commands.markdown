@@ -195,6 +195,16 @@ My preferred Vim setup uses the [badwolf](https://vimawesome.com/plugin/badwolf)
 curl https://ben.bolte.cc/assets/scripts/setup_vimrc.sh | sh
 {% endhighlight %}
 
+# ls
+
+> Usage: more friendly `ls`
+
+I guess this is pretty standard but the `ls` command has some useful modifiers.
+
+{% highlight bash %}
+alias ll='ls -ahl'
+{% endhighlight %}
+
 # Date
 
 > Usage: `today` gives the current date and `now` gives the current time
@@ -246,6 +256,8 @@ function gdrive {
 
 ## List Open Sessions
 
+> Usage: List open sessions on a machine on startup
+
 {% highlight bash %}
 if [[ $(tmux ls 2> /dev/null) ]]; then
   echo -e "\033[1;31m----- Open tmux sessions -----\033[0m"
@@ -274,4 +286,23 @@ _tmuxc_complete()
   return 0
 }
 complete -F _tmuxc_complete tmuxc
+{% endhighlight %}
+
+# Anaconda
+
+> Usage: Shorthand and tab completion for activating a Conda environment
+
+{% highlight bash %}
+alias cenv='conda activate'
+
+_conda_complete()
+{
+  local cur opts
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  opts="$(ls -1 ${HOME}/.conda/envs/ | paste -sd ' ')"
+  COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+  return 0
+}
+complete -F _conda_complete 'cenv'
 {% endhighlight %}
