@@ -1,0 +1,16 @@
+! My uBlock Origin block list.
+!
+! The main purpose is to block the infinite scrolling parts of websites.
+
+! Blocks trending subs on Reddit
+reddit.com##.scrollerItem
+
+! Hides Facebook newsfeed
+www.facebook.com##.ejjq64ki.abvwweq7.oh7imozk.d2edcug0
+
+! Hides Tweets and boxes
+twitter.com##.r-18u37iz > div > .r-6416eg
+twitter.com##.r-1ila09b > div > .r-6416eg
+
+! Hides YouTube homepage
+www.youtube.com###primary > .ytd-two-column-browse-results-renderer.style-scope

@@ -306,3 +306,9 @@ _conda_complete()
 }
 complete -F _conda_complete 'cenv'
 {% endhighlight %}
+
+# uBlock Origin
+
+This is more of a productivity tip. I have a blocklist that blocks the endless scrolling parts of some social media sites without blocking potentially informative posts.
+
+[Click here to subscribe](abp:subscribe?location=https://ben.bolte.cc/assets/scripts/ublock_list.txt&title=Social Media Posts)
