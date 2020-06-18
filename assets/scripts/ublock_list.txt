@@ -14,3 +14,6 @@ twitter.com##.r-1ila09b > div > .r-6416eg
 
 ! Hides YouTube homepage
 www.youtube.com###primary > .ytd-two-column-browse-results-renderer.style-scope
+
+! LinkedIn
+www.linkedin.com##div[class^="feed-shared-"]
