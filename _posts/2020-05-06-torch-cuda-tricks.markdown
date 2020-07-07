@@ -151,6 +151,17 @@ template <int N> struct streams_t {
 };
 {% endhighlight %}
 
+Here's a worthwhile addition to print `dim3` objects.
+
+{% highlight c++ %}
+#include <iostream>
+
+std::ostream &operator<<(std::ostream &os, const dim3 &d) {
+  os << "(" << d.x << ", " << d.y << ", " << d.z << ")";
+  return os;
+}
+{% endhighlight %}
+
 # Additional Resources
 
 Below are some of the resources that I found useful.

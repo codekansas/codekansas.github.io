@@ -186,6 +186,18 @@ export PATH=$PATH:${HOME}/.binaries/bin
 source ${HOME}/.binaries/etc/bcomplete
 {% endhighlight %}
 
+# Git Aliases
+
+Some useful Git aliases:
+
+## Give a nice-looking commit tree
+
+This is similar to the `hg sl` command we use at Facebook.
+
+```
+git config --global alias.sl 'log --graph --decorate --oneline'
+```
+
 # .vimrc
 
 My preferred Vim setup uses the [badwolf](https://vimawesome.com/plugin/badwolf) colorscheme for [pathogen](https://github.com/tpope/vim-pathogen). I combined this all into a command that can be run using:
