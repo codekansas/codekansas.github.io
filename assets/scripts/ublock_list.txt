@@ -6,6 +6,7 @@
 www.reddit.com###focus-All
 www.reddit.com###focus-Popular
 ||reddit.com/r/all/$document
+www.reddit.com###TrendingPostsContainer
 
 ! YouTube
 www.youtube.com###primary > .ytd-two-column-browse-results-renderer.style-scope
@@ -22,3 +23,6 @@ twitter.com##[aria-label="Timeline: Your Home Timeline"]
 ! Instagram
 www.instagram.com##[href="/explore/"]
 www.instagram.com##[href*="/p/"]
+
+! Hacker News
+news.ycombinator.com##.morelink
