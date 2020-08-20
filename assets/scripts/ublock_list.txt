@@ -5,6 +5,7 @@
 ！ Reddit
 www.reddit.com###focus-All
 www.reddit.com###focus-Popular
+||reddit.com/r/all/$document
 
 ! YouTube
 www.youtube.com###primary > .ytd-two-column-browse-results-renderer.style-scope
