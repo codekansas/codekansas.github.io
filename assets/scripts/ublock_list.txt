@@ -2,10 +2,11 @@
 !
 ! The main purpose is to block the infinite scrolling parts of websites.
 
-! Blocks trending subs on Reddit
-reddit.com##.scrollerItem
+！ Reddit
+www.reddit.com###focus-All
+www.reddit.com###focus-Popular
 
-! Hides miscellaneous YouTube content
+! YouTube
 www.youtube.com###primary > .ytd-two-column-browse-results-renderer.style-scope
 www.youtube.com###secondary
 
