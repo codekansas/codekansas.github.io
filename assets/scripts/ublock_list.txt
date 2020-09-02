@@ -2,10 +2,10 @@
 !
 ! The main purpose is to block the infinite scrolling parts of websites.
 
-！ Reddit
+！Reddit
 www.reddit.com###focus-All
 www.reddit.com###focus-Popular
-||reddit.com/r/all/$document
+||www.reddit.com/r/all/$document
 www.reddit.com###TrendingPostsContainer
 
 ! YouTube
