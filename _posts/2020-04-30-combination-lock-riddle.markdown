@@ -15,7 +15,7 @@ This is actually a really neat problem, and the solution feels somewhat non-intu
 
 ------
 
-# Solution
+## Solution
 
 Ready? With the right search strategy, you would only have to try 32 combinations (this is as low as I could make it, at least). I think there is a really cool 3D interpretation that can be used here.
 

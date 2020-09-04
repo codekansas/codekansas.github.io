@@ -11,13 +11,13 @@ This tutorial is a bare-bones introduction to Theano, in the style of [Andrew Tr
 
 I used Python 3.5 and Theano 0.8. If you already have Theano set up, skip this. Otherwise, see the installation instructions [here][theano-install]; usually this means doing a `pip install Theano`.
 
-# Straight Code
+## Straight Code
 
 Here is just the code. The network has 5 hidden neurons and learns the XOR function, which takes two inputs and returns a high output only if exactly one of the inputs is high. Otherwise, it returns a low output.
 
 <script src="https://gist.github.com/codekansas/87dd63ca4e2286e332c7967520ce143c.js"></script>
 
-# Explanation
+## Explanation
 
 Ok, let's see what's going on here.
 

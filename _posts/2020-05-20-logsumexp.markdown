@@ -13,7 +13,7 @@ If you're like me, you probably use PyTorch or Tensorflow as a deep learning API
 
 This idea was largely inspired by [this repo][genbmm] from Harvard NLP, which provided a kernel for speeding up the log-sum-exp part of a CRF or HMM model. I was inspired to investigate this in greater detail.
 
-# Introduction
+## Introduction
 
 In [past posts][prev-post] I've given an introduction to the **forward-backward algorithm** and the **Viterbi algorithm**, two algorithms which are used for performing inference in Hidden Markov Models and Conditional Random Fields. In this post, I'm going to talk about one of the core concepts for making these models work, which is **log-space operations**. Doing inference in these models usually involves multiplying together very small numbers a large number of times, which can quickly become computationally intractable. Double-precision numbers are [stored][double-precision] in 64 bits using 1 bit to represent the sign, 11 bits for the exponent, and 52 bits for the fraction.
 
@@ -46,7 +46,7 @@ We know the result should be `0.5`. However, when we run it, it prints out the f
 num: inf, denom: inf, result: -nan
 {% endhighlight %}
 
-## Log-Space Operations
+### Log-Space Operations
 
 Because performing these repeated multiplications can lead to this underflow problem relatively easily for models such as CRFs and HMMs, it behoves us to find a more numerically stable solution. In this case, we can take advantage of the following identities:
 
@@ -97,7 +97,7 @@ log(num): 2.839131e+03, log(denom): 2.839824e+03, result: 5.000000e-01
 
 In some literature, this is known as the [log semiring][log-semiring]; in particular, ([Goodman 1999][semiring-paper]) showed how a number of common algorithms can simply be thought of as derivatives of value functions computed over different semirings (it's a really interesting mathematical paper and a great way to conceptualize CRFs and HMMs).
 
-# Mathematical Formalism
+## Mathematical Formalism
 
 To provide some mathematical formalism for the examples above, it's important to expand on the semiring concept. It's actually pretty straight-forward, even if it sounds a bit complicated at first. The pair of functions (`sum`, `logsumexp`) is an example of a [semiring][log-semiring], meaning that it generalizes the multiplication and addition functions. This is some mathematical jargon which is easier to explain with an example. Lets define two semirings:
 
@@ -121,7 +121,7 @@ $$
 
 This is the heart of what we're doing. Since the log semiring is much more mathematically stable when we're dealing with probabilities than the normal semiring, we convert our data to log-space, do the computations, then convert back.
 
-# Problem Statement
+## Problem Statement
 
 When implementing a CRF model in PyTorch, one of the core building blocks is being able to do the `log-sum-exp` operation over pairs of matrices. Specifically, when we are building our dynamic programming tables, on each timestep `i` we multiply (in log space, add) the potentials with the states from the previous timestep `i-1`, then add (in log space, log-sum-exp) the results together to get the new state. Fortunately, in PyTorch, the `logsumexp` function has already been implemented. Here is the PyTorch version of the function we're trying to optimize, plus the code for benchmarking:
 
@@ -139,7 +139,7 @@ from tqdm import tqdm
 
 DEFAULT_NFEATS = [2, 4, 8, 16, 32, 64, 128, 256]
 
-# For rendering the SVG text.
+## For rendering the SVG text.
 plt.rcParams['svg.fonttype'] = 'none'
 {% endhighlight %}
 
@@ -235,7 +235,7 @@ Here is the corresponding chart for the runtime:
 
 {% include /images/logsumexp/perf/naive_time.svg %}
 
-## Simple Speed-up
+### Simple Speed-up
 
 There is a very simple speed-up that we can do on the above function by preserve memory continuity. Note that the reduction part of the forward pass will take place over the last dimension, so we want to make sure the last dimension is contiguous in memory. If we remove the `transpose` part, the forward pass can be performed much faster.
 
@@ -262,7 +262,7 @@ However, the runtime for the forward and backward passes is slightly faster:
 
 This is a useful lesson: **where possible, avoid transposes**. Note that the above function will return a different result from our canonical implementation, so it is the caller's responsibility to make sure the inputs are correct.
 
-## CUDA Implementation
+### CUDA Implementation
 
 Let's write a CUDA implementation of the above function, to see if we can improve the performance.
 
@@ -535,7 +535,7 @@ Here is the corresponding chart for the runtime:
 
 This is a quite significant improvement in memory usage and runtime! It turns out that we can save a substantial amount of memory by writing a pure CUDA implementation.
 
-## Improving the CUDA Implementation
+### Improving the CUDA Implementation
 
 There are a few things we can do to improve on this baseline CUDA implementation.
 

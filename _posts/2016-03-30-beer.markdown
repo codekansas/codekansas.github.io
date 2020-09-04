@@ -10,7 +10,7 @@ excerpt: >
   Some facts and very sarcastic opinions regarding craft beers that can be bought at the Krogers near my apartment.
 ---
 
-# Hopsecutioner
+## Hopsecutioner
 
 > Terrapin Beer Company, Athens, Georgia, United States, American Indian Pale Ale, 7.3% ABV
 
@@ -18,7 +18,7 @@ I realized that I drink a lot of American IPA's because I am having more difficu
 
 ### Rating: 4 flannel-shirted bouncers.
 
-# Not Your Father's Root Beer
+## Not Your Father's Root Beer
 
 > Small Town Brewery, Illiois, United States, Secret Blend of Herbed / Spiced Beer, 5.9% ABV
 
@@ -26,7 +26,7 @@ This is literally root beer. Everyone on beer advocate complains about how "the 
 
 ### Rating: 4 well-groomed mustaches.
 
-# Samuel Smith's Winter Welcome Ale
+## Samuel Smith's Winter Welcome Ale
 
 > Samuel Smith Old Brewery (Tadcaster), Ye Ol' Pubbery, The Queen, Great Britain, Winter Warmer? You 'ardly know 'er! 6.0% ABV
 
@@ -34,7 +34,7 @@ This beer is called a "Winter Warmer", which pretty much explains everything abo
 
 ### Rating: 3 LARP swords.
 
-# Slow Ride Session IPA
+## Slow Ride Session IPA
 
 > New Belgium Brewing, Colorado, United States, AmeriCAN IPA ("More flavorful than the withering English IPA" according to Beer Advocate, suck on those tea bags England) 4.5% ABV
 
@@ -42,7 +42,7 @@ On the lighter side for an American IPA. It tastes a bit like apple. It's the ki
 
 ### Rating: 3.5 electric cars.
 
-# Drafty Kilt Scotch Ale
+## Drafty Kilt Scotch Ale
 
 > Monday Night Brewing, Georgia, United States, Scottish Ale (Not completely Scott, only Scott-ish) 7.2% ABV
 
@@ -50,7 +50,7 @@ Monday Night Brewing is the SweetWater Brewing Company of Atlanta Breweries. It 
 
 ### Rating: 2.5 selfie sticks.
 
-# SweetWater IPA
+## SweetWater IPA
 
 > SweetWater Brewing Company, Georgia, United States, 'Merican IPA, 6.3% ABV
 
@@ -58,7 +58,7 @@ SweetWater is about as big an Atlanta institution as Coca Cola or The Varsity. P
 
 ### Rating: 4 alternative pizza joints.
 
-# Sand Island Lighthouse
+## Sand Island Lighthouse
 
 > Straight to Ale, Alabama, United States Kolsch (clear, with a bright yellow hue, warm fermented and conditioned by lagering, which means it was matured in cold storage; usually ABV of 4.4% to 5.2%, medium bitterness of 20 to 30 IBU) 5.1% ABV
 
@@ -66,7 +66,7 @@ It goes down pretty easily. It seems kind of nutty. Not something I would drink 
 
 ### Rating: 4 plaid shirts.
 
-# Pabst Blue Ribbon
+## Pabst Blue Ribbon
 
 > Pabst Brewing Company, California, United States, American Adjunct Lager (light bodied, pale, fizzy, less bitter with moderate (4.0% to 6.0%) alcohol, focus less on flavor and more on mass production; probably the beer your dad drinks) 4.74% ABV
 

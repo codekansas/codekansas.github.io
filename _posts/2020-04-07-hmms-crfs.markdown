@@ -9,7 +9,7 @@ image: https://qph.fs.quoracdn.net/main-qimg-1d3f9cefc0de33cfebe71bbc237ccc6b
 
 I found that there was a surprising lack of comparisons available online between linear chain conditional random fields and hidden Markov models, despite the many similarities between the two. So, in this post, I'll cover some of the differences between two types of probabilistic graphical models: **Hidden Markov Models** and **Conditional Random Fields**. Specifically, I'll describe the different interfaces that two algorithms, the **Viterbi algorithm** and the **forward-backward algorithm**, take when used for each kind of model.
 
-# Hidden Markov Models
+## Hidden Markov Models
 
 The diagram below illustrates the architecture of a hidden Markov model, with the **hidden states** on the left in blue and the **observed states** on the right in green. The parameters of the model are the arrows in the diagram, where the **transition probabilities** represent the probability of going from one hidden state to another, and the **emission probabilities** represent the probability of going from one hidden state to one observed state. This diagram illustrates a single time step. The observed states being modeled can be any kind of discrete data; for example, each observed state could represent a word (such as with the [Subreddit Simulator][subreddit-simulator]).
 
@@ -39,7 +39,7 @@ $$\beta_i = \sum_{h_{i + 1}} p(x_{i + 1} | z_{i + 1}) p(z_{i + 1} | z_i) \beta_{
 
 For a more in-depth math explanation, I highly recommend the Mathematical Monk [series][hmm-monk].
 
-## Interface
+### Interface
 
 The code below gives the interface for interacting with this model. Although the algorithms aren't actually filled in, here is a brief overview of what they do:
 
@@ -107,7 +107,7 @@ class HiddenMarkovModel(metaclass=abc.ABCMeta):
         raise NotImplementedError
 {% endhighlight %}
 
-## Can we reframe this as a neural network layer?
+### Can we reframe this as a neural network layer?
 
 An interesting thought experiment to try is to consider how this model could be reframed in the way that we usually think about neural networks. HMMs are *generative* models that are trained to maximize the probability of the training data given some observed states.
 
@@ -115,7 +115,7 @@ If we constrain the number of hidden states to equal the number of observed stat
 
 {% include /images/hmm/hmm_backprop.svg %}
 
-## Connectionist Temporal Classification
+### Connectionist Temporal Classification
 
 Another common application of HMMs in deep learning is the Connectionist Temporal Classification loss function, which is covered in a great article [here][distill-ctc]. In this formulation, the HMM takes on a specific form, where the transition probabilities are treated as uniform (where there is an equal likelihood of going from any state to any other state), meaning we can discard the $p(h_i \| h_{i - 1})$ term. If we flip the generative probability around using Bayes' rule, we get the CTC learning criteria:
 
@@ -128,7 +128,7 @@ $$
 
 The training and inference algorithms associated with CTC learning can therefore be thought of in the same terms as HMM algorithms.
 
-# Conditional Random Fields
+## Conditional Random Fields
 
 The diagram below illustrates the architecture of a **linear chain conditional random field**, with the **input states** on the right in green and the **output states** on the left in blue. The parameters of the model are the arrows in the diagram, where the **unary potentials** represent the probability of going from one input state to one output state, and the **binary potentials** represent the probability of going from one output state to another output state. The diagram illustrates a single time step.
 

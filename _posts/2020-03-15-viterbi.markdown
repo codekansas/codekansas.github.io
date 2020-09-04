@@ -10,13 +10,13 @@ image: https://qph.fs.quoracdn.net/main-qimg-1d3f9cefc0de33cfebe71bbc237ccc6b
 
 This tutorial explains how to code the Viterbi algorithm in Numpy, and gives a minor explanation. I'm using Numpy version `1.18.1` and Python `3.7`, although this should work for any future Python or Numpy versions.
 
-# Resources
+## Resources
 
 The Viterbi algorithm has been widely covered in many areas. One of my favorite explanations is from the Youtuber [Mathematical Monk][mathematical-monk]. This tutorial expects some background familiarity with hidden Markov models; if you've never heard of them, check out those videos! The [Wikipedia][wikipedia] page is also pretty good. Here's a diagram of an unfolded hidden Markov model:
 
 {% include /images/hmm/hmm_multi_timestep.svg %}
 
-# Problem Statement
+## Problem Statement
 
 The goal of the Viterbi algorithm is to compute the most probable sequence of hidden states $z^*$ for a Hidden Markov Model defined by an observed sequence $x$ and a set of possible sequences of hidden states $z$:
 
@@ -71,7 +71,7 @@ max_seq, seq_prob = viterbi(
 
 Note that these matrices represent the probability distributions in *column-major* format, meaning that the column dimension sums to 1. Note also that if we represent the hidden state probabilities as a vector, then doing vector-matrix multiplication into the `transition_probs` matrix will give us the new hidden states, and doing vector-matrix multiplication into the `emission_probs` matrix will give us the observed states.
 
-# Maximizing Value
+## Maximizing Value
 
 The maximum value of $p(z, x)$ for all the preceding timesteps up to the current timestep $1, ..., k$ is
 
@@ -166,7 +166,7 @@ def viterbi(emission_probs: np.ndarray,
     return state_sequence[::-1], sequence_prob
 {% endhighlight %}
 
-# Complexity
+## Complexity
 
 The **time complexity** of the whole inference is $O(N M^2)$ for $N$ time steps and $M$ observed states (although the $M^2$ term represents a matrix-matrix multiplication, which Numpy helps accelerate using [BLAS][blas-wikipedia]). The **space complexity** is $O(N M)$, since we have to store the most likely previous state for each time step.
 

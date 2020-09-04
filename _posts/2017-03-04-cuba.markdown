@@ -8,7 +8,7 @@ excerpt: >
 image: https://upload.wikimedia.org/wikipedia/commons/a/af/Cuba_rel94.jpg
 ---
 
-# Hook
+## Hook
 
 Without infringing on copyrights too much, the introduction to the Havana chapter of the Cuba edition of the Lonely Planet Travel Guide goes a little something like this: "Close your eyes... imagine... Waves crashing against... a young couple... harmonizing... across... the smell of diesel fumes and... Hemingway beards... No one could have invented... the... damned... swashbuckling... seduction." The guide's authors' eloquent prose captures to a tee the exact feeling I got from being there, and in the paragraphs that follow, I hope to convey this feeling to you, the reader. In particular, throughout this post I hope to provide an accurate and complete account of my experience traveling to Havana, Cuba as a plucky, naive college student, in the hopes that other plucky, naive college students will find it helpful and informative. The first part of this post will be predominantly informational for other people traveling, while the second part will be a narrative of what we actually did while there.
 
@@ -20,7 +20,7 @@ Here are some bullet points:
  - We had no idea how to do it beforehand (although we got some helpful advice from friends)
  - Going through customs was very easy (easier than we had expected)
 
-# Exposition (Start of the informational part)
+## Exposition (Start of the informational part)
 
 Back in January, I went to interview for a research lab in upstate New York (which is unbearably, bitingly cold). It was pretty cool, but the major outcome was that I ended up with an $800 travel voucher for Delta Airlines for taking a slightly later flight than the scheduled one. I'd been thinking about going to Cuba since the embargo was (more or less) lifted, and it turned out that two flights between Atlanta and Havana on Delta cost almost exactly $800. It is cool to think about being able to go somewhere that was closed off all through my parents' lifetime. It's probably a bit similar to if my kid were to go to North Korea, if North Korea were sunny, had nice beaches and rum, and all of a sudden decided to market itself to college students on Spring Break.
 
@@ -28,7 +28,7 @@ Fast forward a month and some insightful, reasoned back-and-forth with my girlfr
 
 I booked the tickets and an AirBnb about a month in advance. It is probably a good idea to do this earlier, but then your back-and-forth may not be as reasoned as you might hope. The best deal I found on AirBnb was in the neighborhood of Vedado for $50 a night. Others can often be cheaper, but bear in mind two things; first, Cuba doesn't have ubiquitous Internet like in the United States (more on that later), so it can be very hard for someone to put their house online, and second, every American and their mother wants to visit right now. Actually, bear in mind a third thing, which is that the government regulates pretty much everything, and bureaucracy can decrease supply. All around, it's better to book early or for off-seasons, and don't expect consistent communication with the host.
 
-# Boarding the flight
+## Boarding the flight
 
 So now, the important parts. As of the last three months or so, there are twelve reasons US citizens can travel to Cuba legally. These reasons more or less cover any reason anyone would want to go anywhere, except for "to bum around on the beach and drink myself silly," so this should definitely not be something that prevents you from going. Once you buy a ticket, you buy the visa right before boarding the flight; airlines sell them to you at the gate. Delta sold us ours for $50 each, although apparently Spirit sells them for $100. As far as confirming your reason for going, it just involves signing a piece of paper. The Delta representative during our flight just took it and added it to the bottom of a stack. Our reason for travel was "People-to-People Exchange," which is the most broad reason, and if you are staying in an AirBnb, is probably the reason you should choose. The confirmation number at the bottom is just a number on the plane ticket.
 
@@ -38,15 +38,15 @@ Coming out of the gate, there was a huge crowd of people. It was a little intimi
 
 We changed money at the airport and got about 400 Cuban Convertible Pesos, or CUC. One CUC is 25 CUP, which is another type of peso in Cuba. For future reference, I'll use a dollar sign to represent CUC, since we never used CUP; the Cuban government tries to tie . A cab from the airport to our AirBnb in Vedado was $30 (meaning 30 CUC). The driver was very friendly, and took us through the Plaza de la Revolución.
 
-# AirBnb and Casa Particulars
+## AirBnb and Casa Particulars
 
 In Cuba, there are a lot of *casa particulars* all over. These are basically bed-and-breakfasts, and are registered through the government. AirBnb is basically a way for travelers (predominantly Americans) to book a stay at a *casa particular*. Our hosts, Dayana and Matyas, were awesome. Dayana wrote our names down in a registry booklet and sent our names and passport numbers to the government. Dayana and Matyas' house is in Vedado, which is a quieter, somewhat wealthier neighborhood that is walking distance to the big hotels and resorts near the sea. Getting around anywhere is pretty easy by cab though. Matyas is Dutch, and Dayana is Cuban. Dayana's parents take care of the house while she and Matyas aren't there, and they were also very friendly, although they spoke no English, which made for some logistical issues.
 
-# Speaking Spanish
+## Speaking Spanish
 
 It helped a lot that both of us spoke some Spanish, and made it much more comfortable getting around, but it wasn't necessary, depending on where you go. If someone came up to us speaking English, they were typically a scammer. I mean, we were guests in their country, so it would be pretty strange to expect other people to speak our language. We typically made up for the areas where our language skills were lacking by gesturing or using other types of communication.
 
-# Crime, scams, and Cuban wages
+## Crime, scams, and Cuban wages
 
 Cuba punishes crimes very severely, and many of the Cuban people we talked to liked to bring this up, because it means that there is very little crime. You can get into any cab off the street without worrying about anything. No one carries a gun. In this way, scams tend to be very pleasant.
 
@@ -54,27 +54,27 @@ Before going, though, it is worth figuring out your philosophy on poverty and gi
 
 Far be it from me to provide concrete answers to difficult philosophical questions. There are certainly support systems in place which make it possible to live on such a small amount (since the country is communist) so saying "20$ a month" is not as bad as the same salary in the United States. However, tipping your waiter goes a long, long way.
 
-# Internet
+## Internet
 
 I didn't use Internet while we were there, but my girlfriend wanted to let her parents know we'd arrived alright, so we got an Internet card. There are various locations with Internet connections, and they can usually be identified by people trying to sell you Internet cards. We paid $3 for a card, although they should usually be $1.50 (the person who sold them to us added his own markup). One card provides an hour of Internet service. It wasn't very reliable (you couldn't stream media), but it worked well enough for our purposes (we used Google Hangouts to send a text; presumably the same method would work for calling).
 
-# Last day, getting to the Cuban airport
+## Last day, getting to the Cuban airport
 
 We left for the airport at 10:30 to catch an 2:30 flight, because we were worried lines would be really backed up or we might face other difficulties. They weren't at all, so we sat in the airport and read our respective books until it came time to board. The cab to the airport cost $25. In the airport lobby, there was a speaker whose sole purpose (it seemed) was to emit awful, high-pitched squeaks at odd intervals, effectively making it horribly uncomfortable to sit in most places. I have no idea why it was there. If anyone knows what the point of that speaker is, I would love to know. We got chicken and fries in the airport lobby for about $6 per plate (on the expensive side, but not a horrible way to spend money). The entire time we were eating we were interrupted by awful, high-pitched squeaks which no one else seemed to be able to hear. Before I located the device on the wall I thought it was an older person playing a practical joke with an iPhone app.
 
 We had read online elsewhere that there was a $25 exit fee for each of us, but we weren't charged. It may have been that the airline already paid it, or that the fee doesn't apply anymore.
 
-# Getting back through customs
+## Getting back through customs
 
 It was surprisingly easy to get through customs, significantly faster (oddly) than returning from Canada. The agent asked a few questions, like, "were we traveling there for business or vacation," but being the quick-on-our-feet thinkers we are, we didn't fall for it and told him we were coming back from a people-to-people exchange. Otherwise, they didn't ask anything a normal customs officer wouldn't ask.
 
-# Sunday (Start of the narrative part)
+## Sunday (Start of the narrative part)
 
 We landed in Cuba around 1:00. Going through customs was pretty easy (see above). Our AirBnb host, Matyas, was at work when we arrived, but we were greeted by his wife, Dayana. Dayana gave us keys to the apartment and we dropped our stuff off. She also gave us some recommendations on things to do. The AirBnb was close to John Lennon Park, so-named because of a statue of John Lennon, and misleadingly similar to Lenin Park. We took a nap and then walked over there and ate at a nearby restaurant. There were a ton of kids in soccer jerseys, specifically Barcelona jerseys. We found that most of the "fancy" cars that we saw were actually taxis; typically, the other cars on the road (and there weren't many) were personally-owned. Many of them were Ladas.
 
 We also walked over to the Plaza de la Revolución, which we'd seen coming from the airport. The security guard wouldn't let us take pictures of the giant statue of Jose Marti form any angle except straight-on, which reminded me of how I've read North Korea is. The Plaza is also bordered by large images of Che Guevara and Fidel Castro.
 
-# Monday
+## Monday
 
 Between Sunday and Monday we slept for 14 hours, because we were really tired and there weren't any windows in our room. We were woken up at various times throughout the night alternatively by dogs, roosters and cars (earplugs would have been a good idea). Dayana made a really good breakfast of pineapple, papaya, espresso, eggs, toast, and papaya juice. We talked to a bike rental store, which was really just a back room in someone's house, but they didn't have any bikes to rent us.
 
@@ -90,7 +90,7 @@ We walked around the walls on the coast and were confronted by some street music
 
 We went back to our AirBnb and drank rum with Dayana, Matyas and Carlos (Dayana's brother). We talked a lot and ended up getting Daiquiris at a nearby place called Dulce Habana. They provided some interesting perspectives on immigration from Cuba to the United States, and how Cubans view Americans. Apparently the narrative supported by Castro is that Americans aren't responsible for the actions of their government, so while the American government is evil, the American people are alright.
 
-# Tuesday
+## Tuesday
 
 We ate at a restaurant near John Lennon Park. There's a nightclub near the park called The Yellow Submarine, but it wasn't open when we went by. We took a cab from Vedado to Habana Vieja for $5 and walked around. Wei Wei bought a post card from a gift shop for her collection.
 
@@ -104,7 +104,7 @@ Havana's Chinatown hardly has any Asian people. Someone we talked to said that t
 
 We also stumbled upon the University of Havana's Confucius Institute, although it was closed. Our Taxi home costed $5.
 
-# Wednesday
+## Wednesday
 
 We woke up early because we wanted to get over to Jaimanitas, a city which is about 30 minutes outside Vedado. There was a strange rooster whose crowing sounded like barking, which had kept us up the night before. According to Matyas, cockfighting is fairly popular, but underground.
 
@@ -124,6 +124,6 @@ Even at that point we still didn't think we'd been had. It was only after we lef
 
 In the end, if they were scammers, they were (in my naive opinion) masters of their craft. Either way, we had a great conversation and learned a lot.
 
-# Conclusion
+## Conclusion
 
 Cuba was a load of fun, and definitely a learning experience. It was very interesting to contrast this experience with what I've read and learned about Cuba from other sources. The face of the country that I was exposed to as a passer-though was very beautiful, but I go the sense from interacting with people and learning about their day-to-day lives that there were many downsides to living in the country as well. All around, it was a fascinating, unusual, exciting and informative experience, one that I would gladly repeat and strongly endorse.

@@ -8,7 +8,7 @@ math: true
 
 This is a tracking document for some things I've found useful when writing CUDA extensions for PyTorch.
 
-# Python
+## Python
 
 I found it useful to put these at the top of my Python file. `manual_seed` is for reproducability and `set_printoptions` is to make it easier to quickly identify whether or not two numbers match up.
 
@@ -17,7 +17,7 @@ torch.manual_seed(seed)
 torch.set_printoptions(precision=6, sci_mode=False)
 {% endhighlight %}
 
-# CUDA Debugging
+## CUDA Debugging
 
 [This answer](https://discuss.pytorch.org/t/whats-the-meaning-of-this-error-how-can-i-debug-when-i-use-gpu/8052/3) suggests the first step for debugging CUDA code is to enable CUDA launch blocking using this at the top of the Python file:
 
@@ -73,7 +73,7 @@ for (int numerator = 1; numerator < 10; numerator++)
   printf("%d\n", (numerator + denominator - 1) / denominator);
 {% endhighlight %}
 
-# C++ Definitions
+## C++ Definitions
 
 These are some definitions which I found useful.
 
@@ -162,7 +162,7 @@ std::ostream &operator<<(std::ostream &os, const dim3 &d) {
 }
 {% endhighlight %}
 
-# Additional Resources
+## Additional Resources
 
 Below are some of the resources that I found useful.
 

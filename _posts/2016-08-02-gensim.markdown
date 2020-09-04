@@ -7,17 +7,17 @@ excerpt: >
   with example code.
 ---
 
-# Introduction
+## Introduction
 
 This will be a quick post about using Gensim's Word2Vec embeddings in Keras. This topic has been covered elsewhere by other people, but I thought another code example and explanation might be useful.
 
-# Resources
+## Resources
 
  - [Keras Blog][keras-blog]: Francois Chollet wrote a whole post about this exact topic a few weeks ago, so that's the authoritative source on how to do this.
  - [Github Issue][github-issue]: Another reference, with some relevant code.
  - [Discussion on the Google Group][google-group-discussion]: This topic was hashed out about a year ago on the Keras Google Group, and has since migrated to its own Slack channel.
 
-# Installing Dependencies
+## Installing Dependencies
 
 Usually `pip install ...` works if you don't already have Keras or Gensim.
 
@@ -27,18 +27,18 @@ sudo pip install keras
 sudo pip install --ignore-installed gensim
 {% endhighlight %}
 
-# Tokenizing
+## Tokenizing
 
 {% highlight python %}
 from gensim.utils import simple_preprocess
 tokenize = lambda x: simple_preprocess(x)
 {% endhighlight %}
 
-*In lexical analysis, tokenization is the process of breaking a stream of text up into words, phrases, symbols, or other meaningful elements called tokens. -Wikipedia*
+> In lexical analysis, tokenization is the process of breaking a stream of text up into words, phrases, symbols, or other meaningful elements called tokens. -Wikipedia
 
 We want to tokenize each string to get a list of words, usually by making everything lowercase and splitting along the spaces. In contrast, *lemmatization* involves getting the root of each word, which can be helpful but is more computationally expensive (enough so that you would want to preprocess your text rather than do it on-the-fly).
 
-# Create Embeddings
+## Create Embeddings
 
 {% highlight python %}
 import os
@@ -69,11 +69,11 @@ def create_embeddings(data_dir, embeddings_path, vocab_path, **params):
 
 We first create a `SentenceGenerator` class which will generate our text line-by-line, tokenized. This generator is passed to the Gensim Word2Vec model, which takes care of the training in the background. We can pass parameters through the function to the model as keyword `**params`.
 
-## Key Observation
+### Key Observation
 
 The `syn0` weight matrix in Gensim corresponds exactly to weights of the `Embedding` layer in Keras. We want to save it so that we can use it later, so we dump it to a file. We also want to save the vocabulary so that we know which columns of the Gensim weight matrix correspond to which word; in Keras, this dictionary will tell us which index to pass to the `Embedding` layer for a given word. We'll dump this as a JSON file to make it more human-readable.
 
-# Loading Vocabulary
+## Loading Vocabulary
 
 {% highlight python %}
 import json
@@ -88,7 +88,7 @@ def load_vocab(vocab_path):
 
 We can load the vocabulary from the JSON file, and generate a reverse mapping (from index to word, so that we can decode an encoded string if we want).
 
-# Loading Embeddings
+## Loading Embeddings
 
 {% highlight python %}
 from keras.layers import Embedding
@@ -107,7 +107,7 @@ embedded = embedding(input_vec)
 
 It turns out to be super straightforward! We just pop the weights from the Gensim model into the Keras layer. We can then use this layer to embed our inputs as we normally would.
 
-# Cosine Similarity
+## Cosine Similarity
 
 {% highlight python %}
 input_a = Input(shape=(1,), dtype='int32', name='input_a')
