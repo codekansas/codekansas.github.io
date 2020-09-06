@@ -9,8 +9,8 @@ www.reddit.com###focus-Popular
 www.reddit.com###TrendingPostsContainer
 
 ! YouTube
-www.youtube.com###primary > .ytd-two-column-browse-results-renderer.style-scope
-www.youtube.com###secondary
+www.youtube.com##ytd-watch-next-secondary-results-renderer
+www.youtube.com##ytd-browse[page-subtype="home"]
 
 ! LinkedIn
 www.linkedin.com##div[class^="feed-shared-"]
