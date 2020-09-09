@@ -13,9 +13,9 @@ This will be a quick post about using Gensim's Word2Vec embeddings in Keras. Thi
 
 ## Resources
 
- - [Keras Blog][keras-blog]: Francois Chollet wrote a whole post about this exact topic a few weeks ago, so that's the authoritative source on how to do this.
- - [Github Issue][github-issue]: Another reference, with some relevant code.
- - [Discussion on the Google Group][google-group-discussion]: This topic was hashed out about a year ago on the Keras Google Group, and has since migrated to its own Slack channel.
+- [Keras Blog][keras-blog]: Francois Chollet wrote a whole post about this exact topic a few weeks ago, so that's the authoritative source on how to do this.
+- [Github Issue][github-issue]: Another reference, with some relevant code.
+- [Discussion on the Google Group][google-group-discussion]: This topic was hashed out about a year ago on the Keras Google Group, and has since migrated to its own Slack channel.
 
 ## Installing Dependencies
 

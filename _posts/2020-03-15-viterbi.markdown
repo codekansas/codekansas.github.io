@@ -5,7 +5,6 @@ category: 🔨
 excerpt: >
   A demo of how to code the Viterbi algorithm in Numpy.
 math: true
-image: https://qph.fs.quoracdn.net/main-qimg-1d3f9cefc0de33cfebe71bbc237ccc6b
 ---
 
 This tutorial explains how to code the Viterbi algorithm in Numpy, and gives a minor explanation. I'm using Numpy version `1.18.1` and Python `3.7`, although this should work for any future Python or Numpy versions.

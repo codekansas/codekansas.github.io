@@ -35,6 +35,18 @@ a.no-highlight:after {
   content: none;
 }
 
+.fade-in {
+  opacity: 0.6;
+}
+
+.fade-in:hover {
+  opacity: 1.0;
+}
+
+.fade-in {
+  transition: all 200ms ease;
+}
+
 a.header-link {
   margin-left: 0.3em;
   opacity: 0;

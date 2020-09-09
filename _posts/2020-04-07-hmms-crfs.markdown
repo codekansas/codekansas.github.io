@@ -4,7 +4,6 @@ title: "Hidden Markov Models and Conditional Random Fields"
 category: 🔬
 excerpt: A comparison of Hidden Markov Models and Conditional Random Fields, two kinds of probabilistic graphical models.
 math: true
-image: https://qph.fs.quoracdn.net/main-qimg-1d3f9cefc0de33cfebe71bbc237ccc6b
 ---
 
 I found that there was a surprising lack of comparisons available online between linear chain conditional random fields and hidden Markov models, despite the many similarities between the two. So, in this post, I'll cover some of the differences between two types of probabilistic graphical models: **Hidden Markov Models** and **Conditional Random Fields**. Specifically, I'll describe the different interfaces that two algorithms, the **Viterbi algorithm** and the **forward-backward algorithm**, take when used for each kind of model.

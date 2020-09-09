@@ -2,18 +2,18 @@
 layout: default
 ---
 
-<a href="/" class="no-highlight">
-  <h1 class="padded bottom">{{ site.tagline }}</h1>
-</a>
-
-<p>
-  This is my blog. I also have some interactive posts
-  <a href="https://lightning.bolte.cc/#/">here</a>.
-</p>
-
-<p class="padded bottom">
-  {% include links.html %}
-</p>
+<div class="fade-in">
+  <a href="/" class="no-highlight">
+    <h1 class="padded bottom">{{ site.tagline }}</h1>
+  </a>
+  <p>
+    This is my blog. I also have some interactive posts
+    <a href="https://lightning.bolte.cc/#/">here</a>.
+  </p>
+  <p class="padded bottom">
+    {% include links.html %}
+  </p>
+</div>
 
 {% for post in paginator.posts %}
 <div class="padded bottom" style="font-size: 80%">

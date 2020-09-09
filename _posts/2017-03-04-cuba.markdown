@@ -5,7 +5,6 @@ category: 😜
 excerpt: >
   A field guide to traveling to Cuba, written by naive college students for
   naive college students, mostly as exposition.
-image: https://upload.wikimedia.org/wikipedia/commons/a/af/Cuba_rel94.jpg
 ---
 
 ## Hook

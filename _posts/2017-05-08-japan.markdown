@@ -4,7 +4,6 @@ title: "Roaming through Japan"
 category: 😜
 excerpt: >
   Exploring the Land of the Rising Sun for 19 days by train, through Tokyo, Nikko, Sendai, Sapporo, Kyoto, Osaka and Nagoya.
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Itsukushima_Gate.jpg/1920px-Itsukushima_Gate.jpg
 ---
 
 ## Departure
