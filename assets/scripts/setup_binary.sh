@@ -35,8 +35,8 @@ echo "Writing $ROOT_DIR/bin/brun"
 cat > "$ROOT_DIR/bin/brun" <<- EOM
 #!/bin/bash
 
-if [[ \$# -ne 1 ]]; then
-    echo "Usage: brun <script_to_run>"
+if [[ \$# -lt 1 ]]; then
+    echo "Usage: brun <script_to_run> <optional_extra_args>"
     exit 1
 fi
 
@@ -48,10 +48,10 @@ scriptspath="\${HOME}/.binaries/scripts"
 filepath="\${scriptspath}/\${filename}"
 
 if [ ! -f "\${filepath}" ]; then
-    echo "[ \${filename} ] is not a runable script. Available:"
+    echo "[ \${filename} ] is not a runnable script. Available:"
     find \$scriptspath -type f | cut -c\$((\${#scriptspath}+2))-
 else
-    \${filepath}
+    \${filepath} "\$@"
 fi
 EOM
 
