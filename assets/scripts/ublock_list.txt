@@ -7,6 +7,8 @@ www.reddit.com###focus-All
 www.reddit.com###focus-Popular
 ||www.reddit.com/r/all/$document
 www.reddit.com###TrendingPostsContainer
+www.reddit.com###redesign-beta-optin-btn
+www.reddit.com##.nextprev
 
 ! YouTube
 www.youtube.com##ytd-watch-next-secondary-results-renderer
