@@ -30,4 +30,5 @@ www.instagram.com##[href*="/p/"]
 news.ycombinator.com##.morelink
 
 ! Facebook
-www.facebook.com##div[aria-label^="Notif"] > span
+www.facebook.com##[aria-label*="pdate"] > span > span
+www.facebook.com##[aria-label*="unread"] > span
