@@ -28,3 +28,6 @@ www.instagram.com##[href*="/p/"]
 
 ! Hacker News
 news.ycombinator.com##.morelink
+
+! Facebook
+www.facebook.com##div[aria-label^="Notif"] > span
