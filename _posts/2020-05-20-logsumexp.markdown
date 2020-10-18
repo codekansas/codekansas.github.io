@@ -265,7 +265,7 @@ This is a useful lesson: **where possible, avoid transposes**. Note that the abo
 
 Let's write a CUDA implementation of the above function, to see if we can improve the performance.
 
-We can write the `log_bmm` function as a matrix-matrix operation (the batch part can be added trivially in the CUDA implementation). For a regular batch matrix multiplication function, we expect as our inputs two matrices with elements $$a_{i, j}$$ and $$b_{i, j}$$. We will output a matrix with elements $$o_{i, j}$$, which is defined as the following:
+We can write the `log_bmm` function as a matrix-matrix operation (the batch part can be added trivially in the CUDA implementation). For a regular batch matrix multiplication function, we expect as our inputs two matrices with elements $a_{i, j}$ and $b_{i, j}$. We will output a matrix with elements $o_{i, j}$$, which is defined as the following:
 
 $$o_{i, j} = \sum_k a_{i, k} b_{k, j}$$
 
@@ -275,7 +275,7 @@ $$o_{i, j} = \log \sum_k \exp(a_{i, k} + b_{k, j})$$
 
 Note that, to make this function mathematically stable, we use the `logsumexp` trick above, rather than naively summing over the exponents.
 
-We can differentiate the above function with respect to each $$a_{i, k}$$ and $$b_{k, j}$$giving:
+We can differentiate the above function with respect to each $a_{i, k}$ and $b_{k, j}$ giving:
 
 $$
 \begin{aligned}
@@ -285,11 +285,11 @@ $$
 \end{aligned}
 $$
 
-This means that gradients of the loss function with respect to $$a_{i, k}$$ can be written as the accumulation of all of the gradients $$\frac{\delta L}{\delta o_{i, j}}$$:
+This means that gradients of the loss function with respect to $a_{i, k}$ can be written as the accumulation of all of the gradients $\frac{\delta L}{\delta o_{i, j}}$:
 
 $$\frac{\delta L}{\delta a_{i, k}} = \sum_j \exp(a_{i, k} + b_{k, j} - o_{i, j}) \frac{\delta L}{\delta o_{i, j}}$$
 
-Similarly, the gradient with respect to $$b_{k, j}$$ can be written as:
+Similarly, the gradient with respect to $b_{k, j}$ can be written as:
 
 $$\frac{\delta L}{\delta b_{j, k}} = \sum_i \exp(a_{i, k} + b_{k, j} - o_{i, j}) \frac{\delta L}{\delta o_{i, j}}$$
 
@@ -582,7 +582,7 @@ There has been a lot of work on how to optimize reduction operations on GPUs, in
 
 {% include /images/logsumexp/linear_reduction.svg %}
 
-Instead, when the reduction operation is **associative** and **commutative** (which, fortunately, is the case for all semirings, not just the one in question), we can perform them with $$O(\log(N))$$ parallel steps, as in the tree below.
+Instead, when the reduction operation is **associative** and **commutative** (which, fortunately, is the case for all semirings, not just the one in question), we can perform them with $O(\log(N))$ parallel steps, as in the tree below.
 
 {% include /images/logsumexp/tree_reduction.svg %}
 
