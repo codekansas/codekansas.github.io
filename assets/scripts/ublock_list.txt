@@ -17,11 +17,6 @@ www.youtube.com##ytd-browse[page-subtype="home"]
 ! LinkedIn
 www.linkedin.com##div[class^="feed-shared-"]
 
-! Twitter
-twitter.com##[data-testid="sidebarColumn"]
-twitter.com##[aria-label="Timeline: Trending now"]
-twitter.com##[aria-label="Timeline: Your Home Timeline"]
-
 ! Instagram
 www.instagram.com##[href="/explore/"]
 www.instagram.com##[href*="/p/"]
