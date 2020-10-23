@@ -19,7 +19,7 @@ layout: default
 <div class="padded bottom" style="font-size: 80%">
   <a class="no-highlight" href="{{ post.url }}">
     <h1>
-      {{ post.category }} {{ post.title }}
+      {% if post.draft %}🚧 Draft! 🚧 {% endif %}{{ post.category }} {{ post.title }}
       <small><i>{{ post.date | date: "%B %-d, %Y" }}</i></small>
     </h1>
     <h3>{{ post.excerpt | truncate: 240 }}</h3>
