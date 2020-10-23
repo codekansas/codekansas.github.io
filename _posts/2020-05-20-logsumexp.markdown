@@ -590,11 +590,11 @@ These performance boosts don't really apply for reduce operations which are rela
 
 [prev-post]: {% post_url 2020-04-07-hmms-crfs %}
 [cuda-post]: {% post_url 2020-05-06-torch-cuda-tricks %}
-[optimizing-parallel-reduction]: https://developer.download.nvidia.com/assets/cuda/files/reduction.pdf
-[genbmm]: https://github.com/harvardnlp/genbmm
-[log-semiring]: https://en.wikipedia.org/wiki/Log_semiring
-[semiring-paper]: https://www.aclweb.org/anthology/J99-4004/
-[double-precision]: https://en.wikipedia.org/wiki/Double-precision_floating-point_format
-[cuda-extension-writeup]: https://pytorch.org/tutorials/advanced/cpp_extension.html
-[click-docs]: https://click.palletsprojects.com/en/7.x/
-[pybind11-docs]: https://pybind11.readthedocs.io/en/stable/basics.html
+[optimizing-parallel-reduction]: <https://developer.download.nvidia.com/assets/cuda/files/reduction.pdf>
+[genbmm]: <https://github.com/harvardnlp/genbmm>
+[log-semiring]: <https://en.wikipedia.org/wiki/Log_semiring>
+[semiring-paper]: <https://www.aclweb.org/anthology/J99-4004/>
+[double-precision]: <https://en.wikipedia.org/wiki/Double-precision_floating-point_format>
+[cuda-extension-writeup]: <https://pytorch.org/tutorials/advanced/cpp_extension.html>
+[click-docs]: <https://click.palletsprojects.com/en/7.x/>
+[pybind11-docs]: <https://pybind11.readthedocs.io/en/stable/basics.html>
