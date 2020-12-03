@@ -61,6 +61,20 @@ h6:hover .header-link {
   opacity: 1;
 }
 
+/* Footnotes */
+
+sup[role=doc-noteref] {
+  background-color: $highlight-color-light;
+  border-radius: 3px;
+  padding: 1px;
+  transition: all 200ms ease;
+}
+
+sup[role=doc-noteref]:hover {
+  background-color: $highlight-color;
+  transition: all 200ms ease;
+}
+
 a.reversefootnote:after, a.footnote::after {
   content: none;
 }
