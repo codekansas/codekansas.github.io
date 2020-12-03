@@ -22,6 +22,15 @@ I thought this was an interesting experiment, so I decided to do it on myself.[^
 
 An important additional source is that I also have a local Tetris client called [Nullpomino][nullpomino] which I use intermittently, and the time from that doesn't get logged in the app. So all things told, I spend about a solid **hour to two hours a day** procrastinating. If I had to estimate the time without knowing these stats, I probably would have guessed less than 30 minutes.
 
+The Webtime Tracker I mentioned above lets you download your data as a CSV files. I wrote a Python script to parse and plot my own data.[^python-script] Looking forward, I'm hoping that by tracking different site usages, it makes it possible to identify the benefits of certain interventions, such as using the [Freedom][freedom] blocker.
+
+{% include /images/procrastination/time.svg %}
+
+Some points of interest:
+
+- The drop-off in Hacker News usage corresponded with when I added a uBlock filter to block the "Next" button, so I stopped scrolling so much. Unfortunately it seems that I substituted browsing Hacker News with browsing Reddit, which seems like an objectively worse way to spend time
+- I used to spend a ton of time playing online chess, but it didn't seem to be a substitute for browsing Reddit (my Reddit usage seems pretty consistent). So (as a personal value judgement) playing less chess seems to be a net positive.
+
 ## Results
 
 I think I became a lot more cognizant of the strong pull of websites that encourage procrastinating after watching *The Social Dilemma*. It made me wish there was a service I could buy which would involve, like, someone standing over my shoulder and watching my screen and stopping me from doing work, although I would never actually sign up for a service that did this.
@@ -38,6 +47,8 @@ One thing that has been quite helpful has been meditation. My company reimburses
 
 [^headspace-experiment]: I suppose if I wanted to be truly data-driven about this as as well, it would be a good idea to A / B test this intervention by doing, for example, a week of meditation and a week without. Unfortunately I think I lack the scientific self-discipline to do this in any sort of rigorous manner.
 
+[^python-script]: For reference, [here][python-script] is the script I used to generate this plot. Note that in the above plot, I smoothed with a Hamming window of length 20.
+
 [lobster-ganglion]: https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/stomatogastric-ganglion
 [central-pattern-generator]: https://en.wikipedia.org/wiki/Central_pattern_generator
 [neuron-models]: https://lightning.bolte.cc/#/posts/neuron_models
@@ -45,3 +56,5 @@ One thing that has been quite helpful has been meditation. My company reimburses
 [newsfeed-eradicator]: https://chrome.google.com/webstore/detail/news-feed-eradicator-for/fjcldmjmjhkklehbacihaiopjklihlgg?hl=en
 [nullpomino]: https://github.com/nullpomino/nullpomino
 [headspace-app]: https://www.headspace.com/headspace-meditation-app
+[freedom]: https://freedom.to/
+[python-script]: https://gist.github.com/codekansas/375c4a2f1ecd26d7fc0501f418de5032
