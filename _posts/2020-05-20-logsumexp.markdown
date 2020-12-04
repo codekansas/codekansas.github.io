@@ -3,7 +3,7 @@ layout: post
 title: "Optimized Log-Sum-Exp PyTorch Function"
 category: 🔬
 excerpt: A walkthrough of how to optimize the log-sum-exp function in PyTorch.
-# math: true
+math: true
 ---
 
 I've recently been working on writing a CUDA kernel for a project I've been working on. I haven't done much CUDA programming before, but it's been an interesting journey that I thought would be a useful exercise to share with other people. I'm going to assume some familiarity with PyTorch and the general idea of what CUDA is.
