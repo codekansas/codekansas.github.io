@@ -33,6 +33,9 @@ html, body {
   #site-tagline::after {
     content: " Looks like you also prefer dark mode 🌙";
   }
+  #blog-link::after {
+    content: " (Warning: no dark mode yet 🙁)";
+  }
 }
 
 /**
