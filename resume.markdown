@@ -1,15 +1,11 @@
 ---
-layout: latex
-title: Benjamin Bolte
-excerpt: >
-    Research engineer at FAIR working on representation learning,
-    with experience at Google and Amazon. Interested in neuroscience,
-    deep learning, and learning without labels. Check out my
-    <a href="https://ben.bolte.cc">blog</a>,
-    <a href="https://github.com/codekansas">Github</a>,
-    <a href="https://scholar.google.com/citations?user=JEXV__kAAAAJ&hl=en">Google Scholar</a>,
-    or shoot me an <a href="mailto:ben@bolte.cc">email</a>.
+layout: standalone
+title: Benjamin Bolte's Resume
 ---
+
+# Benjamin Bolte
+
+Research engineer at FAIR working on representation learning, with experience at Google and Amazon. Interested in neuroscience, deep learning, and learning without labels. Check out my [blog][blog-link], [Github][github-link], [Google Scholar][google-scholar], or shoot me an [email](mailto:ben@bolte.cc).
 
 ## Employment
 
@@ -57,12 +53,6 @@ excerpt: >
 - **Dean's Achievement Scholarship** (2014 - 2017) Highest undergraduate merit award
 - **Computational Neuroscience Training Grant** (2014 - 2016) Highly competitive NIH Blueprint Grant for studying computational neuroscience at Emory and Georgia Tech
 
-## Calendar
-
-I'm always down to chat! Set up a time on my calendar below.
-
-<div style="margin-top: 1em">
-<iframe src="https://calendar.google.com/calendar/embed?src=bkbolte18%40gmail.com" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-</div>
-
 [google-scholar]: https://scholar.google.com/citations?user=JEXV__kAAAAJ&hl=en
+[blog-link]: https://ben.bolte.cc
+[github-link]: https://github.com/codekansas

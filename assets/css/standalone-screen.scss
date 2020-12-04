@@ -1,0 +1,13 @@
+---
+---
+
+@import "variables", "links", "standalone";
+
+h2:before {
+  content: "";
+  display: inline-block;
+  margin-right: 1%;
+  width: 16%;
+  height: 10px;
+  background-color: $flair-color-transparent;
+}

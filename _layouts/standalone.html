@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>
+        {% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}
+    </title>
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}" />
+    <meta property="og:url" content="{{ base_url }}{{ page.url }}" />
+
+    <link href="/assets/css/standalone-screen.css" type="text/css" rel="stylesheet" media="screen">
+    <link href="/assets/css/standalone-print.css" type="text/css" rel="stylesheet" media="print">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ site.baseurl }}/assets/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/assets/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/assets/favicon/favicon-16x16.png" />
+</head>
+
+<body>
+    <div id="main">
+        <div id="content">
+            {{ content }}
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,38 +1,18 @@
 a {
   text-decoration: none;
-  color: $font-color;
-  position: relative;
-  display: inline-block;
+  color: $highlight-color;
+  transition: all 200ms ease;
 }
 
 a:hover {
   text-decoration: none;
-  color: $font-color;
-}
-
-a:after {
-  border-radius: 0.2em;
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: -0.1em;
-  right: -0.1em;
-  bottom: 0;
-  height: 0.1em;
+  color: $highlight-color-transparent;
   transition: all 200ms ease;
-  background-color: $highlight-color;
-}
-
-a:hover:after {
-  height: 100%;
 }
 
 a.no-highlight {
+  color: inherit;
   display: inline;
-}
-
-a.no-highlight:after {
-  content: none;
 }
 
 .fade-in {
@@ -59,22 +39,4 @@ h4:hover .header-link,
 h5:hover .header-link,
 h6:hover .header-link {
   opacity: 1;
-}
-
-/* Footnotes */
-
-sup[role=doc-noteref] {
-  background-color: $highlight-color-light;
-  border-radius: 3px;
-  padding: 1px;
-  transition: all 200ms ease;
-}
-
-sup[role=doc-noteref]:hover {
-  background-color: $highlight-color;
-  transition: all 200ms ease;
-}
-
-a.reversefootnote:after, a.footnote::after {
-  content: none;
 }

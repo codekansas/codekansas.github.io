@@ -194,9 +194,9 @@ Some useful Git aliases:
 
 This is similar to the `hg sl` command we use at Facebook.
 
-```
+{% highlight bash %}
 git config --global alias.sl 'log --graph --decorate --oneline'
-```
+{% endhighlight %}
 
 ## .vimrc
 

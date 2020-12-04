@@ -183,23 +183,23 @@
         <path fill="#6aa84f" stroke="#6aa84f" stroke-width="2.0" stroke-linecap="butt" d="m869.09015 222.03163l9.076172 -3.3034668l-9.076172 -3.3034668z" fill-rule="evenodd"/>
     </g>
     <g>
-        <text x="65" y="25" fill="black">
+        <text x="65" y="25" class="dark-fill">
             One to
             <tspan x="65" dy="25">One</tspan>
         </text>
-        <text x="197" y="25" fill="black">
+        <text x="197" y="25" class="dark-fill">
             Many to
             <tspan x="197" dy="25">One</tspan>
         </text>
-        <text x="380" y="25" fill="black">
+        <text x="380" y="25" class="dark-fill">
             One to
             <tspan x="380" dy="25">Many</tspan>
         </text>
-        <text x="563" y="25" fill="black">
+        <text x="563" y="25" class="dark-fill">
             Many to
             <tspan x="563" dy="25">Many</tspan>
         </text>
-        <text x="790" y="25" fill="black">
+        <text x="790" y="25" class="dark-fill">
             Many to
             <tspan x="790" dy="25">Many</tspan>
         </text>

@@ -1,9 +1,20 @@
 body {
-  color: $font-color;
   font-weight: $base-font-weight;
   font-size: $base-font-size;
   padding: 0;
   margin: 0;
+  color: $font-color-light;
+  @media (prefers-color-scheme: dark) {
+    color: $font-color-dark;
+  }
+}
+
+.light-color {
+  color: $font-color-light;
+}
+
+.dark-color {
+  color: $font-color-dark;
 }
 
 strong {

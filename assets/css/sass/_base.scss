@@ -1,3 +1,40 @@
+html, body {
+  background-color: $background-color-light;
+  @media (prefers-color-scheme: dark) {
+    background-color: $background-color-dark;
+  }
+}
+.light-fill {
+  fill: $background-color-light;
+  @media (prefers-color-scheme: dark) {
+    fill: $background-color-dark;
+  }
+}
+.dark-fill {
+  fill: $background-color-dark;
+  @media (prefers-color-scheme: dark) {
+    fill: $background-color-light;
+  }
+}
+.light-stroke {
+  stroke: $background-color-light;
+  @media (prefers-color-scheme: dark) {
+    stroke: $background-color-dark;
+  }
+}
+.dark-stroke {
+  stroke: $background-color-dark;
+  @media (prefers-color-scheme: dark) {
+    stroke: $background-color-light;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  #site-tagline::after {
+    content: " Looks like you also prefer dark mode 🌙";
+  }
+}
+
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
@@ -13,12 +50,30 @@
     padding: 0;
     margin: 0 1em 1em 0;
     font-size: 90%;
-    background-color: #f7f7ff;
+    background-color: $figure-color-light;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: $figure-color-dark;
+    }
 
     pre {
       padding: 1em;
     }
   }
+}
+
+.table td, th, tr {
+  border-bottom-color: $background-color-dark !important;
+  border-top-color: $background-color-dark !important;
+
+  @media (prefers-color-scheme: dark) {
+    border-bottom-color: $background-color-light !important;
+    border-top-color: $background-color-light !important;
+  }
+}
+
+table {
+  color: inherit !important;
 }
 
 .footnotes {
@@ -33,8 +88,21 @@ blockquote {
 }
 
 code {
-  color: $font-color;
-  background-color: #f7f7ff;
+  color: $font-color-light;
+  background-color: $figure-color-light;
+
+  @media (prefers-color-scheme: dark) {
+    color: $font-color-dark;
+    background-color: $figure-color-dark;
+  }
+}
+
+pre code {
+  color: $font-color-light;
+
+  @media (prefers-color-scheme: dark) {
+    color: $font-color-dark;
+  }
 }
 
 iframe {

@@ -1,0 +1,30 @@
+/* -------------- *
+ * Font variables *
+ * -------------- */
+$base-font-size: 1em;
+$base-font-weight: 300;
+$highlight-color: rgba(79, 185, 193, 1.0);
+$highlight-color-transparent: transparentize($highlight-color, 0.2);
+$flair-color: rgba(57, 114, 73, 1.0);
+$flair-color-transparent: transparentize($flair-color, 0.5);
+$font-color-light: rgb(18, 19, 20);
+$font-color-dark: rgb(237, 238, 239);
+
+/* ---------------- *
+ * Layout variables *
+ * ---------------- */
+$base-padding: 1em;
+$emphasis-padding: 3em;
+
+/* -------------- *
+ * Page variables *
+ * -------------- */
+
+$background-color-light: $font-color-dark;
+$background-color-dark: $font-color-light;
+
+$figure-color-light: lighten($background-color-light, 10%);
+$figure-color-dark: darken($background-color-dark, 10%);
+
+// $figure-color-light: rgb(247, 247, 255);
+// $figure-color-dark: rgb(185, 193, 79);
