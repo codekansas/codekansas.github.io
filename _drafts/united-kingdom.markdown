@@ -1,0 +1,82 @@
+---
+layout: post
+title: Visiting the United Kingdom
+category: 🇬🇧
+excerpt: Reflections on our time in the United Kingdom during the Covid-19 pandemic.
+---
+
+These reflections were co-written with my fiancee. I'm reproducing them here from our [blog][our-blog], except this one is in first-person, which I find makes it less confusing to read.
+
+## Our First Day
+
+We landed in London at 8:01 AM after a 7-hour flight from Atlanta. All around, it was a bit stressful. We drove Chi's car from Nashville to her parents' house in Cary, North Carolina on Saturday, which was about an eight hour drive, after a long week of work and packing for both of us. We spent a great two days with her parents and Susu, eating lots of her mom's food. We watched "The Social Dilemma" with Susu and packed two weeks worth of food into two large suitcases, with an ability for weight estimation that would rival Rain Man. Even the woman at the flight desk was impressed when all four of our suitcases totalled almost exactly 50 pounds each.
+
+Anyway, once we actually got to the boarding gate we figured everything would be smooth sailing (or as they say in Britian, "crumpets and raspberry jam"). Not so! Our flight into Atlanta was due to arrive at 6:00 on the dot, and our original flight to London was due to leave at 9:55, giving us plenty of time to transfer our luggage from Southwest to Delta. While waiting for the flight to take off and reviewing our itinerary, however, I realized that Delta had switched our flight sometime about a week ago, and now it would leave at 7:17. Which was cutting it a bit close. Ever the level-headed managerial type, Chi reassured us that we would be able to make the flight or find a reasonable alternative, and came up with a plan for once we reached Atlanta.
+
+The minutes passed. We both waited with baited breath. Beads of sweat dripped slowly from our face shields down into our masks. The air was pregnant with what was to come. Then, from the captain's quarters, an announcement: the flight would be landing twenty minutes early. We waited, with the intensity and focus of a pair of gazelles that have just spotted a cheetah, unable to concentrate on anything except our plan. In a flash (or slightly longer), the cabin doors opened. Chi's natural intimidation and raw physical strength cleared a path from our seats to the exit doors. I set off to the Delta ticket counter, Chi to the baggage claim, with a short stopover in the bathroom.
+
+At the Atlanta airport there's a train between the terminals, with a parallel walking path in case you don't want to ride it. We were in terminal E and had to get to the baggage claim area, five terminals over. When I arrived at the train, I saw that it was one minute and twenty seconds away. That was a one minute and twenty seconds that I didn't have. I ran down the walking path - terminal D. The train now read 55 seconds away. Still too much time. I ran to the next one - terminal C. Now it was 20 seconds away. I'd saved a whole minute by running rather than waiting for the train. A genius, and physical specimen to boot.
+
+While Chi went to the baggage claim, I went to secure our tickets. The man at the ticket gate was very friendly, and helped us get our tickets sorted. Once our baggage arrived from Southwest, Chi phoned and we dragged it over to the drop-off counter. All told, we made it by a hair - a two minute wide hair. [^tsa]
+
+We got on the plane, though! Our assigned seats were next to each other, on the far right-hand side of the plane. The plane was almost completely empty. We watched Tron - the 1982 Tron, not the newer one - and it's now my favorite movie, narrowly edging out the 1995 classic *Hackers*. It's a must-see movie for programmers everywhere. After that, we stretched out across a row of seats and slept for the remainder of the flight.
+
+I am a very important person. I have a lot of clout in many social arenas, flying being one of them. Chi awoke a bit before I did. As we neared London, two of the Delta flight attendents came down the aisles searching anxiously for a certain "Benjamin Bolte." In her naivety, perhaps forgetting for a moment who exactly she was engaged to, Chi worried that I was in trouble with the airline. Fingers trembling, she pointed to the seat where I was peacefully reclined, Buddha-like. The attendant apologetically awoke me up, thanked me for my loyalty as - not a Bronze, nay - a *Silver* Medallion Delta Frequent Flyer, and asked, prostrate, if I would care for a cinnamon roll, or perhaps a cup of their finest coffee.
+
+Once we'd landed, we walked for several minutes through Heathrow airport. At the border control, the guard interrogated me as to why I was accompanying Chi, but ultimately allowed me to pass. We got our bags, loading most of them on to a trolley. Since our flight had arrived earlier than we'd expected, we contacted the AirBnB host and asked if we could check in early, to which he happly agreed. When Chi came to London in college, she was a poor, miserly student, but now, as a poor, miserly *medical* student who happens to be engaged to someone with disposable income, we were able to take the Heathrow Express from the airport to Paddington Station in London, a quick, comfortable 15 minute ride rather than the typical hour-long jaunt on the tube. From there, we took our bags in a black cab to the AirBnB, which was located next to Reagent's Park in Central London.
+
+We had some trouble getting into the flat. At first the host hadn't given us the information for the lockbox, and when he did, we couldn't find the box itself. After we found it, the code we'd been given wouldn't work, and the host gave us a different code. Once inside, there appeared to not be an elevator, and we would have to carry our 200 pounds of luggage one by one to our 5th floor flat. But fortunately someone in passing mentioned that the lift was just around the corner.
+
+As we're writing this, we're sitting on the couch. It's a bit after 10 PM. We took a nap for a few hours earlier, and we're both quite jetlagged so we don't feel too tired. We might stay up and watch some British movie like *Sherlock*, featuring the prolific British actor Robert Downey.[^rdj] We had our first dinner of Udon noodles. Also, Chi ate crackers and sardines for the first time ever, and liked them. Ironically our condo in Nashville has about ten cans of sardines from Chi's apartment, which were delegated basically as apocolypse food. But it's always nice to try new things.
+
+## One Month In
+
+Since we first flew to London almost a month ago, we've:
+
+- Quarantined ourselves in a small London flat with unreliable WiFi for two weeks, pidgeons and all
+- Made our way from London to Oxford via the train, replete with our five suitcases and several bags
+- Moved between four other AirBnbs:
+  - Three nights in a stone house in Wheatley
+  - Two nights at a nice microstudio in central London
+  - Five nights at a house in central Oxford
+  - Two nights in a quaint cottage in Bath
+  - Our current location, in a tiny garden home, presumably sitting in the middle of an empty field with no one around to transmit Covid to, because we are very responsible citizens of the world who would never, under any circumstances, jeopardize the strict, and very wise, rules laid down by the UK government
+
+So, there's a certain amount of recapping due. Life has seemed to alternate between being dreadfully dull and extremely exciting, sometimes switching in the course of just a few hours. Our two weeks in quarantine were punctuated occasionally by socially distanced human interaction when we would order food from Deliveroo, or if the construction workers would wake us up by peering in through our window in the early hours of the morning. This was the first span in several months (possibly years) that Chi hasn't had anything to do, so she watched the entirety of *Friends* and a few other shows on Netflix. Additionally, both of our sleep schedules were somewhat erratic, perhaps culminating in one particularly disrupted night when we woke up from a nap at 4PM and didn't go to bed again until the sun came out the next morning. Chai lattes from *Pret a Manger* made it somewhat better.
+
+London during Coronavirus is much more shut down than either of us remembered it being before. After our 14 days inside, we wanted to find a coffee shop to do some work in the awkward period between having to vacate our AirBnb and taking the train to Oxford. Chi found a luggage storage place near the train station and a coffee shop which was still open, but we had to do a bit of walking to get between each of them (again, we have quite a bit of luggage with us). The coffee shop, Harrison's Coffee, was a cute place with a basement which was well spread out. Later, when we took the train up to Oxford, we both slept for a good portion of the trip.
+
+Our first location in Oxford was at a stone house in the nearby city of Wheately, which as far as either of us is concerned is well and truly in the countryside. We got fish and chips from a small shop nearby which ended up being much bigger than either of us was bargaining for (although as we found out the next day, cold fish and chips make a fairly decent breakfast). The place was pitch-black at night, and we could see the stars.
+
+Our first week in Oxford involved Chi getting her card to be able to get into her dorm room and me getting a bike and joining a coworking space called the Oxford Innospace.[^innospace] Oxford is a very expansive university - you can ride a bike around for an hour and not repeat yourself, if you choose the right route, without even going out into the surrounding countryside. There's cows and horses and stuff in the actual school grounds, and the architecture is pretty cool. If not for the constant weight of worry about the Coronvirus, it would be a pretty spectacular place to be.
+
+Our first weekend, we went back into London, this time to actually see some sights. We ate a traditional English breakfast in the morning at Oxford, then caught the train into the city. We've both independently been to London and enjoyed going to the museums, in particular the Tate Modern, so we thought it would be fun to go together. We had a long, pretentious argument about what it means to enjoy a piece of artwork, and ate ramen and drank sake (scandelous by our normal standards of alcohol consumption). The next day, on our first full day in the city, we went to the Sky Garden, then got lunch at Borough Market, then went on a long tour of the Tower of London, including seeing the Royal Jewels. We did an awful lot of walking, but it was great getting to spend time in the city. For dinner, we got High Tea at the Dorchester, a swanky hotel next to Hyde Park at which my dad indulged in the same activity when he had visited many years previously - and this, at the bequest of my great-grandfather, who had *also* had High Tea at the Dorchester back after World War 2.
+
+Our second weekend, we took a couple trains to Bath, and stayed with a really lovely couple in their house in the hills. Mary, Andy and their dog Reggie were the picture of a sweet British couple. Mary made us breakfast in the mornings. Chi had visited Bath before and was something of an expert on the attractions. On Saturday (our only full day in Bath), it was mostly rainy, which put a slight damper on our trip, but we had a very full day nonetheless. At 9:30 we went on a tour of the Roman Baths at the center of the city, walking through for almost two hours. When the bath was operational during the reign of the Roman Empire, it was covered by a ceiling, but the ceiling has since rotted away, leading to algae growth that gives it the green color it has now. The scale of the building was quite impressive, and the commentary during the tour did a lot to emphasize the religious, healing aspects of the baths for the Romans that lived here.
+
+Then we walked through Bath Abbey, which saw the coronation of King Edgar the Peaceful in 973 AD. The abbey was undergoing construction in a large part, but there were some really intricate embroideries hanging on the walls. Afterwards, we got afternoon tea and rested our legs after so much walking. Chi was a lot more chatty than normal.
+
+Bath was also home to Jane Austen for a good part of her young adulthood, so after we got afternoon tea we went to a museum dedicated to her. There were some videos with some very high-quality reenactments of her life, and we got to try out using a quill pen for the first time. We also walked around a house in No. 1 Royal Crescent. Perhaps the most uncharacteristic thing we did was to go drink beer and eat bar food at a pub called The Crystal Palace for a few hours. The combination of alcohol and lots of exercise knocked us out - I ended up falling asleep at about 8 PM.
+
+All around, it's been a pretty fun month in England. It's looking increasingly like we might have to go back to the United States a bit early, but we've gotten to do a good amount of traveling around and spent time wandering.
+
+## Second Half
+
+Since I last wrote up our adventures, the UK entered a nation-wide lockdown, which made it somewhat less exciting to be here. However, there were still a few highlights. The coworking space stayed open, with fewer people than the recommended maximum household size, and I was able to work from there in relative solace because the people I was working on Seattle time.[^timezones]
+
+Our flat near the train station was quite quaint, although it started to feel pretty cramped after being there for a month. We bought several boxes of incense at a small outdoor market, so it always smelled like incense, but sometimes when it was really smoky inside we had to open the door and it would get extremely cold (Oxford in the winter isn't exactly "open the window" weather). The owner of the AirBnb had a large collection of books - about a quarter of the wallspace was occupied by a large bookshelf. There were books on a variety of things - lots of sociology textbooks, several history books, several English literature classics. My personal favorite, though, was a book called *Marry Him: The Case for Settling for Mr. Good Enough*, which I highly recommend. I enjoyed reading from it during breakfast, much the way a devout monk might read from their chosen holy text. Chi was very enthusiastic and greatly appreciated the wisdom that the book had to impart.
+
+Most mornings we ate eggs, oatmeal, crumpets, scones and fruit for breakfast. Unfortunately since Chi does not like oatmeal and eventually grew tired of the crumpets, it turned into me eating a lot of oatmeal and Chi eating some eggs and scones. We also took a Centrum multivitamin every day and took long walks once or twice a week, so all around we were the picture of British healthy living. One downside with our apartment was that it lacked a work desk, and working on the couch 24/7 did not lead to great posture, so that by the end of it Chi was going through several tabs of Salonpos every day.
+
+One highlight of our lockdown was having our first Thanksgiving together as a couple (much less an engaged couple). We played Thanksgiving trivia, scattergories and an escape room with Chi's sisters and my friend Matt. For dinner bought a turkey from a Sainsbury's, along with cranberry sauce, mashed potatoes, green beans, and corn. It ended up being a ton of food, and afterwards I fell straight to sleep. All around, it was a very successful dinner.
+
+[^innospace]: [Here][innospace-site] is there website. I'd originally intended to check out a few different co-working spaces, but some were closed because of Covid-19, and Tim and Scott were really friendly when I visited. Looking back, I definitely made the right choice.
+
+[^rdj]: The junior one
+
+[^tsa]: Also I have TSA pre-check and Chi does not. I've never been more humiliated in my life than when I had to take off my shoes and take my laptop out of my bag to go through security.
+
+[^timezones]: For a few weeks I was doing interviews for Facebook in the afternoon in Seattle, which meant staying up until past midnight. I eventually realized I could set my schedule so it wouldn't happen so late, but it led to a somewhat erratic sleep schedule. Working closely with people across many timezones is tough.
+
+[our-blog]: https://le.bolte.page/
+[innospace-site]: https://www.oxfordinnospace.co.uk/

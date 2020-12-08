@@ -19,12 +19,21 @@ $emphasis-padding: 3em;
 /* -------------- *
  * Page variables *
  * -------------- */
+$background-color-light: rgb(255, 255, 255);
+$background-color-dark: rgb(18, 19, 20);
+$figure-color-light: rgb(245, 245, 255);
+$figure-color-dark: rgb(0, 0, 0);
 
-$background-color-light: $font-color-dark;
-$background-color-dark: $font-color-light;
-
-$figure-color-light: lighten($background-color-light, 10%);
-$figure-color-dark: darken($background-color-dark, 10%);
-
-// $figure-color-light: rgb(247, 247, 255);
-// $figure-color-dark: rgb(185, 193, 79);
+/* ----------- *
+ * Misc colors *
+ * ----------- */
+$color-a-light: rgb(207, 226, 243);
+$color-b-light: rgb(182, 215, 168);
+$color-c-light: rgb(234, 209, 220);
+$color-d-light: rgb(255, 211, 186);
+$color-e-light: rgb(244, 159, 188);
+$color-a-dark: rgb(81, 163, 163);
+$color-b-dark: rgb(117, 72, 94);
+$color-c-dark: rgb(203, 144, 77);
+$color-d-dark: rgb(223, 204, 116);
+$color-e-dark: rgb(195, 233, 145);

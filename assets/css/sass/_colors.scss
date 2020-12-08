@@ -1,0 +1,91 @@
+.color-a-stroke {
+  stroke: $color-a-light;
+  @media (prefers-color-scheme: dark) {
+    stroke: $color-a-dark;
+  }
+}
+.color-a-fill {
+  fill: $color-a-light;
+  @media (prefers-color-scheme: dark) {
+    fill: $color-a-dark;
+  }
+}
+.color-a {
+  color: $color-a-light;
+  @media (prefers-color-scheme: dark) {
+    color: $color-a-dark;
+  }
+}
+.color-b-stroke {
+  stroke: $color-b-light;
+  @media (prefers-color-scheme: dark) {
+    stroke: $color-b-dark;
+  }
+}
+.color-b-fill {
+  fill: $color-b-light;
+  @media (prefers-color-scheme: dark) {
+    fill: $color-b-dark;
+  }
+}
+.color-b {
+  color: $color-b-light;
+  @media (prefers-color-scheme: dark) {
+    color: $color-b-dark;
+  }
+}
+.color-c-stroke {
+  stroke: $color-c-light;
+  @media (prefers-color-scheme: dark) {
+    stroke: $color-c-dark;
+  }
+}
+.color-c-fill {
+  fill: $color-c-light;
+  @media (prefers-color-scheme: dark) {
+    fill: $color-c-dark;
+  }
+}
+.color-c {
+  color: $color-c-light;
+  @media (prefers-color-scheme: dark) {
+    color: $color-c-dark;
+  }
+}
+.color-d-stroke {
+  stroke: $color-d-light;
+  @media (prefers-color-scheme: dark) {
+    stroke: $color-d-dark;
+  }
+}
+.color-d-fill {
+  fill: $color-d-light;
+  @media (prefers-color-scheme: dark) {
+    fill: $color-d-dark;
+  }
+}
+.color-d {
+  color: $color-d-light;
+  @media (prefers-color-scheme: dark) {
+    color: $color-d-dark;
+  }
+}
+.color-e-stroke {
+  stroke: $color-e-light;
+  @media (prefers-color-scheme: dark) {
+    stroke: $color-e-dark;
+  }
+}
+.color-e-fill {
+  fill: $color-e-light;
+  @media (prefers-color-scheme: dark) {
+    fill: $color-e-dark;
+  }
+}
+.color-e {
+  color: $color-e-light;
+  @media (prefers-color-scheme: dark) {
+    color: $color-e-dark;
+  }
+}
+
