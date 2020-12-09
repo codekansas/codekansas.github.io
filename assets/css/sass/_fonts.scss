@@ -43,5 +43,16 @@ h4 {
 }
 
 blockquote {
-  font-style: italic;
+  font-size: $base-font-size * 0.9;
+  background-color: $figure-color-light;
+  padding: 1em;
+  border: 1px solid $figure-color-light;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: $figure-color-dark;
+  }
 }
