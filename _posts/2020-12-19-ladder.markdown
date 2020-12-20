@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "Ladder"
-category: 🔬
+category: 🎲
 excerpt: Rules for a game we came up with on the plane home from the UK.
 math: true
 ---
 
-Rules for the game of *Ladder*
+Rules for the game of *Ladder* (a game we made up on the plane ride from the UK back to Nashville).
 
 ## Before the Game
 
