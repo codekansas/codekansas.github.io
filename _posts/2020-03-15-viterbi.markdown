@@ -59,8 +59,8 @@ assert len(observed_states) == num_time_steps
 
 # Placeholder defining how we'll call the Viterbi algorithm.
 max_seq, seq_prob = viterbi(
-    transition_probs,
     emission_probs,
+    transition_probs,
     init_hidden_probs,
     observed_states,
 )
