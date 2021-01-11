@@ -15,8 +15,29 @@ layout: default
   </p>
 </div>
 
+{% assign found_draft = false %}
+{% for post in site.posts %}
+{% if post.draft %}
+{% assign found_draft = true %}
+<div class="padded bottom" style="font-size: 80%">
+  <a class="no-highlight" href="{{ post.url }}">
+    <h1>
+      🚧 Draft! 🚧 {{ post.category }} {{ post.title }}
+      <small><i>{{ post.date | date: "%B %-d, %Y" }}</i></small>
+    </h1>
+    <h3>{{ post.excerpt | truncate: 240 }}</h3>
+  </a>
+</div>
+{% endif %}
+{% endfor %}
+{% if found_draft %}
+<hr />
+{% endif %}
+
+{% assign found_pinned = false %}
 {% for post in site.posts %}
 {% if post.pinned %}
+{% assign found_pinned = true %}
 <div class="padded bottom" style="font-size: 80%">
   <a class="no-highlight" href="{{ post.url }}">
     <h1>
@@ -28,12 +49,15 @@ layout: default
 </div>
 {% endif %}
 {% endfor %}
+{% if found_pinned %}
+<hr />
+{% endif %}
 
 {% for post in paginator.posts %}
 <div class="padded bottom" style="font-size: 80%">
   <a class="no-highlight" href="{{ post.url }}">
     <h1>
-      {% if post.draft %}🚧 Draft! 🚧 {% endif %}{{ post.category }} {{ post.title }}
+      {{ post.category }} {{ post.title }}
       <small><i>{{ post.date | date: "%B %-d, %Y" }}</i></small>
     </h1>
     <h3>{{ post.excerpt | truncate: 240 }}</h3>
