@@ -6,186 +6,9 @@ excerpt: Some functions I found useful to add to my bash and zsh profile.
 pinned: true
 ---
 
+> Update 2020-01-11 - I switched a lot of this stuff over to using [DotBot][dotbot] after seeing [this repo][dotfiles-inspiration]. You can see my dotfile repo [here][dotfiles] - it should work in whatever setup you're using, although some stuff might be specific to my own setup.
+
 These are a bunch of additions I like to add to my local profile which I've found make me more productive. As best I could I tried to make it so that the instructions can be followed pretty mindlessly (mostly because I sometimes have to copy-paste stuff into a new environment).
-
-## .binaries
-
-> Usage: `binit <fname>` to create a new script, `bedit <fname>` to edit existing script, `brun <fname>` to run script, `bdelete <fname>` to delete script
-
-`.binaries` is a small set of tools that I wrote for managing bash scripts. It is basically just a directory for bash scripts and provides a quick way to add, edit, delete or run them from the command line, with tab completion. I combined all of this into a single command that can be run using:
-
-{% highlight bash %}
-curl https://ben.bolte.cc/assets/scripts/setup_binary.sh | sh
-{% endhighlight %}
-
-Here are more details about this tool.
-
-<details>
-<summary>Directory Structure</summary>
-{% highlight bash %}
-~/.binaries/
-├── bin
-│   ├── bdelete
-│   ├── bedit
-│   ├── binit
-│   └── brun
-├── etc
-│   └── bcomplete
-└── scripts
-    ├── one_off_command
-    ├── project1
-    │   ├── generate
-    │   ├── score
-    │   └── train
-    └── project2
-        ├── dist
-        └── train
-{% endhighlight %}
-</details>
-
-<details>
-<summary>bin/bdelete</summary>
-
-{% highlight bash %}
-#!/bin/bash
-
-if [[ $# -ne 1 ]]; then
-    echo "Usage: bdelete <name_of_script_to_delete>"
-    exit 1
-fi
-
-filename=$1
-shift
-
-scriptspath="${HOME}/.binaries/scripts"
-filepath="${scriptspath}/${filename}"
-
-if [ ! -f "${filepath}" ]; then
-    echo "[ ${filename} ] doesnt exist! Available:"
-    find $scriptspath -type f | cut -c$((${#scriptspath}+2))-
-else
-    rm $filepath
-fi
-{% endhighlight %}
-</details>
-
-<details>
-<summary>bin/brun</summary>
-
-{% highlight bash %}
-#!/bin/bash
-
-if [[ $# -lt 1 ]]; then
-    echo "Usage: brun <script_to_run> <optional_extra_args>"
-    exit 1
-fi
-
-# Gets the name of the script to edit.
-filename=$1
-shift
-
-scriptspath="${HOME}/.binaries/scripts"
-filepath="${scriptspath}/${filename}"
-
-if [ ! -f "${filepath}" ]; then
-    echo "[ ${filename} ] is not a runable script. Available:"
-    find $scriptspath -type f | cut -c$((${#scriptspath}+2))-
-else
-    ${filepath} "$@"
-fi
-{% endhighlight %}
-</details>
-
-<details>
-<summary>bin/bedit</summary>
-
-{% highlight bash %}
-#!/bin/bash
-
-if [[ $# -ne 1 ]]; then
-    echo "Usage: bedit <script_to_edit>"
-    exit 1
-fi
-
-# Gets the name of the script to edit.
-filename=$1
-shift
-
-scriptspath="${HOME}/.binaries/scripts"
-filepath="${scriptspath}/${filename}"
-
-if [ ! -f "${filepath}" ]; then
-    echo "[ ${filename} ] is not an editable script. Available:"
-    find $scriptspath -type f | cut -c$((${#scriptspath}+2))-
-else
-    $EDITOR "${filepath}"
-fi
-{% endhighlight %}
-</details>
-
-<details>
-<summary>bin/binit</summary>
-
-{% highlight bash %}
-#!/bin/bash
-
-if [[ $# -ne 1 ]]; then
-    echo "Usage: binit <name_of_script_to_create>"
-    exit 1
-fi
-
-filename=$1
-shift
-
-scriptspath="${HOME}/.binaries/scripts"
-filepath="${scriptspath}/${filename}"
-mkdir -p $(dirname "$filepath")
-
-if [ -f "${filepath}" ]; then
-    echo "[ ${filename} ] already exists! Choose a different name, not one of:"
-    find $scriptspath -type f | cut -c$((${#scriptspath}+2))-
-    exit 1
-else
-    echo "#!/bin/bash" > ${filepath}
-    echo "" >> ${filepath}
-    echo "" >> ${filepath}
-    chmod +x "${filepath}"
-fi
-
-$EDITOR + "${filepath}"
-{% endhighlight %}
-</details>
-
-<details>
-<summary>etc/bcomplete</summary>
-
-{% highlight bash %}
-_binary_complete()
-{
-    # Path to the scripts directory.
-    SCRIPTDIR="${HOME}/.binaries/scripts/"
-
-    local cur opts
-
-    COMPREPLY=()
-    cur="${COMP_WORDS[COMP_CWORD]}"
-    opts="$(find $SCRIPTDIR -type f | cut -c$((${#SCRIPTDIR}+1))- | paste -sd " " -)"
-
-    COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
-    return 0
-}
-complete -F _binary_complete bedit
-complete -F _binary_complete brun
-complete -F _binary_complete bdelete
-{% endhighlight %}
-</details>
-
-Make sure to add this to the profile:
-
-{% highlight bash %}
-export PATH=$PATH:${HOME}/.binaries/bin
-source ${HOME}/.binaries/etc/bcomplete
-{% endhighlight %}
 
 # Git Aliases
 
@@ -197,15 +20,6 @@ This is similar to the `hg sl` command we use at Facebook.
 
 {% highlight bash %}
 git config --global alias.sl 'log --graph --decorate --oneline'
-{% endhighlight %}
-
-## .vimrc
-
-My preferred Vim setup uses the [badwolf](https://vimawesome.com/plugin/badwolf) colorscheme for [pathogen](https://github.com/tpope/vim-pathogen). I combined this all into a command that can be run using:
-
-
-{% highlight bash %}
-curl https://ben.bolte.cc/assets/scripts/setup_vimrc.sh | sh
 {% endhighlight %}
 
 ## ls
@@ -327,3 +141,7 @@ complete -F _conda_complete 'cenv'
 This is more of a productivity tip. I have a blocklist that blocks the endless scrolling parts of some social media sites without blocking potentially informative posts.
 
 [Click here to subscribe](abp:subscribe?location=https://ben.bolte.cc/assets/scripts/ublock_list.txt&title=Social Media Posts)
+
+[dotfiles]: https://github.com/codekansas/dotfiles
+[dotfiles-inspiration]: https://github.com/mikejqzhang/dotfiles
+[dotbot]: https://github.com/anishathalye/dotbot
