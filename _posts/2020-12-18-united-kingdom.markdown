@@ -5,7 +5,7 @@ category: 🇬🇧
 excerpt: Reflections on our time in the United Kingdom during the Covid-19 pandemic.
 ---
 
-These reflections were co-written with my fiancee. I'm reproducing them here from our [blog][our-blog], except this one is in first-person, which I find makes it less confusing to read.
+These reflections were co-written with my fiancee. I'm reproducing them here from our [blog][our-blog], except this one is in first-person, which I find makes it less confusing to read. Unfortunately it's a bit of a mish-mash and not particularly well-rounded-out, because I didn't take as good care to make it into a nice story as I have with other posts, but hopefully when my kids ultimately read it, they find it interesting and illustrative of the mistakes that their dad made when he was younger.
 
 ## Our First Day
 
