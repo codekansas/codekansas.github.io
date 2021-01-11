@@ -4,6 +4,7 @@ title: "Engagement"
 category: 💍
 excerpt: >
   I got engaged to a really wonderful girl.
+pinned: true
 ---
 
 There's this problem in mathematics called the [Stable Marriage Problem][stable-marriage-problem], which involves finding an optimal bijection between two sets, where each element in a set has a ranked list of preferred members from the other set. It's used in matching medical school students to residency programs, among other things. There's a well-known algorithmic solution, called the [Gale-Shapely algorithm][gale-shapely], which is basically an iterative greedy algorithm. Anyway, I bring it up because it's been somewhat influential on my reasoning over the last two years.

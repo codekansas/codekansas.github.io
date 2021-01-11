@@ -15,6 +15,20 @@ layout: default
   </p>
 </div>
 
+{% for post in site.posts %}
+{% if post.pinned %}
+<div class="padded bottom" style="font-size: 80%">
+  <a class="no-highlight" href="{{ post.url }}">
+    <h1>
+      📌 {{ post.title }}
+      <small><i>{{ post.date | date: "%B %-d, %Y" }}</i></small>
+    </h1>
+    <h3>{{ post.excerpt | truncate: 240 }}</h3>
+  </a>
+</div>
+{% endif %}
+{% endfor %}
+
 {% for post in paginator.posts %}
 <div class="padded bottom" style="font-size: 80%">
   <a class="no-highlight" href="{{ post.url }}">

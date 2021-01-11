@@ -3,6 +3,7 @@ layout: post
 title: "Useful bash / zsh Profile Additions"
 category: 🖥️
 excerpt: Some functions I found useful to add to my bash and zsh profile.
+pinned: true
 ---
 
 These are a bunch of additions I like to add to my local profile which I've found make me more productive. As best I could I tried to make it so that the instructions can be followed pretty mindlessly (mostly because I sometimes have to copy-paste stuff into a new environment).
