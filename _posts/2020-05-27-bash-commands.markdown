@@ -271,7 +271,9 @@ function gdrive {
 > Usage: List open sessions on a machine on startup
 
 {% highlight bash %}
-if [[ $(tmux ls 2> /dev/null) ]]; then
+if [[ -n $TMUX ]]; then
+  echo -e "\033[1;31m----- TMUX session: $(tmux display-message -p '#S') -----\033[0m"
+elif [[ ! -n $TMUX ]] && [[ $(tmux ls 2> /dev/null) ]]; then
   echo -e "\033[1;31m----- Open tmux sessions -----\033[0m"
   tmux ls
   echo -e "\033[1;31m------------------------------\033[0m"
