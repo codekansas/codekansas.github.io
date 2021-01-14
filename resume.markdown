@@ -9,18 +9,18 @@ Research engineer at FAIR working on representation learning, with experience at
 
 ## Employment
 
-### Facebook AI Research
+### Tesla Autonomous AI
 
-- Seattle, January 2020 to Present
-- Research engineer, working on representation learning for speech with structured models
+- Senior Machine Learning Engineer, March 2021
+- Working on machine perception
 
-### Facebook, Integrity AI NLP
+### Facebook AI
 
-- Seattle, May 2018 to January 2020
+- Seattle, May 2018 to February 2021
+- Research engineer, working on representation learning for speech. Coauthored multiple papers
 - Increased accuracy for classifying terrorist posts by 54% over existing baseline, resulting in 500K more terrorist propaganda posts being deleted every day
 - Shipped models which doubled previous accuracy for hate speech and trippled daily content actions across major markets
 - Deployed BERT hate speech model to content across Facebook, building the required infrastructure for ignoring benign content, which decreased server usage by 95% over initial approach
-- Authored team's core NLP toolkit, featuring implementations of common NLP tools like character convolutions, tokenizers, and various attention and transformer components, with documentation, TorchScript support for productionization, and test coverage
 
 ### Facebook, Care Machine Learning (Intern)
 
@@ -43,7 +43,7 @@ Research engineer at FAIR working on representation learning, with experience at
 
 ## Open Source Contributions
 
-- Github projects and gists have collectively accumulated over 1000 stars
+- Personal Github projects and gists have accumulated over 1000 stars
 
 ## Awards
 
@@ -52,6 +52,7 @@ Research engineer at FAIR working on representation learning, with experience at
   - 2nd Place, Division 2 (2016)
 - **Dean's Achievement Scholarship** (2014 - 2017) Highest undergraduate merit award
 - **Computational Neuroscience Training Grant** (2014 - 2016) Highly competitive NIH Blueprint Grant for studying computational neuroscience at Emory and Georgia Tech
+- **TSA PreCheck** (2018 - Present) Highest civilian honor awarded by the United States Transportation Security Administration
 
 [google-scholar]: https://scholar.google.com/citations?user=JEXV__kAAAAJ&hl=en
 [blog-link]: https://ben.bolte.cc

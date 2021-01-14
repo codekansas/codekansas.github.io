@@ -31,7 +31,7 @@ layout: default
 {% endif %}
 {% endfor %}
 {% if found_draft %}
-<hr />
+<hr class="padded bottom" />
 {% endif %}
 
 {% assign found_pinned = false %}
@@ -50,7 +50,7 @@ layout: default
 {% endif %}
 {% endfor %}
 {% if found_pinned %}
-<hr />
+<hr class="padded bottom" />
 {% endif %}
 
 {% for post in paginator.posts %}
