@@ -31,4 +31,4 @@ www.facebook.com##[aria-label*="pdate"] > span > span
 www.facebook.com##[aria-label*="unread"] > span
 
 ! Fastmail spam
-www.fastmail.com##.is-selected.app-source--depth0.app-source > .v-MailboxSource-badge
+www.fastmail.com##.app-source--depth0 > .v-MailboxSource-badge
