@@ -9,6 +9,8 @@ www.reddit.com###focus-Popular
 www.reddit.com###TrendingPostsContainer
 www.reddit.com###redesign-beta-optin-btn
 www.reddit.com##.nextprev
+www.reddit.com##a[href*="/r/all/"]
+www.reddit.com##a[href*="/r/popular/"]
 
 ! YouTube
 www.youtube.com##ytd-watch-next-secondary-results-renderer
