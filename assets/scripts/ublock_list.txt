@@ -11,6 +11,7 @@ www.reddit.com###redesign-beta-optin-btn
 www.reddit.com##.nextprev
 www.reddit.com##a[href*="/r/all/"]
 www.reddit.com##a[href*="/r/popular/"]
+www.reddit.com##.link:nth-child(n+15)
 
 ! YouTube
 www.youtube.com##ytd-watch-next-secondary-results-renderer
