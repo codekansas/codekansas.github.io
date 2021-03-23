@@ -34,3 +34,9 @@ www.facebook.com##[aria-label*="unread"] > span
 
 ! Fastmail spam
 www.fastmail.com##.app-source--depth0 > .v-MailboxSource-badge
+
+! Twitter
+mobile.twitter.com##[aria-label="Timeline: Trending now"]
+mobile.twitter.com##[aria-label="Who to follow"]
+twitter.com##[aria-label="Timeline: Trending now"]
+twitter.com##[aria-label="Who to follow"]
