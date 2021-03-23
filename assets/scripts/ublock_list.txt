@@ -26,6 +26,7 @@ www.instagram.com##[href*="/p/"]
 
 ! Hacker News
 news.ycombinator.com##.morelink
+news.ycombinator.com##tr:nth-child(n+15)
 
 ! Facebook
 www.facebook.com##[aria-label*="pdate"] > span > span
