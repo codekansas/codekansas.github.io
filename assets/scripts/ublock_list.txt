@@ -40,3 +40,6 @@ mobile.twitter.com##[aria-label="Timeline: Trending now"]
 mobile.twitter.com##[aria-label="Who to follow"]
 twitter.com##[aria-label="Timeline: Trending now"]
 twitter.com##[aria-label="Who to follow"]
+
+! TikTok
+www.tiktok.com##span.lazyload-wrapper:nth-child(n+2)
