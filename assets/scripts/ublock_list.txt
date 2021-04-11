@@ -19,6 +19,8 @@ www.youtube.com##ytd-browse[page-subtype="home"]
 
 ! LinkedIn
 www.linkedin.com##div[class^="feed-shared-"]
+www.linkedin.com##.news-module
+www.linkedin.com##.learning-top-courses
 
 ! Instagram
 www.instagram.com##[href="/explore/"]
