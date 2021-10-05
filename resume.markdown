@@ -48,7 +48,7 @@ Research engineer at Tesla, with experience at FAIR, Google Research and Amazon.
 ## Awards
 
 - **ACM ICPC**
-  - 1st Place, Division 2 (2017)
+  - 1st Place, [Division 2](http://seusa.vanb.org/ser2017/ser2017-results-div2.pdf) (2017)
   - 2nd Place, Division 2 (2016)
 - **Dean's Achievement Scholarship** (2014 - 2017) Highest undergraduate merit award
 - **Computational Neuroscience Training Grant** (2014 - 2016) Highly competitive NIH Blueprint Grant for studying computational neuroscience at Emory and Georgia Tech
