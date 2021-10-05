@@ -22,7 +22,7 @@ layout: default
 <div class="padded bottom" style="font-size: 80%">
   <a class="no-highlight" href="{{ post.url }}">
     <h1>
-      🚧 Draft! 🚧 {{ post.category }} {{ post.title }}
+      🚧 Draft! 🚧 {{ post.category }} &nbsp;{{ post.title }}
       <small><i>{{ post.date | date: "%B %-d, %Y" }}</i></small>
     </h1>
     <h3>{{ post.excerpt | truncate: 240 }}</h3>
@@ -41,7 +41,7 @@ layout: default
 <div class="padded bottom" style="font-size: 80%">
   <a class="no-highlight" href="{{ post.url }}">
     <h1>
-      📌 {{ post.title }}
+      📌 &nbsp;{{ post.title }}
       <small><i>{{ post.date | date: "%B %-d, %Y" }}</i></small>
     </h1>
     <h3>{{ post.excerpt | truncate: 240 }}</h3>
@@ -57,7 +57,7 @@ layout: default
 <div class="padded bottom" style="font-size: 80%">
   <a class="no-highlight" href="{{ post.url }}">
     <h1>
-      {{ post.category }} {{ post.title }}
+      {{ post.category }} &nbsp;{{ post.title }}
       <small><i>{{ post.date | date: "%B %-d, %Y" }}</i></small>
     </h1>
     <h3>{{ post.excerpt | truncate: 240 }}</h3>

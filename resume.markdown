@@ -5,7 +5,7 @@ title: Benjamin Bolte's Resume
 
 # Benjamin Bolte
 
-Research engineer at FAIR working on representation learning, with experience at Google and Amazon. Interested in neuroscience, deep learning, and learning without labels. Check out my [blog][blog-link], [Github][github-link], [Google Scholar][google-scholar], or shoot me an [email](mailto:ben@bolte.cc).
+Research engineer at Tesla, with experience at FAIR, Google Research and Amazon. Interested in neuroscience, deep learning, and learning without labels. Check out my [blog][blog-link], [Github][github-link], [Google Scholar][google-scholar], or shoot me an [email][mail-link].
 
 ## Employment
 
@@ -19,7 +19,7 @@ Research engineer at FAIR working on representation learning, with experience at
 - Seattle, May 2018 to February 2021
 - Research engineer, working on representation learning for speech. Coauthored multiple papers
 - Increased accuracy for classifying terrorist posts by 54% over existing baseline, resulting in 500K more terrorist propaganda posts being deleted every day
-- Shipped models which doubled previous accuracy for hate speech and trippled daily content actions across major markets
+- Shipped models which doubled previous accuracy for hate speech and tripled daily content actions across major markets
 - Deployed BERT hate speech model to content across Facebook, building the required infrastructure for ignoring benign content, which decreased server usage by 95% over initial approach
 
 ### Facebook, Care Machine Learning (Intern)
@@ -57,3 +57,4 @@ Research engineer at FAIR working on representation learning, with experience at
 [google-scholar]: https://scholar.google.com/citations?user=JEXV__kAAAAJ&hl=en
 [blog-link]: https://ben.bolte.cc
 [github-link]: https://github.com/codekansas
+[mail-link]: mailto:public@bolte.cc

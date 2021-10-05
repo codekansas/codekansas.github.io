@@ -3,7 +3,6 @@ layout: post
 title: "Useful bash / zsh Profile Additions"
 category: 🖥️
 excerpt: Some functions I found useful to add to my bash and zsh profile.
-pinned: true
 ---
 
 > Update 2020-01-11 - I switched a lot of this stuff over to using [DotBot][dotbot] after seeing [this repo][dotfiles-inspiration]. You can see my dotfile repo [here][dotfiles] - it should work in whatever setup you're using, although some stuff might be specific to my own setup.

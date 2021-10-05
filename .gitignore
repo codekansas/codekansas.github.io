@@ -11,4 +11,5 @@ _site/
 .jekyll-metadata
 .bundle/
 vendor/
+Gemfile*
 
