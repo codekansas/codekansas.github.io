@@ -5,13 +5,14 @@
 ！Reddit
 www.reddit.com###focus-All
 www.reddit.com###focus-Popular
-||www.reddit.com/r/all/$document
+www.reddit.com/r/all/$document
+www.reddit.com/r/popular/$document
 www.reddit.com###TrendingPostsContainer
 www.reddit.com###redesign-beta-optin-btn
-www.reddit.com##.nextprev
 www.reddit.com##a[href*="/r/all/"]
 www.reddit.com##a[href*="/r/popular/"]
-www.reddit.com##.link:nth-child(n+15)
+||www.reddit.com##.nextprev
+||www.reddit.com##.link:nth-child(n+15)
 
 ! YouTube
 www.youtube.com##ytd-watch-next-secondary-results-renderer
@@ -28,7 +29,7 @@ www.instagram.com##[href*="/p/"]
 
 ! Hacker News
 news.ycombinator.com##.morelink
-news.ycombinator.com##tr:nth-child(n+15)
+||news.ycombinator.com##tr:nth-child(n+15)
 
 ! Facebook
 www.facebook.com##[aria-label*="pdate"] > span > span
