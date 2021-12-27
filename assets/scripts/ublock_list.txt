@@ -34,6 +34,7 @@ news.ycombinator.com##.morelink
 ! Facebook
 www.facebook.com##[aria-label*="pdate"] > span > span
 www.facebook.com##[aria-label*="unread"] > span
+www.facebook.com##li a[href*="/watch/"]
 
 ! Fastmail spam
 www.fastmail.com##.app-source--depth0 > .v-MailboxSource-badge
