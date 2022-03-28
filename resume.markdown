@@ -11,8 +11,11 @@ Research engineer at Tesla, with experience at FAIR, Google Research and Amazon.
 
 ### Tesla Autonomous AI
 
-- Senior Machine Learning Engineer, March 2021
-- Working on machine perception
+- Machine learning engineer, March 2021
+- Wrote ray casting CUDA kernel for producing ground truth data for a core geometry prediction model
+- Got a [language model to drive a car](https://twitter.com/karpathy/status/1503211737046085634)
+  - Designed and trained car-compatible autoregressive model architecture
+  - Rewrote network compiler stack to support subroutine capture and control flow
 
 ### Facebook AI
 
