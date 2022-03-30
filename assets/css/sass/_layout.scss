@@ -1,0 +1,14 @@
+img {
+    max-width: 100%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+img + em {
+    display: block;
+    margin: auto;
+    width: 80%;
+    text-align: center;
+    font-size: 80%;
+    padding-bottom: 1em;
+}

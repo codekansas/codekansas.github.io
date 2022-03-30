@@ -29,15 +29,6 @@ html, body {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  #site-tagline::after {
-    content: " Looks like you also prefer dark mode 🌙";
-  }
-  #blog-link::after {
-    content: " (Warning: no dark mode yet 🙁)";
-  }
-}
-
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
@@ -49,11 +40,19 @@ html, body {
     margin-bottom: 1em;
   }
 
+  p > code {
+    padding: 0.3em;
+    margin: 0.3em;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+  }
+
   figure.highlight {
     padding: 0;
-    margin: 0 1em 1em 0;
     font-size: 90%;
     background-color: $figure-color-light;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
 
     @media (prefers-color-scheme: dark) {
       background-color: $figure-color-dark;
@@ -61,6 +60,7 @@ html, body {
 
     pre {
       padding: 1em;
+      margin: 0;
     }
   }
 }

@@ -21,25 +21,46 @@ strong {
   font-weight: $base-font-weight * 2;
 }
 
+.post {
+  h1 {
+    padding-bottom: $base-padding * 1.5;
+    padding-top: $base-padding * 1.5;
+  }
+
+  h2 {
+    padding-bottom: $base-padding;
+    padding-top: $base-padding;
+  }
+
+  h3 {
+    padding-bottom: $base-padding * 0.5;
+    padding-top: $base-padding * 0.5;
+  }
+}
+
 h1 {
+  font-size: $base-font-size * 2.0;
+  font-weight: $base-font-weight * 2.0;
+}
+
+h2 {
+  font-size: $base-font-size * 1.7;
+  font-weight: $base-font-weight * 1.7;
+}
+
+h3 {
   font-size: $base-font-size * 1.5;
   font-weight: $base-font-weight * 1.5;
 }
 
-h2 {
-  font-size: $base-font-size * 1.3;
-  font-weight: $base-font-weight * 1.3;
-}
-
-h3 {
-  font-size: $base-font-size * 1.2;
-  font-weight: $base-font-weight * 1.1;
-}
-
 h4 {
-  font-size: $base-font-size * 1.1;
+  font-size: $base-font-size * 1.3;
   font-weight: $base-font-weight;
-  line-height: 1.3;
+  line-height: $base-line-height * 1.3;
+}
+
+p, li {
+  line-height: $base-line-height * 1.5;
 }
 
 blockquote {

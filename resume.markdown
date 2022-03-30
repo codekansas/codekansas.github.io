@@ -11,7 +11,7 @@ Research engineer at Tesla, with experience at FAIR, Google Research and Amazon.
 
 ### Tesla Autonomous AI
 
-- Machine learning engineer, March 2021
+- Machine learning engineer, March 2021 to present
 - Wrote ray casting CUDA kernel for producing ground truth data for a core geometry prediction model
 - Got a [language model to drive a car](https://twitter.com/karpathy/status/1503211737046085634)
   - Designed and trained car-compatible autoregressive model architecture
@@ -20,10 +20,10 @@ Research engineer at Tesla, with experience at FAIR, Google Research and Amazon.
 ### Facebook AI
 
 - Seattle, May 2018 to February 2021
-- Research engineer, working on representation learning for speech. Coauthored multiple papers
-- Increased accuracy for classifying terrorist posts by 54% over existing baseline, resulting in 500K more terrorist propaganda posts being deleted every day
+- Research engineer, worked on representation learning for speech. Coauthored multiple high-impact papers (available through my [Google Scholar][google-scholar] page)
+- Designed and deployed model to increase accuracy for classifying terrorist posts by 54% over existing baseline, resulting in 500K more terrorist propaganda posts being deleted every day
 - Shipped models which doubled previous accuracy for hate speech and tripled daily content actions across major markets
-- Deployed BERT hate speech model to content across Facebook, building the required infrastructure for ignoring benign content, which decreased server usage by 95% over initial approach
+- Deployed BERT hate speech model to content across Facebook, building the core PyTorch NLP library used by our team and additional Hacklang system for logging and request handling, which decreased server usage by 95% over initial approach without reducing model accuracy
 
 ### Facebook, Care Machine Learning (Intern)
 
@@ -34,7 +34,7 @@ Research engineer at Tesla, with experience at FAIR, Google Research and Amazon.
 ### Google Research, Handwriting Recognition (Intern)
 
 - Mountain View, Fall 2016
-- Improved mixed-script online handwriting recognition for Chinese-English and Devanagari-English language pairs
+- Improved mixed-script TensorFlow-based online handwriting recognition system for Chinese-English and Devanagari-English language pairs
 - Trained a Generative Adversarial Network for producing handwriting using recurrent neural networks with attention components
 
 ### Amazon, India Invoicing (Intern)
@@ -44,18 +44,24 @@ Research engineer at Tesla, with experience at FAIR, Google Research and Amazon.
 - Build a web framework for helping product managers answer customer questions and solve bugs
 - Diagnosed and fixed a Sev 2 which affected millions of dollars in transactions
 
-## Open Source Contributions
+## Education
 
-- Personal Github projects and gists have accumulated over 1000 stars
+### Emory University, BS in Mathematics and Computer Science
 
-## Awards
-
-- **ACM ICPC**
+- Class of 2017
+- 3.9 GPA
+- Graduate-level coursework in deep learning, information retrieval, compilers, operating systems, computational neuroscience
+- Additional coursework in economics, Chinese language, theater
+- ACM ICPC
   - 1st Place, [Division 2](http://seusa.vanb.org/ser2017/ser2017-results-div2.pdf) (2017)
   - 2nd Place, Division 2 (2016)
-- **Dean's Achievement Scholarship** (2014 - 2017) Highest undergraduate merit award
-- **Computational Neuroscience Training Grant** (2014 - 2016) Highly competitive NIH Blueprint Grant for studying computational neuroscience at Emory and Georgia Tech
-- **TSA PreCheck** (2018 - Present) Highest civilian honor awarded by the United States Transportation Security Administration
+- Dean's Achievement Scholarship (2014 - 2017) Highest undergraduate merit award
+- Computational Neuroscience Training Grant (2014 - 2016) Highly competitive NIH Blueprint Grant for studying computational neuroscience at Emory and Georgia Tech
+
+## Additional
+
+- Personal Github projects and gists have accumulated over 1000 stars
+- TSA PreCheck (2018 - Present) Highest civilian honor awarded by the United States Transportation Security Administration
 
 [google-scholar]: https://scholar.google.com/citations?user=JEXV__kAAAAJ&hl=en
 [blog-link]: https://ben.bolte.cc

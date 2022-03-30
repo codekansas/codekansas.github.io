@@ -17,10 +17,10 @@ layout: default
 {% endif %}
 <div class="padded bottom" style="font-size: 80%">
   <a class="no-highlight" href="{{ post.url }}">
-    <h1>
+    <h3>
       {{ post.category }} {{ post.title }}
-    </h1>
-    <h2><i>{{ post.date | date: "%B %-d, %Y" }}</i></h2>
+    </h3>
+    <h4><i>{{ post.date | date: "%B %-d, %Y" }}</i></h4>
   </a>
 </div>
 {% endfor %}
