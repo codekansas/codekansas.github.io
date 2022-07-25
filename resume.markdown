@@ -5,13 +5,13 @@ title: Benjamin Bolte's Resume
 
 # Benjamin Bolte
 
-Research engineer at Tesla, with experience at FAIR, Google Research and Amazon. Interested in neuroscience, deep learning, and learning without labels. Check out my [blog][blog-link], [Github][github-link], [Google Scholar][google-scholar], or shoot me an [email][mail-link].
+New York based roboticist and machine learning engineer, with experience at Tesla AI FAIR, Google Research and Amazon. Interested in self-supervised learning and fast neural network inference. Check out my [blog][blog-link], [Github][github-link], [Google Scholar][google-scholar], or shoot me an [email][mail-link].
 
-## Employment
+## Work History
 
 ### Tesla Autonomous AI
 
-- Machine learning engineer, March 2021 to present
+- Machine learning engineer, March 2021 to May 2022
 - Wrote ray casting CUDA kernel for producing ground truth data for a core geometry prediction model
 - Got a [language model to drive a car](https://twitter.com/karpathy/status/1503211737046085634)
   - Designed and trained car-compatible autoregressive model architecture
