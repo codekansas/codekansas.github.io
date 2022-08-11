@@ -5,7 +5,7 @@ title: Benjamin Bolte's Resume
 
 # Benjamin Bolte
 
-New York based roboticist and machine learning engineer, with experience at Tesla AI FAIR, Google Research and Amazon. Interested in self-supervised learning and fast neural network inference. Check out my [blog][blog-link], [Github][github-link], [Google Scholar][google-scholar], or shoot me an [email][mail-link].
+New York based roboticist and machine learning engineer, with experience at Tesla AI, FAIR, Google Research and Amazon. Interested in self-supervised learning and fast neural network inference. Check out my [blog][blog-link], [Github][github-link], [Google Scholar][google-scholar], or shoot me an [email][mail-link].
 
 ## Work History
 
