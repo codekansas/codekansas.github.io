@@ -1,0 +1,33 @@
+---
+layout: post
+title: Life in the Big Apple
+category: 🏙️
+excerpt: Miscellanous update about various life things
+---
+
+Time for the annual "write something on my blog about my life at the moment so I can have something to look back on in ten years" post.
+
+## Leaving Tesla
+
+I officially left Tesla in May after a not-short but not-long one year and three months in the Bay Area. Quitting Tesla was a very weird experience. When I left Facebook, I gave a solid two months notice to my manager, and they let me stick around until my stock vesting date and everything. When I was discussing leaving with my coworkers (after I found out that my wife's medical residency would be in NYC), the general consensus is not to announce your departure until the day that you plan to leave, since Elon apparently has a habit of axing people right before their stock vesting deadline. In practice, it made the whole endevour feel less like a parting of ways and more like preparing a last will and testament - probably the intended effect of such an arrangement.
+
+That being said, the Tesla engineering culture was one of the most singular cultures I've ever been a part of, and one which I think a lot of other places could learn from, so I figured I'd write some notes about what I liked and disliked about working there.
+
+- First and foremost, (in theory) no one should have an ego. The engineering structure at Tesla was extremely flat - my manager reported to Elon, and we gave him periodic updates about our projects. While Elon wasn't an expert on a lot of the stuff we were working on, he did a good job as an arbiter, which made it a lot easier for us as engineers to focus on just doing engineering. While that might sound obvious, my experience elsewhere was that the lack of a clear answer to the question "is this thing working well or not" put a bigger premium for engineers to be salesmen for their projects.
+- Related to above, everyone basically believed in the shared mission. I guess Elon Musk companies are liable to be a little bit culty (I still remember when the crewed SpaceX mission to the ISS was happening and people would start clapping at their desks when the livestream showed that something good had happened) but to be perfectly honest a little culty is a fine tradeoff to go to work with people who are excited and motivated to be there. Executing on a shared mission helps reduce ego - when you feel like you're part of a bigger project, you have more motivation to contribute to genuine success metrics instead of just to your own success metrics.
+- A big part of the egoless culture was having single "czars" as arbiters, who knew a lot about the project and set high standards. In particular, Andrej Karpathy, who managed the autopilot team until a few months before I left, was super good at filling this role. I am very glad to have gotten the chance to work with him - I felt like I got to meet one of my idols and not being disappointed. The downside is that after he went on sabbatical before ultimately leaving for good, it created a weird power vacuum because the title wasn't cleanly handed off to someone else.
+- I now strongly feel that "research plus engineering" is a better environment for me than "pure research". In particular, having something to work towards that will matter (because it's how the company makes money) is awesome, because by providing clear boundaries for the space of things that are important, having something clear to shoot at makes it so much easier to be individually creative. I guess a caveat to this is that you have to believe that the thing that you're shooting at matters too - I don't know if I would feel this way if I were working on selling advertisements, for example.
+
+## Getting (Properly) Married
+
+Shortly after leaving Tesla, my wife and I had our full-blown, post-Covid wedding with all of our friends and family. It was amazing and I highly recommend it (although I'm glad we were already legally married before hand, because the planning process was pretty stressful). We went on a honeymoon to Hawaii where for the first extended stretch in a long time I didn't use the internet at all.
+
+Chi and I have known each other for a long time - since we were both Freshmen in college. When we first started hanging out it was in the context of both of us being interested in neuroscience, computer science and generally nerdy stuff, and when we started being involved romantically, having a base level of respect for each others' interests, motivations and intelligence helped carry us through some of the weirder aspects. Put simply, I've never really wondered why I want to be with her and I know what she adds to my life - so when it comes to making big life decisions (like quitting a job that I like and moving across the country), it feels less like a tradeoff and more like an exciting next step.
+
+## Moving to New York
+
+Writing blog posts about New York is pretty played-out, so I won't indulge too much, but man, it's pretty different from anywhere else I've ever lived. It's incredible to have so many people living so densely together in one place, and it means that things that wouldn't make sense elsewhere in America - like having a doorman, or commuting by subway - make sense here.
+
+That being said, it feels like a city past it's prime. The entire city smells like garbage because people leave their trash bags on the sidewalk. If you tried just leaving your garbage on the sidewalk anywhere else in America you'd probably get a ticket or worse, but it's just the way things happen here. The subway is constantly late and compared to London, Seattle, or Hong Kong it's like living in a third-world country.
+
+Still, the feeling of walking in the shadow of history is pretty palpable. You can go to the art museums here and see artwork that you read about in textbooks (for example, The False Mirror by Rene Magritte, which the painting on the cover of The Mind's I by Douglas Hofstadter, is hanging in the MoMA). The city has so much potential, and it's an exciting place to be a young person with no obligations.
