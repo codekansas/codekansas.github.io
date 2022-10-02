@@ -33,7 +33,7 @@ When driving a car, you regulate the speed by controlling how much to open the t
 
 #### Medicine
 
-When giving vasopressors to a patient in a hospital, you want them to reach some target blood pressure. After prescribing a particular amount, the patient's blood pressure will go up or down. Changing the prescribed amount will change the *rate of change* of their blood pressure. After some time, their blood pressure might go down as the vasopressors wear off, so you will need to prescribe more. You want to reach the target blood pressure as quickly as possible without overshooting.
+When giving vasopressors to a patient in a hospital, you want them to reach some target blood pressure. After injecting a particular amount, the patient's blood pressure will go up or down. Changing that amount will change the *rate of change* of their blood pressure. You want to reach the target blood pressure as quickly as possible without overshooting.
 
 ## How do PID controllers work?
 
