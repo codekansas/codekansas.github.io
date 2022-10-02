@@ -663,7 +663,7 @@ I've included a script which can be used for sweeping different PID configuratio
 {% highlight python %}
 import argparse
 import itertools
-from typing import Dict, List, Optional, Tuple
+from typing import List, Optional, Tuple
 
 import matplotlib.pyplot as plt
 
@@ -877,6 +877,49 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+{% endhighlight %}
+</div>
+</details>
+
+<details>
+<summary>Just the error measurement</summary>
+<div>
+{% highlight python %}
+def error_func(error: float) -> float:
+    return error if error > 0 else error**2
+
+def get_error(kp: float, ki: float, kd: float) -> float:
+    # Simulator.
+    simulator = HeaterSimulator(
+        dt=args.dt,
+        amb_temp=args.amb_temp,
+        min_voltage=args.min_voltage,
+        max_voltage=args.max_voltage,
+        heat_coeff=args.heat_coeff,
+        area=args.area,
+        voltage_coeff=args.voltage_coeff,
+        inertia=args.inertia,
+    )
+
+    # Controller.
+    controller = PIDController(
+        dt=args.dt,
+        trg_temp=args.trg_temp,
+        kp=kp,
+        ki=ki,
+        kd=kd,
+        v_offset=args.v_offset,
+    )
+
+    times = [i * args.dt for i in range(1, args.total_steps + 1)]
+    total_error = 0.0
+
+    for _ in times:
+        voltage, error = controller.step(simulator.temperature)
+        simulator.step(voltage)
+        total_error += error_func(error) * args.dt
+
+    return total_error
 {% endhighlight %}
 </div>
 </details>
