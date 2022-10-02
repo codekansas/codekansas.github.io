@@ -318,7 +318,7 @@ $$\text{input} = K_i \int \text{error}_t \, d \text{ time}$$
 
 We can approximate this by keeping track of our running error:
 
-$$\text{input} \approx K_i \sum_{t = 0}^{T} \text{error}_t$$
+$$\text{input} \approx K_i \sum_{t = 0}^{T} \text{error}_t \, d \text{ time}$$
 
 This controller can work on it's own, and will correct for undershooting. However, by itself it will naturally oscillate, because it has to accumulate error on the opposite side of the target value in order to start heading in the opposite direction.
 
