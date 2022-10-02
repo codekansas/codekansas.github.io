@@ -88,4 +88,93 @@
     color: $color-e-dark;
   }
 }
-
+.color-f-stroke {
+  stroke: $color-f-light;
+  @media (prefers-color-scheme: dark) {
+    stroke: $color-f-dark;
+  }
+}
+.color-f-fill {
+  fill: $color-f-light;
+  @media (prefers-color-scheme: dark) {
+    fill: $color-f-dark;
+  }
+}
+.color-f {
+  color: $color-f-light;
+  @media (prefers-color-scheme: dark) {
+    color: $color-f-dark;
+  }
+}
+.color-g-stroke {
+  stroke: $color-g-light;
+  @media (prefers-color-scheme: dark) {
+    stroke: $color-g-dark;
+  }
+}
+.color-g-fill {
+  fill: $color-g-light;
+  @media (prefers-color-scheme: dark) {
+    fill: $color-g-dark;
+  }
+}
+.color-g {
+  color: $color-g-light;
+  @media (prefers-color-scheme: dark) {
+    color: $color-g-dark;
+  }
+}
+.color-h-stroke {
+  stroke: $color-h-light;
+  @media (prefers-color-scheme: dark) {
+    stroke: $color-h-dark;
+  }
+}
+.color-h-fill {
+  fill: $color-h-light;
+  @media (prefers-color-scheme: dark) {
+    fill: $color-h-dark;
+  }
+}
+.color-h {
+  color: $color-h-light;
+  @media (prefers-color-scheme: dark) {
+    color: $color-h-dark;
+  }
+}
+.color-i-stroke {
+  stroke: $color-i-light;
+  @media (prefers-color-scheme: dark) {
+    stroke: $color-i-dark;
+  }
+}
+.color-i-fill {
+  fill: $color-i-light;
+  @media (prefers-color-scheme: dark) {
+    fill: $color-i-dark;
+  }
+}
+.color-i {
+  color: $color-i-light;
+  @media (prefers-color-scheme: dark) {
+    color: $color-i-dark;
+  }
+}
+.color-j-stroke {
+  stroke: $color-j-light;
+  @media (prefers-color-scheme: dark) {
+    stroke: $color-j-dark;
+  }
+}
+.color-j-fill {
+  fill: $color-j-light;
+  @media (prefers-color-scheme: dark) {
+    fill: $color-j-dark;
+  }
+}
+.color-j {
+  color: $color-j-light;
+  @media (prefers-color-scheme: dark) {
+    color: $color-j-dark;
+  }
+}

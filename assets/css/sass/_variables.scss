@@ -3,9 +3,9 @@
  * -------------- */
 $base-font-size: 1em;
 $base-font-weight: 350;
-$highlight-color: rgba(79, 185, 193, 1.0);
+$highlight-color: rgba(79, 185, 193, 1);
 $highlight-color-transparent: transparentize($highlight-color, 0.2);
-$flair-color: rgba(57, 114, 73, 1.0);
+$flair-color: rgba(57, 114, 73, 1);
 $flair-color-transparent: transparentize($flair-color, 0.5);
 $font-color-light: rgb(18, 19, 20);
 $font-color-dark: rgb(237, 238, 239);
@@ -30,13 +30,23 @@ $figure-color-dark: rgb(0, 0, 0);
 /* ----------- *
  * Misc colors *
  * ----------- */
-$color-a-light: rgb(207, 226, 243);
-$color-b-light: rgb(182, 215, 168);
-$color-c-light: rgb(234, 209, 220);
-$color-d-light: rgb(255, 211, 186);
-$color-e-light: rgb(244, 159, 188);
-$color-a-dark: rgb(81, 163, 163);
-$color-b-dark: rgb(117, 72, 94);
-$color-c-dark: rgb(203, 144, 77);
-$color-d-dark: rgb(223, 204, 116);
-$color-e-dark: rgb(195, 233, 145);
+$color-a-light: #072b58;
+$color-b-light: #626173;
+$color-c-light: #2d434c;
+$color-d-light: #e8595c;
+$color-e-light: #893046;
+$color-f-light: #263344;
+$color-g-light: #353639;
+$color-h-light: #ea7624;
+$color-i-light: #bc201e;
+$color-j-light: #831416;
+$color-a-dark: #1aa494;
+$color-b-dark: #449eeb;
+$color-c-dark: #9fdadb;
+$color-d-dark: #b3cd63;
+$color-e-dark: #f7d12e;
+$color-f-dark: #fef0a1;
+$color-g-dark: #eccc98;
+$color-h-dark: #708794;
+$color-i-dark: #c9bb9c;
+$color-j-dark: #f9f1dc;

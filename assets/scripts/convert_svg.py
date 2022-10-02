@@ -3,8 +3,9 @@
 import argparse
 import re
 from pathlib import Path
-from lxml import etree
 from typing import Dict, Optional, Set, Tuple
+
+from lxml import etree
 
 
 def get_hex(s: Optional[str]) -> Optional[Tuple[int, int, int]]:
@@ -12,9 +13,9 @@ def get_hex(s: Optional[str]) -> Optional[Tuple[int, int, int]]:
         return None
     if s.startswith("#"):
         if len(s) == 7:
-            return tuple(int(s[i:i+2], 16) for i in (1, 3, 5))
+            return tuple(int(s[i : i + 2], 16) for i in (1, 3, 5))
         if len(s) == 4:
-            return tuple(int(s[i:i+1], 16) for i in (1, 2, 3))
+            return tuple(int(s[i : i + 1], 16) for i in (1, 2, 3))
         raise ValueError(f"Invalid hex code: {s}")
     if s.startswith("rgb"):
         m = re.match(r"rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+).*\)", s)
@@ -30,11 +31,7 @@ def get_style(node: etree.Element) -> Optional[Dict[str, str]]:
     style = node.get("style")
     if style is None:
         return None
-    style = [
-        k.strip().split(":")
-        for k in style.split(";")
-        if len(k.strip()) > 0
-    ]
+    style = [k.strip().split(":") for k in style.split(";") if len(k.strip()) > 0]
     for e in style:
         if len(e) != 2:
             raise ValueError(f"Invalid style element: {e}")
@@ -67,10 +64,7 @@ def get_colors(node: etree.Element) -> Set[Tuple[int, int, int]]:
     colors.add(get_hex(node.get("fill")))
     colors.add(get_hex(node.get("stroke")))
 
-    return {
-        color for color in colors
-        if color is not None and not is_black(color) and not is_white(color)
-    }
+    return {color for color in colors if color is not None and not is_black(color) and not is_white(color)}
 
 
 def convert(
@@ -80,6 +74,9 @@ def convert(
 ) -> None:
     classes = node.get("class") or ""
     classes = set([c.strip() for c in classes.split(" ")])
+
+    if node.tag.endswith("use"):
+        classes.add("dark-fill")
 
     style = get_style(node)
     if style is not None:
@@ -139,7 +136,7 @@ def convert(
     if convert_text:
         if node.tag.endswith("text"):
             classes.add("dark-fill")
-    
+
     classes = " ".join(classes).strip()
     if classes:
         node.set("class", classes)
@@ -148,10 +145,20 @@ def convert(
 def main() -> None:
     parser = argparse.ArgumentParser(description="Cleans up SVG images")
     parser.add_argument("img", help="Path to the image")
-    parser.add_argument("-t", "--convert-text", default=False, action="store_true",
-                        help="If set, convert text as well")
-    parser.add_argument("-c", "--convert-colors", default=False, action="store_true",
-                        help="If set, converts colors as well")
+    parser.add_argument(
+        "-t",
+        "--convert-text",
+        default=False,
+        action="store_true",
+        help="If set, convert text as well",
+    )
+    parser.add_argument(
+        "-c",
+        "--convert-colors",
+        default=False,
+        action="store_true",
+        help="If set, converts colors as well",
+    )
     args = parser.parse_args()
 
     img = Path(args.img).absolute()
@@ -166,10 +173,7 @@ def main() -> None:
         colors = set()
         for elem in doc.getiterator():
             colors.update(get_colors(elem))
-        color_map = {
-            color: f"color-{chr((i % 5) + ord('a'))}"
-            for i, color in enumerate(colors)
-        }
+        color_map = {color: f"color-{chr((i % 10) + ord('a'))}" for i, color in enumerate(colors)}
     else:
         color_map = None
 
