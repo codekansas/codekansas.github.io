@@ -155,10 +155,12 @@ def read_video_ffmpeg(
     channels: int = 3,
 ) -> Iterator[np.ndarray]:
     """Function that reads a video to a stream of numpy arrays using FFMPEG.
+
     Args:
         in_file: The input video to read
         output_fmt: The output image format
         channels: Number of output channels for each video frame
+
     Yields:
         Frames from the video as numpy arrays with shape (H, W, C)
     """
@@ -181,8 +183,10 @@ def read_video_ffmpeg(
 
 def read_video_opencv(in_file: str | Path) -> Iterator[np.ndarray]:
     """Reads a video as a stream using OpenCV.
+
     Args:
         in_file: The input video to read
+
     Yields:
         Frames from the video as numpy arrays with shape (H, W, C)
     """
@@ -204,6 +208,7 @@ def write_video_opencv(
     codec: str = "MP4V",
 ) -> None:
     """Function that writes a video from a stream of numpy arrays using OpenCV.
+
     Args:
         itr: The image iterator, yielding images with shape (H, W, C).
         out_file: The path to the output file.
@@ -239,6 +244,7 @@ def write_video_ffmpeg(
     output_fmt: str = "yuv420p",
 ) -> None:
     """Function that writes an video from a stream of numpy arrays using FFMPEG.
+
     Args:
         itr: The image iterator, yielding images with shape (H, W, C).
         out_file: The path to the output file.
@@ -279,6 +285,7 @@ def write_video_matplotlib(
     writer: str = "ffmpeg",
 ) -> None:
     """Function that writes an video from a stream of input tensors.
+
     Args:
         itr: The image iterator, yielding images with shape (H, W, C).
         out_file: The path to the output file.
@@ -345,4 +352,17 @@ if not shutil.which("ffmpeg"):
     READERS.pop("ffmpeg")
     WRITERS.pop("ffmpeg")
     WRITERS.pop("matplotlib")
+{% endhighlight %}
+
+This can be used as follows:
+
+{% highlight python %}
+def dummy_image_generator() -> Iterator[np.array]:
+    for _ in range(100):
+        yield np.random.rand(480, 640, 3)
+
+WRITERS["ffmpeg"](dummy_image_generator(), "test.mp4")
+
+for frame in READERS["ffmpeg"]("test.mp4"):
+    print(frame.shape)
 {% endhighlight %}
