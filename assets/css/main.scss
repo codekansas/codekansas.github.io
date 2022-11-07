@@ -3,12 +3,5 @@
 
 @charset "utf-8";
 
-@import
-  "variables",
-  "base",
-  "colors",
-  "fonts",
-  "links",
-  "select",
-  "syntax-highlighting",
-  "layout";
+@import "variables", "base", "colors", "fonts", "links", "select",
+  "syntax-highlighting";

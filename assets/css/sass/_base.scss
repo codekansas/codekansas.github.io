@@ -74,6 +74,10 @@ body {
   }
 }
 
+details > div {
+  padding-top: 1em;
+}
+
 .table td,
 th,
 tr {
@@ -115,7 +119,8 @@ iframe {
   margin: 1em auto 1em auto;
 }
 
-svg {
+svg,
+img {
   width: 80%;
   display: block;
   margin: auto;
