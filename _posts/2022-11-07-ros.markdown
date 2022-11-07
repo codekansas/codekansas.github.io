@@ -10,6 +10,8 @@ In this post, I'm going to provide some straight-forward pointers for getting st
 * TOC
 {:toc}
 
+There's a minimal repository with the code from this post [here][blog-post-repo].
+
 ## Introduction
 
 I recently started a new job which involves me working on the [Stretch][stretch-robot] robot from Hello Robots. Since my background is principally in machine learning and not robotics, this is my first time using ROS. However, when I searched for "ROS 2 API" or "How to use ROS 2" or "Getting Started with ROS 2" most of the sites I found looked like they had been insanely SEO'd to the point of being unusable. To wit, I figured I would document my progress as I am learning so that others who may be making the same transition might benefit as well.
@@ -334,6 +336,12 @@ ros2 pkg create --build-type ament_cmake <package-name>
 
 To prepopulate with a starter [node](#node), you can add the command line argument `--node-name <node-name>`
 
+To list all currently-installed packages, run:
+
+{% highlight bash %}
+ros2 pkg list
+{% endhighlight %}
+
 ### `package.xml`
 
 All ROS packages include a `package.xml` file which contains meta information about the package. However, when using RoboStack as your dependency manager, you can more or less ignore it.
@@ -512,6 +520,18 @@ ros2 run turtlesim turtlesim_node
 
 This will then print the logged output from the running process.
 
+Sometimes you might get an error message like this:
+
+{% highlight bash %}
+Package '<package-name>' not found
+{% endhighlight %}
+
+In this case, you can check if your package is installed by using:
+
+{% highlight bash %}
+ros2 pkg list | grep <package-name>
+{% endhighlight %}
+
 ### `launch`
 
 `ros2 launch` is used to run multiple [nodes](#node) at once, as defined by a launch file. A launch file can be written in Python, XML or YAML. For example, you can create a launch file in Python that looks like this:
@@ -588,15 +608,16 @@ Some other resources that I found helpful are listed below.
 - [ROS 2 Foxy Turtlesim Documentation][ros-2-foxy-turtlesim]: A more in-depth explanation of the different components of ROS 2 using Turtlesim
 - [RoboStack Tutorial][robostack-tutorial-pdf]: In-depth tutorial covering RoboStack and various elements of ROS
 
-[miniconda-install]: https://docs.conda.io/en/latest/miniconda.html
-[stretch-robot]: https://hello-robot.com/stretch-2
-[jetbot]: https://jetbot.org/master/
-[robostack]: https://robostack.github.io/
-[mamba]: https://anaconda.org/conda-forge/mamba
-[ros-2-humble-install-instructions]: https://github.com/RoboStack/ros-humble
-[ubuntu-ros-2-tutorial]: https://ubuntu.com/tutorials/getting-started-with-ros-2#1-overview
-[ros-2-foxy-turtlesim]: https://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html
-[turtlesim-ros-page]: http://wiki.ros.org/turtlesim
-[tree-install-instructions]: https://www.cyberciti.biz/faq/linux-show-directory-structure-command-line/
+[blog-post-repo]: https://github.com/codekansas/ros-blog-post
 [colcon-info]: https://colcon.readthedocs.io/en/released/
+[jetbot]: https://jetbot.org/master/
+[mamba]: https://anaconda.org/conda-forge/mamba
+[miniconda-install]: https://docs.conda.io/en/latest/miniconda.html
 [robostack-tutorial-pdf]: https://arxiv.org/abs/2104.12910
+[robostack]: https://robostack.github.io/
+[ros-2-foxy-turtlesim]: https://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html
+[ros-2-humble-install-instructions]: https://github.com/RoboStack/ros-humble
+[stretch-robot]: https://hello-robot.com/stretch-2
+[tree-install-instructions]: https://www.cyberciti.biz/faq/linux-show-directory-structure-command-line/
+[turtlesim-ros-page]: http://wiki.ros.org/turtlesim
+[ubuntu-ros-2-tutorial]: https://ubuntu.com/tutorials/getting-started-with-ros-2#1-overview
