@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   background-color: $background-color-light;
   @media (prefers-color-scheme: dark) {
     background-color: $background-color-dark;
@@ -33,9 +34,17 @@ html, body {
  * Set `margin-bottom` to maintain vertical rhythm
  */
 .post {
-  h1, h2, h3, h4, h5, h6,
-  p, blockquote, pre,
-  figure, details,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote,
+  pre,
+  figure,
+  details,
   %vertical-rhythm {
     margin-bottom: 1em;
   }
@@ -65,7 +74,9 @@ html, body {
   }
 }
 
-.table td, th, tr {
+.table td,
+th,
+tr {
   border-bottom-color: $background-color-dark !important;
   border-top-color: $background-color-dark !important;
 
@@ -88,16 +99,6 @@ blockquote {
   font-size: 95%;
   opacity: 80%;
   margin: 1em;
-}
-
-code {
-  color: $font-color-light;
-  background-color: $figure-color-light;
-
-  @media (prefers-color-scheme: dark) {
-    color: $font-color-dark;
-    background-color: $figure-color-dark;
-  }
 }
 
 pre code {
