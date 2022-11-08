@@ -57,6 +57,11 @@ strong {
   h3,
   h4 {
     padding: 0.5em;
+    margin-top: 2em;
+    border: 1px solid $header-border-color-light;
+    @media (prefers-color-scheme: dark) {
+      border: 1px solid $header-border-color-dark;
+    }
   }
 }
 
@@ -98,5 +103,6 @@ blockquote {
 
   @media (prefers-color-scheme: dark) {
     background-color: $figure-color-dark;
+    border: 1px solid $figure-color-dark;
   }
 }

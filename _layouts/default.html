@@ -79,10 +79,18 @@
         if (postContainer) {
           postContainer.querySelectorAll("h1, h2, h3, h4").forEach(function (node) {
             const anchor = document.createElement("a");
-            anchor.className = "header-link no-highlight";
+            anchor.className = "header-link";
             anchor.href = "#" + node.id;
-            anchor.innerHTML = "<small><code>[ref]</code></small>";
+            anchor.innerHTML = "<code>[ref]</code>";
             node.appendChild(anchor);
+
+            if (tocNode = document.getElementById("markdown-toc")) {
+              const tocRef = document.createElement("a");
+              tocRef.className = "header-link";
+              tocRef.href = "#markdown-toc";
+              tocRef.innerHTML = "<code>[toc]</code>";
+              node.appendChild(tocRef);
+            }
           });
         }
       }
