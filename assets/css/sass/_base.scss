@@ -78,20 +78,23 @@ details > div {
   padding-top: 1em;
 }
 
-.table td,
-th,
-tr {
-  border-bottom-color: $background-color-dark !important;
-  border-top-color: $background-color-dark !important;
-
-  @media (prefers-color-scheme: dark) {
-    border-bottom-color: $background-color-light !important;
-    border-top-color: $background-color-light !important;
-  }
-}
-
 table {
   color: inherit !important;
+  width: 100%;
+
+  th,
+  td {
+    padding: 2px 5px 2px 5px;
+  }
+
+  thead,
+  tbody {
+    border: 1px solid $border-color;
+    background-color: $figure-color-light;
+    @media (prefers-color-scheme: dark) {
+      background-color: $figure-color-dark;
+    }
+  }
 }
 
 .footnotes {

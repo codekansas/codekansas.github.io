@@ -1,8 +1,8 @@
 ---
-layout: post
-title: "Getting Started with ROS 2"
-category: 🔬
-excerpt: "An actually good guide to getting started with ROS 2"
+layout:    post
+title:     "Getting Started with ROS 2"
+category:  🦾
+excerpt:   "An actually good guide to getting started with ROS 2"
 ---
 
 In this post, I'm going to provide some straight-forward pointers for getting started using ROS 2.
@@ -545,6 +545,10 @@ $ ros2 service list
 </div>
 </details>
 
+### Bag
+
+A *bag* in ROS is just a recording of a session.
+
 ### Action
 
 A *action* in ROS has three parts:
@@ -674,6 +678,49 @@ colcon test-result --verbose  # To show all errors
 [Gazebo][gazebo-homepage] is a simulator package which interacts nicely with ROS.
 
 - [Tutorial][gazebo-ros-2-tutorial] on integrating Gazebo with ROS 2
+
+## Cheat Sheet
+
+Here's a reference ROS 2 command cheat sheet.
+
+| Base Command |    Command    |                   Description                   |
+| ------------ | ------------- | ----------------------------------------------- |
+| `action`     | `info`        | Output information about an action              |
+|              | `list`        | Output a list of action names                   |
+|              | `list -t`     | List actions with types                         |
+|              | `send_goal`   | Send an action goal                             |
+| ------------ | ------------- | ----------------------------------------------- |
+| `bag`        | `info`        | Output information of a bag                     |
+|              | `play`        | Play a bag                                      |
+|              | `record`      | Record a bag                                    |
+| ------------ | ------------- | ----------------------------------------------- |
+| `launch`     |               | Run a launch file                               |
+| ------------ | ------------- | ----------------------------------------------- |
+| `node`       | `info`        | Output information about a node                 |
+|              | `list`        | Output a list of available nodes                |
+| ------------ | ------------- | ----------------------------------------------- |
+| `pkg`        | `create`      | Create a new package                            |
+|              | `executables` | Output a list of executables in a package       |
+|              | `list`        | Output a list of available packages             |
+| ------------ | ------------- | ----------------------------------------------- |
+| `run`        |               | Run an executable in a given package            |
+| ------------ | ------------- | ----------------------------------------------- |
+| `service`    | `call`        | Call a service manually                         |
+|              | `find`        | Output a list of services of a given type       |
+|              | `list`        | Output a list of service names                  |
+|              | `type`        | Output a service's type                         |
+| ------------ | ------------- | ----------------------------------------------- |
+| `test`       |               | Run launch test                                 |
+| ------------ | ------------- | ----------------------------------------------- |
+| `topic`      | `bw`          | Show bandwidth usage for a topic                |
+|              | `delay`       | Display delay of topic from timestamp in header |
+|              | `echo`        | Output messages of a given topic                |
+|              | `find`        | Find topics of a given type                     |
+|              | `hz`          | Get publishing rate of a topic                  |
+|              | `info`        | Output information about a topic                |
+|              | `list`        | Output list of active topics                    |
+|              | `pub`         | Publish data to a topic                         |
+|              | `type`        | Output type of a topic                          |
 
 ## More Resources
 
