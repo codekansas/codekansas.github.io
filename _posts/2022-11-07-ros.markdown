@@ -20,8 +20,7 @@ I recently started a new job which involves me working on the [Stretch][stretch-
 
 In this blog post I hope to do the following:
 
-1. Provide a simple on-boarding guide building a system in ROS 2 to control a robot
-  - Specifically, I'll be using the [JetBot][jetbot], since that's what I have on hand, but since I'm also going to be using the Stretch at work this guide will hopefully prove useful if you're working on manipulation as well
+1. Provide a simple on-boarding guide for ROS 2
   - I'm going to be somewhat opinionated about the "right" way to do things (mostly based on my background in building other types of software) so I may leave out some alternative approaches, but I'll try to be very thorough in describing how to do things
 2. Make a searchable reference for how to do simple things
 3. Provide some more in-depth technical explanations for how different ROS components work, and why they work that way
@@ -452,6 +451,15 @@ $ ros2 node info /turtlesim
 </div>
 </details>
 
+#### How do nodes work?
+
+The official documentation [here][node-official-docs] covers this pretty well. Essentially:
+
+- There are different client library implementations for different languages; the most popular are `rclcpp` and `rclpy`
+- [Here][rclpy-github] is the Python client library implementation
+- When started, a node will tell the other nodes on the system about itself, and receive in response information about each of those nodes
+- There are different [middleware][ros-middleware] implementations which actually handle communicating between nodes; the interface for these is abstracted by the ROS [messages](#messages) API
+
 ### Topic
 
 A *topic* in ROS is a way for [nodes](#node) to send messages to each other using publish/subscribe semantics. A node will publish a topic, which can then be subscribed to by other nodes. You can list available topics using:
@@ -504,6 +512,8 @@ ros2 topic pub -r 0.5 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0
 #### Messages
 
 A *message* is just a type of topic, which tells ROS what kind of data is being passed around. This is so that data can be encoded and decoded correctly.
+
+- You can see some example messages [here][ros2-example-interfaces]
 
 ### Service
 
@@ -672,6 +682,7 @@ Some other resources that I found helpful are listed below.
 - [Ubuntu - Getting Started with ROS 2][ubuntu-ros-2-tutorial]: A quick introduction to the commands required to get started using ROS 2
 - [ROS 2 Foxy Turtlesim Documentation][ros-2-foxy-turtlesim]: A more in-depth explanation of the different components of ROS 2 using Turtlesim
 - [RoboStack Tutorial][robostack-tutorial-pdf]: In-depth tutorial covering RoboStack and various elements of ROS
+- [ROS 2 Design Website][ros-2-design]: The best source of reference about how ROS 2 works
 
 [ament-info]: https://design.ros2.org/articles/ament.html
 [blog-post-repo]: https://github.com/codekansas/ros-blog-post
@@ -680,13 +691,17 @@ Some other resources that I found helpful are listed below.
 [colcon-info]: https://colcon.readthedocs.io/en/released/
 [gazebo-homepage]: https://classic.gazebosim.org/
 [gazebo-ros-2-tutorial]: https://classic.gazebosim.org/tutorials?tut=ros2_overview
-[jetbot]: https://jetbot.org/master/
 [mamba]: https://anaconda.org/conda-forge/mamba
 [miniconda-install]: https://docs.conda.io/en/latest/miniconda.html
+[node-official-docs]: https://docs.ros.org/en/rolling/Concepts.html#nodes
+[rclpy-github]: https://github.com/ros2/rclpy
 [robostack-tutorial-pdf]: https://arxiv.org/abs/2104.12910
 [robostack]: https://robostack.github.io/
+[ros-2-design]: https://design.ros2.org/
 [ros-2-foxy-turtlesim]: https://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html
 [ros-2-humble-install-instructions]: https://github.com/RoboStack/ros-humble
+[ros-middleware]: https://design.ros2.org/articles/ros_middleware_interface.html
+[ros2-example-interfaces]: https://github.com/ros2/example_interfaces
 [stretch-robot]: https://hello-robot.com/stretch-2
 [tree-install-instructions]: https://www.cyberciti.biz/faq/linux-show-directory-structure-command-line/
 [turtlesim-ros-page]: http://wiki.ros.org/turtlesim
