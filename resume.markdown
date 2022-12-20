@@ -9,7 +9,7 @@ New York based roboticist and machine learning engineer, with experience at Tesl
 
 ## Work History
 
-### Facebook AI
+### Meta AI
 
 - New York, October 2022 to present
 - Research engineer, working on open-ended real-world robotics
