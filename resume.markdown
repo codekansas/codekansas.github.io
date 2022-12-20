@@ -9,9 +9,15 @@ New York based roboticist and machine learning engineer, with experience at Tesl
 
 ## Work History
 
+### Facebook AI
+
+- New York, October 2022 to present
+- Research engineer, working on open-ended real-world robotics
+
 ### Tesla Autonomous AI
 
-- Machine learning engineer, March 2021 to May 2022
+- Palo Alto,  March 2021 to May 2022
+- Machine learning engineer, working on AI for perception
 - Wrote ray casting CUDA kernel for producing ground truth data for a core geometry prediction model
 - Got a [language model to drive a car](https://twitter.com/karpathy/status/1503211737046085634)
   - Designed and trained car-compatible autoregressive model architecture
