@@ -30,25 +30,19 @@ strong {
   h2 {
     padding-bottom: $base-padding;
     padding-top: $base-padding;
-    background-color: transparentize($header-color-light, 0.15);
-    @media (prefers-color-scheme: dark) {
-      background-color: transparentize($header-color-dark, 0.15);
-    }
   }
 
   h3 {
     padding-bottom: $base-padding * 0.5;
     padding-top: $base-padding * 0.5;
-    background-color: transparentize($header-color-light, 0.25);
-    @media (prefers-color-scheme: dark) {
-      background-color: transparentize($header-color-dark, 0.25);
-    }
   }
 
-  h4 {
-    background-color: transparentize($header-color-light, 0.25);
+  h1,
+  h2,
+  h3 {
+    border-bottom: 1px solid $header-border-color-light;
     @media (prefers-color-scheme: dark) {
-      background-color: transparentize($header-color-dark, 0.25);
+      border-bottom: 1px solid $header-border-color-dark;
     }
   }
 
@@ -58,10 +52,6 @@ strong {
   h4 {
     padding: 0.5em;
     margin-top: 2em;
-    border: 1px solid $header-border-color-light;
-    @media (prefers-color-scheme: dark) {
-      border: 1px solid $header-border-color-dark;
-    }
   }
 }
 
