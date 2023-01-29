@@ -1,14 +1,22 @@
-<a id="resume-link" href="/resume">Resume</a>
-{% if site.usernames.github %}
-<a id="github-link" href="https://github.com/{{ site.usernames.github }}">Github</a>
-{% endif %}
-{% if site.usernames.twitter %}
-<a id="twitter-link" href="https://twitter.com/{{ site.usernames.twitter }}">Twitter</a>
-{% endif %}
-{% if site.email %}
-<a id="email-link" href="mailto:{{ site.email }}">Email</a>
-{% endif %}
-<a id="feed-link" href="{{ site.url }}/feed.xml">Feed</a>
-<a id="dir-link" href="{{ site.url }}/directory">Directory</a>
-<a id="home-link" href="{{site.url }}">Home</a>
-<a id="ublock-link" href="{{ site.url }}/assets/scripts/ublock_list.txt">uBlock</a>
+<ul class="list-inline">
+  <li class="list-inline-item"><a id="home-link" href="{{site.url }}">Home</a></li>
+  <li class="list-inline-item"><a id="resume-link" href="/resume">Resume</a></li>
+  {% if site.email %}
+  <li class="list-inline-item"><a id="email-link" href="mailto:{{ site.email }}">Email</a></li>
+  {% endif %}
+  {% if site.calendar %}
+  <li class="list-inline-item"><a id="calendar-link" href="{{ site.url }}/calendar">Calendar</a></li>
+  {% endif %}
+  <li class="list-inline-item"><a id="dir-link" href="{{ site.url }}/directory">Directory</a></li>
+  {% if site.usernames.github %}
+  <li class="list-inline-item">
+    <a id="github-link" href="https://github.com/{{ site.usernames.github }}">Github</a>
+  </li>
+  {% endif %}
+  {% if site.usernames.twitter %}
+  <li class="list-inline-item">
+    <a id="twitter-link" href="https://twitter.com/{{ site.usernames.twitter }}">Twitter</a>
+  </li>
+  {% endif %}
+  <li class="list-inline-item"><a id="dir-link" href="{{ site.url }}/more-links">More</a></li>
+</ul>

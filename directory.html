@@ -4,14 +4,13 @@ layout: default
 
 <h1 class="padded bottom">Posts</h1>
 
-<p class="padded bottom">
-  <a href="/">Home</a>
-</p>
+{% include links.html %}
 
 {% for post in site.posts %}
 {% assign currentdate = post.date | date: "%Y" %}
 {% if currentdate != date %}
-{% if forloop.first == false %}<hr />{% endif %}
+{% if forloop.first == false %}
+<hr />{% endif %}
 <h2 class="padded top-bottom">{{ currentdate }}</h2>
 {% assign date = currentdate %}
 {% endif %}

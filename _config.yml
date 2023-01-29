@@ -1,44 +1,45 @@
 # Setup
-title:            Ben Bolte's Blog
-tagline:          Hi! 👋 I'm Ben.
-baseurl:          ""
+title: Ben Bolte's Blog
+tagline: Hi! 👋 I'm Ben.
+baseurl: ""
 
 # Contact
-owner:            Benjamin Bolte
-email:            public@bolte.cc
+owner: Benjamin Bolte
+email: public@bolte.cc
+calendar: https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&mode=WEEK&showTitle=0&showNav=1&showDate=0&showTabs=0&showCalendars=0&showPrint=0&src=Ymtib2x0ZTE4QGdtYWlsLmNvbQ&color=%2333B679
 
 usernames:
-  github:         codekansas
-  twitter:        benjamin_bolte
+  github: codekansas
+  twitter: benjamin_bolte
 
 # Sass
 sass:
-  sass_dir:       assets/css/sass
+  sass_dir: assets/css/sass
 
 # Some CDN-hosted scripts
 cdn:
-  bootstrap-css:  https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css
-  katex:          https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css
-  mathjax:        https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML
+  bootstrap-css: https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css
+  katex: https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css
+  mathjax: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML
 
 # Other
-markdown:         kramdown
+markdown: kramdown
 kramdown:
   math_engine_opts:
-    preview:      true
+    preview: true
     preview_as_code: true
-permalink:        :title
+permalink: :title
 
 katex:
   rendering_options:
-    throw_error:  true
+    throw_error: true
 
 # Analytics
 analytics:
-  facebook:       559228364939475
+  facebook: 559228364939475
 
-paginate:         10
-paginate_path:    "/posts/:num/"
+paginate: 10
+paginate_path: "/posts/:num/"
 
 plugins:
   - jekyll-paginate

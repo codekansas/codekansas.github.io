@@ -6,12 +6,10 @@ layout: default
   <a href="/" class="no-highlight">
     <h1 class="padded bottom" id="site-tagline">{{ site.tagline }}</h1>
   </a>
-  <p id="blog-link">
+  {% include links.html %}
+  <p id="blog-link" class="padded bottom">
     This is my blog. I also have some interactive posts
     <a href="https://lightning.bolte.cc/#/">here</a>.
-  </p>
-  <p class="padded bottom">
-    {% include links.html %}
   </p>
 </div>
 

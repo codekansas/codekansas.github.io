@@ -70,6 +70,6 @@ New York based roboticist and machine learning engineer, with experience at Tesl
 - TSA PreCheck (2018 - Present) Highest civilian honor awarded by the United States Transportation Security Administration
 
 [google-scholar]: https://scholar.google.com/citations?user=JEXV__kAAAAJ&hl=en
-[blog-link]: https://ben.bolte.cc
+[blog-link]: {{ site.url }}
 [github-link]: https://github.com/codekansas
-[mail-link]: mailto:public@bolte.cc
+[mail-link]: mailto:{{ site.email}}

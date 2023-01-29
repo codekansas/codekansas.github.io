@@ -13,11 +13,14 @@ layout: default
 <div class="container post emphasis top" style="max-width: 800px;">
   {{ content }}
 
+  {% if page.no_comments %}
+  {% else %}
   {% if page.draft %}
   <div>Draft doesn't have comments enabled.</div>
   {% else %}
   <script src="https://utteranc.es/client.js" repo="codekansas/codekansas.github.io" issue-term="pathname"
     theme="github-light" crossorigin="anonymous" async></script>
+  {% endif %}
   {% endif %}
 
   <small class="padded top-bottom centered">
