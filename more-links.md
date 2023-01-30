@@ -75,6 +75,29 @@ excerpt: Some more links to miscellaneous things.
 }
 {% endhighlight %}
 
+  - At one point I was trying to force myself to use an ergonomic keyboard, but after a few months of using it I had a suspicion that it wasn't making me type any faster and was actually making me have more errors. I did some typing speed tests with a couple different keyboards to confirm this, ultimately finding that my random wired Mac keyboard was the best (see below). For what it's worth, this basically jives with my experience watching other people type on ergonomic keyboards as well.
+
+| Keyboard   | Trial         | Words per Minute | Errors per Minute | Adjusted Words per Minute |
+| ---------- | ------------- | ---------------- | ----------------- | ------------------------- |
+| Apple      | 1             | 97               | 2                 | 95                        |
+| Apple      | 2             | 99               | 1                 | 98                        |
+| Apple      | 3             | 88               | 5                 | 83                        |
+| Apple      | 4             | 103              | 3                 | 100                       |
+| Apple      | 5             | 92               | 2                 | 90                        |
+| Apple      | Aggregate     | 95.8 +/- 2.6     | 2.6 +/- 0.7       | 93.2 +/- 3.1              |
+| Mechanical | 1             | 87               | 4                 | 83                        |
+| Mechanical | 2             | 90               | 5                 | 85                        |
+| Mechanical | 3             | 87               | 3                 | 84                        |
+| Mechanical | 4             | 89               | 1                 | 88                        |
+| Mechanical | 5             | 90               | 3                 | 87                        |
+| Mechanical | Aggregate     | 88.6 +/- 0.7     | 3.2 +/- 0.7       | 85.4 +/- 0.9              |
+| Ergonomic  | 1             | 95               | 1                 | 94                        |
+| Ergonomic  | 2             | 80               | 1                 | 79                        |
+| Ergonomic  | 3             | 92               | 3                 | 89                        |
+| Ergonomic  | 4             | 85               | 3                 | 82                        |
+| Ergonomic  | 5             | 101              | 0                 | 101                       |
+| Ergonomic  | Aggregate     | 90.6 +/- 3.7     | 1.6 +/- 0.6       | 89.0 +/- 4.0              |
+
 - Misc
   - [RSS Feed]({{ site.url }}/feed.xml) - RSS feed for this blog
 
