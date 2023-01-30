@@ -26,7 +26,7 @@ excerpt: Some more links to miscellaneous things.
     - I've had good experiences with Prusa i3 (both RepRap and MK3S+), Octoprint is a must
   - A subset of my VSCode `settings.json` file
 
-```jsonc
+{% highlight jsonc %}
 {
 
   /* Editor features */
@@ -66,7 +66,7 @@ excerpt: Some more links to miscellaneous things.
     "yzhang.markdown-all-in-one"
   ],
 }
-```
+{% endhighlight %}
 
 - Misc
   - [RSS Feed]({{ site.url }}/feed.xml) - RSS feed for this blog
