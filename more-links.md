@@ -18,7 +18,7 @@ excerpt: Some more links to miscellaneous things.
     - Also check out [this project](https://github.com/ashleve/lightning-hydra-template) which uses Hydra for config management
     - Only supports launching jobs locally and on Slurm clusters at the moment, since that's mainly how I train models
 - Learning ML / Self-Driving / Robotics
-  - [Geoff Hinton Coursera Course (2012)](https://www.cs.toronto.edu/~hinton/coursera_lectures.html) - Doesn't get as much attention as Andrew Ng's course but in my opinion is superior in explaining concepts behind neural networks, especially for people motivated by the biological analogs. "If you only read the books that everyone else is reading, you can only think what everyone else is thinking."
+  - [Geoff Hinton Coursera Course (2012)](https://www.cs.toronto.edu/~hinton/coursera_lectures.html) - Doesn't get as much attention as Andrew Ng's course but in my opinion is superior in explaining concepts behind neural networks, especially for people motivated by the biological analogs.
   - [Coursera Self-Driving Specialization](https://www.coursera.org/specializations/self-driving-cars) - I did half of this before I started working at Tesla, and I think if more Tesla engineers took it, the car would probably drive better
 - Hobbies
   - [Goodreads](https://www.goodreads.com/review/list/56667319-benjamin?shelf=favorites) - My favorite books
@@ -36,7 +36,6 @@ excerpt: Some more links to miscellaneous things.
 
 {% highlight jsonc %}
 {
-
   /* Editor features */
   "editor.quickSuggestionsDelay": 10,
   "editor.rulers": [
@@ -82,6 +81,8 @@ excerpt: Some more links to miscellaneous things.
 Here are some quotes that I have found interesting.
 
 > Why do people have to be this lonely? What's the point of it all? Millions of people in this world, all of them yearning, looking to others to satisfy them, yet isolating themselves. Why? Was the earth put here just to nourish human loneliness? - Haruki Murakami, Sputnik Sweetheart
+
+> If you only read the books that everyone else is reading, you can only think what everyone else is thinking. - Haruki Murakami, and also a tote bag at the Strand
 
 > Consider it pure joy, my brothers and sisters, whenever you face trials of many kinds, because you know that the testing of your faith produces perseverance. Let perseverance finish its work so that you may be mature and complete, not lacking anything. - James 1:2-4
 
