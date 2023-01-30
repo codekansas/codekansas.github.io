@@ -8,11 +8,66 @@ excerpt: Some more links to miscellaneous things.
 - Productivity
   - [uBlock]({{ site.url }}/assets/scripts/ublock_list.txt) - My uBlock Origin filter list
   - [Daylio](https://daylio.net/) - My preferred journaling app
+  - [Tailscale](https://tailscale.com/) - Easy WireGuard mesh network, lets you easily SSH into different computers from anywhere
+  - MacOS Ergonomics
+    - [Mac Mouse Fix](https://mousefix.org/) - Lets you use third-party mouse buttons to control stuff (e.g., moving between screens with side buttons and showing Mission Control with the center button). FOSS, source code is on [Github](https://github.com/noah-nuebling/mac-mouse-fix)
+    - [Rectangle](https://rectangleapp.com/) - Lets you snap to parts of your screen. Also FOSS, source code is on [Github](https://github.com/rxhanson/Rectangle) with a pro version for $10
 - Hobbies
   - [Goodreads](https://www.goodreads.com/review/list/56667319-benjamin?shelf=favorites) - My favorite books
   - [Lichess](https://lichess.org/@/bkbolte18) - My lichess profile
   - [Codeforces](https://codeforces.com/profile/codekansas) - My Codeforces profile (warning, very inactive)
-  - [YouTube](https://www.youtube.com/playlist?list=PLGukhZ1bCGDiwUPP0ze59FOGjZr21Aicp) - My YouTube playlist of cool videos
+- Media
+  - [Cool Youtube Videos](https://www.youtube.com/playlist?list=PLGukhZ1bCGDiwUPP0ze59FOGjZr21Aicp) - A YouTube playlist of random videos I thought were cool
+  - [Lofi Work Music](https://www.youtube.com/watch?v=jfKfPfyJRdk)
+  - [Other Lofi Work Music](https://open.spotify.com/artist/7sKOw5KIGmCldJ8wkQhGQo?si=O0LluUKzSX6gmwzeZVQAzg)
+- Tools
+  - 3D Printer
+    - Don't use Creality, even though it is cheap you will never get back the hours of your life wasted priming it before every print
+    - I've had good experiences with Prusa i3 (both RepRap and MK3S+), Octoprint is a must
+  - A subset of my VSCode `settings.json` file
+
+```jsonc
+{
+
+  /* Editor features */
+  "editor.quickSuggestionsDelay": 10,
+  "editor.rulers": [
+    {
+      "column": 80,
+      "color": "#00ff2255"
+    },
+    {
+      "column": 88,
+      "color": "#00ff2222"
+    },
+    {
+      "column": 120,
+      "color": "#00e1ff55"
+    }
+  ],
+  "editor.acceptSuggestionOnEnter": "smart",
+  "editor.suggestSelection": "recentlyUsed",
+  "editor.minimap.enabled": false,
+  "editor.maxTokenizationLineLength": 512,
+  "editor.cursorSurroundingLines": 15,
+  
+  /* Default extensions */
+  "remote.SSH.defaultExtensions": [
+    "ms-python.python",
+    "ms-toolsai.jupyter",
+    "ms-python.vscode-pylance",
+    "eamodio.gitlens",
+    "xaver.clang-format",
+    "visualstudioexptteam.vscodeintellicode",
+    "tyriar.sort-lines",
+    "sirtori.indenticator",
+    "oderwat.indent-rainbow",
+    "esbenp.prettier-vscode",
+    "yzhang.markdown-all-in-one"
+  ],
+}
+```
+
 - Misc
   - [RSS Feed]({{ site.url }}/feed.xml) - RSS feed for this blog
 
