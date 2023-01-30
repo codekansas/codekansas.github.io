@@ -5,7 +5,7 @@ title: Benjamin Bolte's Resume
 
 # Benjamin Bolte
 
-New York based roboticist and machine learning engineer, with experience at Tesla AI, FAIR, Google Research and Amazon. Interested in self-supervised learning and fast neural network inference. Check out my [blog][blog-link], [Github][github-link], [Google Scholar][google-scholar], or shoot me an [email][mail-link].
+New York based roboticist and machine learning engineer, with experience at Tesla AI, FAIR, Google Research and Amazon. Interested in self-supervised learning and fast neural network inference. Check out my [blog][blog-link], [Github][github-link], [Google Scholar][google-scholar], [LinkedIn][linkedin] or shoot me an [email][mail-link].
 
 ## Work History
 
@@ -69,6 +69,7 @@ New York based roboticist and machine learning engineer, with experience at Tesl
 - Personal Github projects and gists have accumulated over 1000 stars
 - TSA PreCheck (2018 - Present) Highest civilian honor awarded by the United States Transportation Security Administration
 
+[linkedin]: https://www.linkedin.com/in/benjaminbolte
 [google-scholar]: https://scholar.google.com/citations?user=JEXV__kAAAAJ&hl=en
 [blog-link]: {{ site.url }}
 [github-link]: https://github.com/codekansas

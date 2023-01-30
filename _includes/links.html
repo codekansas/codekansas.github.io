@@ -1,13 +1,6 @@
 <ul class="list-inline">
   <li class="list-inline-item"><a id="home-link" href="{{site.url }}">Home</a></li>
-  <li class="list-inline-item"><a id="resume-link" href="/resume">Resume</a></li>
-  {% if site.email %}
-  <li class="list-inline-item"><a id="email-link" href="mailto:{{ site.email }}">Email</a></li>
-  {% endif %}
-  {% if site.calendar %}
-  <li class="list-inline-item"><a id="calendar-link" href="{{ site.url }}/calendar">Calendar</a></li>
-  {% endif %}
-  <li class="list-inline-item"><a id="dir-link" href="{{ site.url }}/directory">Directory</a></li>
+  <li class="list-inline-item"><a id="dir-link" href="{{ site.url }}/about">About</a></li>
   {% if site.usernames.github %}
   <li class="list-inline-item">
     <a id="github-link" href="https://github.com/{{ site.usernames.github }}">Github</a>
@@ -18,5 +11,4 @@
     <a id="twitter-link" href="https://twitter.com/{{ site.usernames.twitter }}">Twitter</a>
   </li>
   {% endif %}
-  <li class="list-inline-item"><a id="dir-link" href="{{ site.url }}/more-links">More</a></li>
 </ul>
