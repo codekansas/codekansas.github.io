@@ -12,6 +12,14 @@ excerpt: Some more links to miscellaneous things.
   - MacOS Ergonomics
     - [Mac Mouse Fix](https://mousefix.org/) - Lets you use third-party mouse buttons to control stuff (e.g., moving between screens with side buttons and showing Mission Control with the center button). FOSS, source code is on [Github](https://github.com/noah-nuebling/mac-mouse-fix)
     - [Rectangle](https://rectangleapp.com/) - Lets you snap to parts of your screen. Also FOSS, source code is on [Github](https://github.com/rxhanson/Rectangle) with a pro version for $10
+  - [Dotfiles](https://github.com/codekansas/dotfiles) - Repository for all of my dotfiles (various Bash commands and aliases)
+  - [ML Template](https://github.com/codekansas/ml-template) - My basic template for starting ML projects, similar to [PyTorch Lightning](https://www.pytorchlightning.ai/) or [Fairseq](https://github.com/facebookresearch/fairseq)
+    - Uses [Omegaconf](https://omegaconf.readthedocs.io/en/2.3_branch/) for config management
+    - Also check out [this project](https://github.com/ashleve/lightning-hydra-template) which uses Hydra for config management
+    - Only supports launching jobs locally and on Slurm clusters at the moment, since that's mainly how I train models
+- Learning ML / Self-Driving / Robotics
+  - [Geoff Hinton Coursera Course (2012)](https://www.cs.toronto.edu/~hinton/coursera_lectures.html) - Doesn't get as much attention as Andrew Ng's course but in my opinion is superior in explaining concepts behind neural networks, especially for people motivated by the biological analogs. "If you only read the books that everyone else is reading, you can only think what everyone else is thinking."
+  - [Coursera Self-Driving Specialization](https://www.coursera.org/specializations/self-driving-cars) - I did half of this before I started working at Tesla, and I think if more Tesla engineers took it, the car would probably drive better
 - Hobbies
   - [Goodreads](https://www.goodreads.com/review/list/56667319-benjamin?shelf=favorites) - My favorite books
   - [Lichess](https://lichess.org/@/bkbolte18) - My lichess profile
