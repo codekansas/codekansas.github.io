@@ -4,7 +4,7 @@ layout: default
 
 <h1 class="padded bottom">Posts</h1>
 
-{% include links.html %}
+{% include links.html home="1" about="1" %}
 
 {% for post in site.posts %}
 {% assign currentdate = post.date | date: "%Y" %}

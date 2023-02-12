@@ -90,6 +90,14 @@ This section is for ideas which I think are feasible to build using current robo
 - Robot babysitter
   - Similar to the pet monitoring robots, but for children
 
+#### Home-Adjacent Services
+
+- Laundromats in big cities often offer wash-and-fold services. The folding part could probably be automated
+- Some parts of different cleaning services could likely be automated - cleaning companies would likely pay for services which could make their employees more effective
+  - A small robot mop which could clean sinks, toilets or bathtubs would be useful
+  - A more portable robot vacuum or mop
+  - Some sort of automatic window washer
+
 ### Old Age
 
 - Mobility robot
