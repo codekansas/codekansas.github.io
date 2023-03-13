@@ -35,6 +35,14 @@ analytics:
 paginate: 10
 paginate_path: "/posts/:num/"
 
+feed:
+  path: /blog/feed.xml
+  tags:
+    path: "/blog/feed/tagged/"
+  posts_limit: 10
+  excerpt_only: true
+  disable_in_development: true
+
 plugins:
   - jekyll-paginate
   - jekyll-redirect-from
