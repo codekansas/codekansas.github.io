@@ -3,8 +3,9 @@ layout: post
 title: "Torch CUDA Extension Tricks"
 category: 🔬
 excerpt: Some tricks I found useful for writing CUDA extensions for PyTorch.
-math: true
 ---
+
+{% katexmm %}
 
 This is a tracking document for some things I've found useful when writing CUDA extensions for PyTorch.
 
@@ -169,6 +170,8 @@ Below are some of the resources that I found useful.
 - [Illegal Memory Access][illegal-memory-access]: "An empirical method of debugging “illegal memory access” bug in CUDA programming", useful guide for debugging memory issues.
 - [CUDA Extension Write-up][cuda-extension-writeup]: Introduces how to get started writing a CUDA extension for PyTorch and walks through a complete code example.
 - [Optimizing Parallel Reduction in CUDA][parallel-reduction-slides]: Slides describing how to speed up reductions (useful for any operations on [rings][rings-wiki]).
+
+{% endkatexmm %}
 
 [cuda-extension-writeup]: https://pytorch.org/tutorials/advanced/cpp_extension.html
 [parallel-reduction-slides]: https://developer.download.nvidia.com/assets/cuda/files/reduction.pdf

@@ -9,7 +9,7 @@ excerpt: A collection of my ideas relating to robotics pre-training.
 
 The first step is to generate hidden units from a pre-trained image model. This should probably be done by doing k-NN on the latent space of some pre-trained model like ViT or CLIP. Potentially, the output embedding of CLIP could be used instead.
 
-![First step, generate hidden units from a pre-trained image model.](/images/robotic-pretraining/phase_1_a.png)
+![First step, generate hidden units from a pre-trained image model.](/images/robotic-pretraining/phase_1_a.webp)
 
 The probable problem with doing this is that the hidden units for a given clip will all be the same, or won't capture the relevant information in the scene. For example, you could imagine a clip of a dog running through a field, and every token is something like "dog", even though what you care about is the specific motion of the dog. Some potential ways to fix this issue:
 
@@ -17,7 +17,7 @@ The probable problem with doing this is that the hidden units for a given clip w
 2. Deltas from frame to frame (not sure what this would look like yet)
 3. Stochastic k-NN when assigning a hidden unit to an embedding - randomly sample the nearest cluster to an embedding instead of getting the nearest neighbor
 
-![Potential ideas to fix the foreseeable issue of all the tokens for a particular clip being the same.](/images/robotic-pretraining/phase_1_b.png)
+![Potential ideas to fix the foreseeable issue of all the tokens for a particular clip being the same.](/images/robotic-pretraining/phase_1_b.webp)
 
 ### Model Architecture
 

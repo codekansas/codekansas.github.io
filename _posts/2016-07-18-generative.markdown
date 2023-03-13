@@ -4,8 +4,9 @@ title: "The Unreasonable Effectiveness of Restricted Boltzmann Machines"
 category: 🔬
 excerpt: >
   Building on the Recurrent RBM for sequence modeling. This post relates to what I am doing for my Master's thesis.
-math: true
 ---
+
+{% katexmm %}
 
 ## Introduction
 
@@ -75,6 +76,7 @@ What exactly does this training process do? Let's consider the application that 
 
 The RNN part is trained to generate biases that activate the right features of the RBM in the right order; in other words, the RNN tries to predict the next set of features given a past set. When we switch the RBM from learning a probability distribution to generating one, the RNN is used to generate biases for the RBM, defining a pattern of activating filters. The stochasticity of the RBM is what gives the model its nondeterminism.
 
+{% endkatexmm %}
 
 [graves-speech]: http://www.cs.toronto.edu/~fritz/absps/RNN13.pdf
 [wikipedia-rbm]: https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine

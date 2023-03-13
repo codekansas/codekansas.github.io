@@ -3,8 +3,9 @@ layout: post
 title: "Hidden Markov Models and Conditional Random Fields"
 category: 🔬
 excerpt: A comparison of Hidden Markov Models and Conditional Random Fields, two kinds of probabilistic graphical models.
-math: true
 ---
+
+{% katexmm %}
 
 I found that there was a surprising lack of comparisons available online between linear chain conditional random fields and hidden Markov models, despite the many similarities between the two. So, in this post, I'll cover some of the differences between two types of probabilistic graphical models: **Hidden Markov Models** and **Conditional Random Fields**. Specifically, I'll describe the different interfaces that two algorithms, the **Viterbi algorithm** and the **forward-backward algorithm**, take when used for each kind of model.
 
@@ -257,6 +258,8 @@ Hugo Larochelle has a great [series][crf-larochelle] about doing just this, and 
 {% include /images/crf/crf_backprop.svg %}
 
 Intuitively, CRFs are a way of doing "path-max" for a restricted type of model. Rather than choosing uncorrelated maximum values at each timestep, the CRF model can be used to sample a path. The Viterbi algorithm can be used to visualize the best path through the model.
+
+{% endkatexmm %}
 
 [subreddit-simulator]: https://www.reddit.com/r/SubredditSimulator/
 [baum-welch-wiki]: https://en.wikipedia.org/wiki/Baum%E2%80%93Welch_algorithm

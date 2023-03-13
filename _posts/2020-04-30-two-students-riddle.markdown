@@ -4,8 +4,9 @@ title: "Two Students Riddle"
 category: 🧩
 excerpt: >
   There is a teacher and 2 students in a classroom. The students are A and B. The teacher thinks of 2 positive integers and tells the sum of those numbers to student A without student B hearing it. Then tells their product to student B without student A hearing it. After this, the teacher asks the 2 students what was the 2 numbers. First student A says: I don't know. Then student B says: I don't know either. After hearing this, student A says: Now I know. Then student B says: Now I know them too. What were the 2 numbers?
-math: true
 ---
+
+{% katexmm %}
 
 A friend of mine recently sent me the following math problem.
 
@@ -246,3 +247,5 @@ x: 5, y: 3 :: a does not know the second time
 x: 5, y: 4 :: a does not know the second time
 x: 5, y: 5 :: b knows the first time
 {% endhighlight %}
+
+{% endkatexmm %}

@@ -3,8 +3,9 @@ layout: post
 title: PID Controller Explainer
 category: 🔬
 excerpt: Simple overview of what a PID controller is, how it works, and how to make one yourself
-math: true
 ---
+
+{% katexmm %}
 
 I was recently trying to explain PID controllers to someone and realized that I didn't have a very good intuitive understanding of what they're useful for and how they work. When looking around the web, I had trouble finding a straightforward explainer. So in this post, I'll give (hopefully) simple answers to some basic questions that I had about PID controllers. Since this post got a bit long, here's a table of contents.
 
@@ -951,3 +952,5 @@ It looks reasonable, and definitely better than our original curve.
 {% include /images/pid-controller/pd_sweep_best.svg %}
 
 We can do a much more careful job and get a better curve, but this is pretty reasonable for our toy problem. In fact, for the default parameters, we can just make $K_p$ and $K_d$ really large and get very close to an ideal curve. It's kind of fun to play around with different values for `--heat-coeff`, `--voltage-coeff` and `--inertia` to see how that changes the ideal PID parameters.
+
+{% endkatexmm %}

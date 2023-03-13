@@ -7,7 +7,7 @@
   <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}">
   <meta property="og:url" content="{{ base_url }}{{ page.url }}">
   <meta property="og:image"
-    content="{% if page.image %}{{ page.image }}{% else %}{{ base_url }}/images/default.png{% endif %}">
+    content="{% if page.image %}{{ page.image }}{% else %}{{ base_url }}/images/default.webp{% endif %}">
 
   <!-- For saving page to mobile device -->
   <link rel="manifest" href="{{ site.baseurl }}/assets/manifest.json" />
@@ -15,27 +15,12 @@
   <!-- Viewport disables mobile zooming -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  {% if page.math %}
-  <!-- Mathjax -->
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      TeX: {
-        equationNumbers: {
-          autoNumber: "AMS"
-        }
-      },
-      tex2jax: {
-        inlineMath: [ ['$', '$'] ],
-        displayMath: [ ['$$', '$$'], ['\\[', '\\]'] ],
-        processEscapes: true,
-      }
-    });
-  </script>
-  <script type="text/javascript" src="{{ site.cdn.mathjax }}"></script>
-  {% endif %}
+  <!-- Katex -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.css"
+    integrity="sha384-ko6T2DjISesD0S+wOIeHKMyKsHvWpdQ1s/aiaQMbL+TIXx3jg6uyf9hlv3WWfwYv" crossorigin="anonymous">
 
   <!-- Boostrap -->
-  <link rel="stylesheet" href="{{ site.cdn.bootstrap-css }}"
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
   <!-- Custom Sass -->
@@ -66,9 +51,9 @@
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="{{ site.baseurl }}/assets/favicon/favicon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/assets/favicon/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/assets/favicon/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/assets/favicon/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/assets/favicon/apple-touch-icon.webp" />
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/assets/favicon/favicon-32x32.webp" />
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/assets/favicon/favicon-16x16.webp" />
 
   <!-- Run when the page loads -->
   <script defer type="text/javascript">

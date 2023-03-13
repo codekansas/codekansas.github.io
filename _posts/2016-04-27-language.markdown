@@ -4,8 +4,9 @@ title: "Deep Language Modeling for Question Answering using Keras"
 category: 🔬
 excerpt: >
   An in-depth introduction to using Keras for language modeling; word embedding, recurrent and convolutional neural networks, attentional RNNs, and similarity metrics for vector embeddings.
-math: true
 ---
+
+{% katexmm %}
 
 ## Introduction
 
@@ -789,6 +790,8 @@ model = Merge([question_output, answer_output], [similarity])
 {% endhighlight %}
 
 The code is kind of awkward without the context, so I would recommend checking out the repository to see how it works. The repository contains the necessary code for building a question answering model using Keras and evaluating it on the Insurance QA dataset.
+
+{% endkatexmm %}
 
 [bendersky]: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.157.2597&rep=rep1&type=pdf
 [theano-rnn]: https://github.com/codekansas/theano-rnn

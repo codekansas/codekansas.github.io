@@ -4,8 +4,9 @@ title: "Coding the Viterbi Algorithm in Numpy"
 category: 🔨
 excerpt: >
   A demo of how to code the Viterbi algorithm in Numpy.
-math: true
 ---
+
+{% katexmm %}
 
 This tutorial explains how to code the Viterbi algorithm in Numpy, and gives a minor explanation. I'm using Numpy version `1.18.1` and Python `3.7`, although this should work for any future Python or Numpy versions.
 
@@ -168,6 +169,8 @@ def viterbi(emission_probs: np.ndarray,
 ## Complexity
 
 The **time complexity** of the whole inference is $O(N M^2)$ for $N$ time steps and $M$ observed states (although the $M^2$ term represents a matrix-matrix multiplication, which Numpy helps accelerate using [BLAS][blas-wikipedia]). The **space complexity** is $O(N M)$, since we have to store the most likely previous state for each time step.
+
+{% endkatexmm %}
 
 [mathematical-monk]: https://www.youtube.com/watch?v=RwwfUICZLsA&list=PLD0F06AA0D2E8FFBA&index=105
 [wikipedia]: https://en.wikipedia.org/wiki/Viterbi_algorithm

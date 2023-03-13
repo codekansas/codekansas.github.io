@@ -145,7 +145,7 @@ ros2 run turtlesim turtlesim_node
 
 If you are running this on your local machine, it should pop up a window that looks like this:
 
-![](/images/ros/turtlesim.png)
+![](/images/ros/turtlesim.webp)
 
 The command above starts a new [node](#node) which manages the window. In another terminal, start another [node](#node) which takes keyboard inputs and communicates with the associated [topics](#topic) and [actions](#actions) on the first node:
 
