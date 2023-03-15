@@ -71,6 +71,6 @@ New York based roboticist and machine learning engineer, with experience at Tesl
 
 [linkedin]: https://www.linkedin.com/in/benjaminbolte
 [google-scholar]: https://scholar.google.com/citations?user=JEXV__kAAAAJ&hl=en
-[blog-link]: {{ site.url }}
+[blog-link]: https://ben.bolte.cc/
 [github-link]: https://github.com/codekansas
-[mail-link]: mailto:{{ site.email}}
+[mail-link]: mailto:ben@bolte.cc
