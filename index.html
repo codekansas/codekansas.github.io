@@ -65,6 +65,16 @@ layout: default
   <a href="{{ paginator.previous_page_path | relative_url }}">Newer</a>
   {% endif %}
 
+  {% for page in (1..paginator.total_pages) %}
+  {% if page == paginator.page %}
+  <span class="current">{{ page }}</span>
+  {% elsif page == 1 %}
+  <a href="{{ '/' | relative_url }}">{{ page }}</a>
+  {% else %}
+  <a href="{{ '/posts/' | relative_url }}{{ page }}">{{ page }}</a>
+  {% endif %}
+  {% endfor %}
+
   {% if paginator.next_page %}
   <a href="{{ paginator.next_page_path | relative_url }}">Older</a>
   {% endif %}
