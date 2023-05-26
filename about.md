@@ -246,6 +246,8 @@ Here are some quotes that I have found interesting.
 
 > Why do people have to be this lonely? What's the point of it all? Millions of people in this world, all of them yearning, looking to others to satisfy them, yet isolating themselves. Why? Was the earth put here just to nourish human loneliness? - Haruki Murakami, Sputnik Sweetheart
 
+> Training is nothing, will is everything - the will to act. - Batman Begins
+
 > If you only read the books that everyone else is reading, you can only think what everyone else is thinking. - Haruki Murakami, and also a tote bag at the Strand
 
 > Consider it pure joy, my brothers and sisters, whenever you face trials of many kinds, because you know that the testing of your faith produces perseverance. Let perseverance finish its work so that you may be mature and complete, not lacking anything. - James 1:2-4
