@@ -21,32 +21,32 @@ Here is just the code. The network has 5 hidden neurons and learns the XOR funct
 
 Ok, let's see what's going on here.
 
-{% highlight python %}
+````python
 X = theano.shared(value=np.asarray([[1, 0], [0, 0], [0, 1], [1, 1]]), name='X')
 y = theano.shared(value=np.asarray([[1], [0], [1], [0]]), name='y')
 rng = np.random.RandomState(1234)
 LEARNING_RATE = 0.01
-{% endhighlight %}
+```
 
 Here, we're creating shared variables X and y, representing our inputs and outputs, respectively. [Shared variables][theano-shared] are like global variables in a programming language; they are shared between functions, such as the functions "train" and "test" later on. We also initialize a random number generator "rng" and define a learning rate.
 
-{% highlight python %}
+```python
 def layer(n_in, n_out):
     return theano.shared(value=np.asarray(rng.uniform(low=-1.0, high=1.0,
     	   size=(n_in, n_out)), dtype=theano.config.floatX), name='W', borrow=True)
 
 W1 = layer(2, 3)
 W2 = layer(3, 1)
-{% endhighlight %}
+```
 
 Here, we define a function which creates and returns a matrix of random numbers between -1.0 and 1.0, whose size we specify. The matrix is also a shared variable. We use this function to create the weights W1 and W2 for our network.
 
-{% highlight python %}
+```python
 output = T.nnet.sigmoid(T.dot(T.nnet.sigmoid(T.dot(X, W1)), W2))
 cost = T.sum((y - output) ** 2)
 updates = [(W1, W1 - LEARNING_RATE * T.grad(cost, W1)),
            (W2, W2 - LEARNING_RATE * T.grad(cost, W2))]
-{% endhighlight %}
+```
 
 We finally get into constructing the network. Theano usefully includes the "sigmoid" function, which is used as the network's activation function. We multiply the input vector X by the first weight matrix and apply the activation function; we then take this output and multiply it by the second weight matrix before again applying the activation function.
 
@@ -56,7 +56,7 @@ The last part, "updates", defines how we want to change our network on each upda
 
 As an aside, because of the way we defined our weight matrices, the first multiplication / activation function increases the dimensionality of the input vector to 3 dimensions. This is important for allowing the network to learn the XOR function. [This post][manifold-blog] provides some intuition about why this is the case. For many applications, however, we are more concerned with reducing the dimensionality of our input vector.
 
-{% highlight python %}
+```python
 train = theano.function(inputs=[], outputs=[], updates=updates)
 test = theano.function(inputs=[], outputs=[output])
 
@@ -66,7 +66,7 @@ for i in range(60000):
     train()
 
 print(test())
-{% endhighlight %}
+```
 
 Here, we define our "train" and "test" functions. The "train" function updates the weights according to the update rules we provided earlier, after calculating the cost function. The "test" function gives us the output of the network. We then run the network through 60000 training steps. After training, we print the output, and lo and behold, it approximates our XOR function pretty well!
 
@@ -77,3 +77,4 @@ Here, we define our "train" and "test" functions. The "train" function updates t
 [code-src]: https://github.com/codekansas/ml/blob/master/theano_stuff/two_layer.py
 [manifold-blog]: https://colah.github.io/posts/2014-03-NN-Manifolds-Topology/
 [sgd-wiki]: https://en.wikipedia.org/wiki/Stochastic_gradient_descent
+````

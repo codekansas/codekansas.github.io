@@ -13,22 +13,22 @@ This is a tracking document for some things I've found useful when writing CUDA 
 
 I found it useful to put these at the top of my Python file. `manual_seed` is for reproducability and `set_printoptions` is to make it easier to quickly identify whether or not two numbers match up.
 
-{% highlight python %}
+````python
 torch.manual_seed(seed)
 torch.set_printoptions(precision=6, sci_mode=False)
-{% endhighlight %}
+```
 
 ## CUDA Debugging
 
 [This answer](https://discuss.pytorch.org/t/whats-the-meaning-of-this-error-how-can-i-debug-when-i-use-gpu/8052/3) suggests the first step for debugging CUDA code is to enable CUDA launch blocking using this at the top of the Python file:
 
-{% highlight python %}
+```python
 os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
-{% endhighlight %}
+```
 
 However, this didn't work for a weird memory access issue I was having. This [guide](https://nanxiao.me/en/an-empirical-method-of-debugging-illegal-memory-access-bug-in-cuda-programming/) was more helpful. Actually, I had a minor improvement over that function with:
 
-{% highlight cuda %}
+```cuda
 #define CUDA_CHECK(X)                                                          \
   do {                                                                         \
     cudaError_t err = X;                                                       \
@@ -54,31 +54,31 @@ However, this didn't work for a weird memory access issue I was having. This [gu
         cudaMemcpy(cpuvec.data(), gpuvec, bytes, cudaMemcpyDeviceToHost));     \
     CUDA_CHECK(cudaFree(gpuvec));                                              \
   } while (0);
-{% endhighlight %}
+```
 
 # Math Tricks
 
 I found it to be very important to know how to divide *rounding up*. Normally integer division *rounds down*. For example, the code below will print `0, 0, 0, 0, 1, 1, 1, 1, 1, 2`.
 
-{% highlight c++ %}
+```c++
 int denominator = 5;
 for (int numerator = 1; numerator < 10; numerator++)
   printf("%d\n", numerator / denominator);
-{% endhighlight %}
+```
 
 To *round up*, you use the identity `(numerator + denominator - 1) / denominator`. The code below will print `1, 1, 1, 1, 1, 2, 2, 2, 2, 2`:
 
-{% highlight c++ %}
+```c++
 int denominator = 5;
 for (int numerator = 1; numerator < 10; numerator++)
   printf("%d\n", (numerator + denominator - 1) / denominator);
-{% endhighlight %}
+```
 
 ## C++ Definitions
 
 These are some definitions which I found useful.
 
-{% highlight c++ %}
+```c++
 // Short-hand for getting a packed accessor of a particular type.
 #define ACCESSOR(x, n, type)                                                   \
   x.packed_accessor32<type, n, torch::RestrictPtrTraits>()
@@ -112,11 +112,11 @@ These are some definitions which I found useful.
 #define CHECK_INPUT(x)                                                         \
   CHECK_CUDA(x);                                                               \
   CHECK_CONTIGUOUS(x)
-{% endhighlight %}
+```
 
 Additionally, here's a useful struct to handle CUDA streams.
 
-{% highlight c++ %}
+```c++
 template <int N> struct streams_t {
   cudaStream_t streams[N];
 
@@ -150,18 +150,18 @@ template <int N> struct streams_t {
     return streams[i];
   }
 };
-{% endhighlight %}
+```
 
 Here's a worthwhile addition to print `dim3` objects.
 
-{% highlight c++ %}
+```c++
 #include <iostream>
 
 std::ostream &operator<<(std::ostream &os, const dim3 &d) {
   os << "(" << d.x << ", " << d.y << ", " << d.z << ")";
   return os;
 }
-{% endhighlight %}
+```
 
 ## Additional Resources
 
@@ -177,3 +177,4 @@ Below are some of the resources that I found useful.
 [parallel-reduction-slides]: https://developer.download.nvidia.com/assets/cuda/files/reduction.pdf
 [rings-wiki]: https://en.wikipedia.org/wiki/Ring_(mathematics)
 [illegal-memory-access]: https://nanxiao.me/en/an-empirical-method-of-debugging-illegal-memory-access-bug-in-cuda-programming/
+````

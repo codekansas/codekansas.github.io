@@ -48,5 +48,3 @@ plugins:
   - jekyll-redirect-from
   - jekyll-katex
   - jekyll-feed
-
-incremental: true

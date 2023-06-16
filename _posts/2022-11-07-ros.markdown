@@ -7,8 +7,8 @@ excerpt: "An actually good guide to getting started with ROS 2"
 
 In this post, I'm going to provide some straight-forward pointers for getting started using ROS 2.
 
-* TOC
-{:toc}
+- TOC
+  {:toc}
 
 There's a minimal repository with the code from this post [here][blog-post-repo].
 
@@ -21,10 +21,13 @@ I recently started a new job which involves me working on the [Stretch][stretch-
 In this blog post I hope to do the following:
 
 1. Provide a simple on-boarding guide for ROS 2
-  - I'm going to be somewhat opinionated about the "right" way to do things (mostly based on my background in building other types of software) so I may leave out some alternative approaches, but I'll try to be very thorough in describing how to do things
+
+- I'm going to be somewhat opinionated about the "right" way to do things (mostly based on my background in building other types of software) so I may leave out some alternative approaches, but I'll try to be very thorough in describing how to do things
+
 2. Make a searchable reference for how to do simple things
 3. Provide some more in-depth technical explanations for how different ROS components work, and why they work that way
-  - This is more because I think it's important to understand the inner workings of things in order to debug and optimize them, but I'll try to structure the post in such a way that these parts are easy to skip over if you just want to get started building something.
+
+- This is more because I think it's important to understand the inner workings of things in order to debug and optimize them, but I'll try to structure the post in such a way that these parts are easy to skip over if you just want to get started building something.
 
 If I miss anything, please leave a comment (note that the commenting tool requires a Github account).
 
@@ -45,18 +48,18 @@ Throughout this post, I will be using [RoboStack][robostack], which is a way of 
 
 ### Create a New Conda Environment
 
-{% highlight bash %}
+````bash
 # Robostack's ROS 2 Humble channel only works with Python 3.9.
 # Galactic can work with either version.
 conda create --name ros-blog-post python=3.9
 conda activate ros-blog-post
-{% endhighlight %}
+```
 
 ### Install [Mamba][mamba]
 
-{% highlight bash %}
+```bash
 conda install -c conda-forge mamba
-{% endhighlight %}
+```
 
 Mamba is a drop-in replacement for the Conda CLI which is a lot faster and makes working with Conda packages a lot easier.
 
@@ -66,7 +69,7 @@ Mamba is a drop-in replacement for the Conda CLI which is a lot faster and makes
 
 Following the installation instructions [here][ros-2-humble-install-instructions]:
 
-{% highlight bash %}
+```bash
 # Install Humble distro.
 mamba install \
   -c robostack-humble \
@@ -81,67 +84,67 @@ mamba install \
 mamba install \
   -c robostack-experimental \
   ros-galactic-desktop
-{% endhighlight %}
+```
 
 Note that installing ROS 2 this way adds some scripts to the directory in `${CONDA_PREFIX}/etc/conda/activate.d/`. These set some environment variables which are important. In order to get these scripts to run, you have to restart your Conda environment, like so:
 
-{% highlight bash %}
+```bash
 conda deactivate
 conda activate ros-blog-post
-{% endhighlight %}
+```
 
 ### Install Colcon
 
 ROS 2 packages are built using [colcon][colcon-info], so you will need to install it as well:
 
-{% highlight bash %}
+```bash
 mamba install \
   -c conda-forge \
   colcon-core \
   colcon-common-extensions
-{% endhighlight %}
+```
 
 ### Check that Installation Succeeeded
 
 You can double-check that the installation was successful by running the dummy programs. In one terminal session, run:
 
-{% highlight bash %}
+```bash
 ros2 run demo_nodes_cpp talker
-{% endhighlight %}
+```
 
 If everything was installed correctly, you should see something like this:
 
-{% highlight text %}
+```text
 [INFO] [1667791882.591136612] [talker]: Publishing: 'Hello World: 1'
 [INFO] [1667791883.591488073] [talker]: Publishing: 'Hello World: 2'
 [INFO] [1667791884.595503927] [talker]: Publishing: 'Hello World: 3'
 [INFO] [1667791885.591661410] [talker]: Publishing: 'Hello World: 4'
 [INFO] [1667791886.593317378] [talker]: Publishing: 'Hello World: 5'
-{% endhighlight %}
+```
 
 In another terminal session, run:
 
-{% highlight bash %}
+```bash
 ros2 run demo_nodes_cpp listener
-{% endhighlight %}
+```
 
 If everything worked as expected, you should see something like this:
 
-{% highlight text %}
+```text
 [INFO] [1667791947.122910896] [listener]: I heard: [Hello World: 13]
 [INFO] [1667791948.122430228] [listener]: I heard: [Hello World: 14]
 [INFO] [1667791949.123189150] [listener]: I heard: [Hello World: 15]
 [INFO] [1667791950.119661010] [listener]: I heard: [Hello World: 16]
 [INFO] [1667791951.121229768] [listener]: I heard: [Hello World: 17]
-{% endhighlight %}
+```
 
 ## Turtlesim
 
 The introductory ROS node is [Turtlesim][turtlesim-ros-page]. To get started, simply run
 
-{% highlight bash %}
+```bash
 ros2 run turtlesim turtlesim_node
-{% endhighlight %}
+```
 
 If you are running this on your local machine, it should pop up a window that looks like this:
 
@@ -149,15 +152,15 @@ If you are running this on your local machine, it should pop up a window that lo
 
 The command above starts a new [node](#node) which manages the window. In another terminal, start another [node](#node) which takes keyboard inputs and communicates with the associated [topics](#topic) and [actions](#actions) on the first node:
 
-{% highlight bash %}
+```bash
 ros2 run turtlesim turtle_teleop_key
-{% endhighlight %}
+```
 
 You can also directly call a topic by using the command below:
 
-{% highlight bash %}
+```bash
 ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 1.0}, angular: {z: -3.1415926535}}"
-{% endhighlight %}
+```
 
 If everything is working as expected, this should make the turtle spin around in circles on your screen.
 
@@ -165,21 +168,21 @@ If everything is working as expected, this should make the turtle spin around in
 
 Let's write a new node to interact with the Turtlesim node. First, let's create a new workspace somewhere:
 
-{% highlight bash %}
+```bash
 mkdir ros-blog-post
 cd ros-blog-post
 git init .
-{% endhighlight %}
+```
 
 Next, create a new package using the command:
 
-{% highlight bash %}
+```bash
 ros2 pkg create --build-type ament_python custom_turtlesim
-{% endhighlight %}
+```
 
 If you run the `tree` command (if it's not installed, see [these instructions][tree-install-instructions]), you should get a directory structure that looks like this:
 
-{% highlight bash %}
+```bash
 $ tree
 .
 └── custom_turtlesim
@@ -194,11 +197,11 @@ $ tree
         ├── test_copyright.py
         ├── test_flake8.py
         └── test_pep257.py
-{% endhighlight %}
+```
 
 Next, create a new file in `custom_turtlesim/custom_turtlesim/controller.py` and add the following:
 
-{% highlight python %}
+```python
 import math
 from typing import List, Optional
 
@@ -247,7 +250,7 @@ def run_turtlesim_controller(args: Optional[List[str]] = None) -> None:
 
 if __name__ == "__main__":
     run_turtlesim_controller()
-{% endhighlight %}
+```
 
 ### Running the Custom Node
 
@@ -257,14 +260,14 @@ Next, let's run the node that we've written.
 
 There are two ways to run this. The simplest is to simply run the Python script directly:
 
-{% highlight bash %}
+```bash
 # Run the script.
 python custom_turtlesim/custom_turtlesim/controller.py
 
 # Run as a module.
 cd custom_turtlesim/
 python -m custom_turtlesim.controller
-{% endhighlight %}
+```
 
 This way you can do quick debugging without having to rebuild your entire package
 
@@ -274,85 +277,85 @@ When you're done debugging your controller, you can build the whole package and 
 
 Add the `run_turtlesim_controller` function as an entry point in the file `custom_turtlesim/setup.py`:
 
-{% highlight bash %}
+```bash
 entry_points={
     "console_scripts": [
         "controller = custom_turtlesim.controller:run_turtlesim_controller",
     ],
 },
-{% endhighlight %}
+```
 
 From your root `ros-blog-post/` directory, build the package by running:
 
-{% highlight bash %}
+```bash
 colcon build
-{% endhighlight %}
+```
 
 Now your directory tree should look something like this:
 
-{% highlight bash %}
+```bash
 $ tree -L 1
 .
 ├── build
 ├── custom_turtlesim
 ├── install
 └── log
-{% endhighlight %}
+```
 
 Install the newly-built package:
 
-{% highlight bash %}
+```bash
 . install/setup.bash  # If using bash
 . install/setup.zsh   # If using zsh
-{% endhighlight %}
+```
 
 Finally, you can run your service using:
 
-{% highlight bash %}
+```bash
 ros2 run custom_turtlesim controller
-{% endhighlight %}
+```
 
 You can run the auto-generated tests using
 
-{% highlight bash %}
+```bash
 colcon test
-{% endhighlight %}
+```
 
 ### Network Teleop
 
 This part will require having two machines, which I'll call the *host* and *client*. The *host* is going to be running the main Turtlesim node, while the *client* is going to run our custom controller. On the *host*, run
 
-{% highlight bash %}
+```bash
 ros2 run turtlesim turtlesim_node
-{% endhighlight %}
+```
 
 You should be able to see the standard view of the turtle. Next, in a different terminal, get the *host* hostname:
 
-{% highlight bash %}
+```bash
 ROS_HOSTNAME=$(hostname)
-{% endhighlight %}
+```
 
 <details>
 <summary>Example output</summary>
 <div>
-{% highlight bash %}
+```bash
 $ hostname
 benjamins-mini.lan
-{% endhighlight %}
+```
 </div>
 </details>
 
 Next, from the *client*, make sure you can ping the *host* hostname (note that this requires being on the same network):
 
-{% highlight bash %}
+```bash
 export ROS_HOSTNAME=<hostname-from-host>
 ping $ROS_HOSTNAME
-{% endhighlight %}
+```
 
 <details>
 <summary>Example output</summary>
 <div>
-{% highlight bash %}
+```bash
 $ export ROS_HOSTNAME=ben-computer.lan
 $ ping $ROS_HOSTNAME
 PING host-hostname (192.168.0.1): 56 data bytes
@@ -360,15 +363,15 @@ PING host-hostname (192.168.0.1): 56 data bytes
 64 bytes from 192.168.0.1: icmp_seq=1 ttl=64 time=17.090 ms
 64 bytes from 192.168.0.1: icmp_seq=2 ttl=64 time=18.387 ms
 64 bytes from 192.168.0.1: icmp_seq=3 ttl=64 time=17.272 ms
-{% endhighlight %}
+```
 </div>
 </details>
 
 If you were able to ping from the *client* to the *host* successfully, then after setting the `$ROS_HOSTNAME` environment variable, you can just run the custom node:
 
-{% highlight bash %}
+```bash
 python -m custom_turtlesim.controller
-{% endhighlight %}
+```
 
 ## Terminology
 
@@ -378,23 +381,23 @@ A *package* in ROS is a collection of code, much like a Python or C++ package.
 
 To create a new Python package:
 
-{% highlight bash %}
+```bash
 ros2 pkg create --build-type ament_python <package-name>
-{% endhighlight %}
+```
 
 To create a new C++ package:
 
-{% highlight bash %}
+```bash
 ros2 pkg create --build-type ament_cmake <package-name>
-{% endhighlight %}
+```
 
 To prepopulate with a starter [node](#node), you can add the command line argument `--node-name <node-name>`
 
 To list all currently-installed packages, run:
 
-{% highlight bash %}
+```bash
 ros2 pkg list
-{% endhighlight %}
+```
 
 ### `package.xml`
 
@@ -404,20 +407,20 @@ All ROS packages include a `package.xml` file which contains meta information ab
 
 A *node* in ROS is a process that performs some computation - basically an executable. They communicate with each other using [topics](#topic), [services](#service) and [actions](#actions). You can list *running* nodes using
 
-{% highlight bash %}
+```bash
 ros2 node list
-{% endhighlight %}
+```
 
 You can print out info about a particular running node using
 
-{% highlight bash %}
+```bash
 ros2 node info <node-name>
-{% endhighlight %}
+```
 
 <details>
 <summary>Sample output when running <code>turtlesim_node</code></summary>
 <div>
-{% highlight bash %}
+```bash
 $ ros2 node info /turtlesim
 /turtlesim
   Subscribers:
@@ -447,7 +450,7 @@ $ ros2 node info /turtlesim
   Action Servers:
     /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
   Action Clients:
-{% endhighlight %}
+```
 </div>
 </details>
 
@@ -464,36 +467,36 @@ The official documentation [here][node-official-docs] covers this pretty well. E
 
 A *topic* in ROS is a way for [nodes](#node) to send messages to each other using publish/subscribe semantics. A node will publish a topic, which can then be subscribed to by other nodes. You can list available topics using:
 
-{% highlight bash %}
+```bash
 ros2 topic list
-{% endhighlight %}
+```
 
 To show the topic type, you can use:
 
-{% highlight bash %}
+```bash
 ros2 topic list --show-types
 ros2 topic list -t  # Shorthand
-{% endhighlight %}
+```
 
 <details>
 <summary>Sample output when running <code>turtlesim_node</code></summary>
 <div>
-{% highlight bash %}
+```bash
 $ ros2 topic list --show-types
 /parameter_events [rcl_interfaces/msg/ParameterEvent]
 /rosout [rcl_interfaces/msg/Log]
 /turtle1/cmd_vel [geometry_msgs/msg/Twist]
 /turtle1/color_sensor [turtlesim/msg/Color]
 /turtle1/pose [turtlesim/msg/Pose]
-{% endhighlight %}
+```
 </div>
 </details>
 
 To send a message to a topic from the command line, you can use the command:
 
-{% highlight bash %}
+```bash
 ros2 topic pub <topic-name> <message-type>
-{% endhighlight %}
+```
 
 Some useful command-line flags:
 
@@ -503,9 +506,9 @@ Some useful command-line flags:
 <details>
 <summary>Sample call to <code>turtlesim_node</code></summary>
 <div>
-{% highlight bash %}
+```bash
 ros2 topic pub -r 0.5 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -3.1415926535}}"
-{% endhighlight %}
+```
 </div>
 </details>
 
@@ -519,14 +522,14 @@ A *message* is just a type of topic, which tells ROS what kind of data is being 
 
 A *service* in ROS is a way for [nodes](#node) to communicate with each other using call-and-response semantics. A node will send a request to another node, and receive a response in return. You can list available services using:
 
-{% highlight bash %}
+```bash
 ros2 service list
-{% endhighlight %}
+```
 
 <details>
 <summary>Sample output when running <code>turtlesim_node</code></summary>
 <div>
-{% highlight bash %}
+```bash
 $ ros2 service list
 /clear
 /kill
@@ -541,7 +544,7 @@ $ ros2 service list
 /turtlesim/list_parameters
 /turtlesim/set_parameters
 /turtlesim/set_parameters_atomically
-{% endhighlight %}
+```
 </div>
 </details>
 
@@ -559,17 +562,17 @@ A *action* in ROS has three parts:
 
 Actions are essentially [services](#service) which can be pre-empted. You can list available actions using:
 
-{% highlight bash %}
+```bash
 ros2 action list
-{% endhighlight %}
+```
 
 <details>
 <summary>Sample output when running <code>turtlesim_node</code></summary>
 <div>
-{% highlight bash %}
+```bash
 $ ros2 action list
 /turtle1/rotate_absolute
-{% endhighlight %}
+```
 </div>
 </details>
 
@@ -577,35 +580,35 @@ $ ros2 action list
 
 `ros2 run` is used to run a single executable (simply a [node](#node)). This can be invoked using:
 
-{% highlight bash %}
+```bash
 ros2 run <package-name> <node-name>
-{% endhighlight %}
+```
 
 For example, to run Turtlesim, use:
 
-{% highlight bash %}
+```bash
 ros2 run turtlesim turtlesim_node
-{% endhighlight %}
+```
 
 This will then print the logged output from the running process.
 
 Sometimes you might get an error message like this:
 
-{% highlight bash %}
+```bash
 Package '<package-name>' not found
-{% endhighlight %}
+```
 
 In this case, you can check if your package is installed by using:
 
-{% highlight bash %}
+```bash
 ros2 pkg list | grep <package-name>
-{% endhighlight %}
+```
 
 ### `launch`
 
 `ros2 launch` is used to run multiple [nodes](#node) at once, as defined by a launch file. A launch file can be written in Python, XML or YAML. For example, you can create a launch file in Python that looks like this:
 
-{% highlight python %}
+```python
 import launch_ros.actions
 from launch import LaunchDescription
 
@@ -627,29 +630,29 @@ def generate_launch_description() -> LaunchDescription:
             ),
         ]
     )
-{% endhighlight %}
+```
 
 If you save this somewhere (for example, `launch_turtlesim.py`) you can then run it using:
 
-{% highlight bash %}
+```bash
 ros2 launch launch_turtlesim.py
-{% endhighlight %}
+```
 
 In another terminal, you can then see two running Turtlesim nodes, each in their own respective namespace:
 
-{% highlight bash %}
+```bash
 $ ros2 node list
 /turtlesim1/turtlesim
 /turtlesim2/turtlesim
-{% endhighlight %}
+```
 
 ### `colcon`
 
 [Colcon][colcon-info] is the command line tool that ROS uses for building and testing. To build a Colcon project, you can run:
 
-{% highlight bash %}
+```bash
 colcon build
-{% endhighlight %}
+```
 
 This looks at each subdirectory in whichever directory you're in, checks if it is a ROS directory, and if so builds it. There are additional command-line options for choosing which subdirectories to include and ignore, such as:
 
@@ -658,16 +661,16 @@ This looks at each subdirectory in whichever directory you're in, checks if it i
 
 To run Colcon tests, you can use:
 
-{% highlight bash %}
+```bash
 colcon test
-{% endhighlight %}
+```
 
 After finishing, you can see any failures by running:
 
-{% highlight bash %}
+```bash
 colcon test-result            # To show the test result summary files
 colcon test-result --verbose  # To show all errors
-{% endhighlight %}
+```
 
 ### `ament` / `catkin`
 
@@ -753,3 +756,4 @@ Some other resources that I found helpful are listed below.
 [tree-install-instructions]: https://www.cyberciti.biz/faq/linux-show-directory-structure-command-line/
 [turtlesim-ros-page]: http://wiki.ros.org/turtlesim
 [ubuntu-ros-2-tutorial]: https://ubuntu.com/tutorials/getting-started-with-ros-2#1-overview
+````

@@ -25,7 +25,7 @@ $$\frac{2^{2^{12}}}{2^{1 + 2^{12}}} = \frac{1}{2}$$
 
 by computing the numerator and denominator, then dividing.
 
-{% highlight cpp %}
+````cpp
 #include <stdio.h>
 
 using namespace std;
@@ -38,13 +38,13 @@ int main() {
     printf("num: %e, denom: %e, result: %e\n", num, denom, num / denom);
     return 0;
 }
-{% endhighlight %}
+```
 
 We know the result should be `0.5`. However, when we run it, it prints out the following:
 
-{% highlight bash %}
+```bash
 num: inf, denom: inf, result: -nan
-{% endhighlight %}
+```
 
 ### Log-Space Operations
 
@@ -79,7 +79,7 @@ $$
 
 We can now re-write our C++ program from earlier:
 
-{% highlight cpp %}
+```cpp
 #include <stdio.h>
 #include <math.h>
 
@@ -93,13 +93,13 @@ int main() {
     printf("log(num): %e, log(denom): %e, result: %e\n", num, denom, exp(num - denom));
     return 0;
 }
-{% endhighlight %}
+```
 
 This results in the correct answer.
 
-{% highlight bash %}
+```bash
 log(num): 2.839131e+03, log(denom): 2.839824e+03, result: 5.000000e-01
-{% endhighlight %}
+```
 
 In some literature, this is known as the [log semiring][log-semiring]; in particular, ([Goodman 1999][semiring-paper]) showed how a number of common algorithms can simply be thought of as derivatives of value functions computed over different semirings (it's a really interesting mathematical paper and a great way to conceptualize CRFs and HMMs).
 
@@ -135,7 +135,7 @@ This is the heart of what we're doing. Since the log semiring is much more mathe
 
 When implementing a CRF model in PyTorch, one of the core building blocks is being able to do the `log-sum-exp` operation over pairs of matrices. Specifically, when we are building our dynamic programming tables, on each timestep `i` we multiply (in log space, add) the potentials with the states from the previous timestep `i-1`, then add (in log space, log-sum-exp) the results together to get the new state. Fortunately, in PyTorch, the `logsumexp` function has already been implemented. Here is the PyTorch version of the function we're trying to optimize, plus the code for benchmarking:
 
-{% highlight python %}
+```python
 import enum
 from typing import Any, Iterable
 
@@ -151,11 +151,11 @@ DEFAULT_NFEATS = [2, 4, 8, 16, 32, 64, 128, 256]
 
 ## For rendering the SVG text.
 plt.rcParams['svg.fonttype'] = 'none'
-{% endhighlight %}
+```
 
 Here is our simple implementation of the log-sum-exp function in PyTorch:
 
-{% highlight python %}
+```python
 def log_bmm(a: Tensor, b: Tensor) -> Tensor:
     """Performs a batch matrix-matrix product of matrices in log-space.
     Args:
@@ -174,11 +174,11 @@ def log_bmm(a: Tensor, b: Tensor) -> Tensor:
     a = a.unsqueeze(2).expand(bsz, p, n, m)
     b = b.unsqueeze(1).transpose(2, 3).expand(bsz, p, n, m)
     return torch.logsumexp(a + b, dim=-1)
-{% endhighlight %}
+```
 
 I'm a big fan of using [click][click-docs] for command line tools, rather than `argparse` - I find that it simplifies building hierarchical tools and looks nicer as code. Here's the benchmarking code:
 
-{% highlight python %}
+```python
 @click.command()
 @click.option('-n', '--nfeats', multiple=True, type=int, default=DEFAULT_NFEATS)
 @click.option('-b', '--bsz', type=int, default=8)
@@ -228,14 +228,14 @@ def main(nfeats: Iterable[int], bsz: int, num_trials: int) -> None:
     plt.semilogy()
     fig.savefig('results/mem.svg', format='svg')
 
-{% endhighlight %}
+```
 
 Lastly, at the end of the file it's important to add some boilerplate to run the script:
 
-{% highlight python %}
+```python
 if __name__ == '__main__':
     main()
-{% endhighlight %}
+```
 
 The naive implementation of this function as implemented gives us a useful baseline. Running the benchmark code above for this function gives us the following memory usage stats (note that the y-axis is log-scaled):
 
@@ -249,7 +249,7 @@ Here is the corresponding chart for the runtime:
 
 There is a very simple speed-up that we can do on the above function by preserve memory continuity. Note that the reduction part of the forward pass will take place over the last dimension, so we want to make sure the last dimension is contiguous in memory. If we remove the `transpose` part, the forward pass can be performed much faster.
 
-{% highlight python %}
+```python
 def log_bmm(a: Tensor, b: Tensor) -> Tensor:
     assert a.ndim == b.ndim == 3
     assert a.size(0) == b.size(0)
@@ -260,7 +260,7 @@ def log_bmm(a: Tensor, b: Tensor) -> Tensor:
     a = a.unsqueeze(2).expand(bsz, p, n, m)
     b = b.unsqueeze(2).expand(bsz, p, n, m)
     return torch.logsumexp(a + b, dim=-1)
-{% endhighlight %}
+```
 
 The memory usage for this function is identical to the corresponding function:
 
@@ -308,7 +308,7 @@ $$\frac{\delta L}{\delta b_{j, k}} = \sum_i \exp(a_{i, k} + b_{k, j} - o_{i, j})
 
 For the CUDA implementation below, I'm using some of the constants defined in [this post][cuda-post]. Here's the relevant headers and aliases:
 
-{% highlight cuda %}
+```cuda
 #include "defs.h"
 
 #include <cuda.h>
@@ -320,7 +320,7 @@ For the CUDA implementation below, I'm using some of the constants defined in [t
 template <typename scalar_t, int dims>
 using PackedAccessor =
     torch::PackedTensorAccessor32<scalar_t, dims, torch::RestrictPtrTraits>;
-{% endhighlight %}
+```
 
 Let's write the forward pass of the algorithm. Here are some notes about this implementation:
 
@@ -330,7 +330,7 @@ Let's write the forward pass of the algorithm. Here are some notes about this im
 
 Let's see the code:
 
-{% highlight cuda %}
+```cuda
 template <typename scalar_t>
 __global__ void logbmm_fp_kernel(const PackedAccessor<scalar_t, 3> a,
                                  const PackedAccessor<scalar_t, 3> b,
@@ -388,11 +388,11 @@ torch::Tensor forward_pass(torch::Tensor a, torch::Tensor b) {
 
   return out;
 }
-{% endhighlight %}
+```
 
 Great! Let's see what the backward pass looks like. Note that we have to backpropagate to both input tensors, so we need two kernels running in parallel streams. While there is more code, it largely uses the same general idea as the forward pass kernel.
 
-{% highlight cuda %}
+```cuda
 template <typename scalar_t>
 __global__ void logbmm_bp_kernel_a(PackedAccessor<scalar_t, 3> grad_a,
                                    const PackedAccessor<scalar_t, 3> a,
@@ -500,11 +500,11 @@ std::vector<torch::Tensor> backward_pass(torch::Tensor a, torch::Tensor b,
 
   return {grad_a, grad_b};
 }
-{% endhighlight %}
+```
 
 Lastly, we'll add some boilerplate for [pybind11][pybind11-docs] to be able to access our functions from the Python side. I think it usually makes sense to have the forward and backward passes in their own submodule, for coherence.
 
-{% highlight cuda %}
+```cuda
 void init_py(pybind11::module &m) {
   pybind11::module sub_m =
       m.def_submodule("forward_backward", "Batch log-sum-exp function");
@@ -512,11 +512,11 @@ void init_py(pybind11::module &m) {
   sub_m.def("forward_pass", &forward_pass, "Forward pass function");
   sub_m.def("backward_pass", &backward_pass, "Gradient propagation function");
 }
-{% endhighlight %}
+```
 
 There is some additional boilerplate that is missing from the above code. See [here][cuda-extension-writeup] for a complete tutorial on how to compile this CUDA kernel for your extension. The general idea for incorporating this as a PyTorch function is:
 
-{% highlight python %}
+```python
 class _LogBMM(torch.autograd.Function):
     @staticmethod
     def forward(ctx, a: Tensor, b: Tensor) -> Tensor:
@@ -535,7 +535,7 @@ class _LogBMM(torch.autograd.Function):
 
 def log_bmm(a: Tensor, b: Tensor) -> Tensor:
     return _LogBMM.apply(a, b)
-{% endhighlight %}
+```
 
 Plugging this function into our performance benchmarking script gives the following chart for memory usage:
 
@@ -555,7 +555,7 @@ There are a few things we can do to improve on this baseline CUDA implementation
 
 We can cut the number of memory accesses in the forward function in half by performing element-wise `logsumexp` instead of getting the global max. We can do that with the following function:
 
-{% highlight cuda %}
+```cuda
 template <typename scalar_t>
 __device__ scalar_t logsumexp(scalar_t a, scalar_t b) {
   const scalar_t m = max(a, b);
@@ -579,7 +579,7 @@ __global__ void logbmm_fp_kernel(const PackedAccessor<scalar_t, 3> a,
     out[n][row][col] = val;
   }
 }
-{% endhighlight %}
+```
 
 This gives the following graph for memory usage:
 
@@ -613,3 +613,4 @@ These performance boosts don't really apply for reduce operations which are rela
 [cuda-extension-writeup]: <https://pytorch.org/tutorials/advanced/cpp_extension.html>
 [click-docs]: <https://click.palletsprojects.com/en/7.x/>
 [pybind11-docs]: <https://pybind11.readthedocs.io/en/stable/basics.html>
+````

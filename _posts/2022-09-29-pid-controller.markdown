@@ -9,8 +9,8 @@ excerpt: Simple overview of what a PID controller is, how it works, and how to m
 
 I was recently trying to explain PID controllers to someone and realized that I didn't have a very good intuitive understanding of what they're useful for and how they work. When looking around the web, I had trouble finding a straightforward explainer. So in this post, I'll give (hopefully) simple answers to some basic questions that I had about PID controllers. Since this post got a bit long, here's a table of contents.
 
-* TOC
-{:toc}
+- TOC
+  {:toc}
 
 ## What is a PID controller?
 
@@ -26,15 +26,15 @@ The PID controller is a good way to decide what the input to the system should b
 
 #### 3D Printing
 
-When running a 3D printer, you want the nozzel end to be a specific temperature. You control the temperature by regulating the voltage through a hot end - higher voltage makes the temperature go up, whereas if you turn it off entirely the temperature will go down (sometimes helped by a fan next to the extruder). You likely want to change the temperature during the course of printing, and you want it to reach the target temperature as quickly as possible. Changing the voltage affects the *rate of change in temperature* rather than the temperature itself.
+When running a 3D printer, you want the nozzel end to be a specific temperature. You control the temperature by regulating the voltage through a hot end - higher voltage makes the temperature go up, whereas if you turn it off entirely the temperature will go down (sometimes helped by a fan next to the extruder). You likely want to change the temperature during the course of printing, and you want it to reach the target temperature as quickly as possible. Changing the voltage affects the _rate of change in temperature_ rather than the temperature itself.
 
 #### Vehicle Control
 
-When driving a car, you regulate the speed by controlling how much to open the throttle. Opening the throttle will cause the car to accelerate, while closing it will cause the car to decelerate. You want the car to reach some set speed as quickly as possible. Changing the throttle toggles the *acceleration* and not the *velocity*, but the variable you care about controlling is the *velocity*.
+When driving a car, you regulate the speed by controlling how much to open the throttle. Opening the throttle will cause the car to accelerate, while closing it will cause the car to decelerate. You want the car to reach some set speed as quickly as possible. Changing the throttle toggles the _acceleration_ and not the _velocity_, but the variable you care about controlling is the _velocity_.
 
 #### Medicine
 
-When giving vasopressors to a patient in a hospital, you want them to reach some target blood pressure. After injecting a particular amount, the patient's blood pressure will go up or down. Changing that amount will change the *rate of change* of their blood pressure. You want to reach the target blood pressure as quickly as possible without overshooting.
+When giving vasopressors to a patient in a hospital, you want them to reach some target blood pressure. After injecting a particular amount, the patient's blood pressure will go up or down. Changing that amount will change the _rate of change_ of their blood pressure. You want to reach the target blood pressure as quickly as possible without overshooting.
 
 ## How do PID controllers work?
 
@@ -47,7 +47,7 @@ You could write a control rule like this:
 - If the sensor measurement is too low, set the system input to "positive" (try to make the sensor measurement higher)
 - If the sensor measurement is too high, set the system input to "negative" (try to make the sensor measurement lower)
 
-However, if the system has *inertia* (in other words, a delay between the change in input and the change in output), then this control algorithm will start oscillating as you repeatedly undershoot and overshoot. Inertia can happen in lots of different ways and is common in most systems that you would actually want to control. An improvement to this could be to scale the input relative to the *error*, so that as your error gets smaller, you decrease your input.
+However, if the system has _inertia_ (in other words, a delay between the change in input and the change in output), then this control algorithm will start oscillating as you repeatedly undershoot and overshoot. Inertia can happen in lots of different ways and is common in most systems that you would actually want to control. An improvement to this could be to scale the input relative to the _error_, so that as your error gets smaller, you decrease your input.
 
 $$
 \begin{aligned}
@@ -96,15 +96,14 @@ Here's a simple program to simulate a 3D printer nozzel. Note that the heater si
 <details>
 <summary>Heater simulation simple controller Python code</summary>
 <div>
-{% highlight python %}
+```python
 import argparse
 
 import matplotlib.pyplot as plt
 
-
 class SimpleController:
-    def __init__(self, trg_temp: float, kp: float, v_offset: float) -> None:
-        """Initializes a simple controller.
+def **init**(self, trg_temp: float, kp: float, v_offset: float) -> None:
+"""Initializes a simple controller.
 
         Args:
             trg_temp: The target temperature
@@ -129,20 +128,19 @@ class SimpleController:
         error = self.trg_temp - temperature
         return self.kp * error + self.v_offset
 
-
 class HeaterSimulator:
-    def __init__(
-        self,
-        dt: float,
-        amb_temp: float,
-        min_voltage: float,
-        max_voltage: float,
-        heat_coeff: float,
-        area: float,
-        voltage_coeff: float,
-        inertia: float,
-    ) -> None:
-        """Initializes the heater simulator.
+def **init**(
+self,
+dt: float,
+amb_temp: float,
+min_voltage: float,
+max_voltage: float,
+heat_coeff: float,
+area: float,
+voltage_coeff: float,
+inertia: float,
+) -> None:
+"""Initializes the heater simulator.
 
         Args:
             dt: The timestep size, in seconds
@@ -184,22 +182,21 @@ class HeaterSimulator:
         self.dtemp = self.inertia * self.dtemp + (1 - self.inertia) * trg_dtemp
         self.temperature += self.dtemp * self.dt
 
-
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Heater PID simulation")
-    parser.add_argument("--kp", type=float, nargs="+", required=True, help="P scale")
-    parser.add_argument("--dt", type=float, default=0.01, help="Timestep size")
-    parser.add_argument("--total-steps", type=int, default=10000, help="Number of simulation steps")
-    parser.add_argument("--amb-temp", type=float, default=20.0, help="Ambient temperature")
-    parser.add_argument("--trg-temp", type=float, default=210.0, help="Target temperature")
-    parser.add_argument("--v-offset", type=float, default=3.0, help="Offset voltage")
-    parser.add_argument("--min-voltage", type=float, default=0.0, help="Minimum voltage")
-    parser.add_argument("--max-voltage", type=float, default=24.0, help="Maximum voltage")
-    parser.add_argument("--area", type=float, default=1e-4, help="Surface area of the heater")
-    parser.add_argument("--heat-coeff", type=float, default=100.0, help="Heat transfer coefficient")
-    parser.add_argument("--voltage-coeff", type=float, default=1.0, help="Voltage coefficient")
-    parser.add_argument("--inertia", type=float, default=0.99, help="System inertia")
-    args = parser.parse_args()
+parser = argparse.ArgumentParser(description="Heater PID simulation")
+parser.add_argument("--kp", type=float, nargs="+", required=True, help="P scale")
+parser.add_argument("--dt", type=float, default=0.01, help="Timestep size")
+parser.add_argument("--total-steps", type=int, default=10000, help="Number of simulation steps")
+parser.add_argument("--amb-temp", type=float, default=20.0, help="Ambient temperature")
+parser.add_argument("--trg-temp", type=float, default=210.0, help="Target temperature")
+parser.add_argument("--v-offset", type=float, default=3.0, help="Offset voltage")
+parser.add_argument("--min-voltage", type=float, default=0.0, help="Minimum voltage")
+parser.add_argument("--max-voltage", type=float, default=24.0, help="Maximum voltage")
+parser.add_argument("--area", type=float, default=1e-4, help="Surface area of the heater")
+parser.add_argument("--heat-coeff", type=float, default=100.0, help="Heat transfer coefficient")
+parser.add_argument("--voltage-coeff", type=float, default=1.0, help="Voltage coefficient")
+parser.add_argument("--inertia", type=float, default=0.99, help="System inertia")
+args = parser.parse_args()
 
     # Plots the simulated temperatures.
     plt.figure()
@@ -249,17 +246,18 @@ def main() -> None:
     plt.legend()
     plt.show()
 
+if **name** == "**main**":
+main()
 
-if __name__ == "__main__":
-    main()
-{% endhighlight %}
+````
+
 </div>
 </details>
 
 <details>
 <summary>Just the simple controller</summary>
 <div>
-{% highlight python %}
+```python
 class SimpleController:
     def __init__(self, trg_temp: float, kp: float, v_offset: float) -> None:
         """Initializes a simple controller.
@@ -286,15 +284,17 @@ class SimpleController:
 
         error = self.trg_temp - temperature
         return self.kp * error + self.v_offset
-{% endhighlight %}
+
+````
+
 </div>
 </details>
 
 We can run this script using:
 
-{% highlight bash %}
+````bash
 python simulator.py --kp 0.05 0.1 0.2 0.4 0.8
-{% endhighlight %}
+```
 
 You can try running this script yourself to see how playing with different parts of the system affect the temperature curves. In particular, `--v-offset` and `--inertia` are interesting parameters to play with.
 
@@ -360,7 +360,7 @@ A Python implementation for this controller can be found below.
 <details>
 <summary>Heater simulation PID controller Python code</summary>
 <div>
-{% highlight python %}
+```python
 import argparse
 import itertools
 from typing import Optional
@@ -554,14 +554,14 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-{% endhighlight %}
+```
 </div>
 </details>
 
 <details>
 <summary>Just the PID controller</summary>
 <div>
-{% highlight python %}
+```python
 class PIDController:
     def __init__(
         self,
@@ -619,7 +619,7 @@ class PIDController:
         d_term = self.kd * delta_error
 
         return p_term + i_term + d_term + self.v_offset
-{% endhighlight %}
+```
 </div>
 </details>
 
@@ -661,7 +661,7 @@ I've included a script which can be used for sweeping different PID configuratio
 <details>
 <summary>PID configuration sweep script</summary>
 <div>
-{% highlight python %}
+```python
 import argparse
 import itertools
 from typing import List, Optional, Tuple
@@ -878,14 +878,14 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-{% endhighlight %}
+```
 </div>
 </details>
 
 <details>
 <summary>Just the error measurement</summary>
 <div>
-{% highlight python %}
+```python
 def error_func(error: float) -> float:
     return error if error > 0 else error**2
 
@@ -921,15 +921,15 @@ def get_error(kp: float, ki: float, kd: float) -> float:
         total_error += error_func(error) * args.dt
 
     return total_error
-{% endhighlight %}
+```
 </div>
 </details>
 
 The script can be run, for example, using the command below:
 
-{% highlight bash %}
+```bash
 python sweep.py --kp 0.0 3.0 --ki 0.0 --kd 0.0 10.0 50.0 100.0 --plot kp
-{% endhighlight %}
+```
 
 Running this command gives the following plot of the error curves generated when varying $K_p$ for different values of $K_d$:
 
@@ -943,9 +943,9 @@ Now that we've looked at a few different configurations, we can just choose the 
 
 We can plot the associated temperature curve using the command below:
 
-{% highlight bash %}
+```bash
 python printer.py --kp 1.65 --ki 0.0 --kd 100.0
-{% endhighlight %}
+```
 
 It looks reasonable, and definitely better than our original curve.
 
@@ -954,3 +954,4 @@ It looks reasonable, and definitely better than our original curve.
 We can do a much more careful job and get a better curve, but this is pretty reasonable for our toy problem. In fact, for the default parameters, we can just make $K_p$ and $K_d$ really large and get very close to an ideal curve. It's kind of fun to play around with different values for `--heat-coeff`, `--voltage-coeff` and `--inertia` to see how that changes the ideal PID parameters.
 
 {% endkatexmm %}
+````

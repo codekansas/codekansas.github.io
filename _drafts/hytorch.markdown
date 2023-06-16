@@ -26,14 +26,14 @@ However, TorchScript can be quite restrictive, if not extremely unwieldy, for ha
 4. Compile the model with the custom compiler
 5. Run it in a completely LibTorch-free environment
 
-While this certainly won't be *production-quality*, I think it will illustrate some interesting ideas about functional programming and neural network compilation.
+While this certainly won't be _production-quality_, I think it will illustrate some interesting ideas about functional programming and neural network compilation.
 
 ## How do you compile a neural network?
 
 When I sat down to write this, my understanding of compilers was pretty much limited to a course I took in college on the subject. For the first class project, we wrote a LISP compiler in LISP. It was a pretty fun challenge, based on the fact that LISP can easily inspect itself. As my professor described it, LISP is essentially as if someone took an [Abstract Syntax Tree][ast-wiki] and made it into a programming language. There is a reason it's the [second-oldest][lisp-wiki] programming language - the rest of compiler theory is basically just applied LISP!
 
 ![LISP][xkcd-lisp-comic]
-*As a student who learned computer science in the post-Python era I didn't understand this comic until I took a compilers class, but I still found it funny. ([Reference][xkcd-lisp-comic-reference])*
+_As a student who learned computer science in the post-Python era I didn't understand this comic until I took a compilers class, but I still found it funny. ([Reference][xkcd-lisp-comic-reference])_
 
 I decided to use this as a jumping off point. When I've worked on neural network compilation in other projects, it typically starts at some level which is defined by existing, moderately-esoteric tools, and I wanted to see if I could start totally from scratch. And anyway, coming up with a good representation for neural networks is far from being a solved problem. Here are a few example representations that different organizations have implemented:
 
@@ -75,7 +75,7 @@ However, this mode is more difficult to implement, and probably more bug-prone, 
 
 To demonstrate the difference in functionality between the above two compilation modes, suppose we want to train a simple recurrent neural network. As input, we'll take a length `N` list of tensors, and as output we want the last tensor.
 
-{% highlight python %}
+````python
 class TestModel(nn.Module):
     def __init__(self, input_dim: int, hidden_dim: int) -> None:
         super().__init__()
@@ -89,22 +89,22 @@ class TestModel(nn.Module):
         for x in inputs:
             hid = torch.sigmoid(self.hid_to_hid(hid) + self.in_to_hid(x))
         return hid
-{% endhighlight %}
+```
 
 We can test that this model is working as expected by writing some boilerplate code:
 
-{% highlight python %}
+```python
 batch_dim, input_dim, hidden_dim, num_steps = 4, 16, 32, 10
 input_shape = (batch_dim, input_dim)
 model = TestModel(input_dim, hidden_dim)
 test_inputs = [torch.randn(*input_shape) for _ in range(num_steps)]
 test_output = model(test_inputs)
 assert test_output.shape == (batch_dim, hidden_dim)
-{% endhighlight %}
+```
 
 Let's run this model through the tracing and scripting compilation process.
 
-{% highlight python %}
+```python
 traced_model = torch.jit.trace(model, (test_inputs,))
 test_traced_output = traced_model(test_inputs)
 assert test_traced_output.shape == (batch_dim, hidden_dim)
@@ -114,11 +114,11 @@ test_scripted_output = scripted_model(test_inputs)
 assert test_scripted_output.shape == (batch_dim, hidden_dim)
 
 assert (test_traced_output == test_scripted_output).all()
-{% endhighlight %}
+```
 
 As we can see from the final check, the two compiled models are performing the exact same computations, at least when we pass them both the expected inputs. However, there is a huge difference in what they look like under the hood. Here is what the **scripted** model looks like:
 
-{% highlight python %}
+```python
 # print(scripted_model.code)
 
 def forward(self,
@@ -130,11 +130,11 @@ def forward(self,
     _1 = torch.add((self.hid_to_hid).forward(hid0, ), (self.in_to_hid).forward(x, ))
     hid0 = torch.sigmoid(_1)
   return hid0
-{% endhighlight %}
+```
 
 And here is what the **traced** model looks like:
 
-{% highlight python %}
+```python
 # print(traced_model.code)
 
 def forward(self,
@@ -165,21 +165,21 @@ def forward(self,
   input18 = torch.sigmoid(_12)
   _13 = torch.add((_1).forward9(input18, ), (_0).forward9(input8, ))
   return torch.sigmoid(_13)
-{% endhighlight %}
+```
 
 We can illustrate illustrate the weaknesses of the traced model by passing it a different size list as input. The scripted model handles the new inputs without any issues:
 
-{% highlight python %}
+```python
 new_test_inputs = [torch.randn(*input_shape) for _ in range(num_steps - 1)]
 new_test_scripted_output = scripted_model(new_test_inputs)
 assert new_test_scripted_output.shape == test_scripted_output.shape
-{% endhighlight %}
+```
 
 However, when we pass the same inputs to the traced model:
 
-{% highlight python %}
+```python
 new_test_traced_output = traced_model(new_test_inputs)
-{% endhighlight %}
+```
 
 We get `RuntimeError: Expected 10 elements in a list but found 9`
 
@@ -187,7 +187,7 @@ We get `RuntimeError: Expected 10 elements in a list but found 9`
 
 For the purposes of this blob post, I'm going to tackle the simplest neural network task around, [MNIST][mnist-yann-lecun-website]. Specifically, I'll be referencing the [example model][mnist-pytorch] from the PyTorch repo. For reference, here is what that model looks like (per their implementation):
 
-{% highlight python %}
+```python
 import torch.nn as nn
 import torch.nn.functional as F
 
@@ -215,11 +215,11 @@ class Net(nn.Module):
         x = self.fc2(x)
         output = F.log_softmax(x, dim=1)
         return output
-{% endhighlight %}
+```
 
 To implement this model in a functional programming language, I'm going to use the [Hy][hylang-docs] language, which, per their website, is "a Lisp dialect that's embedded in Python". I'm not going to go in to the details of the language syntax (although I highly recommend browsing the [Hy API][hylang-api]). Here is my parallel implementation of the above model in Hy (using the `->` [threading macro][hy-threading-macro]):
 
-{% highlight hy %}
+```hy
 (import [torch [nn Tensor]] [torch.nn [functional :as F]])
 
 ; Defines a simple two-layer neural network.
@@ -246,11 +246,11 @@ To implement this model in a functional programming language, I'm going to use t
             (self.dropout2)
             (self.fc2)
             (F.log_softmax :dim 1))))
-{% endhighlight %}
+```
 
 We can verify that it is, in fact, a parallel implementation by running the useful `hy2py` command to generate Python code:
 
-{% highlight python %}
+```python
 import hy
 from torch import nn, Tensor
 from torch.nn import functional as F
@@ -271,7 +271,7 @@ class Net(nn.Module):
         return F.log_softmax(self.fc2(self.dropout2(F.relu(self.fc1(torch.
             flatten(self.dropout1(F.max_pool2d(F.relu(self.conv2(F.relu(
             self.conv1(x)))), 2)), 1))))), dim=1)
-{% endhighlight %}
+```
 
 There's some notable differences between the generated Python code and the original implementation (namely that I've added types to the `forward` function, and the use of the placeholder `x` variable is gone), but it is functionally identical, which is the best kind of identical.
 
@@ -297,3 +297,4 @@ There's some notable differences between the generated Python code and the origi
 [torchscript]: https://pytorch.org/docs/stable/jit.html
 [make-your-own-accelerator-chip]: https://towardsdatascience.com/how-to-make-your-own-deep-learning-accelerator-chip-1ff69b78ece4
 [tensor-rt-api]: https://docs.nvidia.com/deeplearning/tensorrt/api/python_api/
+````

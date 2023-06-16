@@ -11,9 +11,11 @@ Lately I've found myself spending a lot of time messing around with the [RWKV mo
 
 In this post, I write out the equations for the core WKV part of the RWKV model, and derive two numerically stable versions - one following the official implementation, another by transforming the state variables to log space - and provide implementations for each in PyTorch. Additionally, I derive the gradients for the log-space version, and provide Triton kernels for training a numerically-stable RWKV model.
 
+{% katexmm %}
+
 ## Math
 
-{% katexmm %}
+> This section covers the basic math concepts for the WKV operator. If you're already familiar with the math, you can skip to the [PyTorch implementation](#pytorch-implementation) or the [next section](#numerical-stability), which extends the vanilla computation to be numerically stable. Additionally, the gradients for this computation are derived in a [further section](#gradients).
 
 The main "attention" component in the RWKV model is the WKV computation. The equation for this is:
 
@@ -40,37 +42,20 @@ $$\text{wkv}_i = \frac{ e^{u+k_i} v_i + \alpha_{i - 1} }{ e^{u+k_i} + \beta_{i -
 
 A pure-PyTorch implementation of the above WKV computation is below:
 
-{% highlight python %}
-def wkv_vanilla(
-    w: Tensor,
-    u: Tensor,
-    k: Tensor,
-    v: Tensor,
-    alpha: Tensor,
-    beta: Tensor,
-) -> tuple[Tensor, Tensor, Tensor]:
-    """Runs the core WKV computation.
+```python
+def wkv_vanilla_forward(w: Tensor, u: Tensor, k: Tensor, v: Tensor, state: Tensor) -> tuple[Tensor, Tensor]:
+    bsz, tsz, chans = k.shape
+    assert w.shape == u.shape == (chans,)
+    assert v.shape == (bsz, tsz, chans)
+    assert state.shape == (bsz, 2, 1, chans)
 
-    Args:
-        w: The decay tensor, with shape (D)
-        u: The output multiplier tensor, with shape (D)
-        k: The K tensor, with shape (B, T, D)
-        v: The V tensor, with shape (B, T, D)
-        alpha: The last numerator, with shape (B, 1, D)
-        beta: The last denominator, with shape (B, 1, D)
+    alpha, beta = state[:, :, -1].chunk(2, dim=1)  # (B, 1, D), (B, 1, D)
 
-    Returns:
-        The WKV tensor, with shape (B, T, D), and the next alpha and beta
-        tensors, each with shape (B, 1, D)
-    """
-    assert w.dim() == u.dim() == 1
-    assert k.dim() == v.dim() == alpha.dim() == beta.dim() == 3
-
-    _, tsz, _ = k.shape
-
-    ew = torch.exp(-torch.exp(w))
+    ew = torch.exp(w)
 
     wkvs = []
+    alphas = [alpha]
+    betas = [beta]
 
     for t in range(tsz):
         kt, vt = k[:, t : t + 1], v[:, t : t + 1]
@@ -82,10 +67,18 @@ def wkv_vanilla(
         alpha = ew * alpha + ek * vt
         beta = ew * beta + ek
 
-    return torch.cat(wkvs, 1), alpha, beta
-{% endhighlight %}
+        alphas.append(alpha)
+        betas.append(beta)
+
+    alpha = torch.stack(alphas, dim=2)
+    beta = torch.stack(betas, dim=2)
+
+    return torch.cat(wkvs, 1), torch.cat((alpha, beta), dim=1)
+```
 
 ## Numerical Stability
+
+> This section extends the vanilla WKV computation discussed [above](#math) to be numerically stable by adding a scaling factor to the exponent. The [PyTorch implementation](#pytorch-implementation-1) might be easier for some readers to follow. The variable names in the code follow the same convention as the math equations. This section explains the numerical stability approach used in the official implementation. The [next section](#log-space-operations) explains an alternative approach that uses log-space state variables to achieve numerical stability instead.
 
 With traditional RNNs, there's a common problem of exploding or vanishing gradients, if the determinant of Jacobian of the hidden state variable is not close to 1. This is because, for long sequences, the same matrix is applied many times, exacerbating any deviation from 1.
 
@@ -94,9 +87,11 @@ With the RWKV model, we avoid the vanishing gradients problem by using additive 
 $$
 \begin{aligned}
 \alpha_i' & = e^{-\epsilon_i} \alpha_i \\
-& = e^{w-\epsilon_i} \alpha_{i-1}' + e^{k_i-\epsilon_i} v_i \\[1em]
+& = e^{w - \epsilon_i} \alpha_{i - 1} + e^{k_i - \epsilon_i} v_i \\
+& = e^{w + \epsilon_{i - 1} - \epsilon_i} \alpha_{i - 1}' + e^{k_i - \epsilon_i} v_i \\[1em]
 \beta_i' & = e^{-\epsilon_i} \beta_i \\
-& = e^{w-\epsilon_i} \beta_{i - 1}' + e^{k_i-\epsilon_i} \\
+& = e^{w - \epsilon_i} \beta_{i - 1} + e^{k_i - \epsilon_i} \\
+& = e^{w + \epsilon_{i - 1} - \epsilon_i} \beta_{i - 1}' + e^{k_i - \epsilon_i} \\
 \end{aligned}
 $$
 
@@ -113,11 +108,11 @@ We can add an additional scaling factor $\tau_i$ and multiply by $\frac{e^{-\tau
 
 $$\text{wkv}_i = \frac{ e^{u+k_i-\tau_i} v_i + e^{\epsilon_{i - 1}-\tau_i}\alpha_{i - 1}' }{ e^{u+k_i-\tau_i} + e^{\epsilon_{i - 1}-\tau_i}\beta_{i - 1}' }$$
 
-The value of $\epsilon_i$ is arbitrary, and since we want to keep $e^{w-\epsilon_i}$ and $e^{k_i-\epsilon_i}$ less than 1 to prevent it growing really large, we can set it as:
+The value of $\epsilon_i$ is arbitrary, and since we want to keep $e^{w + \epsilon_{i - 1} - \epsilon_i}$ and $e^{k_i - \epsilon_i}$ less than 1 to prevent it growing really large, we can set it as:
 
-$$\epsilon_i = \max(w, k_i)$$
+$$\epsilon_{i} = \max(w + \epsilon_{i - 1}, k_i)$$
 
-Then we can set $\tau_i$ as:
+Then, to keep $e^{u + k_i - \tau_i}$ and $e^{\epsilon_{i - 1} - \tau_i}$ less than 1, we can set $\tau_i$ as:
 
 $$\tau_i = \max(u + k_i, \epsilon_{i - 1})$$
 
@@ -133,39 +128,20 @@ $\alpha_i'$ and $\beta_i'$ are accumulated over time, while $\epsilon_i$ is just
 
 The PyTorch implementation of the more stable form of the WKV computation follows fairly directly from the equations above.
 
-{% highlight python %}
-def wkv_stable(
-    w: Tensor,
-    u: Tensor,
-    k: Tensor,
-    v: Tensor,
-    alpha: Tensor,
-    beta: Tensor,
-    eps: Tensor,
-) -> tuple[Tensor, Tensor, Tensor]:
-    """Runs the core WKV computation.
-
-    Args:
-        w: The decay tensor, with shape (D)
-        u: The output multiplier tensor, with shape (D)
-        k: The K tensor, with shape (B, T, D)
-        v: The V tensor, with shape (B, T, D)
-        alpha: The last numerator, with shape (B, 1, D)
-        beta: The last denominator, with shape (B, 1, D)
-        eps: The epsilon tensor, with shape (B, 1, D)
-
-    Returns:
-        The WKV tensor, with shape (B, T, D), and the next alpha, beta and
-        epsilon tensors, each with shape (B, 1, D)
-    """
+```python
+def wkv_with_eps_forward(w: Tensor, u: Tensor, k: Tensor, v: Tensor, state: Tensor) -> tuple[Tensor, Tensor]:
     assert w.dim() == u.dim() == 1
-    assert k.dim() == v.dim() == alpha.dim() == beta.dim() == 3
+    assert k.dim() == v.dim() == 3
+    assert state.dim() == 4
+
+    alpha, beta, eps = state[:, :, -1].chunk(3, dim=1)  # (B, 1, D), (B, 1, D), (B, 1, D)
 
     _, tsz, _ = k.shape
 
-    w = -torch.exp(w)  # (D)
-
     wkvs = []
+    alphas = [alpha]
+    betas = [beta]
+    epss = [eps]
 
     for t in range(tsz):
         kt, vt = k[:, t : t + 1], v[:, t : t + 1]
@@ -176,16 +152,27 @@ def wkv_stable(
         wkv = (e1 * alpha + e2 * vt) / (e1 * beta + e2)
         wkvs.append(wkv)
 
-        eps = torch.maximum(w, kt)
-        e1 = torch.exp(w - eps)
+        ww = eps + w
+        eps = torch.maximum(ww, kt)
+        e1 = torch.exp(ww - eps)
         e2 = torch.exp(kt - eps)
         alpha = e1 * alpha + e2 * vt
         beta = e1 * beta + e2
 
-    return torch.cat(wkvs, 1), alpha, beta, eps
-{% endhighlight %}
+        alphas.append(alpha)
+        betas.append(beta)
+        epss.append(eps)
+
+    alpha = torch.stack(alphas, dim=2)
+    beta = torch.stack(betas, dim=2)
+    eps = torch.stack(epss, dim=2)
+
+    return torch.cat(wkvs, 1), torch.cat((alpha, beta, eps), dim=1)
+```
 
 ## Log-Space Operations
+
+> This section provides an alternative approach to achieving numerical stability in the WKV computation to the approach described [above](#numerical-stability), by using log-space operations. This approach should be familiar to anyone who has dealt with log-domain Viterbi algorithms or graphical models, and is included here mainly as a point of comparison with the approach described above. For readers who are more comfortable reading code than equations, you can skip directly to the [PyTorch implementation](#pytorch-implementation-2).
 
 The prevalence of exponentials in the WKV computation suggests that it might be a good idea to perform some operations in log-space. For example, if we consider the vanilla $\alpha_i$ and $\beta_i$ equations:
 
@@ -285,43 +272,28 @@ Note that while we no longer need to use $\epsilon_i$ as a state variable, we no
 
 We can implement the above equations in PyTorch as follows:
 
-{% highlight python %}
-def wkv_log_space(
+```python
+def wkv_log_space_forward(
     w: Tensor,
     u: Tensor,
     k: Tensor,
     v: Tensor,
-    log_alpha_plus: Tensor,
-    log_alpha_minus: Tensor,
-    log_beta: Tensor,
-) -> tuple[Tensor, Tensor, Tensor, Tensor]:
-    """Runs the core WKV computation.
-
-    Args:
-        w: The decay tensor, with shape (D)
-        u: The output multiplier tensor, with shape (D)
-        k: The K tensor, with shape (B, T, D)
-        v: The V tensor, with shape (B, T, D)
-        log_alpha_plus: The last positive numerator part, with shape (B, 1, D)
-        log_alpha_minus: The last negative numerator part, with shape (B, 1, D)
-        log_beta: The last denominator, with shape (B, 1, D)
-
-    Returns:
-        The WKV tensor, with shape (B, T, D), and the next alpha plus, alpha
-        minus and beta tensors, each with shape (B, 1, D)
-    """
+    state: Tensor,
+    eps: float = 1e-5,
+) -> tuple[Tensor, Tensor]:
     assert w.dim() == u.dim() == 1
-    assert k.dim() == v.dim() == log_alpha_plus.dim() == log_alpha_minus.dim() == log_beta.dim() == 3
+    assert k.dim() == v.dim() == state.dim()
+
+    log_alpha_plus, log_alpha_minus, log_beta = state.chunk(3, dim=1)
 
     _, tsz, _ = k.shape
 
-    w = -torch.exp(w)  # (D)
     wkvs = []
 
     for t in range(tsz):
         kt, vt = k[:, t : t + 1], v[:, t : t + 1]
-        v_plus = torch.clamp(vt, min=0) + 1e-9
-        v_minus = torch.clamp(-vt, min=0) + 1e-9
+        v_plus = torch.clamp(vt, min=0) + eps
+        v_minus = torch.clamp(-vt, min=0) + eps
         log_v_plus = torch.log(v_plus)
         log_v_minus = torch.log(v_minus)
 
@@ -335,10 +307,12 @@ def wkv_log_space(
         log_alpha_minus = torch.logaddexp(w + log_alpha_minus, kt + log_v_minus)
         log_beta = torch.logaddexp(w + log_beta, kt)
 
-    return torch.cat(wkvs, 1), log_alpha_plus, log_alpha_minus, log_beta
-{% endhighlight %}
+    return torch.cat(wkvs, 1), torch.cat((log_alpha_plus, log_alpha_minus, log_beta), dim=1)
+```
 
 ## Gradients
+
+> This section implements a manual backward pass for the vanilla WKV computation [described above](#math), first derived from the equations above, then implemented in PyTorch.
 
 When we are actually implementing this in PyTorch, we will want to write an optimized kernel for performing the WKV computation. The downside is that it means we can't use autograd to compute the gradients for us, so we need to derive equations for the gradients.
 
@@ -356,7 +330,7 @@ $$
 & = \frac{ e^{u + k_i} (\beta_{i - 1} v_i - \alpha_{i - 1})}{(\beta_{i - 1} + e^{u + k_i})^2} \\[1.5em]
 \frac{\partial \text{wkv}_i}{\partial v_i} & = \frac{ e^{u + k_i}}{e^{u + k_i} + \beta_{i-1}} \\[1.5em]
 \frac{\partial \text{wkv}_i}{\partial \alpha_{i-1}} & = \frac{1}{e^{u + k_i} + \beta_{i-1}} \\[1.5em]
-\frac{\partial \text{wkv}_i}{\partial \beta_{i-1}} & = -\frac{v e^{u + k_i} + \alpha_{i-1}}{(e^{u + k_i})^2 + \beta_{i-1}} \\
+\frac{\partial \text{wkv}_i}{\partial \beta_{i-1}} & = -\frac{v e^{u + k_i} + \alpha_{i-1}}{(e^{u + k_i} + \beta_{i-1})^2} \\
 \end{aligned}
 $$
 
@@ -388,7 +362,69 @@ $$
 \frac{\partial \beta_i}{\partial \beta_{i-1}} = e^{w}
 $$
 
-### Log-Space Gradients
+### PyTorch Implementation
+
+We can manually implement the above equations in PyTorch. This implementation is more academic than practical, since it's a straightforward function to implement as a CUDA or Triton kernel, but sometimes it is easier to read code than equations (also, and perhaps more importantly, it lets us write unit tests to make sure the equations are correct).
+
+```python
+def wkv_vanilla_backward(
+    w: Tensor,
+    u: Tensor,
+    k: Tensor,
+    v: Tensor,
+    state: Tensor,
+    grad_wkv: Tensor,
+    grad_state: Tensor,
+) -> tuple[Tensor, Tensor, Tensor, Tensor, Tensor]:
+    bsz, tsz, chans = k.shape
+    assert w.shape == u.shape == (chans,)
+    assert v.shape == (bsz, tsz, chans)
+    assert state.shape == (bsz, 2, tsz + 1, chans)
+    assert grad_wkv.shape == (bsz, tsz, chans)
+    assert grad_state.shape == (bsz, 2, 1, chans)
+
+    alpha, beta = state.chunk(2, dim=1)  # (B, 1, T + 1, D), (B, 1, T + 1, D)
+    grad_alpha, grad_beta = grad_state[:, :, 0].chunk(2, dim=1)  # (B, 1, D), (B, 1, D)
+
+    ew = torch.exp(w)
+
+    grad_w = torch.zeros_like(w)
+    grad_u = torch.zeros_like(u)
+    grad_k = torch.zeros_like(k)
+    grad_v = torch.zeros_like(v)
+
+    for t in reversed(range(tsz)):
+        kt, vt = k[:, t : t + 1], v[:, t : t + 1]
+        euk = torch.exp(u + kt)
+        ek = torch.exp(kt)
+
+        alpha_prev, beta_prev = alpha[:, :, t], beta[:, :, t]
+
+        grad_wkvt = grad_wkv[:, t : t + 1]
+
+        # Backpropagates wkv gradients.
+        grad_uk = grad_wkvt * euk * (beta_prev * vt - alpha_prev) / (beta_prev + euk) ** 2
+        grad_u += grad_uk.flatten(0, -2).sum(0)
+        grad_k[:, t : t + 1] += grad_uk
+        grad_v[:, t : t + 1] += grad_wkvt * euk / (beta_prev + euk)
+
+        # Backpropagate alpha gradients.
+        grad_w += (grad_alpha * ew * alpha_prev).flatten(0, -2).sum(0)
+        grad_k[:, t : t + 1] += grad_alpha * ek * vt
+        grad_v[:, t : t + 1] += grad_alpha * ek
+
+        # Backpropagate beta gradients.
+        grad_w += (grad_beta * ew * beta_prev).flatten(0, -2).sum(0)
+        grad_k[:, t : t + 1] += grad_beta * ek
+
+        # Compute gradients for alpha and beta.
+        grad_alpha = grad_alpha * ew + grad_wkvt / (beta_prev + euk)
+        grad_beta = grad_beta * ew - grad_wkvt * (euk * vt + alpha_prev) / (beta_prev + euk) ** 2
+
+    return grad_w, grad_u, grad_k, grad_v, torch.stack((grad_alpha, grad_beta), dim=1)
+```
+
+## Log-Space Gradients
 
 In our log-space implementation of the WKV computation, we have:
 

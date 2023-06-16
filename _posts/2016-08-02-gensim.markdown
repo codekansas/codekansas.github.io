@@ -21,18 +21,18 @@ This will be a quick post about using Gensim's Word2Vec embeddings in Keras. Thi
 
 Usually `pip install ...` works if you don't already have Keras or Gensim.
 
-{% highlight bash %}
+````bash
 sudo pip install Theano
 sudo pip install keras
 sudo pip install --ignore-installed gensim
-{% endhighlight %}
+```
 
 ## Tokenizing
 
-{% highlight python %}
+```python
 from gensim.utils import simple_preprocess
 tokenize = lambda x: simple_preprocess(x)
-{% endhighlight %}
+```
 
 > In lexical analysis, tokenization is the process of breaking a stream of text up into words, phrases, symbols, or other meaningful elements called tokens. -Wikipedia
 
@@ -40,7 +40,7 @@ We want to tokenize each string to get a list of words, usually by making everyt
 
 ## Create Embeddings
 
-{% highlight python %}
+```python
 import os
 import json
 import numpy as np
@@ -65,7 +65,7 @@ def create_embeddings(data_dir, embeddings_path, vocab_path, **params):
     vocab = dict([(k, v.index) for k, v in model.vocab.items()])
     with open(vocab_path, 'w') as f:
         f.write(json.dumps(vocab))
-{% endhighlight %}
+```
 
 We first create a `SentenceGenerator` class which will generate our text line-by-line, tokenized. This generator is passed to the Gensim Word2Vec model, which takes care of the training in the background. We can pass parameters through the function to the model as keyword `**params`.
 
@@ -75,7 +75,7 @@ The `syn0` weight matrix in Gensim corresponds exactly to weights of the `Embedd
 
 ## Loading Vocabulary
 
-{% highlight python %}
+```python
 import json
 
 def load_vocab(vocab_path):
@@ -84,13 +84,13 @@ def load_vocab(vocab_path):
     word2idx = data
     idx2word = dict([(v, k) for k, v in data.items()])
     return word2idx, idx2word
-{% endhighlight %}
+```
 
 We can load the vocabulary from the JSON file, and generate a reverse mapping (from index to word, so that we can decode an encoded string if we want).
 
 ## Loading Embeddings
 
-{% highlight python %}
+```python
 from keras.layers import Embedding
 from keras.engine import Input
 
@@ -103,13 +103,13 @@ def word2vec_embedding_layer(embeddings_path):
 input_vec = Input(shape=(sentence_length,), dtype='int32', name='input')
 embedding = word2vec_embedding_layer('/path/to/save/file')
 embedded = embedding(input_vec)
-{% endhighlight %}
+```
 
 It turns out to be super straightforward! We just pop the weights from the Gensim model into the Keras layer. We can then use this layer to embed our inputs as we normally would.
 
 ## Cosine Similarity
 
-{% highlight python %}
+```python
 input_a = Input(shape=(1,), dtype='int32', name='input_a')
 input_b = Input(shape=(1,), dtype='int32', name='input_b')
 embeddings = word2vec_embedding_layer(options.embeddings)
@@ -117,7 +117,7 @@ embedded_a = embeddings(input_a)
 embedded_b = embeddings(input_b)
 similarity = merge([embedded_a, embedded_b], mode='cos', dot_axes=2)
 model = Model(input=[input_a, input_b], output=similarity)
-{% endhighlight %}
+```
 
 The canonical usage for word embeddings is to see that similar words are near each other. We can measure the cosine similarity between words with a simple model like this (note that we aren't training it, just using it to get the similarity).
 
@@ -128,3 +128,4 @@ The canonical usage for word embeddings is to see that similar words are near ea
 [github-issue]: https://github.com/fchollet/keras/issues/853
 [google-group-discussion]: https://groups.google.com/forum/#!topic/keras-users/4wUnPDutY5o
 [my-gist]: https://gist.github.com/codekansas/15b3c2a2e9bc7a3c345138a32e029969
+````

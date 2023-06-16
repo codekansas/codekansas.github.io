@@ -30,7 +30,7 @@ If you don't want to have the answer spoiled (or at least, my version of the ans
 
 {% include /images/riddles/two_students.svg %}
 
-------
+---
 
 ## Solution
 
@@ -47,91 +47,91 @@ I am pretty lazy and a mediocre mathematician, so rather than trying to figure i
 
 Let's define a helper function for creating a unique tuple from two numbers. This will ensure that we don't accidentally double-count pairs.
 
-{% highlight python %}
+````python
 def _tup(x: int, y: int) -> Tuple[int, int]:
     return (x, y) if x < y else (y, x)
-{% endhighlight %}
+```
 
 ### Additive Decompositions
 
 We can use the following function to find all of the additive decompositions for some number.
 
-{% highlight python %}
+```python
 def add_decomp(s: int) -> Set[Tuple[int, int]]:
     return {_tup(i, s - i) for i in range(1, s // 2 + 1)}
-{% endhighlight %}
+```
 
 ### Multiplicative Decomposition
 
 We can use the following function to find all of the multiplicative decompositions for some number.
 
-{% highlight python %}
+```python
 def prod_decomp(p: int) -> Set[Tuple[int, int]]:
     return {_tup(i, p // i) for i in range(1, int(sqrt(p)) + 1) if p % i == 0}
-{% endhighlight %}
+```
 
 ### Step 1
 
 For Student A to be unable to figure out the first number, there must be at least two additive decompositions.
 
-{% highlight python %}
+```python
 def a_first(s: int) -> bool:
     return len(add_decomp(s)) > 1
-{% endhighlight %}
+```
 
 ### Step 2
 
 For Student B to also be unable to figure out the first number, there must be at least two multiplicative decompositions (which also pass the first step).
 
-{% highlight python %}
+```python
 def b_first(p: int) -> bool:
     return sum([a_first(i + j) for i, j in prod_decomp(p)]) > 1
-{% endhighlight %}
+```
 
 ### Step 3
 
 After Student B has announced they are unable to figure out the answer either, Student A can rule out any pair which would have let Student B figure out the answer.
 
-{% highlight python %}
+```python
 def a_second(s: int) -> bool:
     return sum([b_first(i * j) for i, j in add_decomp(s)]) == 1
-{% endhighlight %}
+```
 
 ### Step 4
 
 Finally, now that Student A has announced they are able to figure out the answer, Student B can rule out any pair which would not have let Student A figure out the answer.
 
-{% highlight python %}
+```python
 def b_second(p: int) -> bool:
     return sum([a_second(i + j) for i, j in prod_decomp(p)]) == 1
-{% endhighlight %}
+```
 
 ### Memoization
 
 Notice that a lot of these functions are called multiple times with the same inputs. We can *memoize* the function calls, since they always return the same value, using the following function.
 
-{% highlight python %}
+```python
 def memoize(f):
     memo = {}
     def helper(x):
-        if x not in memo:            
+        if x not in memo:
             memo[x] = f(x)
         return memo[x]
     return helper
-{% endhighlight %}
+```
 
 ### The Whole Program
 
 We can string all of these functions together and search through all the possible pairs from 1 to 5.
 
-{% highlight python %}
+```python
 from math import sqrt
 from typing import Tuple, Set
 
 def memoize(f):
     memo = {}
     def helper(x):
-        if x not in memo:            
+        if x not in memo:
             memo[x] = f(x)
         return memo[x]
     return helper
@@ -190,11 +190,11 @@ for x in range(1, 6):
     for y in range(1, x + 1):
         if test(x, y, do_log=True):
             print(f'{x} and {y} works!')
-{% endhighlight %}
+```
 
 This gives the results for all the pairs from 1 to 5:
 
-{% highlight bash %}
+```bash
 x: 1, y: 1 :: a knows the first time
 x: 2, y: 1 :: a knows the first time
 2 and 2 works!
@@ -210,7 +210,7 @@ x: 5, y: 2 :: b knows the first time
 x: 5, y: 3 :: a does not know the second time
 x: 5, y: 4 :: a does not know the second time
 x: 5, y: 5 :: a does not know the second time
-{% endhighlight %}
+```
 
 ## Extension
 
@@ -218,7 +218,7 @@ What if the two numbers must be unique? That is, both students know the numbers 
 
 This can be done by modifying two small parts of the program.
 
-{% highlight python %}
+```python
 @memoize
 def add_decomp(s: int) -> Set[Tuple[int, int]]:
     return {_tup(i, s - i) for i in range(1, s) if i != s - i}
@@ -226,11 +226,11 @@ def add_decomp(s: int) -> Set[Tuple[int, int]]:
 @memoize
 def prod_decomp(p: int) -> Set[Tuple[int, int]]:
     return {_tup(i, p // i) for i in range(1, int(sqrt(p)) + 1) if p % i == 0 and i != p // i}
-{% endhighlight %}
+```
 
 This gives the results for all the pairs from 1 to 5:
 
-{% highlight bash %}
+```bash
 x: 1, y: 1 :: a knows the first time
 x: 2, y: 1 :: a knows the first time
 x: 2, y: 2 :: a knows the first time
@@ -246,6 +246,7 @@ x: 5, y: 2 :: a does not know the second time
 x: 5, y: 3 :: a does not know the second time
 x: 5, y: 4 :: a does not know the second time
 x: 5, y: 5 :: b knows the first time
-{% endhighlight %}
+```
 
 {% endkatexmm %}
+````

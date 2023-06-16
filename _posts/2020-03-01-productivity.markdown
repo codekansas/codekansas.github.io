@@ -22,24 +22,24 @@ You can't force the elephant mind to do anything. If you adopt an attitude of tr
 
 As an illustration of this, if you spend some time Googling "how to block websites as a super smart unix programmer i'm serious", you'll find something saying that you can modify the `/etc/hosts` file to make websites redirect to localhost, effectively blocking them. This is how that normally plays out for me.
 
-{% highlight bash %}
+````bash
 $ echo "127.0.0.1 reddit.com" >> /etc/hosts
 $ # Enjoy a solid few hours of productivity
 $ # Friend sends me a meme they found on Reddit
 $ # Try to access it and remember that I disabled Reddit in my hosts file
 $ # ...
 $ vim /etc/hosts  # Sheepishly
-{% endhighlight %}
+```
 
 If I'm feeling particularly persistent, it'll go something like this:
 
-{% highlight bash %}
+```bash
 $ echo "127.0.0.1 reddit.com" >> /etc/hosts
 $ chmod -w /etc/hosts
 $ # ...
 $ chmod +w /etc/hosts
 $ vim /etc/hosts  # Sheepishly
-{% endhighlight %}
+```
 
 Alternatively, at one point I realized I could block websites through my router. Actually, the TPLink routers have this whole setup that lets you limit the amount of time you spend on the internet everyday and which sites you visit. Unfortunately, since I go on the internet professionally, most of time the first option doesn't work for me; and regarding the second, my elephant mind knows about VPNs.
 
@@ -52,3 +52,4 @@ Here are some more things I've found to be losing strategies:
 - Trying to make thing seem easier than they are. I thought at one point that if I just dedicated itself to coming up with easier ways to do different kinds of tasks, then my elephant mind would find them more enjoyable and be more predisposed to do them. Unfortunately, some things just can't be made easier. In fact, I would argue that the more difficult something is, the more worthwhile it tends to be.
 
 So the question is, how do you go about convincing the elephant mind to do your bidding? I like to think about how I'd convince a little kid to do something I want. The best thing seems to be to try to really convince yourself about the general importance of hard work. Reward your elephant mind whenever you see it doing something difficult by giving it a mental pat on the back.
+````

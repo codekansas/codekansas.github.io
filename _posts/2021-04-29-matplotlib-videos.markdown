@@ -7,7 +7,7 @@ excerpt: Short post with code snippits for creating videos from Numpy arrays in 
 
 While it's really easy to show an image in Matplotlib, I find that rendering videos quickly from PyTorch tensors or Numpy arrays seems to be a constant problem. I figured I'd write a short code snippet about how to do it quickly, for anyone else that is in the same situation.
 
-{% highlight python %}
+````python
 from typing import Iterator, Optional
 from pathlib import Path
 
@@ -72,17 +72,17 @@ def write_animation(
         for img in itr:
             im.set_data(img)
             mpl_writer.grab_frame()
-{% endhighlight %}
+```
 
 This makes it easy and memory-efficient to write a video from a coroutine, for example:
 
-{% highlight python %}
+```python
 def dummy_image_generator() -> Iterator[np.array]:
     for _ in range(100):
         yield np.random.rand(480, 640, 3)
 
 write_animation(dummy_image_generator(), "test.mp4")
-{% endhighlight %}
+```
 
 Hope this helps!
 
@@ -90,7 +90,7 @@ Hope this helps!
 
 I've recently expanded on the above snippet, to avoid having to go through Matplotlib and to provide a few reference functions for writing videos in `ffmpeg` and with `OpenCV`.
 
-{% highlight python %}
+```python
 import shutil
 from dataclasses import dataclass
 from pathlib import Path
@@ -352,11 +352,11 @@ if not shutil.which("ffmpeg"):
     READERS.pop("ffmpeg")
     WRITERS.pop("ffmpeg")
     WRITERS.pop("matplotlib")
-{% endhighlight %}
+```
 
 This can be used as follows:
 
-{% highlight python %}
+```python
 def dummy_image_generator() -> Iterator[np.array]:
     for _ in range(100):
         yield np.random.rand(480, 640, 3)
@@ -365,4 +365,5 @@ WRITERS["ffmpeg"](dummy_image_generator(), "test.mp4")
 
 for frame in READERS["ffmpeg"]("test.mp4"):
     print(frame.shape)
-{% endhighlight %}
+```
+````

@@ -14,7 +14,7 @@ A friend of mine recently posed the following math problem.
 
 This is actually a really neat problem, and the solution feels somewhat non-intuitive. If you don't want to see the answer yet, don't read below.
 
-------
+---
 
 ## Solution
 
@@ -30,7 +30,7 @@ Intuitively, if we're trying to get fewer than 64 guesses, it makes sense to try
 
 By tinkering around in OpenSCAD I was able to figure out a reasonable solution. Here is my code:
 
-{% highlight scad %}
+````scad
 module dot(x, y, z) {
     color([1, 1, 1, 0.4])
         translate([x, y, z])
@@ -49,7 +49,7 @@ module sol(N, X, Y, Z) {
 }
 
 manifold(8);
-{% endhighlight %}
+```
 
 As an illustration, the diagram below shows this manifold if each wheel were given 32 possible values. If you rotate it around, maybe you can see how this configuration covers the two corners completely. Also, it forms four nice triangles in 3D space.
 
@@ -57,7 +57,7 @@ As an illustration, the diagram below shows this manifold if each wheel were giv
 
 For the original problem statement, here is the complete list of guesses that we would have to make to be sure of unlocking it in 32 steps.
 
-{% highlight bash %}
+```bash
 ECHO: 1, 1, 2
 ECHO: 1, 2, 3
 ECHO: 1, 3, 4
@@ -90,6 +90,7 @@ ECHO: 8, 5, 5
 ECHO: 8, 6, 6
 ECHO: 8, 7, 7
 ECHO: 8, 8, 8
-{% endhighlight %}
+```
 
 {% endkatexmm %}
+````

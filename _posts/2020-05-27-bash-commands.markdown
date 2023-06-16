@@ -17,9 +17,9 @@ Some useful Git aliases:
 
 This is similar to the `hg sl` command we use at Facebook.
 
-{% highlight bash %}
+````bash
 git config --global alias.sl 'log --graph --decorate --oneline'
-{% endhighlight %}
+```
 
 ## ls
 
@@ -27,33 +27,33 @@ git config --global alias.sl 'log --graph --decorate --oneline'
 
 I guess this is pretty standard but the `ls` command has some useful modifiers.
 
-{% highlight bash %}
+```bash
 alias ll='ls -ahl'
-{% endhighlight %}
+```
 
 ## Date
 
 > Usage: `today` gives the current date and `now` gives the current time
 
-{% highlight bash %}
+```bash
 alias today='date +"%Y-%m-%d"'
 alias now='date +"%T"'
-{% endhighlight %}
+```
 
 Example:
 
-{% highlight bash %}
+```bash
 $ echo $(today)
 2020-05-27
 $ echo $(now)
 11:01:07
-{% endhighlight %}
+```
 
 ## Google Drive
 
 > Usage: `gdrive <fid> <fpath>` where `<fid>` is the Google Drive file identifier and `<fpath>` is the output path
 
-{% highlight bash %}
+```bash
 function gdrive {
   if [[ $# -ne 2 ]]; then
     echo "Usage: gdrive <fid> <fpath>"
@@ -74,7 +74,7 @@ function gdrive {
     -O $FILENAME
   rm -rf /tmp/cookies.txt
 }
-{% endhighlight %}
+```
 
 ## tmux
 
@@ -84,7 +84,7 @@ function gdrive {
 
 > Usage: List open sessions on a machine on startup
 
-{% highlight bash %}
+```bash
 if [[ -n $TMUX ]]; then
   echo -e "\033[1;31m----- TMUX session: $(tmux display-message -p '#S') -----\033[0m"
 elif [[ ! -n $TMUX ]] && [[ $(tmux ls 2> /dev/null) ]]; then
@@ -92,7 +92,7 @@ elif [[ ! -n $TMUX ]] && [[ $(tmux ls 2> /dev/null) ]]; then
   tmux ls
   echo -e "\033[1;31m------------------------------\033[0m"
 fi
-{% endhighlight %}
+```
 
 ### Attach to Named Session in Control Mode
 
@@ -100,7 +100,7 @@ fi
 
 Using named sessions is very important for organizing multiple projects. Otherwise I found it really easy to lose track of where stuff is.
 
-{% highlight bash %}
+```bash
 alias tmuxc='tmux -CC a -t'
 
 ## Provides tab completion for the tmuxc command.
@@ -114,13 +114,13 @@ _tmuxc_complete()
   return 0
 }
 complete -F _tmuxc_complete tmuxc
-{% endhighlight %}
+```
 
 ## Anaconda
 
 > Usage: Shorthand and tab completion for activating a Conda environment
 
-{% highlight bash %}
+```bash
 alias cenv='conda activate'
 
 _conda_complete()
@@ -133,7 +133,7 @@ _conda_complete()
   return 0
 }
 complete -F _conda_complete 'cenv'
-{% endhighlight %}
+```
 
 ## uBlock Origin
 
@@ -144,3 +144,4 @@ This is more of a productivity tip. I have a blocklist that blocks the endless s
 [dotfiles]: https://github.com/codekansas/dotfiles
 [dotfiles-inspiration]: https://github.com/mikejqzhang/dotfiles
 [dotbot]: https://github.com/anishathalye/dotbot
+````
