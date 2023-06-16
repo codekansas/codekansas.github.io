@@ -21,6 +21,7 @@ layout: none
     <updated>{{ post.date | date_to_xmlschema }}</updated>
     <id>{{ site.url }}{{ post.id }}</id>
     <summary>{{ post.excerpt }}</summary>
+    <content type="html">{{ post.content | xml_escape }}</content>
   </entry>
   {% endfor %}
 </feed>

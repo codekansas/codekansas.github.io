@@ -1,8 +1,8 @@
 ---
-layout:    post
-title:     "Getting Started with ROS 2"
-category:  🦾
-excerpt:   "An actually good guide to getting started with ROS 2"
+layout: post
+title: "Getting Started with ROS 2"
+category: 🦾
+excerpt: "An actually good guide to getting started with ROS 2"
 ---
 
 In this post, I'm going to provide some straight-forward pointers for getting started using ROS 2.
