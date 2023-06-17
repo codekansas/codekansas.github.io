@@ -38,8 +38,7 @@ strong {
   }
 
   h1,
-  h2,
-  h3 {
+  h2 {
     border-bottom: 1px solid $header-border-color-light;
     @media (prefers-color-scheme: dark) {
       border-bottom: 1px solid $header-border-color-dark;

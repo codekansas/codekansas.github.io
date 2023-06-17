@@ -11,6 +11,8 @@ Lately I've found myself spending a lot of time messing around with the [RWKV mo
 
 In this post, I write out the equations for the core WKV part of the RWKV model, and derive two numerically stable versions - one following the official implementation, another by transforming the state variables to log space - and provide implementations for each in PyTorch. Additionally, I derive the gradients for the log-space version, and provide Triton kernels for training a numerically-stable RWKV model.
 
+In most cases, the gradients were verified with Wolfram Alpha, although there may be a typo in the math. The PyTorch implementations are verified by comparing the manual implementation of the backward pass with the autograd implementation. See [this repo][rwkv-repo] to check out the full code and unit tests.
+
 {% katexmm %}
 
 ## Math
@@ -312,7 +314,7 @@ def wkv_log_space_forward(
 
 ## Gradients
 
-> This section implements a manual backward pass for the vanilla WKV computation [described above](#math), first derived from the equations above, then implemented in PyTorch.
+> This section implements a manual backward pass for the vanilla WKV computation [described above](#math), first derived from the equations above, then [implemented in PyTorch](#pytorch-implementation-3).
 
 When we are actually implementing this in PyTorch, we will want to write an optimized kernel for performing the WKV computation. The downside is that it means we can't use autograd to compute the gradients for us, so we need to derive equations for the gradients.
 
@@ -324,12 +326,10 @@ The partial derivatives of the WKV computation with respect to $u$, $k$, and $v$
 
 $$
 \begin{aligned}
-\frac{\partial \text{wkv}_i}{\partial u} & = \frac{ e^{u + k_i} v_i}{e^{u + k_i} + \beta_{i - 1}} - \frac{ e^{u + k_i} (e^{u + k_i} v_i + \alpha_{i - 1})}{(e^{u + k_i} + \beta_{i - 1})^2} \\
-& = \frac{ e^{u + k_i} (\beta_{i - 1} v_i - \alpha_{i - 1})}{(\beta_{i - 1} + e^{u + k_i})^2} \\[1.5em]
-\frac{\partial \text{wkv}_i}{\partial k_i} & = \frac{ e^{u + k_i} v_i}{e^{u + k_i} + \beta_{i - 1}} - \frac{ e^{u + k_i} (e^{u + k_i} v_i + \alpha_{i - 1})}{(e^{u + k_i} + \beta_{i - 1})^2} \\
+\frac{\partial \text{wkv}_i}{\partial u} = \frac{\partial \text{wkv}_i}{\partial k_i} & = \frac{ e^{u + k_i} v_i}{e^{u + k_i} + \beta_{i - 1}} - \frac{ e^{u + k_i} (e^{u + k_i} v_i + \alpha_{i - 1})}{(e^{u + k_i} + \beta_{i - 1})^2} \\
 & = \frac{ e^{u + k_i} (\beta_{i - 1} v_i - \alpha_{i - 1})}{(\beta_{i - 1} + e^{u + k_i})^2} \\[1.5em]
 \frac{\partial \text{wkv}_i}{\partial v_i} & = \frac{ e^{u + k_i}}{e^{u + k_i} + \beta_{i-1}} \\[1.5em]
-\frac{\partial \text{wkv}_i}{\partial \alpha_{i-1}} & = \frac{1}{e^{u + k_i} + \beta_{i-1}} \\[1.5em]
+\frac{\partial \text{wkv}_i}{\partial \alpha_{i-1}} & = \frac{1}{e^{u + k_i} + \beta_{i-1}} \\
 \frac{\partial \text{wkv}_i}{\partial \beta_{i-1}} & = -\frac{v e^{u + k_i} + \alpha_{i-1}}{(e^{u + k_i} + \beta_{i-1})^2} \\
 \end{aligned}
 $$
@@ -349,17 +349,20 @@ $$
 \begin{aligned}
 \frac{\partial \alpha_i}{\partial w} & = e^{w} \alpha_{i - 1} \;
 & \frac{\partial \alpha_i}{\partial k_i} & = e^{k_i} v_i \\[1.5em]
-\frac{\partial \alpha_i}{\partial v_i} & = e^{k_i} \;
-& \frac{\partial \alpha_i}{\partial \alpha_{i-1}} & = e^{w}
+\frac{\partial \alpha_i}{\partial \alpha_{i-1}} & = e^{w} \;
+& \frac{\partial \alpha_i}{\partial v_i} & = e^{k_i} \\
 \end{aligned}
 $$
 
 For $\beta_i$ we have:
 
 $$
-\frac{\partial \beta_i}{\partial w} = e^{w} \beta_{i - 1} \quad
-\frac{\partial \beta_i}{\partial k_i} = e^{k_i} \quad
-\frac{\partial \beta_i}{\partial \beta_{i-1}} = e^{w}
+\begin{aligned}
+\frac{\partial \beta_i}{\partial w} & = e^{w} \beta_{i - 1} \;
+& \frac{\partial \beta_i}{\partial k_i} & = e^{k_i} \\[1.5em]
+\frac{\partial \beta_i}{\partial \beta_{i-1}} & = e^{w} \;
+& & \\
+\end{aligned}
 $$
 
 ### PyTorch Implementation
@@ -395,10 +398,9 @@ def wkv_vanilla_backward(
 
     for t in reversed(range(tsz)):
         kt, vt = k[:, t : t + 1], v[:, t : t + 1]
+        alpha_prev, beta_prev = alpha[:, :, t], beta[:, :, t]
         euk = torch.exp(u + kt)
         ek = torch.exp(kt)
-
-        alpha_prev, beta_prev = alpha[:, :, t], beta[:, :, t]
 
         grad_wkvt = grad_wkv[:, t : t + 1]
 
@@ -422,6 +424,154 @@ def wkv_vanilla_backward(
         grad_beta = grad_beta * ew - grad_wkvt * (euk * vt + alpha_prev) / (beta_prev + euk) ** 2
 
     return grad_w, grad_u, grad_k, grad_v, torch.stack((grad_alpha, grad_beta), dim=1)
+```
+
+## Numerically Stable Gradients
+
+> This section implements a manual backward pass for the numerically stable WKV computation [described above](#numerical-stability), first derived from the equations above, then [implemented in PyTorch](#pytorch-implementation-4).
+
+Recall the numerically stable version of our WKV computation:
+
+$$
+\begin{aligned}
+\alpha_i' & = e^{w + \epsilon_{i - 1} - \epsilon_i} \alpha_{i - 1}' + e^{k_i - \epsilon_i} v_i \\
+\beta_i' & = e^{w + \epsilon_{i - 1} - \epsilon_i} \beta_{i - 1}' + e^{k_i - \epsilon_i} \\[1em]
+\text{wkv}_i & = \frac{ e^{u+k_i-\tau_i} v_i + e^{\epsilon_{i - 1}-\tau_i}\alpha_{i - 1}' }{ e^{u+k_i-\tau_i} + e^{\epsilon_{i - 1}-\tau_i}\beta_{i - 1}' } \\[1em]
+\epsilon_{i} & = \max(w + \epsilon_{i - 1}, k_i) \\
+\tau_i & = \max(u + k_i, \epsilon_{i - 1}) \\
+\end{aligned}
+$$
+
+The partial derivatives for the above computation are similar to the vanilla WKV computation, but adjusted for the $\epsilon$ terms:
+
+$$
+\begin{aligned}
+\frac{\partial \text{wkv}_i'}{\partial u} = \frac{\partial \text{wkv}_i'}{\partial k_i} & = \frac{ e^{u + k_i - \tau_i} v_i}{e^{u + k_i - \tau_i} + e^{\epsilon_{i - 1} - \tau_i} \beta_{i - 1}'} - \frac{ e^{u + k_i - \tau_i} (e^{u + k_i - \tau_i} v_i + e^{\epsilon_{i - 1} - \tau_i} \alpha_{i - 1}')}{(e^{u + k_i - \tau_i} + e^{\epsilon_{i - 1} - \tau_i} \beta_{i - 1}')^2} \\
+& = \frac{ e^{u + k_i - \tau_i} (e^{\epsilon_{i - 1} - \tau_i} \beta_{i - 1}' v_i - e^{\epsilon_{i - 1} - \tau_i} \alpha_{i - 1}')}{(e^{\epsilon_{i - 1} - \tau_i} \beta_{i - 1}' + e^{u + k_i - \tau_i})^2} \\[1.5em]
+\frac{\partial \text{wkv}_i'}{\partial v_i} & = \frac{ e^{u + k_i - \tau_i}}{e^{u + k_i - \tau_i} + e^{\epsilon_{i - 1} - \tau_i} \beta_{i - 1}'} \\[1.5em]
+\frac{\partial \text{wkv}_i'}{\partial \alpha_{i-1}'} & = \frac{e^{\epsilon_{i - 1} - \tau_i}}{e^{u + k_i - \tau_i} + e^{\epsilon_{i - 1} - \tau_i} \beta_{i - 1}'} \\[1.5em]
+\frac{\partial \text{wkv}_i'}{\partial \beta_{i-1}'} & = -\frac{e^{\epsilon_{i-1} - \tau_i}(v_i e^{u + k_i - \tau_i} + e^{\epsilon_{i-1} - \tau_i}\alpha_{i-1}')}{(e^{u + k_i - \tau_i} + e^{\epsilon_{i - 1} - \tau_i} \beta_{i - 1}')^2} \\[1.5em]
+\frac{\partial \text{wkv}_i'}{\partial \epsilon_{i - 1}} & = \frac{ e^{u + k_i + \epsilon_{i - 1}} (\alpha_{i - 1}' - v_i \beta_{i - 1}')}{(e^{\epsilon_{i - 1}} \beta_{i - 1}' + e^{u + k_i})^2}
+= \frac{ e^{u + k_i + \epsilon_{i - 1} - 2 \tau_i} (\alpha_{i - 1}' - v_i \beta_{i - 1}')}{(e^{\epsilon_{i - 1} - \tau_i} \beta_{i - 1}' + e^{u + k_i - \tau_i})^2} \\
+\end{aligned}
+$$
+
+For $\alpha_i'$ we have:
+
+$$
+\begin{aligned}
+\frac{\partial \alpha_i'}{\partial w} = \frac{\partial \alpha_i'}{\partial \epsilon_{i-1}} & = e^{w + \epsilon_{i - 1} - \epsilon_i} \alpha_{i - 1}' \;
+& \frac{\partial \alpha_i'}{\partial k_i} & = e^{k_i - \epsilon_i} v_i \\[1.5em]
+\frac{\partial \alpha_i'}{\partial \epsilon_i} & = -\alpha_i' \;
+& \frac{\partial \alpha_i'}{\partial \alpha_{i-1}'} & = e^{w + \epsilon_{i - 1} - \epsilon_i} \\[1.5em]
+\frac{\partial \alpha_i'}{\partial v_i} & = e^{k_i - \epsilon_i} & & \\
+\end{aligned}
+$$
+
+For $\beta_i'$ we have:
+
+$$
+\begin{aligned}
+\frac{\partial \beta_i'}{\partial w} = \frac{\partial \beta_i'}{\partial \epsilon_{i-1}} & = e^{w + \epsilon_{i - 1} - \epsilon_i} \beta_{i - 1}' \;
+& \frac{\partial \beta_i'}{\partial k_i} & = e^{k_i - \epsilon_i} \\[1.5em]
+\frac{\partial \beta_i'}{\partial \epsilon_i} & = -\beta_i' \;
+& \frac{\partial \beta_i'}{\partial \beta_{i-1}'} & = e^{w + \epsilon_{i - 1} - \epsilon_i} \\
+\end{aligned}
+$$
+
+For $\epsilon_i$ we have:
+
+$$
+\begin{aligned}
+\frac{\partial \epsilon_i}{\partial w} = \frac{\partial \epsilon_i}{\partial \epsilon_{i - 1}} & = \begin{cases} 1 & \text{if } w + \epsilon_{i - 1} > k_i \\ 0 & \text{otherwise} \end{cases} \\
+\frac{\partial \epsilon_i}{\partial k_i} & = \begin{cases} 1 & \text{if } w + \epsilon_{i - 1} < k_i \\ 0 & \text{otherwise} \end{cases} \\
+\end{aligned}
+$$
+
+## PyTorch Implementation
+
+The PyTorch implementation for the numerically stable gradients will be similar to the vanilla gradients, but with the addition of the $\epsilon$ terms.
+
+```python
+def wkv_with_eps_backward(
+    w: Tensor,
+    u: Tensor,
+    k: Tensor,
+    v: Tensor,
+    state: Tensor,
+    grad_wkv: Tensor,
+    grad_state: Tensor,
+) -> tuple[Tensor, Tensor, Tensor, Tensor, Tensor]:
+    bsz, tsz, chans = k.shape
+    assert w.shape == u.shape == (chans,)
+    assert v.shape == (bsz, tsz, chans)
+    assert state.shape == (bsz, 3, tsz + 1, chans)
+    assert grad_wkv.shape == (bsz, tsz, chans)
+    assert grad_state.shape == (bsz, 3, 1, chans)
+
+    alpha, beta, eps = state.chunk(3, dim=1)  # (B, 1, T + 1, D), (B, 1, T + 1, D), (B, 1, T + 1, D)
+    grad_alpha, grad_beta, grad_eps = grad_state[:, :, 0].chunk(3, dim=1)  # (B, 1, D), (B, 1, D), (B, 1, D)
+    grad_eps = grad_eps.clone()
+
+    grad_w = torch.zeros_like(w)
+    grad_u = torch.zeros_like(u)
+    grad_k = torch.zeros_like(k)
+    grad_v = torch.zeros_like(v)
+
+    for t in reversed(range(tsz)):
+        kt, vt = k[:, t : t + 1], v[:, t : t + 1]
+        alpha_prev, beta_prev, eps_prev = alpha[:, :, t], beta[:, :, t], eps[:, :, t]
+        alpha_curr, beta_curr, eps_curr = alpha[:, :, t + 1], beta[:, :, t + 1], eps[:, :, t + 1]
+        ukt = u + kt
+        tau = torch.maximum(ukt, eps_prev)
+        e1 = torch.exp(eps_prev - tau)
+        e2 = torch.exp(ukt - tau)
+
+        euke = torch.exp(ukt + eps_prev - 2 * tau)
+
+        denom = e1 * beta_prev + e2
+        denom_sq = denom**2
+
+        grad_wkvt = grad_wkv[:, t : t + 1]
+
+        # Backpropagates wkv gradients.
+        grad_uk = grad_wkvt * e2 * (e1 * beta_prev * vt - e1 * alpha_prev) / denom_sq
+        grad_u += grad_uk.flatten(0, -2).sum(0)
+        grad_k[:, t : t + 1] += grad_uk
+        grad_v[:, t : t + 1] += grad_wkvt * e2 / denom
+
+        grad_alpha_wkv = grad_wkvt * e1 / denom
+        grad_beta_wkv = -grad_wkvt * e1 * (e2 * vt + e1 * alpha_prev) / denom_sq
+        grad_eps_wkv = grad_wkvt * euke * (alpha_prev - vt * beta_prev) / (e1 * beta_prev + e2) ** 2
+
+        e1 = torch.exp(w + eps_prev - eps_curr)
+        e2 = torch.exp(kt - eps_curr)
+
+        # Backpropagates alpha gradients.
+        grad_alpha_we = grad_alpha * e1 * alpha_prev
+        grad_w += grad_alpha_we.flatten(0, -2).sum(0)
+        grad_k[:, t : t + 1] += grad_alpha * e2 * vt
+        grad_v[:, t : t + 1] += grad_alpha * e2
+        grad_eps += grad_alpha * -alpha_curr
+
+        # Backpropagates beta gradients.
+        grad_beta_we = grad_beta * e1 * beta_prev
+        grad_w += grad_beta_we.flatten(0, -2).sum(0)
+        grad_k[:, t : t + 1] += grad_beta * e2
+        grad_eps += grad_beta * -beta_curr
+
+        # Backpropagates epsilon gradients.
+        eps_grad_mask = w + eps_prev > kt
+        grad_eps_we = torch.where(eps_grad_mask, grad_eps, torch.zeros_like(grad_eps))
+        grad_w += grad_eps_we.flatten(0, -2).sum(0)
+        grad_k[:, t : t + 1] += torch.where(eps_grad_mask, torch.zeros_like(grad_eps), grad_eps)
+
+        # Computes gradients for alpha, beta and epsilon.
+        grad_alpha = grad_alpha * e1 + grad_alpha_wkv
+        grad_beta = grad_beta * e1 + grad_beta_wkv
+        grad_eps = grad_alpha_we + grad_beta_we + grad_eps_we + grad_eps_wkv
+
+    return grad_w, grad_u, grad_k, grad_v, torch.stack((grad_alpha, grad_beta, grad_eps), dim=1)
 ```
 
 ## Log-Space Gradients
@@ -470,3 +620,4 @@ $$
 [blog-post]: https://johanwind.github.io/2023/03/23/rwkv_details.html
 [minimal-inference]: https://github.com/BlinkDL/ChatRWKV/blob/main/RWKV_in_150_lines.py
 [log-sum-exp]: https://en.wikipedia.org/wiki/LogSumExp
+[rwkv-repo]: https://github.com/codekansas/rwkv
