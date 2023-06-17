@@ -8,3 +8,5 @@ group :jekyll_plugins do
     gem 'jekyll-feed'
     gem 'jekyll-redirect-from'
 end
+
+gem 'sass-embedded', '1.59.2'
