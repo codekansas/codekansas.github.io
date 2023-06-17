@@ -82,7 +82,7 @@ def wkv_vanilla_forward(w: Tensor, u: Tensor, k: Tensor, v: Tensor, state: Tenso
 
 With traditional RNNs, there's a common problem of exploding or vanishing gradients, if the determinant of Jacobian of the hidden state variable is not close to 1. This is because, for long sequences, the same matrix is applied many times, exacerbating any deviation from 1.
 
-With the RWKV model, we avoid the vanishing gradients problem by using additive attention. However, if the values of $w$ and $k_i$ are large, the exponent can grow beyond the numerical limits of our floating point type. We can solve this using another state variable, which we'll call $\epsilon_i$:
+With the RWKV model, if the values of $w$ and $k_i$ are large, the exponent can grow beyond the numerical limits of our floating point type. We can solve this using another state variable, which we'll call $\epsilon_i$:
 
 $$
 \begin{aligned}
