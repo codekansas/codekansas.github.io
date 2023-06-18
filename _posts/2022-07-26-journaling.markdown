@@ -35,7 +35,7 @@ Some features which I've found not useful at all:
 
 As I mentioned above, one of the really good features of Daylio is their text editor and prompt templates. In my case, I've basically settled into mainly using two templates, sometimes choosing a different one depending on what's going on in life. I call the two main templates "Morning Brainstorm" and "Evening Reflection". The "Morning Brainstorm" one looks like this:
 
-````code
+```code
 What did you do yesterday?
 
 -
@@ -109,4 +109,3 @@ Also I hope that the app doesn't randomly crash or die and delete all my data, o
 [^attention-span]: I was originally going to just stop the blog post here, but decided to be less of a smartass and actually elaborate on the point. Maybe that's a sign of character development.
 
 [daylio-website]: https://daylio.net/
-````

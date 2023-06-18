@@ -18,7 +18,7 @@ excerpt: >
 
 See the instructions [here](http://keras.io/#installation) on how to install Keras. The simple route is to install using `pip`, e.g.
 
-````bash
+```bash
 sudo pip install --upgrade keras
 ```
 
@@ -804,4 +804,3 @@ The code is kind of awkward without the context, so I would recommend checking o
 [xu]: http://arxiv.org/pdf/1502.03044.pdf
 [keras]: https://github.com/fchollet/keras
 [karpathy]: http://karpathy.github.io/2015/05/21/rnn-effectiveness/
-````

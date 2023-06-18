@@ -25,7 +25,7 @@ $$\frac{2^{2^{12}}}{2^{1 + 2^{12}}} = \frac{1}{2}$$
 
 by computing the numerator and denominator, then dividing.
 
-````cpp
+```cpp
 #include <stdio.h>
 
 using namespace std;
@@ -51,6 +51,7 @@ num: inf, denom: inf, result: -nan
 Because performing these repeated multiplications can lead to this underflow problem relatively easily for models such as CRFs and HMMs, it behoves us to find a more numerically stable solution. In this case, we can take advantage of the following identities:
 
 {% katexmm %}
+
 $$
 \begin{aligned}
 x' & = \log(x) \\
@@ -58,6 +59,7 @@ x & = \exp(x') \\
 x_1x_2 ... x_n & = \exp(x'_1 + x'_2 + ... + x'_n)
 \end{aligned}
 $$
+
 {% endkatexmm %}
 
 Instead of having to perform the numerically unstable multiplications, we can perform numerically stable additions on the logs of these values, and apply the exponential function once we're done. If we want to perform additions on the logs of these values in a numerically stable way, we can naively do the following:
@@ -69,12 +71,14 @@ $$x_1 + x_2 + ... + x_n = \exp(x'_1) + \exp(x'_2) + ... + \exp(x'_n)$$
 However, if the left side of this equation is once again very large (assuming we are going to divide it by something else later), this can lead to unwanted overflow. Instead, in practice, it is better to use the identity below, which is known as the `log-sum-exp` function. By subtracting the max value out out of each of the components of the addition, we can usually keep the exponential part from blowing up too much.
 
 {% katexmm %}
+
 $$
 \begin{aligned}
 x^* & = \max(x'_1, x'_2, ..., x'_n) \\
 x_1 + x_2 + ... x_n & = \exp(x^* + \log(\exp(x'_1 - x^*) + ... + \exp(x'_n - x^*)))
 \end{aligned}
 $$
+
 {% endkatexmm %}
 
 We can now re-write our C++ program from earlier:
@@ -108,6 +112,7 @@ In some literature, this is known as the [log semiring][log-semiring]; in partic
 To provide some mathematical formalism for the examples above, it's important to expand on the semiring concept. It's actually pretty straight-forward, even if it sounds a bit complicated at first. The pair of functions (`sum`, `logsumexp`) is an example of a [semiring][log-semiring], meaning that it generalizes the multiplication and addition functions. This is some mathematical jargon which is easier to explain with an example. Lets define two semirings:
 
 {% katexmm %}
+
 $$
 \begin{aligned}
 a \oplus_{\text{normal}} b & = a + b\\
@@ -116,17 +121,20 @@ a \oplus_{\text{log}} b & = \text{logsumexp}(a, b) \\
 a \otimes_{\text{log}} b & = a + b
 \end{aligned}
 $$
+
 {% endkatexmm %}
 
 We can then switch our operations between the two semirings:
 
 {% katexmm %}
+
 $$
 \begin{aligned}
 a \oplus_{\text{normal}} b & = \exp(\log a \oplus_{\text{log}} \log b) \\
 a \otimes_{\text{normal}} b & = \exp(\log a \otimes_{\text{log}} \log b)
 \end{aligned}
 $$
+
 {% endkatexmm %}
 
 This is the heart of what we're doing. Since the log semiring is much more mathematically stable when we're dealing with probabilities than the normal semiring, we convert our data to log-space, do the computations, then convert back.
@@ -277,7 +285,7 @@ This is a useful lesson: **where possible, avoid transposes**. Note that the abo
 Let's write a CUDA implementation of the above function, to see if we can improve the performance.
 
 {% katexmm %}
-We can write the `log_bmm` function as a matrix-matrix operation (the batch part can be added trivially in the CUDA implementation). For a regular batch matrix multiplication function, we expect as our inputs two matrices with elements $a_{i, j}$ and $b_{i, j}$. We will output a matrix with elements $o_{i, j}$$, which is defined as the following:
+We can write the `log_bmm` function as a matrix-matrix operation (the batch part can be added trivially in the CUDA implementation). For a regular batch matrix multiplication function, we expect as our inputs two matrices with elements $a_{i, j}$ and $b_{i, j}$. We will output a matrix with elements $o_{i, j}$, which is defined as the following:
 
 $$o_{i, j} = \sum_k a_{i, k} b_{k, j}$$
 
@@ -613,4 +621,3 @@ These performance boosts don't really apply for reduce operations which are rela
 [cuda-extension-writeup]: <https://pytorch.org/tutorials/advanced/cpp_extension.html>
 [click-docs]: <https://click.palletsprojects.com/en/7.x/>
 [pybind11-docs]: <https://pybind11.readthedocs.io/en/stable/basics.html>
-````

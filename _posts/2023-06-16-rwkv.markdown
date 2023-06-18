@@ -187,7 +187,13 @@ $$
 
 If we were guaranteed that the values of $\alpha_{i-1}$, $\beta_{i-1}$ and $v_i$ were always positive, we could take advantage of the [log-sum-exp][log-sum-exp] trick for computing the log-sum of exponentials in a numerically stable way:
 
-$$LSE(x, y) = \log(e^x + e^y) = \max(x, y) + \log(1 + e^{-|x - y|})$$
+$$
+\begin{aligned}
+LSE(x, y) & = \log(e^x + e^y) \\
+& = \max(x, y) + \log(e^{x - \max(x, y)} + e^{y - \max(x, y)}) \\
+& = \max(x, y) + \log(1 + e^{-|x - y|}) \\
+\end{aligned}
+$$
 
 Re-writing the equations in log-space, we get:
 
@@ -248,6 +254,17 @@ $$
 \end{aligned}
 $$
 
+Note that we can renormalize $\alpha_i^+$ and $\alpha_i^-$ by subtracting $\min(\alpha_i^+, \alpha_i^-) - \epsilon$ from both value, which helps prevent the values of $\alpha_i^+$ and $\alpha_i^-$ exploding. Since we are working in the log domain, we should use the subtraction version of the log-sum-exp trick:
+
+$$
+\begin{aligned}
+\log(e^x - e^y) & = \max(x, y) + \log(e^{x - \max(x, y)} - e^{y - \max(x, y)}) \\
+& = \max(x, y) + \log(1 - e^{-|x - y|}) \\
+\end{aligned}
+$$
+
+This only works since we know that $\alpha_i^+$ and $\alpha_i^-$ are both strictly greater than $\min(\alpha_i^+, \alpha_i^-) - \epsilon$.
+
 Finally, we can incorporate $v_i^+$, $v_i^-$, $\alpha_i^+$ and $\alpha_i^-$ into our log-space equations for $\text{wkv}_i$:
 
 $$
@@ -257,7 +274,7 @@ $$
 \end{aligned}
 $$
 
-Separating out $\text{wkv}_i = \text{wkv}_i^+ - \text{wkv}_i^-$, we get:
+Now we *do* have an equation (or rather, two equations) for $\text{wkv}_i$ with strictly positive values. Separating out $\text{wkv}_i = \text{wkv}_i^+ - \text{wkv}_i^-$, we get:
 
 $$
 \begin{aligned}
@@ -283,33 +300,57 @@ def wkv_log_space_forward(
     state: Tensor,
     eps: float = 1e-5,
 ) -> tuple[Tensor, Tensor]:
-    assert w.dim() == u.dim() == 1
-    assert k.dim() == v.dim() == state.dim()
+    bsz, tsz, chans = k.shape
 
-    log_alpha_plus, log_alpha_minus, log_beta = state.chunk(3, dim=1)
+    assert w.shape == u.shape == (chans,)
+    assert v.shape == (bsz, tsz, chans)
+    assert state.shape == (bsz, 3, 1, chans)
 
-    _, tsz, _ = k.shape
+    ln_alpha_p, ln_alpha_m, ln_beta = state[:, :, -1].chunk(3, dim=1)
 
     wkvs = []
+    ln_alpha_ps = [ln_alpha_p]
+    ln_alpha_ms = [ln_alpha_m]
+    ln_betas = [ln_beta]
+
+    def logaddexp(a: Tensor, b: Tensor) -> Tensor:
+        max_av = torch.maximum(a, b)
+        return max_av + torch.log(torch.exp(a - max_av) + torch.exp(b - max_av))
+
+    def logsubexp(a: Tensor, b: Tensor) -> Tensor:
+        max_av = torch.maximum(a, b)
+        return max_av + torch.log(torch.exp(a - max_av) - torch.exp(b - max_av))
 
     for t in range(tsz):
         kt, vt = k[:, t : t + 1], v[:, t : t + 1]
         v_plus = torch.clamp(vt, min=0) + eps
         v_minus = torch.clamp(-vt, min=0) + eps
-        log_v_plus = torch.log(v_plus)
-        log_v_minus = torch.log(v_minus)
+        ln_v_p = torch.log(v_plus)
+        ln_v_m = torch.log(v_minus)
 
-        log_wkv_plus = torch.logaddexp(u + kt + log_v_plus, log_alpha_plus) - torch.logaddexp(u + kt, log_beta)
-        log_wkv_minus = torch.logaddexp(u + kt + log_v_minus, log_alpha_minus) - torch.logaddexp(u + kt, log_beta)
+        ln_wkv_p = logaddexp(u + kt + ln_v_p, ln_alpha_p) - logaddexp(u + kt, ln_beta)
+        ln_wkv_m = logaddexp(u + kt + ln_v_m, ln_alpha_m) - logaddexp(u + kt, ln_beta)
 
-        wkv = torch.exp(log_wkv_plus) - torch.exp(log_wkv_minus)
+        wkv = torch.exp(ln_wkv_p) - torch.exp(ln_wkv_m)
         wkvs.append(wkv)
 
-        log_alpha_plus = torch.logaddexp(w + log_alpha_plus, kt + log_v_plus)
-        log_alpha_minus = torch.logaddexp(w + log_alpha_minus, kt + log_v_minus)
-        log_beta = torch.logaddexp(w + log_beta, kt)
+        ln_alpha_p = logaddexp(w + ln_alpha_p, kt + ln_v_p)
+        ln_alpha_m = logaddexp(w + ln_alpha_m, kt + ln_v_m)
+        ln_beta = logaddexp(w + ln_beta, kt)
 
-    return torch.cat(wkvs, 1), torch.cat((log_alpha_plus, log_alpha_minus, log_beta), dim=1)
+        ln_alpha_pn = torch.minimum(ln_alpha_p, ln_alpha_m) - eps
+        ln_alpha_p = logsubexp(ln_alpha_p, ln_alpha_pn)
+        ln_alpha_m = logsubexp(ln_alpha_m, ln_alpha_pn)
+
+        ln_alpha_ps.append(ln_alpha_p)
+        ln_alpha_ms.append(ln_alpha_m)
+        ln_betas.append(ln_beta)
+
+    ln_alpha_p = torch.stack(ln_alpha_ps, dim=2)
+    ln_alpha_m = torch.stack(ln_alpha_ms, dim=2)
+    ln_beta = torch.stack(ln_betas, dim=2)
+
+    return torch.cat(wkvs, 1), torch.cat((ln_alpha_p, ln_alpha_m, ln_beta), dim=1)
 ```
 
 ## Gradients
@@ -488,7 +529,7 @@ $$
 \end{aligned}
 $$
 
-## PyTorch Implementation
+### PyTorch Implementation
 
 The PyTorch implementation for the numerically stable gradients will be similar to the vanilla gradients, but with the addition of the $\epsilon$ terms.
 
@@ -578,14 +619,14 @@ def wkv_with_eps_backward(
 
 In our log-space implementation of the WKV computation, we have:
 
-$$\text{wkv}_i = e^{\log \text{wkv}_i^+} - e^{\log \text{wkv}_i^-}$$
+$$\text{wkv}_i =\text{wkv}_i^+ - \text{wkv}_i^-$$
 
 This gives us the following partial derivatives:
 
 $$
 \begin{aligned}
-\frac{\partial \text{wkv}_i}{\partial \log \text{wkv}_i^+} & = e^{\log \text{wkv}_i^+} & = \text{wkv}_i^+ \\[1.5em]
-\frac{\partial \text{wkv}_i}{\partial \log \text{wkv}_i^-} & = -e^{\log \text{wkv}_i^-} & = -\text{wkv}_i^-
+\frac{\partial \text{wkv}_i}{\partial \log \text{wkv}_i^+} & = 1 \\[1.5em]
+\frac{\partial \text{wkv}_i}{\partial \log \text{wkv}_i^-} & = -1 \\
 \end{aligned}
 $$
 
@@ -598,19 +639,53 @@ $$
 \end{aligned}
 $$
 
+These two equations are identical, so in the equations below we omit the sign and simply use $\log \text{wkv}_i$.
+
 The gradients of the log-sum-exp function are given by:
-
-$$\frac{\partial LSE(a, b)}{\partial a} = \frac{e^a}{e^a + e^b} \quad \frac{\partial LSE(a, b)}{\partial b} = \frac{e^b}{e^a + e^b}$$
-
-We can use this to find the partial derivatives:
 
 $$
 \begin{aligned}
-\frac{\partial y}{\partial u} & = -\frac{e^{k + u}}{b + e^{k + u}} + \frac{e^{k + u} v}{a + e^{k + u} v} \\
-\frac{\partial y}{\partial k} & = -\frac{e^{k + u}}{b + e^{k + u}} + \frac{e^{k + u} v}{a + e^{k + u} v} \\
-\frac{\partial y}{\partial v} & = \frac{e^{k + u}}{a + e^{k + u} v} \\
-\frac{\partial y}{\partial a} & = \frac{1}{a + e^{k + u} v} \\
-\frac{\partial y}{\partial b} & = -\frac{1}{b + e^{k + u}} \\
+\frac{\partial LSE(a, b)}{\partial a} & = \frac{e^a}{e^a + e^b} & = \frac{1}{1 + e^{b - a}} \\[1em]
+\frac{\partial LSE(a, b)}{\partial b} & = \frac{e^b}{e^a + e^b} & = \frac{1}{1 + e^{a - b}} \\
+\end{aligned}
+$$
+
+We can use this to find the partial derivatives. Note that since we are using log-space state variables, we need to find the partial derivatives with respect to $\log \alpha_{i-1}$ and $\log \beta_{i-1}$ rather than $\alpha_{i-1}$ and $\beta_{i-1}$.
+
+$$
+\begin{aligned}
+\frac{\partial \log \text{wkv}_i}{\partial u} = \frac{\partial \log \text{wkv}_i}{\partial k} & = \frac{v_i}{v_i + \alpha_{i - 1} e^{-(u + k_i)}} - \frac{1}{1 + \beta_{i - 1} e^{-(u + k_i)}} \\[1em]
+\frac{\partial \log \text{wkv}_i}{\partial v} & = \frac{1}{v_i + \alpha_{i - 1} e^{-(u + k_i)}} \\[1em]
+\frac{\partial \log \text{wkv}_i}{\partial \log \alpha_{i - 1}} & = \frac{\alpha_{i - 1}}{\alpha_{i - 1} - v_i e^{u + k_i}} \\[1em]
+\frac{\partial \log \text{wkv}_i}{\partial \log \beta_{i - 1}} & = -\frac{\beta_{i - 1}}{\beta_{i - 1} - e^{u + k_i}} \\[1em]
+\end{aligned}
+$$
+
+Additionally, we need to find the partial derivatives of $\log \alpha_{i}$ and $\log \beta_{i}$. Recall the log-space update rule:
+
+$$
+\begin{aligned}
+\log \alpha_i & = LSE(w + \log \alpha_{i-1}, k_i + \log v_i) \\
+\log \beta_i & = LSE(w + \log \beta_{i - 1}, k_i) \\
+\end{aligned}
+$$
+
+The partial derivatives of $\log \alpha_i$ are:
+
+$$
+\begin{aligned}
+\frac{\partial \log \alpha_i}{\partial w} = \frac{\partial \log \alpha_i}{\partial \log \alpha_{i - 1}} & = \frac{\alpha_{i - 1}}{\alpha_{i - 1} + v_i e^{k_i - w}} \\[1em]
+\frac{\partial \log \alpha_i}{\partial k_i} & = \frac{v_i}{v_i + \alpha_{i - 1} e^{w - k_i}} \\[1em]
+\frac{\partial \log \alpha_i}{\partial v_i} & = \frac{1}{v_i + \alpha_{i - 1} e^{w - k_i}} \\
+\end{aligned}
+$$
+
+The partial derivatives of $\log \beta_{i}$ are:
+
+$$
+\begin{aligned}
+\frac{\partial \log \beta_i}{\partial w} = \frac{\partial \log \beta_i}{\partial \log \beta_{i - 1}} & = \frac{\beta_{i - 1}}{\beta_{i - 1} + e^{k_i - w}} \\[1em]
+\frac{\partial \log \beta_i}{\partial k_i} & = \frac{1}{1 + \beta_{i - 1} e^{w - k_i}} \\
 \end{aligned}
 $$
 

@@ -30,7 +30,7 @@ Intuitively, if we're trying to get fewer than 64 guesses, it makes sense to try
 
 By tinkering around in OpenSCAD I was able to figure out a reasonable solution. Here is my code:
 
-````scad
+```scad
 module dot(x, y, z) {
     color([1, 1, 1, 0.4])
         translate([x, y, z])
@@ -93,4 +93,3 @@ ECHO: 8, 8, 8
 ```
 
 {% endkatexmm %}
-````

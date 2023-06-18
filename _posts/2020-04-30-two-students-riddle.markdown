@@ -47,7 +47,7 @@ I am pretty lazy and a mediocre mathematician, so rather than trying to figure i
 
 Let's define a helper function for creating a unique tuple from two numbers. This will ensure that we don't accidentally double-count pairs.
 
-````python
+```python
 def _tup(x: int, y: int) -> Tuple[int, int]:
     return (x, y) if x < y else (y, x)
 ```
@@ -249,4 +249,3 @@ x: 5, y: 5 :: b knows the first time
 ```
 
 {% endkatexmm %}
-````

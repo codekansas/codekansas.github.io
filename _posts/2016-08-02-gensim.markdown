@@ -21,7 +21,7 @@ This will be a quick post about using Gensim's Word2Vec embeddings in Keras. Thi
 
 Usually `pip install ...` works if you don't already have Keras or Gensim.
 
-````bash
+```bash
 sudo pip install Theano
 sudo pip install keras
 sudo pip install --ignore-installed gensim
@@ -128,4 +128,3 @@ The canonical usage for word embeddings is to see that similar words are near ea
 [github-issue]: https://github.com/fchollet/keras/issues/853
 [google-group-discussion]: https://groups.google.com/forum/#!topic/keras-users/4wUnPDutY5o
 [my-gist]: https://gist.github.com/codekansas/15b3c2a2e9bc7a3c345138a32e029969
-````

@@ -75,7 +75,7 @@ However, this mode is more difficult to implement, and probably more bug-prone, 
 
 To demonstrate the difference in functionality between the above two compilation modes, suppose we want to train a simple recurrent neural network. As input, we'll take a length `N` list of tensors, and as output we want the last tensor.
 
-````python
+```python
 class TestModel(nn.Module):
     def __init__(self, input_dim: int, hidden_dim: int) -> None:
         super().__init__()
@@ -297,4 +297,3 @@ There's some notable differences between the generated Python code and the origi
 [torchscript]: https://pytorch.org/docs/stable/jit.html
 [make-your-own-accelerator-chip]: https://towardsdatascience.com/how-to-make-your-own-deep-learning-accelerator-chip-1ff69b78ece4
 [tensor-rt-api]: https://docs.nvidia.com/deeplearning/tensorrt/api/python_api/
-````

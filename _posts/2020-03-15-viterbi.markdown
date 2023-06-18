@@ -24,7 +24,7 @@ $$z^* = \underset{z}{\mathrm{argmin}}[p(z,x)]$$
 
 We assume that we know the observed sequence $x = (x_1, ..., x_n)$, the set of initial hidden probabilities $z_1 = (z_1^1, ..., z_1^L)$, the emission probabilities $p(x_i \| z_j)$ and the transition probabilities $p(z_i \| z_{i-1})$. In Numpy, these can be represented as arrays:
 
-````python
+```python
 import numpy as np
 from typing import List, Optional, Tuple
 
@@ -96,7 +96,7 @@ $$
 \end{aligned}
 $$
 
-Knowing the maximizing value, we can find the *argmax* by using *backpointers* - for some max value $\mu_k(z_k)$, we get the incoming index as the $arg \max_{z_{k-1}} p(z_k \| z_{k-1}) \mu_{k-1}(z_{k-1})$. By doing this recursively, we can get the (reversed) sequence of indices that led to the final maximum value.
+Knowing the maximizing value, we can find the *argmax* by using *backpointers* - for some max value $\mu_k(z_k)$ we get the incoming index as the $arg \max_{z_{k-1}} p(z_k \| z_{k-1}) \mu_{k-1}(z_{k-1})$. By doing this recursively, we can get the (reversed) sequence of indices that led to the final maximum value.
 
 ```python
 def step(mu_prev: np.ndarray,
@@ -175,4 +175,3 @@ The **time complexity** of the whole inference is $O(N M^2)$ for $N$ time steps 
 [mathematical-monk]: https://www.youtube.com/watch?v=RwwfUICZLsA&list=PLD0F06AA0D2E8FFBA&index=105
 [wikipedia]: https://en.wikipedia.org/wiki/Viterbi_algorithm
 [blas-wikipedia]: https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms
-````

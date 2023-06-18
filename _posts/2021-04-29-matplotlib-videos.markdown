@@ -7,7 +7,7 @@ excerpt: Short post with code snippits for creating videos from Numpy arrays in 
 
 While it's really easy to show an image in Matplotlib, I find that rendering videos quickly from PyTorch tensors or Numpy arrays seems to be a constant problem. I figured I'd write a short code snippet about how to do it quickly, for anyone else that is in the same situation.
 
-````python
+```python
 from typing import Iterator, Optional
 from pathlib import Path
 
@@ -365,5 +365,5 @@ WRITERS["ffmpeg"](dummy_image_generator(), "test.mp4")
 
 for frame in READERS["ffmpeg"]("test.mp4"):
     print(frame.shape)
+
 ```
-````

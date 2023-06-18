@@ -13,7 +13,7 @@ This is a tracking document for some things I've found useful when writing CUDA 
 
 I found it useful to put these at the top of my Python file. `manual_seed` is for reproducability and `set_printoptions` is to make it easier to quickly identify whether or not two numbers match up.
 
-````python
+```python
 torch.manual_seed(seed)
 torch.set_printoptions(precision=6, sci_mode=False)
 ```
@@ -177,4 +177,3 @@ Below are some of the resources that I found useful.
 [parallel-reduction-slides]: https://developer.download.nvidia.com/assets/cuda/files/reduction.pdf
 [rings-wiki]: https://en.wikipedia.org/wiki/Ring_(mathematics)
 [illegal-memory-access]: https://nanxiao.me/en/an-empirical-method-of-debugging-illegal-memory-access-bug-in-cuda-programming/
-````

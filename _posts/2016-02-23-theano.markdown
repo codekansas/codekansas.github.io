@@ -21,7 +21,7 @@ Here is just the code. The network has 5 hidden neurons and learns the XOR funct
 
 Ok, let's see what's going on here.
 
-````python
+```python
 X = theano.shared(value=np.asarray([[1, 0], [0, 0], [0, 1], [1, 1]]), name='X')
 y = theano.shared(value=np.asarray([[1], [0], [1], [0]]), name='y')
 rng = np.random.RandomState(1234)
@@ -77,4 +77,3 @@ Here, we define our "train" and "test" functions. The "train" function updates t
 [code-src]: https://github.com/codekansas/ml/blob/master/theano_stuff/two_layer.py
 [manifold-blog]: https://colah.github.io/posts/2014-03-NN-Manifolds-Topology/
 [sgd-wiki]: https://en.wikipedia.org/wiki/Stochastic_gradient_descent
-````

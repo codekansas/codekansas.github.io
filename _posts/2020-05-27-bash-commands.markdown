@@ -9,19 +9,19 @@ excerpt: Some functions I found useful to add to my bash and zsh profile.
 
 These are a bunch of additions I like to add to my local profile which I've found make me more productive. As best I could I tried to make it so that the instructions can be followed pretty mindlessly (mostly because I sometimes have to copy-paste stuff into a new environment).
 
-# Git Aliases
+## Git Aliases
 
-Some useful Git aliases:
+> Some useful Git aliases
 
-## Give a nice-looking commit tree
+### Give a nice-looking commit tree
 
 This is similar to the `hg sl` command we use at Facebook.
 
-````bash
+```bash
 git config --global alias.sl 'log --graph --decorate --oneline'
 ```
 
-## ls
+### ls
 
 > Usage: more friendly `ls`
 
@@ -31,7 +31,7 @@ I guess this is pretty standard but the `ls` command has some useful modifiers.
 alias ll='ls -ahl'
 ```
 
-## Date
+### Date
 
 > Usage: `today` gives the current date and `now` gives the current time
 
@@ -49,7 +49,7 @@ $ echo $(now)
 11:01:07
 ```
 
-## Google Drive
+### Google Drive
 
 > Usage: `gdrive <fid> <fpath>` where `<fid>` is the Google Drive file identifier and `<fpath>` is the output path
 
@@ -76,11 +76,11 @@ function gdrive {
 }
 ```
 
-## tmux
+### tmux
 
 [tmux](https://github.com/tmux/tmux/wiki) is a must for remote development. Here are some of my personal add-ons to make it work a bit better.
 
-### List Open Sessions
+#### List Open Sessions
 
 > Usage: List open sessions on a machine on startup
 
@@ -94,7 +94,7 @@ elif [[ ! -n $TMUX ]] && [[ $(tmux ls 2> /dev/null) ]]; then
 fi
 ```
 
-### Attach to Named Session in Control Mode
+#### Attach to Named Session in Control Mode
 
 > Usage: `tmuxc <session>`, can use tab completion to get the named session
 
@@ -103,7 +103,7 @@ Using named sessions is very important for organizing multiple projects. Otherwi
 ```bash
 alias tmuxc='tmux -CC a -t'
 
-## Provides tab completion for the tmuxc command.
+### Provides tab completion for the tmuxc command.
 _tmuxc_complete()
 {
   local cur opts
@@ -116,7 +116,7 @@ _tmuxc_complete()
 complete -F _tmuxc_complete tmuxc
 ```
 
-## Anaconda
+### Anaconda
 
 > Usage: Shorthand and tab completion for activating a Conda environment
 
@@ -135,7 +135,7 @@ _conda_complete()
 complete -F _conda_complete 'cenv'
 ```
 
-## uBlock Origin
+### uBlock Origin
 
 This is more of a productivity tip. I have a blocklist that blocks the endless scrolling parts of some social media sites without blocking potentially informative posts.
 
@@ -144,4 +144,3 @@ This is more of a productivity tip. I have a blocklist that blocks the endless s
 [dotfiles]: https://github.com/codekansas/dotfiles
 [dotfiles-inspiration]: https://github.com/mikejqzhang/dotfiles
 [dotbot]: https://github.com/anishathalye/dotbot
-````

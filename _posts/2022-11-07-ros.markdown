@@ -7,8 +7,8 @@ excerpt: "An actually good guide to getting started with ROS 2"
 
 In this post, I'm going to provide some straight-forward pointers for getting started using ROS 2.
 
-- TOC
-  {:toc}
+* TOC
+{:toc}
 
 There's a minimal repository with the code from this post [here][blog-post-repo].
 
@@ -48,7 +48,7 @@ Throughout this post, I will be using [RoboStack][robostack], which is a way of 
 
 ### Create a New Conda Environment
 
-````bash
+```bash
 # Robostack's ROS 2 Humble channel only works with Python 3.9.
 # Galactic can work with either version.
 conda create --name ros-blog-post python=3.9
@@ -323,13 +323,13 @@ colcon test
 
 ### Network Teleop
 
-This part will require having two machines, which I'll call the *host* and *client*. The *host* is going to be running the main Turtlesim node, while the *client* is going to run our custom controller. On the *host*, run
+This part will require having two machines, which I'll call the _host_ and _client_. The _host_ is going to be running the main Turtlesim node, while the _client_ is going to run our custom controller. On the _host_, run
 
 ```bash
 ros2 run turtlesim turtlesim_node
 ```
 
-You should be able to see the standard view of the turtle. Next, in a different terminal, get the *host* hostname:
+You should be able to see the standard view of the turtle. Next, in a different terminal, get the _host_ hostname:
 
 ```bash
 ROS_HOSTNAME=$(hostname)
@@ -345,7 +345,7 @@ benjamins-mini.lan
 </div>
 </details>
 
-Next, from the *client*, make sure you can ping the *host* hostname (note that this requires being on the same network):
+Next, from the _client_, make sure you can ping the _host_ hostname (note that this requires being on the same network):
 
 ```bash
 export ROS_HOSTNAME=<hostname-from-host>
@@ -367,7 +367,7 @@ PING host-hostname (192.168.0.1): 56 data bytes
 </div>
 </details>
 
-If you were able to ping from the *client* to the *host* successfully, then after setting the `$ROS_HOSTNAME` environment variable, you can just run the custom node:
+If you were able to ping from the _client_ to the _host_ successfully, then after setting the `$ROS_HOSTNAME` environment variable, you can just run the custom node:
 
 ```bash
 python -m custom_turtlesim.controller
@@ -377,7 +377,7 @@ python -m custom_turtlesim.controller
 
 ### Package
 
-A *package* in ROS is a collection of code, much like a Python or C++ package.
+A _package_ in ROS is a collection of code, much like a Python or C++ package.
 
 To create a new Python package:
 
@@ -405,7 +405,7 @@ All ROS packages include a `package.xml` file which contains meta information ab
 
 ### Node
 
-A *node* in ROS is a process that performs some computation - basically an executable. They communicate with each other using [topics](#topic), [services](#service) and [actions](#actions). You can list *running* nodes using
+A _node_ in ROS is a process that performs some computation - basically an executable. They communicate with each other using [topics](#topic), [services](#service) and [actions](#actions). You can list _running_ nodes using
 
 ```bash
 ros2 node list
@@ -447,10 +447,11 @@ $ ros2 node info /turtlesim
     /turtlesim/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically
   Service Clients:
 
-  Action Servers:
-    /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
-  Action Clients:
-```
+Action Servers:
+/turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
+Action Clients:
+
+````
 </div>
 </details>
 
@@ -469,7 +470,7 @@ A *topic* in ROS is a way for [nodes](#node) to send messages to each other usin
 
 ```bash
 ros2 topic list
-```
+````
 
 To show the topic type, you can use:
 
@@ -514,13 +515,13 @@ ros2 topic pub -r 0.5 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0
 
 #### Messages
 
-A *message* is just a type of topic, which tells ROS what kind of data is being passed around. This is so that data can be encoded and decoded correctly.
+A _message_ is just a type of topic, which tells ROS what kind of data is being passed around. This is so that data can be encoded and decoded correctly.
 
 - You can see some example messages [here][ros2-example-interfaces]
 
 ### Service
 
-A *service* in ROS is a way for [nodes](#node) to communicate with each other using call-and-response semantics. A node will send a request to another node, and receive a response in return. You can list available services using:
+A _service_ in ROS is a way for [nodes](#node) to communicate with each other using call-and-response semantics. A node will send a request to another node, and receive a response in return. You can list available services using:
 
 ```bash
 ros2 service list
@@ -550,11 +551,11 @@ $ ros2 service list
 
 ### Bag
 
-A *bag* in ROS is just a recording of a session.
+A _bag_ in ROS is just a recording of a session.
 
 ### Action
 
-A *action* in ROS has three parts:
+A _action_ in ROS has three parts:
 
 1. Goal: A [service](#service) which can be called to kick off the action
 2. Feedback: A [topic](#topic) which lets the actor give constant feedback to the controller
@@ -686,7 +687,7 @@ colcon test-result --verbose  # To show all errors
 
 Here's a reference ROS 2 command cheat sheet.
 
-| Base Command |    Command    |                   Description                   |
+| Base Command | Command       | Description                                     |
 | ------------ | ------------- | ----------------------------------------------- |
 | `action`     | `info`        | Output information about an action              |
 |              | `list`        | Output a list of action names                   |
@@ -756,4 +757,3 @@ Some other resources that I found helpful are listed below.
 [tree-install-instructions]: https://www.cyberciti.biz/faq/linux-show-directory-structure-command-line/
 [turtlesim-ros-page]: http://wiki.ros.org/turtlesim
 [ubuntu-ros-2-tutorial]: https://ubuntu.com/tutorials/getting-started-with-ros-2#1-overview
-````

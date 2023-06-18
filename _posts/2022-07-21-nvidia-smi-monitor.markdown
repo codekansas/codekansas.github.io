@@ -7,7 +7,7 @@ excerpt: Python code snippit for doing background GPU monitoring using `nvidia-s
 
 I was recently trying to log my GPU usage to Tensorboard for a training job and found that calling `nvidia-smi` on every step, or at some interval, was eating up my performance. I rewrote it into a clean daemon process and thought I should share it here for other people who might be in the same situation.
 
-````python
+```python
 import logging
 import multiprocessing as mp
 import os
@@ -113,4 +113,3 @@ for batch in dataloader:
 ```
 
 Hope this helps!
-````
