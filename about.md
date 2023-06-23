@@ -49,7 +49,7 @@ no_comments: true
 <details>
 <summary style="margin: auto; text-align: center;">VSCode settings</summary>
 <div style="margin-top: 0.5em;">
-```jsonc
+<pre><code>
 {
   /* Editor features */
   "editor.quickSuggestionsDelay": 10,
@@ -73,23 +73,22 @@ no_comments: true
   "editor.maxTokenizationLineLength": 512,
   "editor.cursorSurroundingLines": 15,
 
-/_ Default extensions _/
-"remote.SSH.defaultExtensions": [
-"ms-python.python",
-"ms-toolsai.jupyter",
-"ms-python.vscode-pylance",
-"eamodio.gitlens",
-"xaver.clang-format",
-"visualstudioexptteam.vscodeintellicode",
-"tyriar.sort-lines",
-"sirtori.indenticator",
-"oderwat.indent-rainbow",
-"esbenp.prettier-vscode",
-"yzhang.markdown-all-in-one"
-],
+  /* Default extensions */
+  "remote.SSH.defaultExtensions": [
+    "ms-python.python",
+    "ms-toolsai.jupyter",
+    "ms-python.vscode-pylance",
+    "eamodio.gitlens",
+    "xaver.clang-format",
+    "visualstudioexptteam.vscodeintellicode",
+    "tyriar.sort-lines",
+    "sirtori.indenticator",
+    "oderwat.indent-rainbow",
+    "esbenp.prettier-vscode",
+    "yzhang.markdown-all-in-one"
+  ], 
 }
-
-```
+</code></pre>
 
 </div>
 </details>
@@ -255,4 +254,3 @@ Here are some quotes that I have found interesting.
 > Consider it pure joy, my brothers and sisters, whenever you face trials of many kinds, because you know that the testing of your faith produces perseverance. Let perseverance finish its work so that you may be mature and complete, not lacking anything. - James 1:2-4
 
 > I must not fear. Fear is the mind-killer. Fear is the little-death that brings total obliteration. I will face my fear. I will permit it to pass over me and through me. And when it has gone past I will turn the inner eye to see its path. Where the fear has gone there will be nothing. Only I will remain. - Frank Herbert, Dune
-```
