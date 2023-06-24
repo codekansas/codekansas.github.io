@@ -5,8 +5,6 @@ category: 🔬
 excerpt: A collection of my ideas relating to robotics pre-training.
 ---
 
-## HuBERT for Robots
-
 The first step is to generate hidden units from a pre-trained image model. This should probably be done by doing k-NN on the latent space of some pre-trained model like ViT or CLIP. Potentially, the output embedding of CLIP could be used instead.
 
 ![First step, generate hidden units from a pre-trained image model.](/images/robotic-pretraining/phase_1_a.webp)
