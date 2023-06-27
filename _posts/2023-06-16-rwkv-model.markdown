@@ -13,9 +13,9 @@ In this post, I write out the equations for the core WKV part of the RWKV model,
 
 In most cases, the gradients were verified with Wolfram Alpha, although there may be a typo in the math. The PyTorch implementations are verified by comparing the manual implementation of the backward pass with the autograd implementation. See [this repo][rwkv-repo] to check out the full code and unit tests.
 
-{% katexmm %}
-
 ## Math
+
+{% katexmm %}
 
 > This section covers the basic math concepts for the WKV operator. If you're already familiar with the math, you can skip to the [PyTorch implementation](#pytorch-implementation) or the [next section](#numerical-stability), which extends the vanilla computation to be numerically stable. Additionally, the gradients for this computation are derived in a [further section](#gradients).
 

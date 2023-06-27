@@ -1,0 +1,46 @@
+---
+layout: post
+title: Starting a Startup
+tags: [life, musings]
+excerpt: >
+  I left FAIR to start a startup a few weeks ago, and figured I should describe
+  what we're actually doing.
+---
+
+As most of my friends now know, I left FAIR a few weeks ago to start a startup with a friend. While at first I was somewhat hesitant to tell people what we are actually working on, for fear of someone taking the idea or inviting unwanted attention, I realized that I've told enough random people that it's not really a secret anymore, so I figured I should write up some thoughts. So, without further ado...
+
+## What am I doing?
+
+When I was thinking about things to work on, the first thing I thought about was building a robotics company. Robotics feels like it is on the precipice of becoming extremely useful, and I suspect in the next few years we will see a "ChatGPT moment" for robotics, where the general public will get to see how useful robots have become.
+
+Unfortunately, the mechanics of building a robotics startup are pretty complicated, and not amenable to hacking together something in a month with a laptop and some GPUs. So while there are cool research problems to work on, robotics is not the sort of thing that would make for a great business, and I am pretty wary of becoming one of those technical people that gets so mired down in working on specific problems that I fail to actually make a business.
+
+With that in mind, the huge wave of cool AI projects has demonstrated that there are a lot of very useful AI applications which are possible to build now that were not possible a few years ago. Before I transitioned into self-driving and robotics, I worked for some time on representation learning for speech. In the time since then, one of the papers I worked on has become very popular for doing "textless NLP", which given the current excitement around large language models has come to mean something like, "building autoregressive models of speech tokens".
+
+However, I didn't have a particular idea about which business vertical to tackle until my cofounder came to me with a cool opportunity. Over the last 30 years, many businesses have taken their customer support (and increasingly, sales) off-shore, with the help of Business Process Offshoring companies (BPOs). The initial trend was to move to India, since there is a large English-speaking population there, but this resulted in poor quality support and frustrated customers, mainly because Indian accents are typically hard for American and British people to understand. This lead to many BPOs shifting their focus to the Philippines, since Americans tended to find their accents to be more intelligible, a benefit which the customers of the BPOs in question found was worth paying the slight markup for.
+
+There are a number of existing companies which have cropped up in the last couple years to address this problem. In particular, one of the largest, Sanas, is well-capitalized and has a close relationship with one of the largest BPOs in the industry. However, the broader BPO industry is quite diverse, and this technology is something which is almost universally beneficial.
+
+Additionally, from a technical perspective, the problem of doing accent translation (or more generally, speaker translation) is pretty tractable for a small startup. In fact, I hacked together a model over the course of a weekend that seemed to do a reasonable job of converting speech from one speaker to another. I'm pretty confident about getting this model to run in real-time as well, and it's the sort of thing I can build on an airplane or from my apartment.
+
+In our customer conversations, we've heard that the accent translation problem is extremely valuable _if done well_, which, as someone who is generally a fan of doing things well, is exciting to hear. At least, it feels better to be execution-bound than customer-bound.
+
+## Why leave FAIR in the middle of the AI revolution?
+
+So, one of the hard choices I had to make was whether or not it was worth it to leave a well-paying job, working on cutting-edge AI research, to go after a pre-PMF startup idea. I think the answer is yes, but it's worth explaining why.
+
+First, I think that the AI revolution is going to be a long one. I think that the current wave of excitement around large language models is going to be followed by a wave of excitement around robotics, and then a wave of excitement around something else. I think that the excitement is going to last for at least a few years, and that there will be plenty of time to get back into the field if I want to.
+
+Second, like many AI labs, FAIR is currently going through some soul searching as it tries to figure out what sort of organization it wants to become. In my most recent stint there, which was only six months, I was able to write up a decent paper and get it accepted to IROS, but it felt like the "old FAIR" mode of operation - small groups of people working on focused projects with the goal of publishing research papers, rather than the sort of long-shot, large-group projects that Deep Mind has been known for (and that FAIR seems to be increasingly prioritizing). For me specifically, I'm in a weird in-between in my career where I've done a few high-impact things and am not a junior engineer, but am also not leading these kinds of projects. In this scenario, it only makes sense for me to work on things where either I have a large amount of autonomy or am working with someone whose vision I greatly respect and believe in (preferably both). Unfortunately, for robotics at FAIR at the moment, I don't think there is a clear vision that I'm excited about helping execute, so the tradeoff of losing autonomy as FAIR moves towards larger projects didn't seem worth it.
+
+That's not to say that it was an easy decision to leave. FAIR is starting to invest much more heavily into robotics and I'm pretty excited about the direction it's going to take. However, that brings me to the third point: right now feels like the best time in my life so far to start an AI company. The energy in the open-source space is palpable, and it is becoming clear to both engineers and investors that AI is going to really revolutionize the world over the next five years. Staying at FAIR today feels like staying at Bell Labs at the advent of the consumer PC revolution or staying at IBM in the early days of the internet. FAIR will certainly be a nexus for a lot of activity and investment, but as someone who wants to build world-changing AI products (and who is turning 30 in a year and a half), if there were ever a time to do it, it would be now.
+
+## What next?
+
+Our company was accepted to Y Combinator, but we decided to turn it down to focus on building our product and getting it in front of customers. I'm doubtful whether or not Y Combinator would have provided us enough benefit to justify the large amount of equity they would take. We are considering applying to the second round of the AI Grant, and are also looking at raising a seed round (if you're interested in investing, please reach out).
+
+But we're currently in heads-down build-a-product mode, which is an exciting mode to be in. I have high hopes for where the company can go. The TAM of our chosen market is huge, and the technology is very transferrable. At the very least I am pretty confident that we could get a great acquihire offer if we wanted to, but I'm hoping that we can build something that is worth more than that.
+
+IF I were to look at our team from an outsider's perspective, it would be a team I would bet on. We've got a great mix of technical and business skills, and are extremely well-suited to solve our chosen problem (I suspect that even at this stage we have more technical depth and ability to execute than any of our biggest competitors).
+
+On a philosophical level, I am excited about proving myself as a founder. I've been a technical person for a long time, and I think that I have a lot of the skills necessary to be a great founder, but I've never actually done it before. Fortunately, I've got a great cofounder, and a wife who works 80 hours a week and won't miss me too much if I do as well.

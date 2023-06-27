@@ -43,8 +43,12 @@ b {
 a {
   color: #3273dc;
   cursor: pointer;
-  text-decoration: underline;
+  text-decoration: none;
   /*color: #ff5e6c;*/
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .title {
@@ -243,10 +247,6 @@ ul.blog-posts li {
 
 ul.blog-posts li span {
   flex: 0 0 130px;
-}
-
-ul.blog-posts li a:visited {
-  color: #8b6fcb;
 }
 
 a.page-link.active {
@@ -576,10 +576,12 @@ div[class*="highlight"] button {
 
 div[class*="highlight"] button.copy-button {
   top: 5px;
+  font-family: "Source Code Pro", monospace;
 }
 
 div[class*="highlight"] button.collapse-button {
   top: 35px;
+  font-family: "Source Code Pro", monospace;
 }
 
 pre.collapsed {

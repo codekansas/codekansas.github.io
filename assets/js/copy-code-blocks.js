@@ -1,5 +1,5 @@
 (function () {
-  const copyButtonLabel = "Copy";
+  const copyButtonLabel = "copy";
 
   let blocks = document.querySelectorAll("pre");
 
@@ -23,7 +23,7 @@
     await navigator.clipboard.writeText(text);
 
     // Changes inner text and code block color.
-    button.innerText = "Copied!";
+    button.innerText = "copied!";
 
     setTimeout(() => {
       button.innerText = copyButtonLabel;

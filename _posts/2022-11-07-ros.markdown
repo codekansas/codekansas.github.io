@@ -2,7 +2,8 @@
 layout: post
 title: "Getting Started with ROS 2"
 tags: [eng]
-excerpt: "An actually good guide to getting started with ROS 2"
+excerpt: >
+  An actually good guide to getting started with ROS 2.
 ---
 
 In this post, I'm going to provide some straight-forward pointers for getting started using ROS 2.
@@ -414,9 +415,8 @@ You can print out info about a particular running node using
 ros2 node info <node-name>
 ```
 
-<details>
-<summary>Sample output when running <code>turtlesim_node</code></summary>
-<div>
+Sample output when I run the above command:
+
 ```bash
 $ ros2 node info /turtlesim
 /turtlesim
@@ -447,10 +447,7 @@ $ ros2 node info /turtlesim
 Action Servers:
 /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
 Action Clients:
-
-````
-</div>
-</details>
+```
 
 #### How do nodes work?
 
@@ -467,7 +464,7 @@ A *topic* in ROS is a way for [nodes](#node) to send messages to each other usin
 
 ```bash
 ros2 topic list
-````
+```
 
 To show the topic type, you can use:
 
@@ -476,9 +473,8 @@ ros2 topic list --show-types
 ros2 topic list -t  # Shorthand
 ```
 
-<details>
-<summary>Sample output when running <code>turtlesim_node</code></summary>
-<div>
+Sample output when I run the above command:
+
 ```bash
 $ ros2 topic list --show-types
 /parameter_events [rcl_interfaces/msg/ParameterEvent]
@@ -487,8 +483,6 @@ $ ros2 topic list --show-types
 /turtle1/color_sensor [turtlesim/msg/Color]
 /turtle1/pose [turtlesim/msg/Pose]
 ```
-</div>
-</details>
 
 To send a message to a topic from the command line, you can use the command:
 
@@ -501,14 +495,11 @@ Some useful command-line flags:
 - `-r/--rate <rate>` publishes this many times per second
 - `-t/--times <times>` only runs this many times
 
-<details>
-<summary>Sample call to <code>turtlesim_node</code></summary>
-<div>
+Sample command for communicating with the node:
+
 ```bash
 ros2 topic pub -r 0.5 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -3.1415926535}}"
 ```
-</div>
-</details>
 
 #### Messages
 
@@ -524,9 +515,8 @@ A _service_ in ROS is a way for [nodes](#node) to communicate with each other us
 ros2 service list
 ```
 
-<details>
-<summary>Sample output when running <code>turtlesim_node</code></summary>
-<div>
+Sample output when running <code>turtlesim_node</code>
+
 ```bash
 $ ros2 service list
 /clear
@@ -543,8 +533,6 @@ $ ros2 service list
 /turtlesim/set_parameters
 /turtlesim/set_parameters_atomically
 ```
-</div>
-</details>
 
 ### Bag
 
@@ -564,15 +552,12 @@ Actions are essentially [services](#service) which can be pre-empted. You can li
 ros2 action list
 ```
 
-<details>
-<summary>Sample output when running <code>turtlesim_node</code></summary>
-<div>
+Sample output when running <code>turtlesim_node</code>
+
 ```bash
 $ ros2 action list
 /turtle1/rotate_absolute
 ```
-</div>
-</details>
 
 ### `run`
 

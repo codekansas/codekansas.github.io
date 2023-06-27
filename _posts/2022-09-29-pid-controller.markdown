@@ -2,7 +2,8 @@
 layout: post
 title: PID Controller Explainer
 tags: [eng, algos, math]
-excerpt: Simple overview of what a PID controller is, how it works, and how to make one yourself
+excerpt: >
+  Simple overview of what a PID controller is, how it works, and how to make one yourself.
 ---
 
 {% katexmm %}
@@ -90,17 +91,14 @@ As expected, now that we've overshot our target temperature, we need to supply a
 
 Here's a simple program to simulate a 3D printer nozzel. Note that the heater simulator is only a very loose approximation to the behavior of the actual heater, and can stand in for any black box system that you might want to use a PID controller for.
 
-<details>
-<summary>Heater simulation simple controller Python code</summary>
-<div>
 ```python
 import argparse
 
 import matplotlib.pyplot as plt
 
 class SimpleController:
-def **init**(self, trg_temp: float, kp: float, v_offset: float) -> None:
-"""Initializes a simple controller.
+    def __init__(self, trg_temp: float, kp: float, v_offset: float) -> None:
+        """Initializes a simple controller.
 
         Args:
             trg_temp: The target temperature
@@ -126,18 +124,18 @@ def **init**(self, trg_temp: float, kp: float, v_offset: float) -> None:
         return self.kp * error + self.v_offset
 
 class HeaterSimulator:
-def **init**(
-self,
-dt: float,
-amb_temp: float,
-min_voltage: float,
-max_voltage: float,
-heat_coeff: float,
-area: float,
-voltage_coeff: float,
-inertia: float,
-) -> None:
-"""Initializes the heater simulator.
+    def __init__(
+        self,
+        dt: float,
+        amb_temp: float,
+        min_voltage: float,
+        max_voltage: float,
+        heat_coeff: float,
+        area: float,
+        voltage_coeff: float,
+        inertia: float,
+    ) -> None:
+        """Initializes the heater simulator.
 
         Args:
             dt: The timestep size, in seconds
@@ -180,20 +178,20 @@ inertia: float,
         self.temperature += self.dtemp * self.dt
 
 def main() -> None:
-parser = argparse.ArgumentParser(description="Heater PID simulation")
-parser.add_argument("--kp", type=float, nargs="+", required=True, help="P scale")
-parser.add_argument("--dt", type=float, default=0.01, help="Timestep size")
-parser.add_argument("--total-steps", type=int, default=10000, help="Number of simulation steps")
-parser.add_argument("--amb-temp", type=float, default=20.0, help="Ambient temperature")
-parser.add_argument("--trg-temp", type=float, default=210.0, help="Target temperature")
-parser.add_argument("--v-offset", type=float, default=3.0, help="Offset voltage")
-parser.add_argument("--min-voltage", type=float, default=0.0, help="Minimum voltage")
-parser.add_argument("--max-voltage", type=float, default=24.0, help="Maximum voltage")
-parser.add_argument("--area", type=float, default=1e-4, help="Surface area of the heater")
-parser.add_argument("--heat-coeff", type=float, default=100.0, help="Heat transfer coefficient")
-parser.add_argument("--voltage-coeff", type=float, default=1.0, help="Voltage coefficient")
-parser.add_argument("--inertia", type=float, default=0.99, help="System inertia")
-args = parser.parse_args()
+    parser = argparse.ArgumentParser(description="Heater PID simulation")
+    parser.add_argument("--kp", type=float, nargs="+", required=True, help="P scale")
+    parser.add_argument("--dt", type=float, default=0.01, help="Timestep size")
+    parser.add_argument("--total-steps", type=int, default=10000, help="Number of simulation steps")
+    parser.add_argument("--amb-temp", type=float, default=20.0, help="Ambient temperature")
+    parser.add_argument("--trg-temp", type=float, default=210.0, help="Target temperature")
+    parser.add_argument("--v-offset", type=float, default=3.0, help="Offset voltage")
+    parser.add_argument("--min-voltage", type=float, default=0.0, help="Minimum voltage")
+    parser.add_argument("--max-voltage", type=float, default=24.0, help="Maximum voltage")
+    parser.add_argument("--area", type=float, default=1e-4, help="Surface area of the heater")
+    parser.add_argument("--heat-coeff", type=float, default=100.0, help="Heat transfer coefficient")
+    parser.add_argument("--voltage-coeff", type=float, default=1.0, help="Voltage coefficient")
+    parser.add_argument("--inertia", type=float, default=0.99, help="System inertia")
+    args = parser.parse_args()
 
     # Plots the simulated temperatures.
     plt.figure()
@@ -243,17 +241,12 @@ args = parser.parse_args()
     plt.legend()
     plt.show()
 
-if **name** == "**main**":
-main()
+if __name__ == "__main__":
+    main()
+```
 
-````
+Here is just the controller, without the boilerplate for running it.
 
-</div>
-</details>
-
-<details>
-<summary>Just the simple controller</summary>
-<div>
 ```python
 class SimpleController:
     def __init__(self, trg_temp: float, kp: float, v_offset: float) -> None:
@@ -281,11 +274,7 @@ class SimpleController:
 
         error = self.trg_temp - temperature
         return self.kp * error + self.v_offset
-
-````
-
-</div>
-</details>
+```
 
 We can run this script using:
 
@@ -343,20 +332,9 @@ Here's a few temperature curves for an overshooting proportional controller, wit
 ### Updating our Controller
 
 We can put together each of our controllers into the final PID controller formulation shown below:
-
-$$
-\begin{aligned}
-\text{input} \, = \, K_p & * \text{error} \\
-+ K_i & * \int \text{error}_t \, d \text{ time} \\
-+ K_d & * \frac{d \, \text{error}}{d \, \text{time}}
-\end{aligned}
-$$
-
+$$\text{input} = K_p \text{error} + K_i \text{error} \, d \text{ time} + K_d \frac{d \text{error}}{d \, \text{time}}$$
 A Python implementation for this controller can be found below.
 
-<details>
-<summary>Heater simulation PID controller Python code</summary>
-<div>
 ```python
 import argparse
 import itertools
@@ -365,16 +343,16 @@ from typing import Optional
 import matplotlib.pyplot as plt
 
 class PIDController:
-def **init**(
-self,
-dt: float,
-trg_temp: float,
-kp: float,
-ki: float,
-kd: float,
-v_offset: float,
-) -> None:
-"""Initializes a simple controller.
+    def __init__(
+        self,
+        dt: float,
+        trg_temp: float,
+        kp: float,
+        ki: float,
+        kd: float,
+        v_offset: float,
+    ) -> None:
+    """Initializes a simple controller.
 
         Args:
             dt: The timestep size, in seconds
@@ -423,18 +401,18 @@ v_offset: float,
         return p_term + i_term + d_term + self.v_offset
 
 class HeaterSimulator:
-def **init**(
-self,
-dt: float,
-amb_temp: float,
-min_voltage: float,
-max_voltage: float,
-heat_coeff: float,
-area: float,
-voltage_coeff: float,
-inertia: float,
-) -> None:
-"""Initializes the heater simulator.
+    def __init__(
+        self,
+        dt: float,
+        amb_temp: float,
+        min_voltage: float,
+        max_voltage: float,
+        heat_coeff: float,
+        area: float,
+        voltage_coeff: float,
+        inertia: float,
+    ) -> None:
+        """Initializes the heater simulator.
 
         Args:
             dt: The timestep size, in seconds
@@ -477,22 +455,22 @@ inertia: float,
         self.temperature += self.dtemp * self.dt
 
 def main() -> None:
-parser = argparse.ArgumentParser(description="Heater PID simulation")
-parser.add_argument("--kp", type=float, nargs="+", required=True, help="P scale")
-parser.add_argument("--ki", type=float, nargs="+", required=True, help="I scale")
-parser.add_argument("--kd", type=float, nargs="+", required=True, help="D scale")
-parser.add_argument("--dt", type=float, default=0.01, help="Timestep size")
-parser.add_argument("--total-steps", type=int, default=10000, help="Number of simulation steps")
-parser.add_argument("--amb-temp", type=float, default=20.0, help="Ambient temperature")
-parser.add_argument("--trg-temp", type=float, default=200.0, help="Target temperature")
-parser.add_argument("--v-offset", type=float, default=3.0, help="Offset voltage")
-parser.add_argument("--min-voltage", type=float, default=0.0, help="Minimum voltage")
-parser.add_argument("--max-voltage", type=float, default=24.0, help="Maximum voltage")
-parser.add_argument("--area", type=float, default=1e-4, help="Surface area of the heater")
-parser.add_argument("--heat-coeff", type=float, default=100.0, help="Heat transfer coefficient")
-parser.add_argument("--voltage-coeff", type=float, default=1.0, help="Voltage coefficient")
-parser.add_argument("--inertia", type=float, default=0.99, help="System inertia")
-args = parser.parse_args()
+    parser = argparse.ArgumentParser(description="Heater PID simulation")
+    parser.add_argument("--kp", type=float, nargs="+", required=True, help="P scale")
+    parser.add_argument("--ki", type=float, nargs="+", required=True, help="I scale")
+    parser.add_argument("--kd", type=float, nargs="+", required=True, help="D scale")
+    parser.add_argument("--dt", type=float, default=0.01, help="Timestep size")
+    parser.add_argument("--total-steps", type=int, default=10000, help="Number of simulation steps")
+    parser.add_argument("--amb-temp", type=float, default=20.0, help="Ambient temperature")
+    parser.add_argument("--trg-temp", type=float, default=200.0, help="Target temperature")
+    parser.add_argument("--v-offset", type=float, default=3.0, help="Offset voltage")
+    parser.add_argument("--min-voltage", type=float, default=0.0, help="Minimum voltage")
+    parser.add_argument("--max-voltage", type=float, default=24.0, help="Maximum voltage")
+    parser.add_argument("--area", type=float, default=1e-4, help="Surface area of the heater")
+    parser.add_argument("--heat-coeff", type=float, default=100.0, help="Heat transfer coefficient")
+    parser.add_argument("--voltage-coeff", type=float, default=1.0, help="Voltage coefficient")
+    parser.add_argument("--inertia", type=float, default=0.99, help="System inertia")
+    args = parser.parse_args()
 
     # Plots the simulated temperatures.
     plt.figure()
@@ -545,16 +523,12 @@ args = parser.parse_args()
     plt.legend()
     plt.show()
 
-if **name** == "**main**":
-main()
+if __name__ == "__main__":
+    main()
+```
 
-````
-</div>
-</details>
+The snippet below has just the code for the controller, without the boilerplate for running it.
 
-<details>
-<summary>Just the PID controller</summary>
-<div>
 ```python
 class PIDController:
     def __init__(
@@ -613,10 +587,8 @@ class PIDController:
         d_term = self.kd * delta_error
 
         return p_term + i_term + d_term + self.v_offset
-````
 
-</div>
-</details>
+```
 
 ## How Can you Make One Yourself?
 
@@ -653,9 +625,6 @@ $$
 
 I've included a script which can be used for sweeping different PID configurations for our original simulation.
 
-<details>
-<summary>PID configuration sweep script</summary>
-<div>
 ```python
 import argparse
 import itertools
@@ -664,16 +633,16 @@ from typing import List, Optional, Tuple
 import matplotlib.pyplot as plt
 
 class PIDController:
-def **init**(
-self,
-dt: float,
-trg_temp: float,
-kp: float,
-ki: float,
-kd: float,
-v_offset: float,
-) -> None:
-"""Initializes a simple controller.
+    def __init__(
+        self,
+        dt: float,
+        trg_temp: float,
+        kp: float,
+        ki: float,
+        kd: float,
+        v_offset: float,
+    ) -> None:
+        """Initializes a simple controller.
 
         Args:
             dt: The timestep size, in seconds
@@ -723,18 +692,18 @@ v_offset: float,
         return p_term + i_term + d_term + self.v_offset, error
 
 class HeaterSimulator:
-def **init**(
-self,
-dt: float,
-amb_temp: float,
-min_voltage: float,
-max_voltage: float,
-heat_coeff: float,
-area: float,
-voltage_coeff: float,
-inertia: float,
-) -> None:
-"""Initializes the heater simulator.
+    def __init__(
+        self,
+        dt: float,
+        amb_temp: float,
+        min_voltage: float,
+        max_voltage: float,
+        heat_coeff: float,
+        area: float,
+        voltage_coeff: float,
+        inertia: float,
+    ) -> None:
+        """Initializes the heater simulator.
 
         Args:
             dt: The timestep size, in seconds
@@ -777,24 +746,24 @@ inertia: float,
         self.temperature += self.dtemp * self.dt
 
 def main() -> None:
-parser = argparse.ArgumentParser(description="Heater PID simulation")
-parser.add_argument("--kp", type=float, nargs="+", required=True, help="P scale")
-parser.add_argument("--ki", type=float, nargs="+", required=True, help="I scale")
-parser.add_argument("--kd", type=float, nargs="+", required=True, help="D scale")
-parser.add_argument("--plot", type=str, choices=["kp", "ki", "kd"], required=True, help="Which to plot")
-parser.add_argument("--num-samples", type=int, default=100, help="Number of samples")
-parser.add_argument("--dt", type=float, default=0.01, help="Timestep size")
-parser.add_argument("--total-steps", type=int, default=10000, help="Number of simulation steps")
-parser.add_argument("--amb-temp", type=float, default=20.0, help="Ambient temperature")
-parser.add_argument("--trg-temp", type=float, default=200.0, help="Target temperature")
-parser.add_argument("--v-offset", type=float, default=3.0, help="Offset voltage")
-parser.add_argument("--min-voltage", type=float, default=0.0, help="Minimum voltage")
-parser.add_argument("--max-voltage", type=float, default=24.0, help="Maximum voltage")
-parser.add_argument("--area", type=float, default=1e-4, help="Surface area of the heater")
-parser.add_argument("--heat-coeff", type=float, default=100.0, help="Heat transfer coefficient")
-parser.add_argument("--voltage-coeff", type=float, default=1.0, help="Voltage coefficient")
-parser.add_argument("--inertia", type=float, default=0.99, help="System inertia")
-args = parser.parse_args()
+    parser = argparse.ArgumentParser(description="Heater PID simulation")
+    parser.add_argument("--kp", type=float, nargs="+", required=True, help="P scale")
+    parser.add_argument("--ki", type=float, nargs="+", required=True, help="I scale")
+    parser.add_argument("--kd", type=float, nargs="+", required=True, help="D scale")
+    parser.add_argument("--plot", type=str, choices=["kp", "ki", "kd"], required=True, help="Which to plot")
+    parser.add_argument("--num-samples", type=int, default=100, help="Number of samples")
+    parser.add_argument("--dt", type=float, default=0.01, help="Timestep size")
+    parser.add_argument("--total-steps", type=int, default=10000, help="Number of simulation steps")
+    parser.add_argument("--amb-temp", type=float, default=20.0, help="Ambient temperature")
+    parser.add_argument("--trg-temp", type=float, default=200.0, help="Target temperature")
+    parser.add_argument("--v-offset", type=float, default=3.0, help="Offset voltage")
+    parser.add_argument("--min-voltage", type=float, default=0.0, help="Minimum voltage")
+    parser.add_argument("--max-voltage", type=float, default=24.0, help="Maximum voltage")
+    parser.add_argument("--area", type=float, default=1e-4, help="Surface area of the heater")
+    parser.add_argument("--heat-coeff", type=float, default=100.0, help="Heat transfer coefficient")
+    parser.add_argument("--voltage-coeff", type=float, default=1.0, help="Voltage coefficient")
+    parser.add_argument("--inertia", type=float, default=0.99, help="System inertia")
+    args = parser.parse_args()
 
     def error_func(error: float) -> float:
         return error if error > 0 else error**2
@@ -867,22 +836,17 @@ args = parser.parse_args()
     plt.legend()
     plt.show()
 
-if **name** == "**main**":
-main()
+if __name__ == "__main__":
+    main()
+```
 
-````
-</div>
-</details>
+The snippet below contains just the code for the controller, without the code for running it.
 
-<details>
-<summary>Just the error measurement</summary>
-<div>
 ```python
 def error_func(error: float) -> float:
     return error if error > 0 else error**2
 
-def get_error(kp: float, ki: float, kd: float) -> float:
-    # Simulator.
+def get_error(kp: float, ki: float, kd: float) -> float: # Simulator.
     simulator = HeaterSimulator(
         dt=args.dt,
         amb_temp=args.amb_temp,
@@ -913,10 +877,7 @@ def get_error(kp: float, ki: float, kd: float) -> float:
         total_error += error_func(error) * args.dt
 
     return total_error
-````
-
-</div>
-</details>
+```
 
 The script can be run, for example, using the command below:
 

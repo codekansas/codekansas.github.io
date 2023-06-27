@@ -3,7 +3,8 @@ layout: post
 title: "Possible Ideas for Robotics Startups"
 tags: [ideas]
 excerpt: >
-  A list of ideas for robotics startups.
+  A list of ideas for robotics startups, focusing on things that are feasible
+  right now and things that will likely become feasible in the next few years.
 ---
 
 Here are some ideas for robotics startups.

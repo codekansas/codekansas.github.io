@@ -45,53 +45,6 @@ title: About
   - [RSS Feed]({{ site.url }}/feed.xml) - RSS feed for this blog
 
 <details>
-<summary style="margin: auto; text-align: center;">VSCode settings</summary>
-<div style="margin-top: 0.5em;">
-<pre><code>
-{
-  /* Editor features */
-  "editor.quickSuggestionsDelay": 10,
-  "editor.rulers": [
-    {
-      "column": 80,
-      "color": "#00ff2255"
-    },
-    {
-      "column": 88,
-      "color": "#00ff2222"
-    },
-    {
-      "column": 120,
-      "color": "#00e1ff55"
-    }
-  ],
-  "editor.acceptSuggestionOnEnter": "smart",
-  "editor.suggestSelection": "recentlyUsed",
-  "editor.minimap.enabled": false,
-  "editor.maxTokenizationLineLength": 512,
-  "editor.cursorSurroundingLines": 15,
-
-  /* Default extensions */
-  "remote.SSH.defaultExtensions": [
-    "ms-python.python",
-    "ms-toolsai.jupyter",
-    "ms-python.vscode-pylance",
-    "eamodio.gitlens",
-    "xaver.clang-format",
-    "visualstudioexptteam.vscodeintellicode",
-    "tyriar.sort-lines",
-    "sirtori.indenticator",
-    "oderwat.indent-rainbow",
-    "esbenp.prettier-vscode",
-    "yzhang.markdown-all-in-one"
-  ], 
-}
-</code></pre>
-
-</div>
-</details>
-
-<details>
 <summary style="margin: auto; text-align: center;">Keyboard speed test results</summary>
 <div>
 <ul>

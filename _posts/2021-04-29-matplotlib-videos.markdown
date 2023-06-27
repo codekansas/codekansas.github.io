@@ -2,7 +2,8 @@
 layout: post
 title: Numpy Array Stream to Video
 tags: [eng]
-excerpt: Short post with code snippits for creating videos from Numpy arrays in Matplotlib.
+excerpt: >
+  Short post with code snippits for creating videos from Numpy arrays in Matplotlib.
 ---
 
 While it's really easy to show an image in Matplotlib, I find that rendering videos quickly from PyTorch tensors or Numpy arrays seems to be a constant problem. I figured I'd write a short code snippet about how to do it quickly, for anyone else that is in the same situation.

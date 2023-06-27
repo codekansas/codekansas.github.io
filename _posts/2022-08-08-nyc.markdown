@@ -2,7 +2,7 @@
 layout: post
 title: Life in the Big Apple
 tags: [life, musings]
-excerpt: Miscellanous update about various life things
+excerpt: Miscellanous update about various life things.
 ---
 
 Time for the annual "write something on my blog about my life at the moment so I can have something to look back on in ten years" post.

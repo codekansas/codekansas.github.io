@@ -2,7 +2,9 @@
 layout: post
 title: Three Months of Daily Journaling
 tags: [musings]
-excerpt: Meta-journal about journaling for more consecutive days than I initially thought I would
+excerpt: >
+  Meta-journal about journaling for more consecutive days than I initially
+  thought I would, and whether or not it is a worthwhile habit to cultivate.
 ---
 
 A few years ago I got the pro version of the app [Daylio][daylio-website]. At the time it was essentially an emotion and activity tracker; every day at some time, it would prompt you to choose how you were feeling on a scale from "rad" to "awful" (with some emojis and colors to illustrate the various feelings) and then mark which activities you had done during the day. The idea is that by keeping track of which activities made you feel a particular way, you could optimize for doing those activities more often.
