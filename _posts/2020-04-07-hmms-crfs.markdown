@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Hidden Markov Models and Conditional Random Fields"
-category: 🔬
+title: "HMMs and CRFs"
+tags: [ml, math, algos]
 excerpt: A comparison of Hidden Markov Models and Conditional Random Fields, two kinds of probabilistic graphical models.
 ---
 

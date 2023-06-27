@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Optimized Log-Sum-Exp PyTorch Function"
-category: 🔬
+tags: [math]
 excerpt: A walkthrough of how to optimize the log-sum-exp function in PyTorch.
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Using Gensim Word2Vec Embeddings in Keras"
-category: 🔨
+tags: [ml, nlp]
 excerpt: >
   A short post and script regarding using Gensim Word2Vec embeddings in Keras,
   with example code.

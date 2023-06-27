@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A Neural Network in 28 Lines of Theano"
-category: 🔨
+tags: [ml, nlp]
 excerpt: >
   A quick introduction to using Theano for deep learning, from the bare-bones
   to a full neural network.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Useful bash / zsh Profile Additions"
-category: 🖥️
+tags: [eng]
 excerpt: Some functions I found useful to add to my bash and zsh profile.
 ---
 

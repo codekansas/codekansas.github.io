@@ -1,16 +1,13 @@
 ---
 layout: post
 title: PID Controller Explainer
-category: 🔬
+tags: [eng, algos, math]
 excerpt: Simple overview of what a PID controller is, how it works, and how to make one yourself
 ---
 
 {% katexmm %}
 
-I was recently trying to explain PID controllers to someone and realized that I didn't have a very good intuitive understanding of what they're useful for and how they work. When looking around the web, I had trouble finding a straightforward explainer. So in this post, I'll give (hopefully) simple answers to some basic questions that I had about PID controllers. Since this post got a bit long, here's a table of contents.
-
-* TOC
-{:toc}
+I was recently trying to explain PID controllers to someone and realized that I didn't have a very good intuitive understanding of what they're useful for and how they work. When looking around the web, I had trouble finding a straightforward explainer. So in this post, I'll give (hopefully) simple answers to some basic questions that I had about PID controllers.
 
 ## What is a PID controller?
 

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Experience after Three Months of Daily Journaling
-category: 📖
+title: Three Months of Daily Journaling
+tags: [musings]
 excerpt: Meta-journal about journaling for more consecutive days than I initially thought I would
 ---
 
@@ -35,46 +35,21 @@ Some features which I've found not useful at all:
 
 As I mentioned above, one of the really good features of Daylio is their text editor and prompt templates. In my case, I've basically settled into mainly using two templates, sometimes choosing a different one depending on what's going on in life. I call the two main templates "Morning Brainstorm" and "Evening Reflection". The "Morning Brainstorm" one looks like this:
 
-```code
-What did you do yesterday?
-
--
-
-What do you plan to do today?
-
--
-
-What do you want to learn about?
-
--
-
-What do you want to create?
-
--
-
-What ideas do you have?
-
--
+```
+- What did you do yesterday?
+- What do you plan to do today?
+- What do you want to learn about?
+- What do you want to create?
+- What ideas do you have?
 ```
 
 And the "Evening Reflection" one looks like this:
 
-```code
-What did you do today?
-
--
-
-What do you plan to do tomorrow?
-
--
-
-What did you learn today?
-
--
-
-What ideas do you have?
-
--
+```
+- What did you do today?
+- What do you plan to do tomorrow?
+- What did you learn today?
+- What ideas do you have?
 ```
 
 The main things I like about these prompts are:

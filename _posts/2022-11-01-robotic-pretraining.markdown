@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Robotics Pre-training Idea Tracker"
-category: 🔬
+title: "Robotics Pre-training Idea"
+tags: [robotics, ideas]
 excerpt: A collection of my ideas relating to robotics pre-training.
 ---
 

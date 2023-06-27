@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Life in the Big Apple
-category: 🏙️
+tags: [life, musings]
 excerpt: Miscellanous update about various life things
 ---
 

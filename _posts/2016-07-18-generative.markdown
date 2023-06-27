@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "The Unreasonable Effectiveness of Restricted Boltzmann Machines"
-category: 🔬
+title: "Restricted Boltzmann Machines"
+tags: [ml, cv]
 excerpt: >
   Building on the Recurrent RBM for sequence modeling. This post relates to what I am doing for my Master's thesis.
 ---

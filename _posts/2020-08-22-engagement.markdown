@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Engagement"
-category: 💍
+tags: [life]
 excerpt: >
   I got engaged to a really wonderful girl.
 ---

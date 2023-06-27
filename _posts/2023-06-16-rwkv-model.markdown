@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Investigating the RWKV Language Model"
-category: 🔬
+title: "RWKV Language Model Math"
+tags: [ml, nlp, math]
 excerpt: >
   In-depth explanation of the math behind the RWKV model, with PyTorch
   implementations, plus a discussion of numerical stability.

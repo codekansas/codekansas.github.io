@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Coding the Viterbi Algorithm in Numpy"
-category: 🔨
+tags: [ml, nlp, math]
 excerpt: >
   A demo of how to code the Viterbi algorithm in Numpy.
 ---

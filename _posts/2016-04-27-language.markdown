@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Deep Language Modeling for Question Answering using Keras"
-category: 🔬
+title: "Question Answering using Keras"
+tags: [ml, nlp]
 excerpt: >
   An in-depth introduction to using Keras for language modeling; word embedding, recurrent and convolutional neural networks, attentional RNNs, and similarity metrics for vector embeddings.
 ---

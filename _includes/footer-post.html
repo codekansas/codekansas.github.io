@@ -1,0 +1,29 @@
+<footer>
+  <div style="margin-top: 1em;">
+    <details>
+      <summary>
+        Citation
+        <a style="margin-left: 1em" href="/blog/feed.xml">RSS</a>
+        {% for tag in page.tags %}
+        <a style="margin-left: 1em" href="/blog/feed/tagged/{{ tag }}.xml">#{{ tag }}</a>
+        {% endfor %}
+      </summary>
+      <div class="highlight">
+        <pre class="highlight"><code class="citation">@article{
+    title    = "{{ page.title }}",
+    journal  = "{{ site.title }}",
+    author   = "Benjamin Bolte",
+    year     = "{{ page.date | date: "%Y" }}",
+    month    = "{{ page.date | date: "%m" }}",
+    day      = "{{ page.date | date: "%d" }}",
+    url      = "{{ page.url | prepend: site.url }}",
+}</code></pre>
+      </div>
+    </details>
+  </div>
+  </span>
+
+  <script type="text/javascript" src="/assets/js/copy-code-blocks.js" defer></script>
+  <script type="text/javascript" src="/assets/js/collapse-code-blocks.js" defer></script>
+  <script type="text/javascript" src="/assets/js/table-of-contents.js" defer></script>
+</footer>

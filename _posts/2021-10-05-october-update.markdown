@@ -1,7 +1,7 @@
 ---
 layout: post
 title: What I've Been Up To Lately
-category: 💼
+tags: [life, musings]
 excerpt: Short post about what I've been up to lately.
 ---
 

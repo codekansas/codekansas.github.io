@@ -1,13 +1,11 @@
 ---
-layout: post
+layout: default
 title: About
-no_comments: true
 ---
 
 - Biography
   - I'm a software engineer working on robotics, currently based out of NYC
   - [Resume]({{ site.url }}/resume)
-  - [Calendar]({{ site.url }}/calendar)
   - I have some more interactive posts [here](https://lightning.bolte.cc/#/)
 - Productivity
   - [uBlock]({{ site.url }}/assets/scripts/ublock_list.txt) - My uBlock Origin filter list

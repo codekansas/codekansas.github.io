@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How Not to Productively Work From Home"
-category: 🧐
+tags: [musings]
 excerpt: >
   Some of my thoughts about effectively controlling the elephant mind.
 ---

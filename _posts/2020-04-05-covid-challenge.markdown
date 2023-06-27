@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Recap from MIT Covid-19 Challenge
-category: 🧐
+tags: [life]
 excerpt: Recap and potential future directions from the MIT Covid-19 Challenge.
 ---
 

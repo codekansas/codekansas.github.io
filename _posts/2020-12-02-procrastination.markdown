@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Work-Procrastinate Cycle"
-category: ☀️
+tags: [musings]
 excerpt: The results of an experiment I've been conducting on myself.
 ---
 

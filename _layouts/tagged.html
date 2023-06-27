@@ -1,0 +1,59 @@
+---
+layout: compress
+---
+
+{% include head.html %}
+
+<main>
+
+    {% include header.html %}
+
+    <h3>{{ page.name }}</h3>
+
+    {{ content }}
+
+    {% if site.tags[page.slug] %}
+    <p>
+        Posts tagged as <b>#{{ page.slug }}</b>.<br>
+        <small><a href="{{ site.url }}">Remove filter</a></small>
+    </p>
+
+    <ul class="blog-posts">
+        {% for post in site.tags[page.slug] %}
+        <li>
+            <span>
+                <i>
+                    <time datetime="2022-01-28" pubdate="">
+                        {{ post.date | date: "%b %-d, %Y" }}
+                    </time>
+                </i>
+            </span>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+        </li>
+        {% endfor %}
+
+    </ul>
+    {% else %}
+    <p>
+        There are no posts in {{ page.slug }}.
+    </p>
+    {% endif %}
+
+    <div>
+        <small>
+            {% assign sorted_tags = site.tags | sort %}
+            {% for tag in sorted_tags %}
+            {% assign tag_slug = tag | first %}
+            {% assign no_of_posts = tag | last | size %}
+            <a href="{{ 'tagged/' | relative_url }}{{ tag_slug }}" title="See all posts by {{ tag_slug }} tag">#{{
+                tag_slug
+                }}</a>
+            {% endfor %}
+        </small>
+    </div>
+
+</main>
+
+</body>
+
+</html>

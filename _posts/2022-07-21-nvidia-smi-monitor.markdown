@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Monitoring Background GPU Usage
-category: 💻
+tags: [eng]
 excerpt: Python code snippit for doing background GPU monitoring using `nvidia-smi`
 ---
 

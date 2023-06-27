@@ -1,15 +1,12 @@
 ---
 layout: post
 title: "Possible Ideas for Robotics Startups"
-category: 🧐
+tags: [ideas]
 excerpt: >
   A list of ideas for robotics startups.
 ---
 
 Here are some ideas for robotics startups.
-
-* TOC
-{:toc}
 
 ## Present-Day Ideas
 

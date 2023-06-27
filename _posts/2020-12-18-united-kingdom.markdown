@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Visiting the United Kingdom
-category: 🇬🇧
+tags: [life, musings]
 excerpt: Reflections on our time in the United Kingdom during the Covid-19 pandemic.
 ---
 

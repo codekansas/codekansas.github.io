@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Touring the United States and Canada"
-category: 😜
+tags: [life]
 excerpt: Narration from my trip through Nashville, Chicago, Toronto, Montreal, and Washington DC.
 ---
 

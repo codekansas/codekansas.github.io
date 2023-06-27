@@ -1,14 +1,11 @@
 ---
 layout: post
 title: "Getting Started with ROS 2"
-category: 🦾
+tags: [eng]
 excerpt: "An actually good guide to getting started with ROS 2"
 ---
 
 In this post, I'm going to provide some straight-forward pointers for getting started using ROS 2.
-
-* TOC
-{:toc}
 
 There's a minimal repository with the code from this post [here][blog-post-repo].
 

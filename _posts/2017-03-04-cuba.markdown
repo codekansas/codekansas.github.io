@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How I Spent Spring Break in Cuba"
-category: 😜
+tags: [life]
 excerpt: >
   A field guide to traveling to Cuba, written by naive college students for
   naive college students, mostly as exposition.

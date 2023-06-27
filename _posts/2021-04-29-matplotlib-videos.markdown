@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Create Video from Stream of Numpy Arrays in Matplotlib
-category: 💻
+title: Numpy Array Stream to Video
+tags: [eng]
 excerpt: Short post with code snippits for creating videos from Numpy arrays in Matplotlib.
 ---
 

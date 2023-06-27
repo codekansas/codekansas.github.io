@@ -1,11 +1,8 @@
 ---
 layout: post
-title: "Evolving List of Opinions about Atlanta Craft Beers"
+title: "Atlanta Craft Beer Reviews"
 category: 🧐
-keywords:
- - Atlanta
- - Craft Beers
- - Pretentiousness
+tags: [musings]
 excerpt: >
   Some facts and very sarcastic opinions regarding craft beers that can be bought at the Krogers near my apartment.
 ---
