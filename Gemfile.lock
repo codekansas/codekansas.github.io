@@ -38,7 +38,6 @@ GEM
     jekyll-katex (1.0.0)
       execjs (~> 2.7)
       jekyll (>= 3.6, < 5.0)
-    jekyll-paginate (1.1.0)
     jekyll-redirect-from (0.16.0)
       jekyll (>= 3.3, < 5.0)
     jekyll-sass-converter (3.0.0)
@@ -81,7 +80,6 @@ PLATFORMS
 DEPENDENCIES
   jekyll-feed
   jekyll-katex
-  jekyll-paginate
   jekyll-redirect-from
   sass-embedded (= 1.59.2)
 
