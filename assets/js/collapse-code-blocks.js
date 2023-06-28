@@ -8,7 +8,7 @@
 
     button.classList.add("collapse-button");
     button.innerText = "expand";
-    block.parentElement.appendChild(button);
+    block.parentElement.parentElement.appendChild(button);
 
     block.classList.add("collapsed");
 

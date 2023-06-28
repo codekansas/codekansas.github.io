@@ -9,7 +9,7 @@
 
       button.classList.add("copy-button");
       button.innerText = copyButtonLabel;
-      block.parentElement.appendChild(button);
+      block.parentElement.parentElement.appendChild(button);
 
       button.addEventListener("click", async () => {
         await copyCode(block, button);

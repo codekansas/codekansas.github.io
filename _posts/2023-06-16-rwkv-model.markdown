@@ -45,7 +45,13 @@ $$\text{wkv}_i = \frac{ e^{u+k_i} v_i + \alpha_{i - 1} }{ e^{u+k_i} + \beta_{i -
 A pure-PyTorch implementation of the above WKV computation is below:
 
 ```python
-def wkv_vanilla_forward(w: Tensor, u: Tensor, k: Tensor, v: Tensor, state: Tensor) -> tuple[Tensor, Tensor]:
+def wkv_vanilla_forward(
+    w: Tensor,
+    u: Tensor,
+    k: Tensor,
+    v: Tensor,
+    state: Tensor,
+) -> tuple[Tensor, Tensor]:
     bsz, tsz, chans = k.shape
     assert w.shape == u.shape == (chans,)
     assert v.shape == (bsz, tsz, chans)
@@ -131,7 +137,13 @@ $\alpha_i'$ and $\beta_i'$ are accumulated over time, while $\epsilon_i$ is just
 The PyTorch implementation of the more stable form of the WKV computation follows fairly directly from the equations above.
 
 ```python
-def wkv_with_eps_forward(w: Tensor, u: Tensor, k: Tensor, v: Tensor, state: Tensor) -> tuple[Tensor, Tensor]:
+def wkv_with_eps_forward(
+    w: Tensor,
+    u: Tensor,
+    k: Tensor,
+    v: Tensor,
+    state: Tensor,
+) -> tuple[Tensor, Tensor]:
     assert w.dim() == u.dim() == 1
     assert k.dim() == v.dim() == 3
     assert state.dim() == 4

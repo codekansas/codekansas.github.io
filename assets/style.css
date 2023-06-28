@@ -286,13 +286,16 @@ ul.discover-posts li small a {
 
 .highlight,
 .code {
-  padding: 1px 15px;
   background-color: #2e3e4e;
   color: #eee;
   border-radius: 3px;
   margin-block-start: 1em;
   margin-block-end: 1em;
   overflow: initial;
+}
+
+pre.highlight {
+  margin: 1em;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -575,12 +578,12 @@ div[class*="highlight"] button {
 }
 
 div[class*="highlight"] button.copy-button {
-  top: 5px;
+  bottom: 20px;
   font-family: "Source Code Pro", monospace;
 }
 
 div[class*="highlight"] button.collapse-button {
-  top: 35px;
+  top: 20px;
   font-family: "Source Code Pro", monospace;
 }
 
