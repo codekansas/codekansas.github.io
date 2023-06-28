@@ -5,10 +5,10 @@ title: About
 
 - Biography
   - I'm a software engineer working on robotics, currently based out of NYC
-  - [Resume]({{ site.url }}/resume)
+  - [Resume]({{ site.baseurl }}/resume)
   - I have some more interactive posts [here](https://lightning.bolte.cc/#/)
 - Productivity
-  - [uBlock]({{ site.url }}/assets/scripts/ublock_list.txt) - My uBlock Origin filter list
+  - [uBlock]({{ site.baseurl }}/assets/scripts/ublock_list.txt) - My uBlock Origin filter list
   - [Daylio](https://daylio.net/) - My preferred journaling app
   - [Tailscale](https://tailscale.com/) - Easy WireGuard mesh network, lets you easily SSH into different computers from anywhere
   - MacOS Ergonomics
@@ -41,8 +41,8 @@ title: About
   - Keyboard: At one point I was trying to force myself to use an ergonomic keyboard, but after a few months of using it I had a suspicion that it wasn't making me type any faster and was actually making me have more errors. So now I mainly just use an Apple keyboard. I have some numbers about my typing speeds for some different keyboards near the bottom of this page.
   - Editor: For scripting I use Vim. My Vim setup is in my dotfiles repository [here](https://github.com/codekansas/dotfiles). But for most projects I currently use VSCode.
 - Misc
-  - [Directory]({{ site.url }}/directory) - A list of all the posts on this blog
-  - [RSS Feed]({{ site.url }}/feed.xml) - RSS feed for this blog
+  - [Directory]({{ site.baseurl }}/directory) - A list of all the posts on this blog
+  - [RSS Feed]({{ site.baseurl }}/feed.xml) - RSS feed for this blog
 
 <details>
 <summary style="margin: auto; text-align: center;">Keyboard speed test results</summary>
