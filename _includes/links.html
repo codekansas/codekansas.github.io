@@ -1,9 +1,9 @@
 <ul class="list-inline">
   {% if include.home %}
-  <li class="list-inline-item"><a id="home-link" href="{{site.url }}/">Home</a></li>
+  <li class="list-inline-item"><a id="home-link" href="{{site.baseurl }}/">Home</a></li>
   {% endif %}
   {% if include.about %}
-  <li class="list-inline-item"><a id="dir-link" href="{{ site.url }}/about">About</a></li>
+  <li class="list-inline-item"><a id="dir-link" href="{{ site.baseurl }}/about">About</a></li>
   {% endif %}
   {% if site.usernames.github %}
   <li class="list-inline-item">

@@ -16,14 +16,14 @@
     year     = "{{ page.date | date: "%Y" }}",
     month    = "{{ page.date | date: "%m" }}",
     day      = "{{ page.date | date: "%d" }}",
-    url      = "{{ page.url | prepend: site.url }}",
+    url      = "{{ page.url | prepend: site.baseurl }}",
 }</code></pre>
       </div>
     </details>
   </div>
   </span>
 
-  <script type="text/javascript" src="/assets/js/copy-code-blocks.js" defer></script>
-  <script type="text/javascript" src="/assets/js/collapse-code-blocks.js" defer></script>
-  <script type="text/javascript" src="/assets/js/table-of-contents.js" defer></script>
+  <script type="text/javascript" src="{{ site.baseurl }}/assets/js/copy-code-blocks.js" defer></script>
+  <script type="text/javascript" src="{{ site.baseurl }}/assets/js/collapse-code-blocks.js" defer></script>
+  <script type="text/javascript" src="{{ site.baseurl }}/assets/js/table-of-contents.js" defer></script>
 </footer>

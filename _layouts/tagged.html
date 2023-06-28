@@ -15,7 +15,7 @@ layout: compress
     {% if site.tags[page.slug] %}
     <p>
         Posts tagged as <b>#{{ page.slug }}</b>.<br>
-        <small><a href="{{ site.url }}">Remove filter</a></small>
+        <small><a href="{{ site.baseurl }}">Remove filter</a></small>
     </p>
 
     <ul class="blog-posts">
@@ -28,7 +28,7 @@ layout: compress
                     </time>
                 </i>
             </span>
-            <a href="{{ post.url }}">{{ post.title }}</a>
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </li>
         {% endfor %}
 

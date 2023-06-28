@@ -8,12 +8,12 @@
     <title>{{ page.title }} | {{ site.title }}</title>
     <meta name="description"
         content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-    <link rel="shortcut icon" href="{{ site.url }}/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="{{ site.url }}/favicon.ico" type="image/x-icon">
-    <link href='/feed.xml' rel='alternate' type='application/atom+xml'>
-    <link rel="canonical" href="{{ page.url }}">
-    <link rel="stylesheet" href="/assets/style.css">
-    <link rel="stylesheet" href="/assets/katex/katex.min.css">
+    <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{ site.baseurl }}/favicon.ico" type="image/x-icon">
+    <link href='{{ site.baseurl }}/feed.xml' rel='alternate' type='application/atom+xml'>
+    <link rel="canonical" href="{{ page.url | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/style.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/katex/katex.min.css">
 
     {% if site.analytics.facebook %}
     <!-- Facebook Pixel Code -->
