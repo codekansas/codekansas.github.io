@@ -15,7 +15,7 @@ layout: default
 {% assign date = currentdate %}
 {% endif %}
 <div class="padded bottom" style="font-size: 80%">
-  <a class="no-highlight" href="{{ post.url | prepend: site.baseurl }}">
+  <a class="no-highlight" href="{{ post.url | relative_url }}">
     <h3>
       {{ post.category }} {{ post.title }}
     </h3>

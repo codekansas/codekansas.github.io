@@ -28,7 +28,7 @@ layout: compress
                     </time>
                 </i>
             </span>
-            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         </li>
         {% endfor %}
 

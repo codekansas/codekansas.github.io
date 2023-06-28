@@ -5,8 +5,8 @@ layout: none
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>{{ site.title | xml_escape }}</title>
   <description>{{ site.tagline | xml_escape }}</description>
-  <link href="{{ site.baseurl }}/feed.xml" rel="self" />
-  <link href="{{ site.baseurl }}" />
+  <link href="{{ '/feed.xml' | absolute_url }}" rel="self" />
+  <link href="{{ '/' | absolute_url }}" />
   <updated>{{ site.time | date_to_xmlschema }}</updated>
   <author>
     <name>{{ site.owner }}</name>
@@ -17,9 +17,9 @@ layout: none
   {% for post in site.posts %}
   <entry>
     <title>{{ post.title | xml_escape }}</title>
-    <link href="{{ post.url | prepend: site.baseurl }}" />
+    <link href="{{ post.url | absolute_url }}" />
     <updated>{{ post.date | date_to_xmlschema }}</updated>
-    <id>{{ site.baseurl }}{{ post.id }}</id>
+    <id>{{ post.id | relative_url }}</id>
     <summary>{{ post.excerpt }}</summary>
     <content type="html">{{ post.content | xml_escape }}</content>
   </entry>

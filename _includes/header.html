@@ -1,15 +1,15 @@
 <h2 class="title">{{ site.title }}</h2>
 <nav>
-    <a href="{{ site.baseurl }}/">Home</a>
-    <a href="{{ site.baseurl }}/about">About</a>
+    <a href="{{ '/' | relative_url }}">Home</a>
+    <a href="{{ '/about' | relative_url }}">About</a>
     <a href="https://github.com/codekansas">Github</a>
     <a href="https://twitter.com/benjamin_bolte">Twitter</a>
 
     {% for link in site.links %}
-    <a href="{{ site.baseurl }}{{ link[1] }}">{{ link[0] }}</a>
+    <a href="{{ link[1] | relative_url }}">{{ link[0] }}</a>
     {% endfor %}
 
     {% for link in site.special_links %}
-    <a href="{{ link[1] }}">[{{ link[0] }}]</a>
+    <a href="{{ link[1] | relative_url }}">[{{ link[0] }}]</a>
     {% endfor %}
 </nav>
