@@ -5,7 +5,7 @@
         Citation
         <a style="margin-left: 1em" href="{{ '/blog/feed.xml' | relative_url }}">RSS</a>
         {% for tag in page.tags %}
-        <a style="margin-left: 1em" href="{{ '/blog/feed/tagged/{{ tag }}.xml' | relative_url }}">#{{ tag }}</a>
+        <a style="margin-left: 1em" href="{{ '/blog/feed/tagged/' | relative_url }}{{ tag }}.xml">#{{ tag }}</a>
         {% endfor %}
       </summary>
       <div class="highlight">
