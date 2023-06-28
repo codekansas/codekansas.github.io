@@ -28,7 +28,8 @@ layout: compress
                 <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
             </span>
             <span style="flex: 50">
-                {% for tag in post.tags %}
+                {% assign sorted_tags = post.tags | sort %}
+                {% for tag in sorted_tags %}
                 <a href="{{ 'tagged/' | relative_url }}{{ tag }}">#{{ tag }}</a>
                 {% endfor %}
             </span>

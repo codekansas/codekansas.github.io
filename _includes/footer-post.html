@@ -4,7 +4,8 @@
       <summary>
         Citation
         <a style="margin-left: 1em" href="{{ '/blog/feed.xml' | relative_url }}">RSS</a>
-        {% for tag in page.tags %}
+        {% assign sorted_tags = page.tags | sort %}
+        {% for tag in sorted_tags %}
         <a style="margin-left: 1em" href="{{ '/blog/feed/tagged/' | relative_url }}{{ tag }}.xml">#{{ tag }}</a>
         {% endfor %}
       </summary>

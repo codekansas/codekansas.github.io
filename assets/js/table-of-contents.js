@@ -2,7 +2,7 @@
   let container = document.querySelector("#blog-contents");
   let hs = container.querySelectorAll("h2, h3, h4, h5");
 
-  if (hs.length == 0) {
+  if (hs.length <= 1) {
     return;
   }
 

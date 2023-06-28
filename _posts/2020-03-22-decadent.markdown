@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "\"The Decadent Society\" Book Review"
-tags: [books]
+tags: [reviews]
 excerpt: >
   Summary and thoughts about The Decadent Society: How We Became the Victims
   of Our Own Success by Ross Douthat.
