@@ -194,6 +194,8 @@ title: About
 </div>
 </details>
 
+<hr />
+
 Here are some quotes that I have found interesting.
 
 > Why do people have to be this lonely? What's the point of it all? Millions of people in this world, all of them yearning, looking to others to satisfy them, yet isolating themselves. Why? Was the earth put here just to nourish human loneliness? - Haruki Murakami, Sputnik Sweetheart
@@ -205,3 +207,9 @@ Here are some quotes that I have found interesting.
 > Consider it pure joy, my brothers and sisters, whenever you face trials of many kinds, because you know that the testing of your faith produces perseverance. Let perseverance finish its work so that you may be mature and complete, not lacking anything. - James 1:2-4
 
 > I must not fear. Fear is the mind-killer. Fear is the little-death that brings total obliteration. I will face my fear. I will permit it to pass over me and through me. And when it has gone past I will turn the inner eye to see its path. Where the fear has gone there will be nothing. Only I will remain. - Frank Herbert, Dune
+
+<hr />
+
+I've been using this photo as my Github profile pic for a while now. It's actually a photo of an exhibit I saw at the Renwick Gallery in Washington, D.C. sometime in college. I'm not sure if the artist intended it as such, but it stuck with me as the simplest expression of my philosophy of life - that humans can find meaning, belief and happiness in the depths of absurdism by making a choice to do so.
+
+![Start]({{ '/images/start.webp' | relative_url }})
