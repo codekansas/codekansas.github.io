@@ -19,8 +19,8 @@ layout: compress
     </p>
 
     <ul class="blog-posts">
-        {% assign sorted_tags = site.tags[page.slug] | sort %}
-        {% for post in sorted_tags %}
+        {% assign posts = site.tags[page.slug] %}
+        {% for post in posts %}
         <li>
             <span>
                 <i>
