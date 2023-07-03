@@ -201,7 +201,7 @@ Here are some quotes that I have found interesting.
 > Why do people have to be this lonely? What's the point of it all? Millions of people in this world, all of them yearning, looking to others to satisfy them, yet isolating themselves. Why? Was the earth put here just to nourish human loneliness?<br />
 > Haruki Murakami, Sputnik Sweetheart
 
-> But who can say what's best? That's why you need to grab whatever chance you have of happiness where you find it, and not worry about other people too much. My experience tells me that we get no more than two or three such chances in a life time, and if we let them go, we regret it for the rest of our lives.
+> But who can say what's best? That's why you need to grab whatever chance you have of happiness where you find it, and not worry about other people too much. My experience tells me that we get no more than two or three such chances in a life time, and if we let them go, we regret it for the rest of our lives.<br />
 > Haruki Murakami, Norwegian Wood
 
 > Training is nothing, will is everything - the will to act.<br />
