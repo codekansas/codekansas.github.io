@@ -16,9 +16,7 @@ layout: default
 {% endif %}
 <div class="padded bottom" style="font-size: 80%">
   <a class="no-highlight" href="{{ post.url | relative_url }}">
-    <h3>
-      {{ post.category }} {{ post.title }}
-    </h3>
+    <h3>{{ post.title }}</h3>
     <h4><i>{{ post.date | date: "%B %-d, %Y" }}</i></h4>
   </a>
 </div>

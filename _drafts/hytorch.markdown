@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "HyTorch: A Bare-Bones PyTorch Compiler"
-category: 🔬
 excerpt: An exploration of functional PyTorch and neural network compilation.
 ---
 

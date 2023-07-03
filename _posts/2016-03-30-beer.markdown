@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Atlanta Craft Beer Reviews"
-category: 🧐
 tags: [musings]
 excerpt: >
   Some facts and very sarcastic opinions regarding craft beers that can be bought at the Krogers near my apartment.
