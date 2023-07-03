@@ -198,15 +198,32 @@ title: About
 
 Here are some quotes that I have found interesting.
 
-> Why do people have to be this lonely? What's the point of it all? Millions of people in this world, all of them yearning, looking to others to satisfy them, yet isolating themselves. Why? Was the earth put here just to nourish human loneliness? - Haruki Murakami, Sputnik Sweetheart
+> Why do people have to be this lonely? What's the point of it all? Millions of people in this world, all of them yearning, looking to others to satisfy them, yet isolating themselves. Why? Was the earth put here just to nourish human loneliness?<br />
+> Haruki Murakami, Sputnik Sweetheart
 
-> Training is nothing, will is everything - the will to act. - Batman Begins
+> But who can say what's best? That's why you need to grab whatever chance you have of happiness where you find it, and not worry about other people too much. My experience tells me that we get no more than two or three such chances in a life time, and if we let them go, we regret it for the rest of our lives.
+> Haruki Murakami, Norwegian Wood
 
-> If you only read the books that everyone else is reading, you can only think what everyone else is thinking. - Haruki Murakami, and also a tote bag at the Strand
+> Training is nothing, will is everything - the will to act.<br />
+> Batman Begins
 
-> Consider it pure joy, my brothers and sisters, whenever you face trials of many kinds, because you know that the testing of your faith produces perseverance. Let perseverance finish its work so that you may be mature and complete, not lacking anything. - James 1:2-4
+> Consider it pure joy, my brothers and sisters, whenever you face trials of many kinds, because you know that the testing of your faith produces perseverance. Let perseverance finish its work so that you may be mature and complete, not lacking anything.<br />
+> James 1:2-4
 
-> I must not fear. Fear is the mind-killer. Fear is the little-death that brings total obliteration. I will face my fear. I will permit it to pass over me and through me. And when it has gone past I will turn the inner eye to see its path. Where the fear has gone there will be nothing. Only I will remain. - Frank Herbert, Dune
+> I must not fear. Fear is the mind-killer. Fear is the little-death that brings total obliteration. I will face my fear. I will permit it to pass over me and through me. And when it has gone past I will turn the inner eye to see its path. Where the fear has gone there will be nothing. Only I will remain.<br />
+> Frank Herbert, Dune
+
+> I work all day, and get half-drunk at night.<br />
+> Waking at four to soundless dark, I stare.<br />
+> In time the curtain-edges will grow light.<br />
+> Till then I see what’s really always there:<br />
+> Unresting death, a whole day nearer now,<br />
+> Making all thought impossible but how<br />
+> And where and when I shall myself die.<br />
+> Arid interrogation: yet the dread<br />
+> Of dying, and being dead,<br />
+> Flashes afresh to hold and horrify.<br />
+> Philip Larkin, <a href="https://www.poetryfoundation.org/poems/48422/aubade-56d229a6e2f07">Aubade</a>
 
 <hr />
 
