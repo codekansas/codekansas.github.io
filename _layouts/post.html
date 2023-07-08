@@ -25,6 +25,16 @@ layout: compress
         {{ page.content }}
     </div>
 
+    {% if page.no_comments %}
+    {% else %}
+    {% if page.draft %}
+    <div>Draft doesn't have comments enabled.</div>
+    {% else %}
+    <script src="https://utteranc.es/client.js" repo="codekansas/codekansas.github.io" issue-term="pathname"
+        theme="github-light" crossorigin="anonymous" async></script>
+    {% endif %}
+    {% endif %}
+
     <nav style="margin-top: 1em">
         {% if page.previous.url %}
         <a class="prev" href="{{page.previous.url}}">⬅️ {{page.previous.title}}</a>
