@@ -25,7 +25,7 @@ layout: compress
                 </i>
             </span>
             <span style="flex: 100">
-                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                <a href="{{ post.url | relative_url }}">{{ post.title }}{% if post.draft %} [draft]{% endif %}</a>
             </span>
             <span style="flex: 50">
                 {% assign sorted_tags = post.tags | sort %}
