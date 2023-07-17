@@ -29,6 +29,12 @@ Encodec paper
 - [Release post](https://research.facebook.com/publications/voicebox-text-guided-multilingual-universal-speech-generation-at-scale/)
 - [Another release post](https://ai.facebook.com/blog/voicebox-generative-ai-model-speech/)
 
+- Some datasets that other papers have tried:
+  - Librispeech
+  - LibriTTS
+  - CommonVoice
+- Synthetic data from VoiceBox can be used for training good-quality ASR systems
+
 ## ERNIE-Music: Text-to-Waveform Music Generation with Diffusion Models
 
 - [Arxiv](https://arxiv.org/pdf/2302.04456.pdf)
@@ -69,3 +75,14 @@ Demucs improvement paper
 - [Arxiv](https://arxiv.org/pdf/2301.11325.pdf)
 - [Write-up](https://google-research.github.io/seanet/musiclm/examples/)
 - [lucidrains Implementation](https://github.com/lucidrains/musiclm-pytorch)
+
+## CycleGAN Voice Converter
+
+- [Write-up](https://leimao.github.io/project/Voice-Converter-CycleGAN/)
+- [Github](https://github.com/leimao/Voice-Converter-CycleGAN)
+
+This paper is pretty old (about 5 years old), but the results are pretty relevant to stuff I'm working on right now so I figured I should write up a summary of what it's doing.
+
+### TL;DR
+
+- CycleGAN on Mel-cepstral coefficients (MCEPs)
