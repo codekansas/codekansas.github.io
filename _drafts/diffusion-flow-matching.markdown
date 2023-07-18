@@ -10,6 +10,8 @@ excerpt: >
 
 This post is a summary of the various generative speech modeling papers I've seen come out recently. I'm primarily writing this for my own understanding, but hopefully it's useful to others as well, since this is a fast-paced area of research and it can be hard to dive deeply into each new paper that comes out.
 
+This post uses what I'll call "math for computer scientists", meaning there will likely be a lot of abuse of notation and other hand-waving with the goal of conveying the underlying idea more clearly. If there is a mistake (and it looks unintentional) then let me know!
+
 ## All Papers
 
 ### Images
@@ -27,8 +29,8 @@ This post is a summary of the various generative speech modeling papers I've see
 
 ### Other Good References
 
-- [What are diffusion models?][diffusion-lillog]
-- [Diffusion Models from Scratch][diffusion-xinduan]
+- [What are diffusion models?][diffusion-lillog] from _Lil' Log_
+- [Diffusion Models from Scratch][diffusion-xinduan] from _Tony Duan_
 - [Collection of Speech Synthesis Papers][speech-synthesis-papers]
 
 These papers overlap and cite each other in various ways.
@@ -92,7 +94,7 @@ So, to recap, in order to convert a regular image to Gaussian noise, we repeated
 
 The variances for each step of the $q$ update is given by some schedule $\beta_1, \beta_2, \dots, \beta_T$. The schedule is typically linearly increasing from 0 to 1, so that on the final step when $\beta_T = 1$ we will sample a completely noisy image from the distribution $\mathcal{N}(\textbf{0}, \textbf{I})$.
 
-### How do you get $x_t$ in closed form (i.e., without sampling $x_{t - 1}, ..., x_{1}$)?
+### How do you sample $x_t$ in closed form (i.e., without sampling $x_{t - 1}, ..., x_{1}$)?
 
 Rather than having to take our original image and run 1 to $T$ steps to get a noisy image, we can use the _reparametrization trick_.
 
@@ -121,7 +123,7 @@ x_2 & = \sqrt{\alpha_2} x_1 + \mathcal{N}(\textbf{0}, (1 - \alpha_2) \textbf{I})
 \end{aligned}
 $$
 
-This works recursively, so we can write $x_t$ in **closed form** as:
+This can be extended recursively[^1], so we can write $x_t$ in **closed form** as:
 
 $$x_t = \sqrt{\alpha_1 \alpha_2 \dots \alpha_t} x_0 + \mathcal{N}(\textbf{0}, (1 - \alpha_1 \alpha_2 \dots \alpha_t) \textbf{I})$$
 
@@ -129,29 +131,80 @@ It's common to express the product as a new variable:
 
 $$\bar{\alpha}_t = \alpha_1 \alpha_2 \dots \alpha_t = \prod_{i=1}^{t} \alpha_i$$
 
+Also, the usual notation is to write $\epsilon_t \sim \mathcal{N}(\textbf{0}, \textbf{I})$, giving the final equation for sampling $x_t$ as:
+
+$$x_t = \sqrt{\bar{\alpha}_t} x_0 + \sqrt{1 - \bar{\alpha}_t} \epsilon_t$$
+
+Sampling $\epsilon_t$ from $\mathcal{N}(\textbf{0}, \textbf{I})$ and using it to derive $x_t$ is called _Monte Carlo sampling_. Alternatively, we can use our $q$ notation from earlier to specify the closed-form distribution that the sample is drawn from:
+
+$$
+\begin{aligned}
+q(x_t | x_0) & = \sqrt{\bar{\alpha}_t} x_0 + \sqrt{1 - \bar{\alpha}_t} \mathcal{N}(\textbf{0}, \textbf{I}) \\
+& = \mathcal{N}(\sqrt{\bar{\alpha}_t} x_0, (1 - \bar{\alpha}_t) \textbf{I}) \\
+\end{aligned}
+$$
+
 ### How is the model trained?
 
 ![The diffusion model training and sampling algorithms](/images/diffusion-flow-matching/ddpm-algs.webp)
 
-The main goal of the learning process is to maximize the likelihood of the data after repeatedly applying the reverse process. First, we sample some noise $z_t \sim \mathcal{N}(\textbf{0}, \textbf{I})$ and then we apply the forward process $q(x_t|x_{t-1})$ to get $x_t$:
+The main goal of the learning process is to maximize the likelihood of the data after repeatedly applying the reverse process. First, we sample some noise $\epsilon_t \sim \mathcal{N}(\textbf{0}, \textbf{I})$ and then we apply the forward process $q(x_t | x_0)$ to get $x_t$:
 
-$$x_t = \sqrt{\bar{\alpha}_t} x_0 + \sqrt{1 - \bar{\alpha}_t} z_t$$
+$$x_t = \sqrt{\bar{\alpha}_t} x_0 + \sqrt{1 - \bar{\alpha}_t} \epsilon_t$$
 
 The diffusion model training process involves training a model which takes $x_t$ and $t$ as input and predicts $n_t$:
 
-$$\hat{z}_t = \epsilon_{\theta}(x_t, t)$$
+$$\hat{\epsilon}_t = \epsilon_{\theta}(x_t, t)$$
 
-We can train the model to minimize the mean squared error between $z_t$ and $\hat{z}_t$:
+We can train the model to minimize the mean squared error between $\epsilon_t$ and $\hat{\epsilon}_t$:
 
-$$\mathcal{L} = ||z_t - \hat{z}_t||^2$$
+$$\mathcal{L} = ||\epsilon_t - \hat{\epsilon}_t||^2$$
+
+So, the model is predicting the _noise_ between the _noisy_ image and the _original_ image.
 
 ### How do you sample from the model?
 
-The forward process can be written as:
+Now that we've ironed out the math for the _forward_ process, we need to flip it around to get the _reverse_ process. In other words, given that we have $q(x_t | x_{t-1})$, we need to derive $q(x_{t-1} | x_t)$ [^2]. The first step is to apply the chain rule:
 
-$$x_{t - 1} = \frac{1}{\sqrt{\alpha_t}}(x_t - \frac{\beta_t}{\sqrt{1 - \bar{\alpha}_t}} \epsilon_{\theta}(x_t, t)) + \sigma_t z$$
+$$
+\begin{aligned}
+q(x_{t-1} | x_t) & = \frac{q(x_t | x_{t-1}) q(x_{t-1})}{q(x_t)} \\
+& \propto q(x_t | x_{t-1}) q(x_{t-1}) \\
+\end{aligned}
+$$
+
+We drop the denominator because $x_t$ is constant when we are sampling.
+
+Recall the probability density function for a normal distribution:
+
+$$\mathcal{N}(x | \mu, \sigma^2) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp(-\frac{(x - \mu)^2}{2 \sigma^2})$$
+
+We can use this to rewrite $q(x_t | x_{t-1})$ as a function of $x_{t-1}$:
+
+$$
+\begin{aligned}
+q(x_t | x_{t-1}) & = \mathcal{N}(x_t | \sqrt{\bar{\alpha}_t} x_{t-1}, (1 - \bar{\alpha}_t) \textbf{I}) \\
+& = \frac{1}{\sqrt{2 \pi (1 - \bar{\alpha}_t)}} \exp(-\frac{(x_t - \sqrt{\bar{\alpha}_t} x_{t-1})^2}{2 (1 - \bar{\alpha}_t)}) \\
+\end{aligned}
+$$
+
+Similarly for $q(x_{t-1})$:
+
+$$
+\begin{aligned}
+q(x_{t-1}) & = \mathcal{N}(x_{t-1} | \sqrt{\bar{\alpha}_{t-1}} x_0, (1 - \bar{\alpha}_{t-1}) \textbf{I}) \\
+& = \frac{1}{\sqrt{2 \pi (1 - \bar{\alpha}_{t-1})}} \exp(-\frac{(x_{t-1} - \sqrt{\bar{\alpha}_{t-1}} x_0)^2}{2 (1 - \bar{\alpha}_{t-1})}) \\
+\end{aligned}
+$$
+
+Anyway, somehow if you do some crazy math you can eventually arrive at the equations for the forward process, which are:
+
+$$x_{t - 1} = \frac{1}{\sqrt{\alpha_t}}(x_t - \frac{1 - \alpha_t}{\sqrt{1 - \bar{\alpha}_t}} \epsilon_{\theta}(x_t, t)) + \sigma_t z$$
 
 where $z \sim \mathcal{N}(\textbf{0}, \textbf{I})$ is new noise to add at each step and $\epsilon_{\theta}(x_t, t)$ is the output of the model.
+
+[^1]: Proof by "trust me, bro"
+[^2]: Alternatively denoted $p(x_{t-1} | x_t)$ so that you can just use the $q$ function everywhere
 
 {% endkatexmm %}
 
