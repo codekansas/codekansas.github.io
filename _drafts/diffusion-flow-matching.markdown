@@ -29,6 +29,7 @@ This post is a summary of the various generative speech modeling papers I've see
 
 - [What are diffusion models?][diffusion-lillog]
 - [Diffusion Models from Scratch][diffusion-xinduan]
+- [Collection of Speech Synthesis Papers][speech-synthesis-papers]
 
 These papers overlap and cite each other in various ways.
 
@@ -156,11 +157,12 @@ where $z \sim \mathcal{N}(\textbf{0}, \textbf{I})$ is new noise to add at each s
 
 [autoregressive-diffusion-paper]: https://arxiv.org/pdf/2110.02037v2.pdf
 [diffusion-lillog]: https://lilianweng.github.io/posts/2021-07-11-diffusion-models/
-[diffusion-xinduan]: https://www.tonyduan.com/diffusion.html
 [diffusion-paper]: https://arxiv.org/abs/2006.11239
+[diffusion-xinduan]: https://www.tonyduan.com/diffusion.html
 [flow-matching-paper]: https://arxiv.org/abs/2210.02747
 [latent-diffusion-paper]: https://arxiv.org/pdf/2112.10752.pdf
 [mms-paper]: https://arxiv.org/pdf/2305.13516.pdf
+[speech-synthesis-papers]: https://github.com/wenet-e2e/speech-synthesis-paper
 [visual-chatgpt-paper]: https://arxiv.org/pdf/2303.04671.pdf
 [voicebox-paper]: https://research.facebook.com/publications/voicebox-text-guided-multilingual-universal-speech-generation-at-scale/
 [xkcd-decorative]: https://xkcd.com/2566/
