@@ -354,17 +354,19 @@ The insight from this paper starts with the _marginal probability path_. This sh
 
 $$p_t(x) = \int p_t(x | x_1) q(x_1) dx_1$$
 
+This can be read as, "$p_t(x)$ is the distribution over all the noisy images that can be denoised to an image in our data distribution".
+
 We can also marginalize over the vector field:
 
 $$u_t(x) = \int u_t(x | x_1) \frac{p_t(x | x_1) q(x_1)}{p_t(x)} dx_1$$
 
-This can be thought of as marginalizing over all the different vector fields that could take us from $p_t$ to $q$, weighted by the probability of each path.
+This can be read as, "$u_t(x)$ is the distribution over all the vector fields that could take us from a noisy image to an image in our data distribution, weighted by the probability of each path that the process would take".
 
-However, instead of computing the (intractable) integrals in the equations above, we instead condition on a single sample $x_1 \sim q(x_1)$, use that sample to draw a noisy sample $x \sim p_t(x | x_1)$ and then use that to compute $u_t(x | x_1)$, finally minimizing the _conditional flow matching objective_:
+Rather than computing the (intractable) integrals in the equations above, we can instead condition on a single sample $x_1 \sim q(x_1)$, use that sample to get a noisy sample $x \sim p_t(x | x_1)$ and then use that noisy sample to compute the direction $u_t(x | x_1)$ that our vector field should take to recover the original image $x_1$, finally minimizing the _conditional flow matching objective_:
 
 $$\mathcal{L}_{CFM}(\theta) = \mathbb{E}_{t,q(x_1),p_t(x|x_1)} || v_t(x) - u_t(x | x_1) ||^2$$
 
-Without going into the math, the paper shows that this objective has the same gradients as the earlier objective.
+Without going into the math, the paper shows that this objective has the same gradients as the earlier objective, which is a pretty interesting result. It basically means that we can just follow our vector field from the original image to the noisy image, and that vector field is the optimal one to follow backwards to our original image.
 
 The conditional path $p_t(x | x_1)$ is chosen to progressively add noise to the sample $x_1$ (this is what diffusion models do):
 
@@ -373,7 +375,76 @@ $$p_t(x|x_1) = \mathcal{N}(x | \mu_t(x_1), \sigma_t(x_1)^2 I)$$
 where:
 
 - $\mu_t$ is the time-dependent mean of the Gaussian distribution, ranging from $\mu_0(x_1) = 0$ (i.e., the prior is has mean 0) to $\mu_1(x_1) = x_1$ (i.e., the posterior is has mean $x_1$)
-- $\theta_t$ is the time-dependent standard deviation, ranging from $\theta_0(x_1) = 1$ (i.e., the prior has standard deviation 1) to $\theta_1(x_1) = \epsilon$ (i.e., the posterior has some very small amount of noise)
+- $\theta_t$ is the time-dependent standard deviation, ranging from $\theta_0(x_1) = 1$ (i.e., the prior has standard deviation 1) to $\theta_1(x_1) = \sigma_{\text{min}}$ (i.e., the posterior has some very small amount of noise)
+
+Using the above notation, the paper considers the flow:
+
+$$\phi_t(x) = \sigma_t(x_1)x + \mu_t(x_1)$$
+
+Remember that $\phi_t(x)$ is the flow at time $t$ for the sample $x$, meaning the point that we would get to if we followed the vector field from $x$ for time $t$ (in other words, the noisy image).
+
+Recall from earlier that $u_t(\phi_t(x) | x_1)$ is just the derivative of this field, which gives us a closed form solution for our target values in our $\mathcal{L}_{CFM}$ objective:
+
+$$
+\begin{aligned}
+u_t(x|x_1) & = \frac{d}{dt} \phi_t(x) \\
+& = \frac{\sigma_t'(x_1)}{\sigma_t(x_1)} (x - \mu_t(x_1)) + \mu_t'(x_1) \\
+\end{aligned}
+$$
+
+where:
+
+- $\sigma_t'(x_1)$ is the derivative of $\sigma_t(x_1)$ with respect to $t$
+- $\mu_t'(x_1)$ is the derivative of $\mu_t(x_1)$ with respect to $t$
+
+This is basically just a more general formulation of diffusion models. Specifically, diffusion models can be expressed as:
+
+$$
+\begin{aligned}
+\mu_t(x_1) & = \alpha_{1 - t}x_1 \\
+\sigma_t(x_1) & = \sqrt{1 - \alpha_{1 - t}^2} \\
+\end{aligned}
+$$
+
+although $\alpha$ here is slightly different from earlier.
+
+Alternatively, the _optimal transport_ conditioned vector field can be expressed as:
+
+$$
+\begin{aligned}
+\mu_t(x) & = t x_1 \\
+\sigma_t(x) & = 1 - (1 - \sigma_{\text{min}}) t \\
+\end{aligned}
+$$
+
+This vector field linearly scales the mean from the image down to 0, and linearly scales the standard deviation from $\sigma_{\text{min}}$ up to 1. This has the derivatives:
+
+$$
+\begin{aligned}
+\mu_t'(x) & = x_1 \\
+\sigma_t'(x) & = -(1 - \sigma_{\text{min}}) \\
+\end{aligned}
+$$
+
+Plugging into the above equation gives us $u_t(x | x_1)$ (don't worry, it's just basic algebra):
+
+$$
+\begin{aligned}
+u_t(x | x_1) & = \frac{-(1 - \sigma_{\text{min}})}{1 - (1 - \sigma_{\text{min}})t} (x - t x_1) + x_1 \\
+& = \frac{-(1 - \sigma_{\text{min}}) x + t x_1 (1 - \sigma_{\text{min}}) + x_1 (1 - (1 - \sigma_{\text{min}}) t)}{1 - (1 - \sigma_{\text{min}}) t} \\
+& = \frac{-(1 - \sigma_{\text{min}}) x + tx_1 - tx_1 \sigma_{\text{min}} + x_1 - tx_1 + tx_1 \sigma_{\text{min}}}{1 - (1 - \sigma_{\text{min}}) t} \\
+& = \frac{x_1 - (1 - \sigma_{\text{min}}) x}{1 - (1 - \sigma_{\text{min}}) t}
+\end{aligned}
+$$
+
+So, to recap the learning procedure:
+
+1. Choose a sample $x_1$ from the dataset.
+2. Compute $u_t(x | x_1)$ using the equation above.
+3. Predict $v_t(x | x_1)$ using the neural network.
+4. Minimize the mean squared error between the two.
+
+Then, sampling from the model is just a matter of following the flow from some random noise vector along the vector field predicted by the neural network, as you would with a regular ODE.
 
 [^1]: Proof by "trust me, bro"
 [^2]: Alternatively denoted $p(x_{t-1} | x_t)$ so that you can just use the $q$ function everywhere
