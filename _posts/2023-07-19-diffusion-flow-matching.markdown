@@ -27,10 +27,11 @@ This post will discuss three papers:
 
 ### Application Links
 
-- [Visual ChatGPT][visual-chatgpt-paper] from _Visual ChatGPT: Talking, Drawing and Editing with Visual Foundation Models_
+- [Diffusion Distillation][diffusion-distillation-paper] from _Progressive Distillation for Fast Sampling of Distillation Models_
+- [Simple Diffusion][simple-diffusion-paper] from _simple diffusion: End-to-end diffusion for high resolution images_
 - [Autoregressive Diffusion][autoregressive-diffusion-paper] from _Autoregressive Diffusion Models_
+- [On the Importance of Noise Scheduling for Diffusion Models][noise-sched-paper]
 - [Voicebox][voicebox-paper] from _Voicebox: Text-Guided Multilingual Universal Speech Generation at Scale_
-- [MMS][mms-paper] from _Scaling Speech Technology to 1,000+ Languages_
 - [Collection of Speech Synthesis Papers][speech-synthesis-papers]
 
 These papers overlap and cite each other in various ways.
@@ -456,15 +457,16 @@ Specifically, they found that they were able to get good quality samples using a
 {% endkatexmm %}
 
 [autoregressive-diffusion-paper]: https://arxiv.org/pdf/2110.02037v2.pdf
+[diffusion-distillation-paper]: https://arxiv.org/pdf/2202.00512.pdf
 [diffusion-lillog]: https://lilianweng.github.io/posts/2021-07-11-diffusion-models/
 [diffusion-paper]: https://arxiv.org/abs/2006.11239
 [diffusion-xinduan]: https://www.tonyduan.com/diffusion.html
 [flow-matching-paper]: https://arxiv.org/abs/2210.02747
 [latent-diffusion-paper]: https://arxiv.org/pdf/2112.10752.pdf
-[mms-paper]: https://arxiv.org/pdf/2305.13516.pdf
+[neural-ode-paper]: https://arxiv.org/pdf/1806.07366.pdf
+[noise-sched-paper]: https://arxiv.org/pdf/2301.10972.pdf
+[simple-diffusion-paper]: https://arxiv.org/pdf/2301.11093.pdf
 [speech-synthesis-papers]: https://github.com/wenet-e2e/speech-synthesis-paper
-[visual-chatgpt-paper]: https://arxiv.org/pdf/2303.04671.pdf
+[taming-transformers-github]: https://github.com/CompVis/taming-transformers
 [voicebox-paper]: https://research.facebook.com/publications/voicebox-text-guided-multilingual-universal-speech-generation-at-scale/
 [xkcd-decorative]: https://xkcd.com/2566/
-[taming-transformers-github]: https://github.com/CompVis/taming-transformers
-[neural-ode-paper]: https://arxiv.org/pdf/1806.07366.pdf
