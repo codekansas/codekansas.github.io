@@ -260,6 +260,121 @@ def kl_loss(mean: Tensor, log_var: Tensor) -> Tensor:
     return 0.5 * torch.sum(torch.pow(mean, 2) + var - 1.0 - logvar, dim=[1, 2, 3])
 ```
 
+## Flow Matching
+
+Flow-based models are another type of generative model which rely on the idea of "invertible transformations". Suppose you have a function $f(x)$ which can reliably map your data distribution to a standard normal distribution, and is also invertible; then the function $f^{-1}(x)$ can be used to map from points in the standard normal distribution to your data distribution. This is the basic idea behind flow-based models.
+
+Note that the condition that $f(x)$ being invertible is not straight-forward, because it requires there to be a bijection. Enter **Continuous Normalizing Flows**.
+
+### What is a continuous normalizing flow?
+
+Continuous normalizing flows were first introduced in the paper [Neural Ordinary Differential Equations][neural-ode-paper]. Consider the update rule of a recurrent neural network:
+
+$$\textbf{h}_{t + 1} = \textbf{h}_t + f(\textbf{h}_t, \theta_t)$$
+
+In a vanilla RNN, $f$ just does a matrix multiplication on $\textbf{h}_t$. This can be thought of as a discrete update rule over time. Neural ODEs are the continuous version of this:
+
+$$\frac{d \textbf{h}(t)}{dt} = f(\textbf{h}(t), t, \theta)$$
+
+The diffusion process described earlier can be conceptualized as a neural ODE - you just have to have an infinite number of infinitesimally small diffusion steps.
+
+This formulation permits us to use any off-the-shelf ODE solver to generate samples from the distribution. The simplest method is to just sample some small $\Delta t$ and use Euler's method to solve the ODE (as in the figure below).
+
+![Illustration of Euler's method, from Wikipedia.](/images/diffusion-flow-matching/euler-method.svg)
+
+### How do we train a continuous normalizing flow?
+
+Sampling from an ODE is fine. The real question is how we parameterize these, and what update rule we use to update the parameters.
+
+The goal of the optimization is to make the output of our ODE solver close to our data. This can be formulated as:
+
+$$\mathcal{L}(z(t_1)) = \mathcal{L}\big( z(t_0) + \int_{t_0}^{t_1} f(z(t), t, \theta) \big)$$
+
+To optimize this, we need to know how $\mathcal{L}(z(t))$ changes with respect to $z(t)$:
+
+$$
+\begin{aligned}
+a(t) & = \frac{\partial \mathcal{L}(z(t))}{\partial z(t)} \\
+\frac{d a(t)}{dt} & = -a(t)^T \frac{\partial f(z(t), t, \theta)}{\partial z} \\
+\end{aligned}
+$$
+
+We can use the second equation to move backwards along $t$ using another ODE solver, back-propagating the loss at each step.
+
+This function is called the _adjoint_, and is illustrated in Figure 2 from the original Neural ODE paper, copied below. It's useful to know about but mainly as a barrier to overcome further down - we don't want to actually use it because it is computationally expensive to unroll every time we want to update our model.
+
+![Adjoint](/images/diffusion-flow-matching/adjoint.webp)
+
+However, the above process can be computationally expensive to do; the analogy in our diffusion model would be having to update every single point along our diffusion trajectory on _every update_, each time using an ODE solver. Instead, the paper [Flow Matching for Generative Modeling][flow-matching-paper] proposes a different approach, called Continuous Flow Matching (CFM).
+
+### What is continuous flow matching?
+
+First, some terminology: the paper makes use of **optimal transport** to speed up the training process. This basically just means the most efficient way to move between two points given some constraints. Alternatively, it is the path which minimizes a total cost.
+
+The goal of CFM is to avoid going through the entire ODE solver on every update step. Instead, in order to scale our flow matching model training, we want to be able to sample a single point, and then use optimal transport to move that point to the data distribution.
+
+First, we can express our **continuous normalizing flow** as a function:
+
+$$\phi_t(x) : [0, 1] \times \mathbb{R}^d \rightarrow \mathbb{R}^d$$
+
+This can be read as, "a function mapping from a point in $\mathbb{R}^d$ (i.e., a $d$-dimensional vector) and a time between 0 and 1 to another point in $\mathbb{R}^d$". We are interested in the first derivative of the function:
+
+$$
+\begin{aligned}
+v_t(\phi_t(x)) & = \frac{d}{dt} \phi_t(x) \\
+\phi_0(x) & = x \\
+\end{aligned}
+$$
+
+where $x = (x_1, \dots, x_d) \in \mathbb{R}^d$ are the points in the data distribution (for example, our images).
+
+In a CNF, the function $v_t$, usually called the _vector field_, is parameterized by the neural network. Our goal is to update the neural network so that we can use it to move from some initial point sampled from a prior distribution to one of the points in our data distribution by using an ODE solver (in other words, by following the vector field).
+
+Some more notation:
+
+- $p_0$ is the _prior_ distribution, usually a standard normal $\mathcal{N}(0, I)$
+- $q$ is the true data distribution, which is unknown, but we get samples from it in the form of images (for example)
+- $p_1$ is the _posterior_ distribution, which we want to be close to $q$
+- $p_t$ is the distribution of points at time $t$ between $p_0$ and $p_1$. Think of these as noisy images from somewhere along some path from our prior to posterior distributions.
+
+### How do we learn the vector field?
+
+The goal of the learning process, as with most learning processes, is to maximize the likelihood of the data distribution. We can express this using the _flow matching objective_:
+
+$$\mathcal{L}_{FM}(\theta) = \mathbb{E}_{t,p_t(x)} || v_t(x) - u_t(x) ||^2$$
+
+where:
+
+- $v_t$ is the output of the neural network for time $t$ and the data sample(s) $x$
+- $u_t$ is the "true vector field" (i.e., the vector field that would take us from the prior distribution to the data distribution)
+
+So the loss function is simply doing mean squared error between the neural network output and some "ground truth" vector field value. Seems simple enough, right? The problem is that we don't really know what $p_t$ and $u_t$ are, since we could take many paths from $p_0$ to $p_1$.
+
+The insight from this paper starts with the _marginal probability path_. This should be familiar if you are familiar with graphical models like conditional random fields. The idea is that, given some sample from our data distribution, we can marginalize $p_t$ over all the different ways we could get from $p_t$ to some sample in our data distribution:
+
+$$p_t(x) = \int p_t(x | x_1) q(x_1) dx_1$$
+
+We can also marginalize over the vector field:
+
+$$u_t(x) = \int u_t(x | x_1) \frac{p_t(x | x_1) q(x_1)}{p_t(x)} dx_1$$
+
+This can be thought of as marginalizing over all the different vector fields that could take us from $p_t$ to $q$, weighted by the probability of each path.
+
+However, instead of computing the (intractable) integrals in the equations above, we instead condition on a single sample $x_1 \sim q(x_1)$, use that sample to draw a noisy sample $x \sim p_t(x | x_1)$ and then use that to compute $u_t(x | x_1)$, finally minimizing the _conditional flow matching objective_:
+
+$$\mathcal{L}_{CFM}(\theta) = \mathbb{E}_{t,q(x_1),p_t(x|x_1)} || v_t(x) - u_t(x | x_1) ||^2$$
+
+Without going into the math, the paper shows that this objective has the same gradients as the earlier objective.
+
+The conditional path $p_t(x | x_1)$ is chosen to progressively add noise to the sample $x_1$ (this is what diffusion models do):
+
+$$p_t(x|x_1) = \mathcal{N}(x | \mu_t(x_1), \sigma_t(x_1)^2 I)$$
+
+where:
+
+- $\mu_t$ is the time-dependent mean of the Gaussian distribution, ranging from $\mu_0(x_1) = 0$ (i.e., the prior is has mean 0) to $\mu_1(x_1) = x_1$ (i.e., the posterior is has mean $x_1$)
+- $\theta_t$ is the time-dependent standard deviation, ranging from $\theta_0(x_1) = 1$ (i.e., the prior has standard deviation 1) to $\theta_1(x_1) = \epsilon$ (i.e., the posterior has some very small amount of noise)
+
 [^1]: Proof by "trust me, bro"
 [^2]: Alternatively denoted $p(x_{t-1} | x_t)$ so that you can just use the $q$ function everywhere
 
@@ -277,3 +392,4 @@ def kl_loss(mean: Tensor, log_var: Tensor) -> Tensor:
 [voicebox-paper]: https://research.facebook.com/publications/voicebox-text-guided-multilingual-universal-speech-generation-at-scale/
 [xkcd-decorative]: https://xkcd.com/2566/
 [taming-transformers-github]: https://github.com/CompVis/taming-transformers
+[neural-ode-paper]: https://arxiv.org/pdf/1806.07366.pdf
