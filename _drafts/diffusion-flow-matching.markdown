@@ -17,7 +17,7 @@ This post uses what I'll call "math for computer scientists", meaning there will
 ### Images
 
 - [Diffusion][diffusion-paper] from _Denoising Diffusion Probabilistic Models_
-- [Stable Diffusion][latent-diffusion-paper] from _High-Resolution Image Synthesis with Latent Diffusion Models_
+- [Latent Diffusion][latent-diffusion-paper] from _High-Resolution Image Synthesis with Latent Diffusion Models_ (a.k.a. the Stable Diffusion paper)
 - [Visual ChatGPT][visual-chatgpt-paper] from _Visual ChatGPT: Talking, Drawing and Editing with Visual Foundation Models_
 - [Flow Matching][flow-matching-paper] from _Flow Matching for Generative Modeling_
 - [Autoregressive Diffusion][autoregressive-diffusion-paper] from _Autoregressive Diffusion Models_
@@ -203,6 +203,63 @@ $$x_{t - 1} = \frac{1}{\sqrt{\alpha_t}}(x_t - \frac{1 - \alpha_t}{\sqrt{1 - \bar
 
 where $z \sim \mathcal{N}(\textbf{0}, \textbf{I})$ is new noise to add at each step and $\epsilon_{\theta}(x_t, t)$ is the output of the model.
 
+## Latent Diffusion
+
+The latent diffusion paper is most notable because it produces high-quality image samples with a relatively simple model. It contains two training phases:
+
+1. Autoencoder to learn a lower-dimensional latent representation
+2. Diffusion model learned in the latent space
+
+The main insight is that learning a diffusion model in the full pixel space is computationally expensive and has a lot of redundancy. Instead, we can first obtain a lower-rank representation of the image, learn a diffusion model on that representation, then use the decoder to reconstruct the image. So gaining insight into the latent diffusion model comes from understanding how this latent space is constructed.
+
+When looking through the latent diffusion repository code, it's important to remember that a lot of stuff might be in the [taming transformers][taming-transformers-github] repository.
+
+### How is the autoencoder constructed?
+
+The autoencoder is an encoder-decoder trained with perceptual loss and patch-based adversarial loss, which helps ensure that the reconstruction better matches how humans perceive images.
+
+The perceptual loss takes a pre-trained VGG16 model and extracts four sets of features, projects them to a lower-dimensional space, then computes the mean squared error between the features of the original image and the reconstructed image.
+
+The patch-based adversarial loss is a discriminator trained to classify whether a patch of an image is real or fake. The discriminator is trained with a hinge loss, which is a loss function that penalizes the discriminator more for misclassifying real images as fake than fake images as real.
+
+### What is the KL divergence penalty?
+
+Besides the reconstruction loss, an additional slight penalty is imposed on the latent representation to make it closer to a normal distribution, in the form of minimizing the KL divergence between the latent distribution and a standard normal distribution. Recalling that the KL divergence between two distributions $p$ and $q$ is defined as:
+
+$$
+\begin{aligned}
+D_{KL}(p || q) & = \int p(x) \log \frac{p(x)}{q(x)} dx \\
+& = \int p(x) \log p(x) dx - \int p(x) \log q(x) dx \\
+\end{aligned}
+$$
+
+The first term is the entropy of a normal distribution and the second term is the cross-entropy between the two distributions, which have the following forms respectively:
+
+$$
+\begin{aligned}
+H(p) & = \frac{1}{2} \log (2 \pi e \sigma_p^2) \\
+H(p, q) & = \frac{1}{2} \log (2 \pi e \sigma_q^2) + \frac{(\mu_p - \mu_q)^2 + \sigma_p^2 - 1}{2 \sigma_q^2} \\
+\end{aligned}
+$$
+
+We can substitute these into the KL divergence equation to get:
+
+$$D_{KL}(p || q) = \frac{1}{2} \log \frac{\sigma_q^2}{\sigma_p^2} + \frac{\sigma_p^2 + (\mu_p - \mu_q)^2 - 1}{2 \sigma_q^2}$$
+
+We can rewrite the KL divergence between $\mathcal{N}(\mu, \sigma^2)$ and $\mathcal{N}(0, 1)$ as:
+
+$$D_{KL}(\mathcal{N}(\mu, \sigma^2) || \mathcal{N}(0, 1)) = \frac{\sigma^2 + \mu^2 - 1 - \log{\sigma}}{2}$$
+
+Here's a PyTorch implementation of this, from the latent diffusion repository:
+
+```python
+def kl_loss(mean: Tensor, log_var: Tensor) -> Tensor:
+    # mean, log_var are image tensors with shape [batch_size, channels, height, width]
+    logvar = torch.clamp(torch, -30.0, 20.0)
+    var = logvar.exp()
+    return 0.5 * torch.sum(torch.pow(mean, 2) + var - 1.0 - logvar, dim=[1, 2, 3])
+```
+
 [^1]: Proof by "trust me, bro"
 [^2]: Alternatively denoted $p(x_{t-1} | x_t)$ so that you can just use the $q$ function everywhere
 
@@ -219,3 +276,4 @@ where $z \sim \mathcal{N}(\textbf{0}, \textbf{I})$ is new noise to add at each s
 [visual-chatgpt-paper]: https://arxiv.org/pdf/2303.04671.pdf
 [voicebox-paper]: https://research.facebook.com/publications/voicebox-text-guided-multilingual-universal-speech-generation-at-scale/
 [xkcd-decorative]: https://xkcd.com/2566/
+[taming-transformers-github]: https://github.com/CompVis/taming-transformers
