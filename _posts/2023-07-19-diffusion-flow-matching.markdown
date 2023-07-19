@@ -153,7 +153,7 @@ The main goal of the learning process is to maximize the likelihood of the data 
 
 $$x_t = \sqrt{\bar{\alpha}_t} x_0 + \sqrt{1 - \bar{\alpha}_t} \epsilon_t$$
 
-The diffusion model training process involves training a model which takes $x_t$ and $t$ as input and predicts $n_t$:
+The diffusion model training process involves training a model which takes $x_t$ and $t$ as input and predicts $\epsilon_t$:
 
 $$\hat{\epsilon}_t = \epsilon_{\theta}(x_t, t)$$
 
