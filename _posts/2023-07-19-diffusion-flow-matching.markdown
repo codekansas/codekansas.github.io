@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Diffusion and Flow Matching for Speech
+title: Diffusion verses Flow Matching
 tags: [ml, speech]
 excerpt: >
   An accessible introduction to diffusion and flow matching models.
@@ -8,29 +8,29 @@ excerpt: >
 
 {% katexmm %}
 
-This post is a summary of the various generative speech modeling papers I've seen come out recently. I'm primarily writing this for my own understanding, but hopefully it's useful to others as well, since this is a fast-paced area of research and it can be hard to dive deeply into each new paper that comes out.
+This post is a summary of a couple of generative modeling papers recently that have been impactful. I'm primarily writing this for my own understanding, but hopefully it's useful to others as well, since this is a fast-paced area of research and it can be hard to dive deeply into each new paper that comes out.
 
 This post uses what I'll call "math for computer scientists", meaning there will likely be a lot of abuse of notation and other hand-waving with the goal of conveying the underlying idea more clearly. If there is a mistake (and it looks unintentional) then let me know!
 
 ## All Papers
 
-### Images
+This post will discuss three papers:
 
 - [Diffusion][diffusion-paper] from _Denoising Diffusion Probabilistic Models_
 - [Latent Diffusion][latent-diffusion-paper] from _High-Resolution Image Synthesis with Latent Diffusion Models_ (a.k.a. the Stable Diffusion paper)
-- [Visual ChatGPT][visual-chatgpt-paper] from _Visual ChatGPT: Talking, Drawing and Editing with Visual Foundation Models_
 - [Flow Matching][flow-matching-paper] from _Flow Matching for Generative Modeling_
-- [Autoregressive Diffusion][autoregressive-diffusion-paper] from _Autoregressive Diffusion Models_
-
-### Speech
-
-- [Voicebox][voicebox-paper] from _Voicebox: Text-Guided Multilingual Universal Speech Generation at Scale_
-- [MMS][mms-paper] from _Scaling Speech Technology to 1,000+ Languages_
 
 ### Other Good References
 
 - [What are diffusion models?][diffusion-lillog] from _Lil' Log_
 - [Diffusion Models from Scratch][diffusion-xinduan] from _Tony Duan_
+
+### Application Links
+
+- [Visual ChatGPT][visual-chatgpt-paper] from _Visual ChatGPT: Talking, Drawing and Editing with Visual Foundation Models_
+- [Autoregressive Diffusion][autoregressive-diffusion-paper] from _Autoregressive Diffusion Models_
+- [Voicebox][voicebox-paper] from _Voicebox: Text-Guided Multilingual Universal Speech Generation at Scale_
+- [MMS][mms-paper] from _Scaling Speech Technology to 1,000+ Languages_
 - [Collection of Speech Synthesis Papers][speech-synthesis-papers]
 
 These papers overlap and cite each other in various ways.
@@ -264,7 +264,9 @@ def kl_loss(mean: Tensor, log_var: Tensor) -> Tensor:
 
 Flow-based models are another type of generative model which rely on the idea of "invertible transformations". Suppose you have a function $f(x)$ which can reliably map your data distribution to a standard normal distribution, and is also invertible; then the function $f^{-1}(x)$ can be used to map from points in the standard normal distribution to your data distribution. This is the basic idea behind flow-based models.
 
-Note that the condition that $f(x)$ being invertible is not straight-forward, because it requires there to be a bijection. Enter **Continuous Normalizing Flows**.
+Note that the sections that follow are going to feel like a lot of math, but they are a windy path to get to a nice and easy-to-understand comparison with diffusion models, which is: If you write the steps that diffusion models take as an ODE, the line they trace to get to the final point is not straight; why not just make it straight? Neural networks probably like predicting straight lines. See Figure 3 from the flow matching paper below:
+
+![ODE paths for diffusion equations verses optimal transport equations](/images/diffusion-flow-matching/diff-vs-ot.webp)
 
 ### What is a continuous normalizing flow?
 
@@ -445,6 +447,8 @@ So, to recap the learning procedure:
 4. Minimize the mean squared error between the two.
 
 Then, sampling from the model is just a matter of following the flow from some random noise vector along the vector field predicted by the neural network, as you would with a regular ODE.
+
+Specifically, they found that they were able to get good quality samples using a fixed-step ODE solver (the simplest kind) using $\leq 100$ steps.
 
 [^1]: Proof by "trust me, bro"
 [^2]: Alternatively denoted $p(x_{t-1} | x_t)$ so that you can just use the $q$ function everywhere
