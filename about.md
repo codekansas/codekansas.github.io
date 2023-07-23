@@ -225,6 +225,9 @@ Here are some quotes that I have found interesting.
 > Flashes afresh to hold and horrify.<br />
 > Philip Larkin, <a href="https://www.poetryfoundation.org/poems/48422/aubade-56d229a6e2f07">Aubade</a>
 
+> In battle, in forest, at the precipice in the mountains, On the dark great sea, in the midst of javelins and arrows, In sleep, in confusion, in the depths of shame, The good deeds a man has done before defend him.<br />
+> J. Robert Oppenheimer
+
 <hr />
 
 I've been using this photo as my Github profile pic for a while now. It's actually a photo of an exhibit I saw at the Renwick Gallery in Washington, D.C. sometime in college. I'm not sure if the artist intended it as such, but it stuck with me as the simplest expression of my philosophy of life - that humans can find meaning, belief and happiness in the depths of absurdism by making a choice to do so.
