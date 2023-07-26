@@ -4,7 +4,7 @@ layout: none
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <title type="html">{{ site.title | smartify | xml_escape }}</title>
-  {% if site.tagline %}<description>{{ site.tagline | xml_escape }}</description>{{ endif }}}
+  {% if site.tagline %}<description>{{ site.tagline | xml_escape }}</description>{% endif %}
   <link href="{{ page.url | absolute_url }}" rel="self" type="application/atom+xml" />
   <link href="{{ '/' | absolute_url }}" rel="alternate" type="text/html" />
   <id>{{ '/' | absolute_url | xml_escape }}</id>
