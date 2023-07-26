@@ -1,8 +1,7 @@
 ---
 layout: none
 ---
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <title>{{ site.title | xml_escape }}</title>
   <description>{{ site.tagline | xml_escape }}</description>
   <link href="{{ '/feed.xml' | absolute_url }}" rel="self" />
@@ -21,7 +20,6 @@ layout: none
     <updated>{{ post.date | date_to_xmlschema }}</updated>
     <id>{{ post.id | relative_url }}</id>
     <summary>{{ post.excerpt }}</summary>
-    <content type="html">{{ post.content | xml_escape }}</content>
   </entry>
   {% endfor %}
 </feed>
