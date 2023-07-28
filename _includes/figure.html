@@ -1,0 +1,10 @@
+<figure>
+  {% if include.image %}
+  <a href='{{ include.image }}' target='_blank'>
+    <img src='{{ include.image }}' />
+  </a>
+  {% else %}
+  <h1>No image found!</h1>
+  {% endif %}
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
