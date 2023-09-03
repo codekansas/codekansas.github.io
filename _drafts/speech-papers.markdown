@@ -36,6 +36,8 @@ This paper extends flow matching to speech with very high-quality results, solvi
 
 Vector quantization is an increasingly popular technique for generative modeling. You first learn a near-lossless autoencoder which goes through some set of tokens. You can then build models on this lower-dimensional token space using language modeling approaches (since they're just fixed tokens). This has worked pretty well for image modeling so it makes sense to use it for modeling audio as well (or increasingly just modeling all modalities together).
 
+A good library for doing vector quantization is the one from `lucidrains` [here](https://github.com/lucidrains/vector-quantize-pytorch).
+
 ### High Fidelity Neural Audio Compression
 
 - [Arxiv](https://arxiv.org/pdf/2210.13438.pdf)
