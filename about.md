@@ -4,7 +4,7 @@ title: About
 ---
 
 - Biography
-  - I'm a software engineer working on robotics, currently based out of NYC
+  - I'm a software engineer working on... things, currently based out of NYC
   - [Resume]({{ 'resume' | relative_url }})
   - I have some more interactive posts [here](https://lightning.bolte.cc/#/)
 - Productivity
@@ -17,7 +17,7 @@ title: About
   - [Dotfiles](https://github.com/codekansas/dotfiles) - Repository for all of my dotfiles (various Bash commands and aliases, Vim configuration, etc.)
 - Learning ML / Self-Driving / Robotics
   - [Geoff Hinton Coursera Course (2012)](https://www.cs.toronto.edu/~hinton/coursera_lectures.html) - Doesn't get as much attention as Andrew Ng's course but in my opinion is superior in explaining concepts behind neural networks, especially for people motivated by the biological analogs.
-  - [Coursera Self-Driving Specialization](https://www.coursera.org/specializations/self-driving-cars) - I did half of this before I started working at Tesla, and I think if more Tesla engineers took it, the car would probably drive better
+  - [Coursera Self-Driving Specialization](https://www.coursera.org/specializations/self-driving-cars) - I did half of this before I started working at Tesla and found it useful
   - [ML Template](https://github.com/codekansas/ml-template) - My basic template for starting ML projects, similar to [PyTorch Lightning](https://www.pytorchlightning.ai/) or [Fairseq](https://github.com/facebookresearch/fairseq)
     - Uses [Omegaconf](https://omegaconf.readthedocs.io/en/2.3_branch/) for config management
     - Also check out [this project](https://github.com/ashleve/lightning-hydra-template) which uses Hydra for config management
