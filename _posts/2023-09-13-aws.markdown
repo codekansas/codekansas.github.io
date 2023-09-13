@@ -1,0 +1,143 @@
+---
+layout: post
+title: Miscellaneous AWS Notes
+tags: [ml]
+excerpt: >
+  Miscellaneous notes about various AWS-related things.
+---
+
+I finally got AWS ParallelCluster working (after a long, painful battle). I keep referencing some heterogeneous AWS things I've written down in various places so I figured I should put them all in one place so I can find it more easily later.
+
+## GPU Notes
+
+The CUDA architecture corresponding to each gencode:
+
+| Architecture | Gencode | Example GPUs   | CUDA Versions |
+| ------------ | ------- | -------------- | ------------- |
+| Fermi        | 20      |                | 3.2 - 8       |
+| Kepler       | 30      |                | 5 - 10        |
+|              | 37      | K80            |               |
+| Maxwell      | 50      | M60            | 6 - 11        |
+| Pascal       | 60      |                | 8 -           |
+|              | 62      | Jetson TX2     |               |
+| Volta        | 70      | V100           | 9 -           |
+|              | 72      | Jetson Xavier  |               |
+| Turing       | 75      | T4, RTX 20xx   | 10 -          |
+| Ampere       | 80      | A100           | 11.1 -        |
+|              | 86      | A10G, RTX 30xx |               |
+|              | 87      | Jetson Orin    |               |
+| Ada          | 89      | RTX 4090       | 11.8          |
+| Hopper       | 90      | H100           | 12            |
+
+Alternatively, for some GPUs which are available through AWS:
+
+| GPU  | Memory | Gencode |
+| ---- | ------ | ------- |
+| V100 | 32     | SM70    |
+| A100 | 40/80  | SM80    |
+| H100 | 80     | SM90    |
+| M60  | 8      | SM50    |
+| T4   | 16     | SM75    |
+| T4G  | 16     | SM75    |
+| A10G | 24     | SM86    |
+
+## Instance Types
+
+Use [this link][instance-types] to get the most up-to-date prices for each instance type. The prices below are from a particular reference day.
+
+For reference, there are 720 hours in a month and 8760 hours in a year, so:
+
+- $**0.10** / hour translates to $**2.40** / day, $**72** / month, or $**872** / year.
+- $**0.50** / hour translates to $**12.00** / day, $**360** / month, or $**4,380** / year.
+- $**1.00** / hour translates to $**24.00** / day, $**720** / month, or $**8,760** / year.
+- $**2.00** / hour translates to $**48.00** / day, $**1,440** / month, or $**17,520** / year.
+- $**4.00** / hour translates to $**96.00** / day, $**2,880** / month, or $**35,040** / year.
+
+| GPU Type | Instance Type  | GPUs | vCPUs | RAM     | Price / GPU-hour |
+| -------- | -------------- | ---- | ----- | ------- | ---------------- |
+| V100     | p3.2xlarge     | 1    | 8     | 61 GB   | 3.06             |
+|          | p3.8xlarge     | 4    | 32    | 244 GB  | 3.06             |
+|          | p3.16xlarge    | 8    | 64    | 488 GB  | 3.06             |
+|          | p3dn.24xlarge  | 8    | 96    | 768 GB  | 3.90             |
+| A100     | p4d.24xlarge   | 8    | 96    | 1152 GB | 4.10             |
+| H100     | p5.48xlarge    | 8    | 192   | 2048 GB | 12.29            |
+| M60      | g3s.xlarge     | 1    | 4     | 30 GB   | 0.75             |
+|          | g3.4xlarge     | 1    | 16    | 122 GB  | 1.14             |
+|          | g3.8xlarge     | 2    | 32    | 244 GB  | 1.14             |
+|          | g3.16xlarge    | 4    | 64    | 488 GB  | 1.14             |
+| T4       | g4dn.xlarge    | 1    | 4     | 16 GB   | 0.526            |
+|          | g4dn.2xlarge   | 1    | 8     | 32 GB   | 0.752            |
+|          | g4dn.4xlarge   | 1    | 16    | 64 GB   | 1.204            |
+|          | g4dn.8xlarge   | 1    | 32    | 128 GB  | 2.176            |
+|          | g4dn.12xlarge  | 4    | 48    | 192 GB  | 0.978            |
+|          | g4dn.16xlarge  | 1    | 64    | 256 GB  | 4.352            |
+|          | g4dn.metal     | 8    | 96    | 384 GB  | 0.978            |
+| T4G      | g5g.xlarge     | 1    | 4     | 8 GB    | 0.42             |
+|          | g5g.2xlarge    | 1    | 8     | 16 GB   | 0.556            |
+|          | g5g.4xlarge    | 1    | 16    | 32 GB   | 0.828            |
+|          | g5g.8xlarge    | 1    | 32    | 64 GB   | 1.372            |
+|          | g5g.16xlarge   | 2    | 64    | 128 GB  | 1.372            |
+|          | g5g.metal      | 2    | 64    | 128 GB  | 1.372            |
+| A10G     | g5.xlarge      | 1    | 4     | 16 GB   | **1.006**        |
+|          | g5.2xlarge     | 1    | 8     | 32 GB   | 1.212            |
+|          | g5.4xlarge     | 1    | 16    | 64 GB   | 1.624            |
+|          | g5.8xlarge     | 1    | 32    | 128 GB  | 2.448            |
+|          | g5.12xlarge    | 4    | 48    | 192 GB  | **1.418**        |
+|          | g5.16xlarge    | 1    | 64    | 256 GB  | 4.096            |
+|          | g5.24xlarge    | 4    | 96    | 384 GB  | 2.036            |
+|          | g5.48xlarge    | 8    | 192   | 768 GB  | 2.036            |
+| Trainium | trn1.2xlarge   | 1    | 8     | 32 GB   | 1.34             |
+|          | trn1.32xlarge  | 16   | 128   | 512 GB  | **1.34**         |
+|          | trn1n.32xlarge | 16   | 128   | 512 GB  | 1.34             |
+
+Other non-GPU instance types:
+
+| Instance Type | Price / hour | vCPUs | Memory | Notes                                 |
+| ------------- | ------------ | ----- | ------ | ------------------------------------- |
+| c5.large      | 0.145        | 2     | 4      | Xeon Platinum 8000, 10 GiB networking |
+| c5.xlarge     | 0.354        | 4     | 8      | Xeon Platinum 8000, 25 GiB networking |
+| t2.xlarge     | 0.186        | 4     | 16     | Xeon Skylake                          |
+| t2.2xlarge    | 0.371        | 8     | 32     | Xeon Skylake                          |
+| t3.2xlarge    | 0.333        | 8     | 32     | Xeon Haswell                          |
+| t3a.2xlarge   | 0.301        | 8     | 32     | AMD EPYC 7000                         |
+| t4g.2xlarge   | 0.269        | 8     | 32     | Graviton2 (arm64)                     |
+
+## Availability Zones
+
+Use [this link][instance-types] to get availability zones for each region. The zones below are for **us-east-1**.
+
+| GPU Type | Instance Type  | 1a  | 1b  | 1c  | 1d  | 1e  | 1f  |
+| -------- | -------------- | --- | --- | --- | --- | --- | --- |
+| V100     | p3.2xlarge     |     | ✅  | ✅  | ✅  |     | ✅  |
+|          | p3.8xlarge     |     | ✅  | ✅  | ✅  |     | ✅  |
+|          | p3.16xlarge    |     | ✅  | ✅  | ✅  |     | ✅  |
+|          | p3dn.24xlarge  |     | ✅  | ✅  |     |     |     |
+| A100     | p4d.24xlarge   |     | ✅  | ✅  | ✅  |     |     |
+| H100     | p5.48xlarge    |     |     |     |     |     | ✅  |
+| A10G     | g5.xlarge      | ✅  | ✅  | ✅  | ✅  |     | ✅  |
+|          | g5.2xlarge     | ✅  | ✅  | ✅  | ✅  |     | ✅  |
+|          | g5.4xlarge     | ✅  | ✅  | ✅  | ✅  |     | ✅  |
+|          | g5.8xlarge     | ✅  | ✅  | ✅  | ✅  |     | ✅  |
+|          | g5.12xlarge    | ✅  | ✅  | ✅  | ✅  |     | ✅  |
+|          | g5.16xlarge    | ✅  | ✅  | ✅  | ✅  |     | ✅  |
+|          | g5.24xlarge    | ✅  | ✅  | ✅  | ✅  |     | ✅  |
+|          | g5.48xlarge    | ✅  | ✅  | ✅  | ✅  |     | ✅  |
+| Trainium | trn1.2xlarge   |     | ✅  |     |     |     | ✅  |
+|          | trn1.32xlarge  | ✅  | ✅  |     |     |     | ✅  |
+|          | trn1n.32xlarge |     | ✅  |     |     |     |     |
+
+## ParallelCluster
+
+- There's some weird issues with some of the instance types and elastic IPs which cause the cluster to hang while being created. Can potentially fix by adding `ElasticIp: true` under `HeadNode.Networking` and `AssignPublicIp: true` under `Scheduling.SlurmQueues.Networking` in the config.
+- To use A100s (i..e, `p4d.24xlarge`), you need to stop the subnet from automatically assigning a public IP. To do so:
+  - Go to the VPC console [here][vpc-console]
+  - Click on "Subnets" in the left sidebar.
+  - Select the subnet you want to use.
+  - Click on "Modify auto-assign IP settings" in the "Actions" dropdown.
+  - Uncheck "Auto-assign IPv4" and click "Save".
+- See the full cluster configuration [here][pcluster-full-config] or just the required options [here][pcluster-required-config]
+
+[instance-types]: https://console.aws.amazon.com/ec2/home#InstanceTypes:
+[vpc-console]: https://console.aws.amazon.com/vpc/home#vpcs:
+[pcluster-full-config]: https://github.com/aws/aws-parallelcluster/blob/develop/cli/tests/pcluster/example_configs/slurm.full.yaml
+[pcluster-required-config]: https://github.com/aws/aws-parallelcluster/blob/develop/cli/tests/pcluster/example_configs/slurm.required.yaml
