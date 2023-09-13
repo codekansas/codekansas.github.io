@@ -137,7 +137,19 @@ Use [this link][instance-types] to get availability zones for each region. The z
   - Uncheck "Auto-assign IPv4" and click "Save".
 - See the full cluster configuration [here][pcluster-full-config] or just the required options [here][pcluster-required-config]
 
+### Important Logs
+
+- `/var/log/parallelcluster/slurm_resume.log` - Logs for the slurm resume script
+- `/var/log/parallelcluster/clustermgtd` - Logs for the cluster manager daemon (requires root access)
+- `/var/log/slurmctld.log` - Logs for the slurm controller (requires root access)
+
+## FSx Lustre
+
+- [Console][fsx-console]
+- FSx mounts are restricted to a single availability zone
+
 [instance-types]: https://console.aws.amazon.com/ec2/home#InstanceTypes:
 [vpc-console]: https://console.aws.amazon.com/vpc/home#vpcs:
 [pcluster-full-config]: https://github.com/aws/aws-parallelcluster/blob/develop/cli/tests/pcluster/example_configs/slurm.full.yaml
 [pcluster-required-config]: https://github.com/aws/aws-parallelcluster/blob/develop/cli/tests/pcluster/example_configs/slurm.required.yaml
+[fsx-console]: https://console.aws.amazon.com/fsx#file-systems
