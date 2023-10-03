@@ -9,13 +9,17 @@ layout: compress
     {% include header.html %}
 
     {% if page.tags %}
-    <nav style="margin-top: 1em">
+    <nav style="margin-top: 1em; margin-bottom: 1em;">
         {% assign sorted_tags = page.tags | sort %}
         {% for tag in sorted_tags %}
         <a href="{{ 'tagged/' | relative_url }}{{ tag }}">#{{ tag }}</a>
         {% endfor %}
     </nav>
     {% endif %}
+
+    {% include arrows.html %}
+
+    <hr />
 
     <h1>{{ page.title }}</h1>
     {% if page.excerpt %}<h4 class="subtitle">{{ page.excerpt }}</h4>{% endif %}
@@ -24,6 +28,10 @@ layout: compress
     <div id="blog-contents">
         {{ page.content }}
     </div>
+
+    <hr />
+
+    {% include arrows.html %}
 
     {% if page.no_comments %}
     {% else %}
@@ -34,15 +42,6 @@ layout: compress
         theme="github-light" crossorigin="anonymous" async></script>
     {% endif %}
     {% endif %}
-
-    <nav style="margin-top: 1em">
-        {% if page.previous.url %}
-        <a class="prev" href="{{page.previous.url}}">⬅️ {{page.previous.title}}</a>
-        {% endif %}
-        {% if page.next.url %}
-        <a class="next" href="{{page.next.url}}">{{page.next.title}} ➡️</a>
-        {% endif %}
-    </nav>
 
 </main>
 

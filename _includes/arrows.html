@@ -1,0 +1,20 @@
+{% if page.previous.url or page.next.url %}
+<nav>
+  <div style="display: flex; justify-content: space-between;">
+    {% if page.previous.url %}
+    <span>
+      <a class="prev" href="{{page.previous.url}}">
+        ⋘ {{page.previous.title}}
+      </a>
+    </span>
+    {% endif %}
+    {% if page.next.url %}
+    <span>
+      <a class="next" href="{{page.next.url}}">
+        {{page.next.title}} ⋙
+      </a>
+    </span>
+    {% endif %}
+  </div>
+</nav>
+{% endif %}

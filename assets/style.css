@@ -161,6 +161,7 @@ code {
   background-color: #2e3e4e;
   color: #eee;
   border-radius: 3px;
+  padding: 2px 5px 2px 5px;
 }
 
 blockquote {
@@ -296,6 +297,10 @@ ul.discover-posts li small a {
 
 pre.highlight {
   margin: 1em;
+}
+
+.highlight code {
+  padding: 0;
 }
 
 @media (prefers-color-scheme: dark) {
