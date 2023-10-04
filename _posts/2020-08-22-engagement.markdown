@@ -16,7 +16,7 @@ Fast forward a few weeks, once I'd gotten back to the US and had flown to Nashvi
 
 Long story short, as of August 22, 2020, at 2:22 PM, she's my fiancee.
 
-{% include /images/engagement/engagement.svg %}
+![Engagement](/images/engagement/engagement.webp)
 
 [stable-marriage-problem]: https://en.wikipedia.org/wiki/Stable_marriage_problem
 [gale-shapely]: https://en.wikipedia.org/wiki/Gale%E2%80%93Shapley_algorithm

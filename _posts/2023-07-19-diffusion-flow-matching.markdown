@@ -6,8 +6,6 @@ excerpt: >
   An accessible introduction to diffusion and flow matching models.
 ---
 
-{% katexmm %}
-
 This post is a summary of a couple of generative modeling papers recently that have been impactful. I'm primarily writing this for my own understanding, but hopefully it's useful to others as well, since this is a fast-paced area of research and it can be hard to dive deeply into each new paper that comes out.
 
 This post uses what I'll call "math for computer scientists", meaning there will likely be a lot of abuse of notation and other hand-waving with the goal of conveying the underlying idea more clearly. If there is a mistake (and it looks unintentional) then let me know!
@@ -51,13 +49,16 @@ Consider Figure 2 from the original paper:
 
 In the above diagram:
 
+{% katexmm %}
 - $x_T$ is some noise, typically Gaussian noise
 - $x_0$ is the original image
 - $p_{\theta}(x_{t-1}|x_t)$ is called the _reverse process_, a distribution over the sligtly less noisy image given the current image
 - $q(x_t|x_{t-1})$ is called the _forward process_, a Markov chain that adds Gaussian noise to the data
+{% endkatexmm %}
 
 ### How do we convert a regular image to Gaussian noise?
 
+{% katexmm %}
 Let's assume we have a noisy image $x_{t-1}$ and we want to make it slightly noisier (in other words, take a step along the _forward process_, $q(x_t|x_{t-1})$). We sample the slightly noisier image $x_t$ from the following distribution:
 
 $$x_t \sim \mathcal{N}(\sqrt{1 - \beta_t} x_{t - 1}, \beta_t \textbf{I})$$
@@ -73,9 +74,11 @@ Y & \sim \mathcal{N}(\mu_Y, \sigma_Y^2) \\
 X + Y & \sim \mathcal{N}(\mu_X + \mu_Y, \sigma_X^2 + \sigma_Y^2)
 \end{aligned}
 $$
+{% endkatexmm %}
 
 It's also worth noting that multiplying a zero-mean Gaussian by some factor $\alpha$ is equivalent to multiplying the variance by $\alpha^2$:
 
+{% katexmm %}
 $$\alpha \mathcal{N}(\textbf{0}, \textbf{I}) = \mathcal{N}(\textbf{0}, \alpha^2 \textbf{I})$$
 
 So we can rewrite the distribution from earlier as:
@@ -94,7 +97,9 @@ $$q(x_t|x_{t-1}) = \sqrt{1 - \beta_t} x_{t - 1} + \sqrt{\beta_t} \mathcal{N}(\te
 So, to recap, in order to convert a regular image to Gaussian noise, we repeatedly apply the $q(x_t|x_{t-1})$ rule to add noise to the image, and $T \to \infty$ will result in a random distribution of noise.
 
 The variances for each step of the $q$ update is given by some schedule $\beta_1, \beta_2, \dots, \beta_T$. The schedule is typically linearly increasing from 0 to 1, so that on the final step when $\beta_T = 1$ we will sample a completely noisy image from the distribution $\mathcal{N}(\textbf{0}, \textbf{I})$.
+{% endkatexmm %}
 
+{% katexmm %}
 ### How do you sample $x_t$ in closed form (i.e., without sampling $x_{t - 1}, ..., x_{1}$)?
 
 Rather than having to take our original image and run 1 to $T$ steps to get a noisy image, we can use the _reparametrization trick_.
@@ -144,11 +149,13 @@ q(x_t | x_0) & = \sqrt{\bar{\alpha}_t} x_0 + \sqrt{1 - \bar{\alpha}_t} \mathcal{
 & = \mathcal{N}(\sqrt{\bar{\alpha}_t} x_0, (1 - \bar{\alpha}_t) \textbf{I}) \\
 \end{aligned}
 $$
+{% endkatexmm %}
 
 ### How is the model trained?
 
 ![The diffusion model training and sampling algorithms](/images/diffusion-flow-matching/ddpm-algs.webp)
 
+{% katexmm %}
 The main goal of the learning process is to maximize the likelihood of the data after repeatedly applying the reverse process. First, we sample some noise $\epsilon_t \sim \mathcal{N}(\textbf{0}, \textbf{I})$ and then we apply the forward process $q(x_t | x_0)$ to get $x_t$:
 
 $$x_t = \sqrt{\bar{\alpha}_t} x_0 + \sqrt{1 - \bar{\alpha}_t} \epsilon_t$$
@@ -162,9 +169,11 @@ We can train the model to minimize the mean squared error between $\epsilon_t$ a
 $$\mathcal{L} = ||\epsilon_t - \hat{\epsilon}_t||^2$$
 
 So, the model is predicting the _noise_ between the _noisy_ image and the _original_ image.
+{% endkatexmm %}
 
 ### How do you sample from the model?
 
+{% katexmm %}
 Now that we've ironed out the math for the _forward_ process, we need to flip it around to get the _reverse_ process. In other words, given that we have $q(x_t | x_{t-1})$, we need to derive $q(x_{t-1} | x_t)$ [^2]. The first step is to apply the chain rule:
 
 $$
@@ -203,6 +212,7 @@ Anyway, somehow if you do some crazy math you can eventually arrive at the equat
 $$x_{t - 1} = \frac{1}{\sqrt{\alpha_t}}(x_t - \frac{1 - \alpha_t}{\sqrt{1 - \bar{\alpha}_t}} \epsilon_{\theta}(x_t, t)) + \sigma_t z$$
 
 where $z \sim \mathcal{N}(\textbf{0}, \textbf{I})$ is new noise to add at each step and $\epsilon_{\theta}(x_t, t)$ is the output of the model.
+{% endkatexmm %}
 
 ## Latent Diffusion
 
@@ -225,6 +235,7 @@ The patch-based adversarial loss is a discriminator trained to classify whether 
 
 ### What is the KL divergence penalty?
 
+{% katexmm %}
 Besides the reconstruction loss, an additional slight penalty is imposed on the latent representation to make it closer to a normal distribution, in the form of minimizing the KL divergence between the latent distribution and a standard normal distribution. Recalling that the KL divergence between two distributions $p$ and $q$ is defined as:
 
 $$
@@ -250,6 +261,7 @@ $$D_{KL}(p || q) = \frac{1}{2} \log \frac{\sigma_q^2}{\sigma_p^2} + \frac{\sigma
 We can rewrite the KL divergence between $\mathcal{N}(\mu, \sigma^2)$ and $\mathcal{N}(0, 1)$ as:
 
 $$D_{KL}(\mathcal{N}(\mu, \sigma^2) || \mathcal{N}(0, 1)) = \frac{\sigma^2 + \mu^2 - 1 - \log{\sigma}}{2}$$
+{% endkatexmm %}
 
 Here's a PyTorch implementation of this, from the latent diffusion repository:
 
@@ -273,6 +285,7 @@ Note that the sections that follow are going to feel like a lot of math, but the
 
 Continuous normalizing flows were first introduced in the paper [Neural Ordinary Differential Equations][neural-ode-paper]. Consider the update rule of a recurrent neural network:
 
+{% katexmm %}
 $$\textbf{h}_{t + 1} = \textbf{h}_t + f(\textbf{h}_t, \theta_t)$$
 
 In a vanilla RNN, $f$ just does a matrix multiplication on $\textbf{h}_t$. This can be thought of as a discrete update rule over time. Neural ODEs are the continuous version of this:
@@ -282,6 +295,7 @@ $$\frac{d \textbf{h}(t)}{dt} = f(\textbf{h}(t), t, \theta)$$
 The diffusion process described earlier can be conceptualized as a neural ODE - you just have to have an infinite number of infinitesimally small diffusion steps.
 
 This formulation permits us to use any off-the-shelf ODE solver to generate samples from the distribution. The simplest method is to just sample some small $\Delta t$ and use Euler's method to solve the ODE (as in the figure below).
+{% endkatexmm %}
 
 ![Illustration of Euler's method, from Wikipedia.](/images/diffusion-flow-matching/euler-method.svg)
 
@@ -291,6 +305,7 @@ Sampling from an ODE is fine. The real question is how we parameterize these, an
 
 The goal of the optimization is to make the output of our ODE solver close to our data. This can be formulated as:
 
+{% katexmm %}
 $$\mathcal{L}(z(t_1)) = \mathcal{L}\big( z(t_0) + \int_{t_0}^{t_1} f(z(t), t, \theta) \big)$$
 
 To optimize this, we need to know how $\mathcal{L}(z(t))$ changes with respect to $z(t)$:
@@ -303,6 +318,7 @@ a(t) & = \frac{\partial \mathcal{L}(z(t))}{\partial z(t)} \\
 $$
 
 We can use the second equation to move backwards along $t$ using another ODE solver, back-propagating the loss at each step.
+{% endkatexmm %}
 
 This function is called the _adjoint_, and is illustrated in Figure 2 from the original Neural ODE paper, copied below. It's useful to know about but mainly as a barrier to overcome further down - we don't want to actually use it because it is computationally expensive to unroll every time we want to update our model.
 
@@ -318,6 +334,7 @@ The goal of CFM is to avoid going through the entire ODE solver on every update 
 
 First, we can express our **continuous normalizing flow** as a function:
 
+{% katexmm %}
 $$\phi_t(x) : [0, 1] \times \mathbb{R}^d \rightarrow \mathbb{R}^d$$
 
 This can be read as, "a function mapping from a point in $\mathbb{R}^d$ (i.e., a $d$-dimensional vector) and a time between 0 and 1 to another point in $\mathbb{R}^d$". We are interested in the first derivative of the function:
@@ -339,11 +356,13 @@ Some more notation:
 - $q$ is the true data distribution, which is unknown, but we get samples from it in the form of images (for example)
 - $p_1$ is the _posterior_ distribution, which we want to be close to $q$
 - $p_t$ is the distribution of points at time $t$ between $p_0$ and $p_1$. Think of these as noisy images from somewhere along some path from our prior to posterior distributions.
+{% endkatexmm %}
 
 ### How do we learn the vector field?
 
 The goal of the learning process, as with most learning processes, is to maximize the likelihood of the data distribution. We can express this using the _flow matching objective_:
 
+{% katexmm %}
 $$\mathcal{L}_{FM}(\theta) = \mathbb{E}_{t,p_t(x)} || v_t(x) - u_t(x) ||^2$$
 
 where:
@@ -453,7 +472,6 @@ Specifically, they found that they were able to get good quality samples using a
 
 [^1]: Proof by "trust me, bro"
 [^2]: Alternatively denoted $p(x_{t-1} | x_t)$ so that you can just use the $q$ function everywhere
-
 {% endkatexmm %}
 
 [autoregressive-diffusion-paper]: https://arxiv.org/pdf/2110.02037v2.pdf

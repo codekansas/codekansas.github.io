@@ -16,7 +16,6 @@ In most cases, the gradients were verified with Wolfram Alpha, although there ma
 ## Math
 
 {% katexmm %}
-
 > This section covers the basic math concepts for the WKV operator. If you're already familiar with the math, you can skip to the [PyTorch implementation](#pytorch-implementation) or the [next section](#numerical-stability), which extends the vanilla computation to be numerically stable. Additionally, the gradients for this computation are derived in a [further section](#gradients).
 
 The main "attention" component in the RWKV model is the WKV computation. The equation for this is:
@@ -39,6 +38,7 @@ $$
 We can then rewrite the WKV computation as:
 
 $$\text{wkv}_i = \frac{ e^{u+k_i} v_i + \alpha_{i - 1} }{ e^{u+k_i} + \beta_{i - 1} }$$
+{% endkatexmm %}
 
 ### PyTorch Implementation
 
@@ -90,6 +90,7 @@ def wkv_vanilla_forward(
 
 With traditional RNNs, there's a common problem of exploding or vanishing gradients, if the determinant of Jacobian of the hidden state variable is not close to 1. This is because, for long sequences, the same matrix is applied many times, exacerbating any deviation from 1.
 
+{% katexmm %}
 With the RWKV model, if the values of $w$ and $k_i$ are large, the exponent can grow beyond the numerical limits of our floating point type. We can solve this using another state variable, which we'll call $\epsilon_i$:
 
 $$
@@ -131,6 +132,7 @@ So ultimately we have three state variables:
 - $\epsilon_i$, which is used to maintain numerical stability
 
 $\alpha_i'$ and $\beta_i'$ are accumulated over time, while $\epsilon_i$ is just passed to the subsequent step (in other words, $\text{wkv}_i$ depends on $\epsilon_{i-1}$, but $\epsilon_i$ doesn't).
+{% endkatexmm %}
 
 ### PyTorch Implementation
 
@@ -188,6 +190,7 @@ def wkv_with_eps_forward(
 
 > This section provides an alternative approach to achieving numerical stability in the WKV computation to the approach described [above](#numerical-stability), by using log-space operations. This approach should be familiar to anyone who has dealt with log-domain Viterbi algorithms or graphical models, and is included here mainly as a point of comparison with the approach described above. For readers who are more comfortable reading code than equations, you can skip directly to the [PyTorch implementation](#pytorch-implementation-2).
 
+{% katexmm %}
 The prevalence of exponentials in the WKV computation suggests that it might be a good idea to perform some operations in log-space. For example, if we consider the vanilla $\alpha_i$ and $\beta_i$ equations:
 
 $$
@@ -233,9 +236,11 @@ $$
 $$
 
 The advantage here is that we no longer need to store $\epsilon_i$ between steps.
+{% endkatexmm %}
 
 ### Reparametrization
 
+{% katexmm %}
 In order to avoid trying to take the log of a negative value, we need to make sure that $v_i$ is strictly positive. We can do so by reparametrizing $v_i$ as the sum of its positive and negative parts:
 
 $$
@@ -298,6 +303,7 @@ $$
 $$
 
 Note that while we no longer need to use $\epsilon_i$ as a state variable, we now need to carry $\alpha_i^+$ and $\alpha_i^-$.
+{% endkatexmm %}
 
 ### PyTorch Implementation
 
@@ -375,6 +381,7 @@ When we are actually implementing this in PyTorch, we will want to write an opti
 
 Revisiting our original equation for the WKV computation:
 
+{% katexmm %}
 $$\text{wkv}_i = \frac{ e^{u+k_i} v_i + \alpha_{i - 1} }{ e^{u+k_i} + \beta_{i - 1} }$$
 
 The partial derivatives of the WKV computation with respect to $u$, $k$, and $v$ are as follows:
@@ -419,6 +426,7 @@ $$
 & & \\
 \end{aligned}
 $$
+{% endkatexmm %}
 
 ### PyTorch Implementation
 
@@ -487,6 +495,7 @@ def wkv_vanilla_backward(
 
 Recall the numerically stable version of our WKV computation:
 
+{% katexmm %}
 $$
 \begin{aligned}
 \alpha_i' & = e^{-w + \epsilon_{i - 1} - \epsilon_i} \alpha_{i - 1}' + e^{k_i - \epsilon_i} v_i \\
@@ -545,6 +554,7 @@ $$
 \frac{\partial \epsilon_i}{\partial k_i} & = \begin{cases} 1 & \text{if } -w + \epsilon_{i - 1} < k_i \\ 0 & \text{otherwise} \end{cases} \\
 \end{aligned}
 $$
+{% endkatexmm %}
 
 ### PyTorch Implementation
 
@@ -636,6 +646,7 @@ def wkv_with_eps_backward(
 
 In our log-space implementation of the WKV computation, we have:
 
+{% katexmm %}
 $$\text{wkv}_i = e^{\log \text{wkv}_i^+} - e^{\log \text{wkv}_i^-}$$
 
 This gives us the following partial derivatives:
@@ -716,6 +727,7 @@ $$
 \frac{\partial v_i^-}{\partial v_i} & = \begin{cases} -1 & \text{if } v_i < 0 \\ 0 & \text{otherwise} \end{cases} \\
 \end{aligned}
 $$
+{% endkatexmm %}
 
 ### PyTorch Implementation
 
@@ -806,8 +818,6 @@ def wkv_log_space_backward(
 
     return grad_w, grad_u, grad_k, grad_v, torch.stack((grad_ln_alpha_p, grad_ln_alpha_m, grad_ln_beta), dim=1)
 ```
-
-{% endkatexmm %}
 
 [rwkv-model]: https://github.com/BlinkDL/RWKV-LM
 [blog-post]: https://johanwind.github.io/2023/03/23/rwkv_details.html

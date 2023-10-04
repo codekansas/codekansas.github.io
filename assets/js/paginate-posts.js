@@ -36,11 +36,35 @@
     page_links.appendChild(page_link);
   });
 
+  var toggle_link = document.createElement("a");
+  toggle_link.setAttribute("href", "#");
+  toggle_link.setAttribute("class", "toggle-link");
+  toggle_link.innerHTML = "Show All";
+  page_links.appendChild(toggle_link);
+
+  var collapsed = true;
+
+  function toggle(new_collapsed) {
+    if (collapsed == new_collapsed) {
+      return;
+    }
+    collapsed = new_collapsed;
+    if (collapsed) {
+      toggle_link.innerHTML = "Show All";
+      show_page(current_page);
+    } else {
+      toggle_link.innerHTML = "Show Less";
+      for (var i = 0; i < posts.length; i++) {
+        posts[i].style.display = "flex";
+      }
+    }
+  }
+
   for (var i = 0; i < page_link_list.length; i++) {
     page_link_list[i].addEventListener("click", function (e) {
       e.preventDefault();
+      toggle(true);
       var page = this.getAttribute("data-page");
-      console.log(current_page, page);
       if (page == "prev") {
         if (current_page <= 1) {
           return;
@@ -59,6 +83,7 @@
   }
 
   function show_page(page) {
+    toggle(true);
     for (var i = 1; i <= pages; i++) {
       if (i == page) {
         page_link_list[i].classList.add("active");
@@ -80,4 +105,9 @@
   }
 
   show_page(current_page);
+
+  toggle_link.addEventListener("click", function (e) {
+    e.preventDefault();
+    toggle(!collapsed);
+  });
 })();

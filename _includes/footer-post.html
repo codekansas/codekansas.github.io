@@ -1,16 +1,7 @@
 <footer>
   <div style="margin-top: 1em;">
-    <details>
-      <summary>
-        Citation
-        <a style="margin-left: 1em" href="{{ '/blog/feed.xml' | relative_url }}">RSS</a>
-        {% assign sorted_tags = page.tags | sort %}
-        {% for tag in sorted_tags %}
-        <a style="margin-left: 1em" href="{{ '/blog/feed/tagged/' | relative_url }}{{ tag }}.xml">#{{ tag }}</a>
-        {% endfor %}
-      </summary>
-      <div class="highlight">
-        <pre class="highlight"><code class="citation">@article{
+    <div class="highlight">
+      <pre class="highlight"><code class="citation">@article{
     title    = "{{ page.title }}",
     journal  = "{{ site.title }}",
     author   = "Benjamin Bolte",
@@ -18,10 +9,16 @@
     month    = "{{ page.date | date: "%m" }}",
     url      = "{{ page.url | absolute_url }}",
 }</code></pre>
-      </div>
-    </details>
+    </div>
   </div>
-  </span>
+
+  <div style="margin-top: 1em;">
+    <a style="margin-left: 1em" href="{{ '/blog/feed.xml' | relative_url }}">RSS</a>
+    {% assign sorted_tags = page.tags | sort %}
+    {% for tag in sorted_tags %}
+    <a style="margin-left: 1em" href="{{ '/blog/feed/tagged/' | relative_url }}{{ tag }}.xml">#{{ tag }}</a>
+    {% endfor %}
+  </div>
 
   <script type="text/javascript" src="{{ '/assets/js/copy-code-blocks.js' | relative_url }}" defer></script>
   <script type="text/javascript" src="{{ '/assets/js/collapse-code-blocks.js' | relative_url }}" defer></script>

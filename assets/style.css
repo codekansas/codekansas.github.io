@@ -12,19 +12,6 @@ body {
   color: #444;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-html::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-html {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
-}
-
 details > div {
   padding: 1em;
 }
@@ -286,20 +273,22 @@ ul.discover-posts li small a {
 }
 
 .highlight,
-.code {
+.code,
+pre {
   background-color: #2e3e4e;
   color: #eee;
   border-radius: 3px;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  overflow: initial;
+  overflow: auto;
 }
 
-pre.highlight {
-  margin: 1em;
+pre {
+  padding: 1em;
+  padding-top: 0.3em;
+  margin: 0;
 }
 
-.highlight code {
+.highlight code,
+pre code {
   padding: 0;
 }
 
@@ -566,38 +555,22 @@ small a {
 } /* Literal.Number.Integer.Long */
 
 /* Copy Code block */
-div[class*="highlight"] {
-  position: relative;
-  overflow: auto;
+.code-link {
+  color: #ffffff80;
+  font-size: smaller;
+  margin-right: 1em;
 }
 
-div[class*="highlight"] button {
-  position: absolute;
-  right: 5px;
-
-  /* Makes button slightly see-through */
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 3px;
-  border: none;
-  padding: 5px 10px;
+.code-link:hover {
+  color: #f0c674;
 }
 
-div[class*="highlight"] button.copy-button {
-  bottom: 20px;
-  font-family: "Source Code Pro", monospace;
-}
-
-div[class*="highlight"] button.collapse-button {
-  top: 20px;
-  font-family: "Source Code Pro", monospace;
+.code-div {
+  margin-bottom: 1em;
 }
 
 pre.collapsed {
   max-height: 300px;
-}
-
-div[class*="highlight"] button:hover {
-  cursor: pointer;
 }
 
 .page-links-container {
@@ -608,7 +581,7 @@ div[class*="highlight"] button:hover {
   margin-top: 1em;
 }
 
-img {
+img, svg {
   width: 80%;
   display: block;
   margin: auto;
