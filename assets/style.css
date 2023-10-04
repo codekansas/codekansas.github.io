@@ -581,7 +581,8 @@ pre.collapsed {
   margin-top: 1em;
 }
 
-img, svg {
+#blog-contents img,
+#blog-contents svg {
   width: 80%;
   display: block;
   margin: auto;
