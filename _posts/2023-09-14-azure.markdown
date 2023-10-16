@@ -51,4 +51,18 @@ All prices are in USD and are for on-demand instances. Prices are from a particu
 |          | NV72ads_A10_v5   | 2    | 72    | 880 GB  | 3.26             |                   |
 | H100     | ND96isr_v5       | 8    | 96    | 1900 GB |                  |                   |
 
-## Availability Zones
+## Debugging
+
+### Reset Cluster Password
+
+SSH into the cluster instance, then run:
+
+```bash
+sudo /opt/cycle_server/cycle_server execute 'select * from AuthenticatedUser'
+```
+
+This will list the users. Then run the following command to reset the password:
+
+```bash
+/opt/cycle_server/cycle_server reset_access your_user_name
+```
