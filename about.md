@@ -232,4 +232,4 @@ Here are some quotes that I have found interesting.
 
 I've been using this photo as my Github profile pic for a while now. It's actually a photo of an exhibit I saw at the Renwick Gallery in Washington, D.C. sometime in college. I'm not sure if the artist intended it as such, but it stuck with me as the simplest expression of my philosophy of life - that humans can find meaning, belief and happiness in the depths of absurdism by making a choice to do so.
 
-![Start]({{ '/images/start.webp' | relative_url }})
+<img src='{{ '/images/start.webp' | relative_url }}' style="width: 100%;" />
