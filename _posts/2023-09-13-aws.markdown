@@ -153,3 +153,24 @@ Use [this link][instance-types] to get availability zones for each region. The z
 [pcluster-full-config]: https://github.com/aws/aws-parallelcluster/blob/develop/cli/tests/pcluster/example_configs/slurm.full.yaml
 [pcluster-required-config]: https://github.com/aws/aws-parallelcluster/blob/develop/cli/tests/pcluster/example_configs/slurm.required.yaml
 [fsx-console]: https://console.aws.amazon.com/fsx#file-systems
+
+## Aurora RDS
+
+The dev and prod instance types for Aurora that AWS recommends are:
+
+- Prod
+  - `db.r6g.2xlarge`
+    - 8 vCPUs
+    - 64 GiB RAM
+    - $1.038 per hour or $174.38 per week
+  - This is under the "memory optimized" category
+- Dev
+  - `db.t4g.large`
+    - 2 vCPUs
+    - 8 GiB RAM
+    - $0.146 per hour or $24.53 per week
+  - This is under the "burstable" category
+
+Here are some additional links which I found helpful:
+
+- [Connecting to an RDS database](https://medium.com/overlander/connecting-to-rds-from-local-over-tcp-operation-timed-out-5cfc819f402c)
