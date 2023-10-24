@@ -74,11 +74,9 @@ Y & \sim \mathcal{N}(\mu_Y, \sigma_Y^2) \\
 X + Y & \sim \mathcal{N}(\mu_X + \mu_Y, \sigma_X^2 + \sigma_Y^2)
 \end{aligned}
 $$
-{% endkatexmm %}
 
 It's also worth noting that multiplying a zero-mean Gaussian by some factor $\alpha$ is equivalent to multiplying the variance by $\alpha^2$:
 
-{% katexmm %}
 $$\alpha \mathcal{N}(\textbf{0}, \textbf{I}) = \mathcal{N}(\textbf{0}, \alpha^2 \textbf{I})$$
 
 So we can rewrite the distribution from earlier as:
