@@ -3,8 +3,10 @@ layout: post
 title: Monotonic Attention
 tags: [ml, speech]
 excerpt: >
-  A summary of some of the monotonic attention papers, with implementations.
+  Write-up explaining an implementation of monotonic attention using a probabilistic graphical model.
 ---
+
+If you want to try this out yourself, install the package [here](https://github.com/codekansas/monotonic-attention).
 
 Monotonic attention describes a subclass of problems relating to constraining the attention weights of a neural network attention layer to have some beneficial properties. In the case of monotonic attention, this means constraining the mask to be monotonically increasing. This is well illustrated by Figures 1 and 2 from the paper [Online and Linear-Time Attention by Enforcing Monotonic Alignments (2017)](https://arxiv.org/abs/1704.00784).
 
