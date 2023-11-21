@@ -6,11 +6,11 @@ excerpt: >
   Presented with no context
 ---
 
-Some years ago, there was a Tibetan monk named Lobsang, who from a young age could construct perfect sand mandalas. People would come from thousands of miles away to watch him carefully laying out the sand, day after day, not saying a word and only pausing to sleep, or to sit and have a cup of butter tea. It was work that would normally be done by teams of many monks in turn, but which he preferred to do alone.
+Some years ago, there was a Tibetan monk named Lobsang, who from a young age could construct perfect sand mandalas. People would come from thousands of miles away to watch him carefully laying out the sand, day after day, not saying a word and only pausing to sleep, or to sit and have a cup of butter tea. It was work that would normally be done by a team of monks in turn, but which he preferred to do alone.
 
-One day, his teacher came to him, telling him, "Lobsang, one of your mandalas has been sitting on the table for nearly a month. Many visitors have come to see see it's beauty, and are wondering when you will begin the destruction ceremony."
+One day, his teacher came to him, telling him, "Lobsang, one of your mandalas has been sitting on the table for nearly a month. Many visitors have come to see it's beauty, and are wondering when you will begin the destruction ceremony."
 
-"But," said Lobsang, "you consider it beautiful?"
+"But," said Lobsang, "you find it beautiful?"
 
 His teacher was astonished.
 
@@ -18,6 +18,6 @@ His teacher was astonished.
 
 Lobsang sat and sipped his tea for a few moments. Finally he said,
 
-"I never noticed how the whole thing looked. I created it because of how creating it made me feel, and now that it is finished I myself am being swept away."
+"I never noticed how the whole thing looked. I created it because I needed to create it, and now that it is finished I myself am being swept away."
 
 ![A sand mandala](/images/story/mandala.webp)
