@@ -2,6 +2,7 @@
 title: Ben's Blog
 url: "https://ben.bolte.cc"
 baseurl: "/"
+description: "A blog about programming, math, and other things."
 
 # Contact
 owner: Benjamin Bolte
