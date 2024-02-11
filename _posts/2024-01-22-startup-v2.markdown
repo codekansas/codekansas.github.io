@@ -1,0 +1,53 @@
+---
+layout: post
+title: Starting a Startup, Reloaded
+tags: [life, musings]
+excerpt: >
+  I left my former startup to work on something new.
+---
+
+While I'm sitting on the Caltrain from San Francisco back to the guesthouse I'm renting in Palo Alto, I was looking at some of my former blog posts and realized that my [post]({% post_url 2023-06-27-startup %}) about starting a startup should now be considered deprecated. The full story of what happened is somewhat long and embarrassing (as failed startups tend to be), but suffice to say that I've had the opportunity to update several of my priors about what a successful startup looks like.
+
+## What does a successful AI startup look like?
+
+To answer this question, it's important to say that one of the top highlights of working on my former startup was getting to meet some really fantastic AI founders and talk to them about what is making their business successful. Startup founders seem to be a very eclectic group of people, ranging from deeply academic intellectuals to high-energy tech bro types. This spectrum seems to parallel AI startups.
+
+There are very successful startups being built right now which are essentially "ChatGPT wrappers" - little to no custom AI stuff, but a huge amount of hustle and motivation to get things into customer hands as quickly as possible. I was surprised by how much money the best of these are actually able to make. Some are putting up multi-million ARR numbers after less than a year of being around. While it's dubious whether or not this flavor of startup has a long-term moat, it's undeniable that when executed well, it's a great time to make money by quickly integrating AI into every facet of the economy.
+
+On the opposite end of the spectrum, there are some very impressive startups being built which seem to defy the traditional expectations of VCs. Companies like Midjourney, Pika, and Suno could best be described as building best-in-class generative models for their chosen modalities. While they still do listen to their customers and build things that people want, they've attracted broad swaths of people using their models for unusual and unexpected use cases. In a world where AI is so nascent and many people are open to trying new things, they have done well by positioning themselves as the best model available for people to use.
+
+Since my personal strengths and interests lie much closer to the latter flavor of company than the former, it's worth digging a bit deeper into what is making them successful right now and not two or three years ago. My own answer is this - the underlying models that they are leveraging have finally crossed the threshold from interesting toys for academics to really compelling experiences for the average person, while ChatGPT made people way more willing to try AI models than before.
+
+I guess the corollary to the question in the section title would be, "What does an unsuccessful AI startup look like?" My tentative answer is startups that try to be in the middle somewhere. I think this covers a lot of the traditional sorts of startups that VCs like to fund. The underlying insight here is that it is a lot more difficult to build a great model than most people think, which means that trying to build a model for a specific vertical is the wrong way to go. If you have a great model, chances are it is useful for other things besides your vertical, and you should just try and use it for everything. Alternatively, you just shouldn't train your own models, and instead use other peoples' models to get things working really quickly.
+
+## What now?
+
+I am building a humanoid robot company. We are building multimodal foundation models for humanoid robots, on our own hardware platform. We will build and sell humanoid robots. The intermediate product will be a multimodal conversational speech-to-speech agent.
+
+In this context, it's funny for me to go back and read my post from a few months ago, where I was talking about how awesome it would be to start a robotics startup but that it doesn't make sense as a viable business. I'll specifically highlight some quotes from that post to say how my thinking has changed.
+
+> Unfortunately, the mechanics of building a robotics startup are pretty complicated, and not amenable to hacking together something in a month with a laptop and some GPUs.
+
+This is not true. I hacked together a decent-ish skeleton for a robot in a few days of messing around with CAD and my 3D printer. I think building a reasonable humanoid robot in a month is entirely doable.
+
+> I am pretty wary of becoming one of those technical people that gets so mired down in working on specific problems that I fail to actually make a business.
+
+While I am still wary of making a research project instead of a business, the nice thing about humanoid robots is that if you can succeed in making one that works, the economic upside will be almost limitless. It is a hard enough problem that there won't be that many companies capable of competing for that upside. So I think whichever companies make humanoid robots work will not have a hard time building a business around them.
+
+> I think that the current wave of excitement around large language models is going to be followed by a wave of excitement around robotics
+
+I still think this is the case. In fact, based on some of the work that's been happening recently, I think this wave is even closer than I had thought six months ago.
+
+> right now feels like the best time in my life so far to start an AI company
+
+This is also still the case, although I think it is specifically the case for robotics. While the right time to start a language model company was probably five years ago, I think this is exactly the right moment to start a humanoid robot company. No one has figured out the technology yet, but it is definitely coming in the next five years, so a company that gets started today will be extremely well positioned to take advantage of that wave when it hits.
+
+## What next?
+
+I am currently participating in the W24 batch of Y Combinator. I moved into a guesthouse in Palo Alto and bought a bunch of tools and 3D printers. So I'm going to spend the next three months making a humanoid robot a reality.
+
+I feel so much happier now than I did a few months ago. In a way, I feel like I am finally doing what I was put on earth to be doing. Like, suppose you were walking through the woods one day and you saw a beaver collecting wood. Suddenly the beaver climbs up a tree and starts building a nest. You would probably think to yourself, "Hey, Mr. Beaver, what are you doing? Building nests is for birds; you should go use all that wood you collected and build yourself a dam to live in." That's how I feel about what I'm doing right now - like a beaver building a dam.
+
+The difference from my former startup is that this idea will probably require more money to get off the ground. I am actually not too worried about being able to raise enough money for this idea - I have a pretty low personal burn rate and I don't plan to hire that many people to work on it. I guess I am a bit worried about a frivolous lawsuit from a well-capitalized and litigious competitor.
+
+I would like to put together a team to build custom silicon for neural network inference, and maybe a team to build custom actuators (although I like the ones we're getting from China), both of which would require a lot more money than I have right now. But those aren't immediately important things to do.
