@@ -3,7 +3,7 @@ layout: post
 title: Starting a Startup, Reloaded
 tags: [life, musings]
 excerpt: >
-  I left my former startup to work on something new.
+  My "Starting a Startup" post from a few months ago needed a refresh.
 ---
 
 While I'm sitting on the Caltrain from San Francisco back to the guesthouse I'm renting in Palo Alto, I was looking at some of my former blog posts and realized that my [post]({% post_url 2023-06-27-startup %}) about starting a startup should now be considered deprecated. The full story of what happened is somewhat long and embarrassing (as failed startups tend to be), but suffice to say that I've had the opportunity to update several of my priors about what a successful startup looks like.
