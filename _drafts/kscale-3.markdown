@@ -6,7 +6,7 @@ excerpt: >
   Part three of a series of thoughts about humanoid robots.
 ---
 
-In [previous]({% post_url 2024-02-23-kscale-1 %}) [posts]({% post_url 2024-02-24-kscale-2 %}), I described economic aspects of the humanoid robot industry. In this post, I will provide a more poetic description of why I think humanoid robotics is the most important problem for humans to work on.
+In previous posts, I described economic aspects of the humanoid robot industry. In this post, I will provide a more poetic description of why I think humanoid robotics is the most important problem for humans to work on.
 
 I'll warn ahead of time that this post is a bit more "mushy" than what I typically write. I consider it more a fun personal exercise to articulate my own motivations, which I think are much more aesthetic than logical. Take what you will and leave the rest.
 

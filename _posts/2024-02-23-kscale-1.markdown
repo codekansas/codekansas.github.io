@@ -12,12 +12,14 @@ This is the first in a series of posts describing my ideas around humanoid robot
 2. Humanoid robots have favorable unit economics.
 3. Humanoid robots are an important to work on.
 
+This post will be about the first point.
+
 ## Conventional Wisdom
 
-The conventional wisdom in Silicon Valley is that hardware is high capex. The thinking goes that, for a hardware company, once you demonstrate something works and is profitable, if you are not well-funded then a better-funded competitor will just come along and copy it (Pebble being the canonical example). Therefore, the only way to win in this space is to raise enough money to outspend everyone else.
+In broad strokes, the conventional wisdom in Silicon Valley is that hardware is high capex. The thinking goes that, for a hardware company, once you demonstrate something works and is profitable, if you are not well-funded then a better-funded competitor will just come along and copy it (Pebble being a canonical example). Therefore, the only way to win in this space is to raise enough money to outspend everyone else, and get the timing right.
 
 {% katexmm %}
-From a different angle, humanoid robots seem like a risky long-term research bet which won't turn into a sustainable business for five to ten years. In DCF terms, this assumes that $CF_{1 \cdots 5}$ are all large negative numbers, meaning that in a non-zero interest rate environment, we can only make this bet if our $CF_{6 \cdots \infty}$ are very, very large positive numbers.
+From a different angle, humanoid robots seem like a risky long-term research bet which won't turn into a sustainable business for five to ten years, and will require large up-front investments before yielding sustained returns. In DCF terms, we can say that $CF_{1 \cdots 5}$ are all large negative numbers, meaning that in a non-zero interest rate environment, we can only make this bet if our $CF_{6 \cdots \infty}$ are very large positive numbers.
 {% endkatexmm %}
 
 With regards to humanoid robots, I would say that this thinking is basically wrong.
@@ -26,7 +28,7 @@ With regards to humanoid robots, I would say that this thinking is basically wro
 
 First, I should say that I personally struggle to think of any historical examples where betting large amounts of money on a few people to solve hard problems has actually worked out. There's an information gap between people making investments and people allocating those resources. I think most VCs are, in fact, pretty savvy to this, but then there's also a tendency to think that if you can just suck all the air out of the room with some large bet into a single company then that company will be guaranteed to win because it will aggregate all the good ideas into one place.
 
-Anyway. The fact that the above assumptions seem to dominate how people currently think about humanoid robots explains a lot about the map of the industry. Incidentally, I think a lot of people made the same basic assumptions about another very hyped problem from several years ago - self-driving cars.
+Anyway. If you view the humanoid robot industry and narrative around it through the lens of the assumptions I described earlier, a lot of the way people are approaching the problem will start to make more sense. From where I sit as someone interested in seeing humanoid robots become a reality sooner rather than later, I find this worrying because of how closely it seems to parallel another much-lauded machine learning industry from several years ago - self-driving cars and trucks.
 
 I've been around machine learning long enough to remember a time when everyone thought self-driving cars were relatively easy and close to being solved (eight years ago). The DARPA Grand Challenge had just happened and it seemed like a few tweaks here and there were all that was needed to make the next trillion-dollar company.
 
@@ -42,7 +44,7 @@ Not exactly a list of roaring successes, although you'd be hard-pressed to find 
 
 So what went wrong? I got to talk to a couple founders of these companies, and the number one thing they told me was to **keep costs low**. Apparently spending a bunch of money without concrete revenue means you run out of money pretty quickly.
 
-Today, it seems like we are actually getting close to having fully-autonomous taxis. Personally, when I visit San Francisco, Waymo has completely replaced Uber for me. What actually happened, though, was that we had to rethink the problem from the ground-up; the most promising approaches today are based on end-to-end self-supervised learning, a far cry from LIDAR, HD maps and bounding boxes.
+Today, it seems like we are actually getting close to having fully-autonomous taxis. Personally, when I visit San Francisco, Waymo has completely replaced Uber. What actually happened, though, was that we had to rethink the problem from the ground-up; the most promising approaches today are based on end-to-end self-supervised learning, a far cry from LIDAR, HD maps and bounding boxes.
 
 At first glance, this seems like it should validate the high capex thesis - Waymo was the only company that could keep burning money until they figured out the right approach. But I think this is the wrong take-away. I think the correct take-away is that a large number of people made huge bets on the wrong approach, and when they failed it seemingly confirmed to investors that the problem was a waste of money. Waymo was the only company that fostered an internal culture that allowed the right approach to eventually emerge.
 
@@ -50,7 +52,7 @@ At first glance, this seems like it should validate the high capex thesis - Waym
 
 There is a counterfactual universe where a machine learning researcher realizes that model scaling laws are really impressive, and rather than trying to hack together a demo of getting a car to drive, they start investigating self-supervised methods for end-to-end learning. They figure out how to learn world models from video data, validating those models in simulation or on cheap hardware (like RC cars), and by the time they're spending real money to build a full-sized car they've got a system that's actually pretty close to working.
 
-In this universe, I think there's basically zero chance of that person's company getting funded. It was not clear to many people in 2016 that self-supervised learning would work at all, and I suspect that bringing a self-driving RC car in front of some investors would get you laughed out of the room when any "serious" self-driving company could actually take you for a ride around their parking lot in an autonomous taxi.
+In this universe, I think there's basically zero chance of that person's company getting funded. It was not clear to many people in 2016 that self-supervised learning would be the roaring success it turned out to be, and I suspect that bringing a self-driving RC car in front of some investors would get you laughed out of the room when any "serious" self-driving company could actually take you for a ride around their parking lot in an autonomous taxi.
 
 ## Not repeating the same mistakes with humanoid robots
 
@@ -60,15 +62,15 @@ There are specifically at least two broad areas in which I think the field has a
 
 ### Misallocated Resources
 
-At present, it seems obvious to a lot of people that if we just take the techniques that have proven to work well for language models and make them multi-modal, then we should get a really useful humanoid robot. This has prompted a number of people who don't have much experience in machine learning to jump onto the hype train (interestingly, Tim Kentley Klay is going for a repeat here).
+At present, it seems "obvious" to some people that if we just take the techniques that have proven to work well for language models and make them multi-modal, then we should get a really useful humanoid robot. This has prompted a number of people who don't have much experience in machine learning to jump onto the hype train (interestingly, Tim Kentley Klay is going for a repeat).
 
-Personally, as someone who is interested in actually seeing humanoid robots come to fruition and not just cashing out, this makes me really worried about the same dynamic playing out, where a few large companies raise so much money that they suck the air out of the room, fail to deliver, and funding dries up by the time we've figured out how to actually solve the problem.
+Personally, as someone who is interested in actually seeing humanoid robots come to fruition and not just cashing out, this makes me really worried about the same dynamic playing out, where a few large companies raise a lot of money on subpar engineering, suck the air out of the room, fail to deliver, and funding dries up by the time we've figured out how to actually solve the problem.
 
-For self-driving cars, this fundamentally came down to a misread of the situation in 2016. Many people were under the impression that the thing that would kill an investment was failure to reach critical mass, so they invested in companies that seemed like they could raise the kind of money required to do that. In fact, the thing that killed most of the investments was betting on the wrong technical approach. In this thinking, from an investor's perspective, it would probably have been better to make many small bets on low capex teams that were trying different approaches - or at least on teams that were aggressively contrarian.
+For self-driving cars, this fundamentally came down to a misread of the situation in 2016. Many people were under the impression that the thing that would kill an investment was failure to reach critical mass, so they invested in companies that seemed like they could spend their way to that point. In fact, the thing that killed most of the investments was betting on the wrong technical approach and spending too much money too quickly.
 
 ### Engineering Bloat
 
-Okay, maybe you buy that most of the self driving companies were taking the wrong approach. But people learned their lesson, and now they're going to do it the right way. Maybe we don't have an exact path to a humanoid robot, but a big, well-funded organizations can act more like research labs today, trying out different approaches the way that Waymo did. What's wrong with that?
+Okay, maybe you buy that most of the self driving companies were taking the wrong approach. But people learned their lesson, and now they're going to do it the right way. Maybe we don't have an exact path to a humanoid robot, but a big, well-funded organizations can act more like research labs today, trying out different approaches the way that Waymo did. Money is cheaper today and people are smarter about keeping capex low. What's wrong with that?
 
 The answer to this question is actually the exact reason that I decided to leave the robotics research lab at Meta to work on a startup, and a big part of why I think Tesla's self-driving efforts are not succeeding, despite having all of the right pieces in place:
 
@@ -86,21 +88,44 @@ What do these papers have in common? They're all done by working throughout the 
 
 Practically speaking, this means there is very little return to growing a machine learning team beyond the point that a single person could work throughout the entire stack without having to go through anyone else. If you want proof, just ask yourself why Tesla FSD still isn't fully autonomous.
 
-## A Model for a Successful Humanoid Robot Company
+### Shipping Slowly
+
+If you were to poll machine learning researchers and ask what the most exciting meta-trend in the field has been in the last five years, I think a decent number would say the move from research to production. I personally was shocked the first time I heard an AI-generated [Kayne singing Hey There, Delilah](https://www.youtube.com/watch?v=-9Ado8D3A-w) and realized it was using a model from a paper that I had coauthored. It confirmed to me that the field is entering a mature phase where research is actually doing useful real-world things.
+
+There is starting to emerge a playbook for building great machine learning products. It looks something like this:
+
+1. Release a bad but compelling model for some task like image, video, audio, or text generation
+2. Build a feedback look from that model which helps it get better
+3. Continually ship model improvements
+
+Some examples of companies that have done this well are:
+
+- Midjourney
+- Suno
+- Character
+- Pika
+
+At present, we're in a phase where many people consider robots to be confined to the lab. Even the most ambitious robotics companies are reluctant to move into the real world. This tracks closely with the self-driving car industry's reluctance to deal with the hard problem of real-world navigation, instead focusing on highly controlled environments.
+
+Successful machine learning models can be described roughly as "solve everything, then ask it to do your thing". This is as opposed to the approach of "solve one task, then solve more and more tasks". If Midjourney had started out as a cat picture generator, it would not have been very good. The fact that it can generate compelling pictures of cats today is because it tried to solve everything at once. This is a side-effect of intelligence being very transferable.
+
+Success in the robotics industry will ultimately be determined by the company that can ship a compelling general-purpose robot quickly, and iterate on that robot to make it better. Doing that is a hard, unsolved problem, but it is the only way that works in machine learning.
+
+## A Model for a Good Humanoid Robot Company
 
 At present, I think there is basically only one company that has a chance of making a useful humanoid robot.
 
 ![1X](/images/kscale/1x.webp)
 
-Oddly enough, they are also the least active on social media. From what I've heard their CEO has a very strong mindset of "let the product speak for itself" - because he's actually a great engineer who cares about the success of the space.
+Oddly enough, they are also the least active on social media. From what I've heard their CEO has a very strong mindset of "let the product speak for itself" - because he's actually a great engineer who cares about the success of the space, and doesn't want to prematurely overhype something and kill it for everyone else.
 
-I think there is space for another company. In ten years the industry will either be worth multiple trillions of dollars or be worth zero, and I suspect that having multiple good companies instead of one good company and a bunch of scam artists sucking air out of the room will help it track towards the former.
+I think there is space for another company. In ten years the industry will either be worth multiple trillions of dollars or be worth zero, and I suspect that having multiple good companies instead of one good company and a bunch of scammers sucking air out of the room will help it track towards the former.
 
 So, what does that company look like? Here's some ingredients:
 
 1. Small: The whole team understands the whole stack
-2. Ship something cheap quickly: The first product should be more like a very useful toy than an industrial robot
-3. Consumer-focused: Getting your humanoid to work on an assembly line is basically useless and a distraction from the actually valuable problem
+2. Ship something cheap quickly: The first product should be more like a very sophisticated toy than an industrial robot
+3. Consumer-focused: Getting your humanoid to work on an assembly line is basically useless and a distraction from the actually valuable problem of real-world interaction
 
 I think this type of team maps a lot more closely to how software companies are typically organized than how hardware companies are organized.
 
