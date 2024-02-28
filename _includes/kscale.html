@@ -1,0 +1,39 @@
+<style>
+  .kscale-logo {
+    max-width: 256px;
+    aspect-ratio: 1/1;
+    -webkit-mask-image: url("/images/kscale.svg");
+    mask-image: url("/images/kscale.svg");
+
+    /* Centers on page. */
+    margin: 0 auto;
+    display: block;
+
+    /* Blue and green gradient */
+    background: linear-gradient(45deg, #4a69bd, #00f7ff, #43c668, #43c6ac);
+    background-size: 400% 400%;
+    animation: moveGradient 5s infinite linear;
+  }
+
+  @keyframes moveGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+</style>
+
+<br />
+
+<p>
+<div class="kscale-logo"></div>
+</p>
+
+<br />
