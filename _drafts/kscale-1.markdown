@@ -54,6 +54,8 @@ There is a counterfactual universe where a machine learning researcher realizes 
 
 In this universe, I think there's basically zero chance of that person's company getting funded. It was not clear to many people in 2016 that self-supervised learning would be the roaring success it turned out to be, and I suspect that bringing a self-driving RC car in front of some investors would get you laughed out of the room when any "serious" self-driving company could actually take you for a ride around their parking lot in an autonomous taxi.
 
+Additionally, deep learning itself is not amenable to great one-off demos. If you have a thousand images worth of data, kernel methods work better than deep neural networks.
+
 ## Not repeating the same mistakes with humanoid robots
 
 It is clear in hindsight that just because a car can drive on a closed course in the desert doesn't mean it can drive in San Francisco. Similarly, just because a humanoid robot can make coffee doesn't mean that we've reached the "ChatGPT moment" for robots.
