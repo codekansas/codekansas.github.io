@@ -7,10 +7,16 @@ New York based roboticist and machine learning engineer, with experience at Tesl
 
 ## Work History
 
+### K-Scale Labs
+
+- January 2024 - present
+- Founded a company to move humanity up the Kardashev scale
+
 ### Meta AI
 
-- New York, October 2022 to present
+- New York, October 2022 to May 2023
 - Research engineer, working on open-ended real-world robotics
+- Left to explore startup ideas
 
 ### Tesla Autonomous AI
 
