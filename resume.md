@@ -25,9 +25,6 @@ New York based roboticist and machine learning engineer, with experience at Tesl
 
 - Seattle, May 2018 to February 2021
 - Research engineer, worked on representation learning for speech. Coauthored multiple high-impact papers (available through my [Google Scholar][google-scholar] page)
-- Designed and deployed model to increase accuracy for classifying terrorist posts by 54% over existing baseline, resulting in 500K more terrorist propaganda posts being deleted every day
-- Shipped models which doubled previous accuracy for hate speech and tripled daily content actions across major markets
-- Deployed BERT hate speech model to content across Facebook, building the core PyTorch NLP library used by our team and additional Hacklang system for logging and request handling, which decreased server usage by 95% over initial approach without reducing model accuracy
 
 ### Facebook, Care Machine Learning (Intern)
 
