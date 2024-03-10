@@ -22,7 +22,7 @@ I guess the corollary to the question in the section title would be, "What does 
 
 ## What now?
 
-I am building a humanoid robot company. We are building multimodal foundation models for humanoid robots, on our own hardware platform. We will build and sell humanoid robots. The intermediate product will be a multimodal conversational speech-to-speech agent.
+I am building a humanoid robot company. We are building multimodal foundation models for humanoid robots, on our own hardware platform. We will design the world's best humanoid robot and give the design away for free.
 
 In this context, it's funny for me to go back and read my post from a few months ago, where I was talking about how awesome it would be to start a robotics startup but that it doesn't make sense as a viable business. I'll specifically highlight some quotes from that post to say how my thinking has changed.
 
