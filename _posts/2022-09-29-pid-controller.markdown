@@ -24,7 +24,7 @@ The PID controller is a good way to decide what the input to the system should b
 
 #### 3D Printing
 
-When running a 3D printer, you want the nozzel end to be a specific temperature. You control the temperature by regulating the voltage through a hot end - higher voltage makes the temperature go up, whereas if you turn it off entirely the temperature will go down (sometimes helped by a fan next to the extruder). You likely want to change the temperature during the course of printing, and you want it to reach the target temperature as quickly as possible. Changing the voltage affects the _rate of change in temperature_ rather than the temperature itself.
+When running a 3D printer, you want the nozzle end to be a specific temperature. You control the temperature by regulating the voltage through a hot end - higher voltage makes the temperature go up, whereas if you turn it off entirely the temperature will go down (sometimes helped by a fan next to the extruder). You likely want to change the temperature during the course of printing, and you want it to reach the target temperature as quickly as possible. Changing the voltage affects the _rate of change in temperature_ rather than the temperature itself.
 
 #### Vehicle Control
 
@@ -89,7 +89,7 @@ As expected, now that we've overshot our target temperature, we need to supply a
 
 ### Using this Controller
 
-Here's a simple program to simulate a 3D printer nozzel. Note that the heater simulator is only a very loose approximation to the behavior of the actual heater, and can stand in for any black box system that you might want to use a PID controller for.
+Here's a simple program to simulate a 3D printer nozzle. Note that the heater simulator is only a very loose approximation to the behavior of the actual heater, and can stand in for any black box system that you might want to use a PID controller for.
 
 ```python
 import argparse
@@ -299,7 +299,7 @@ Among the temperature curves above, the $K_p = 0.8$ overshoots the most, while t
 
 ### Integral Control
 
-Consider the case in which we are **undershooting** our target value. We can detect that we're undershooting if the error is accumulating too fast - in other words, our error isn't going down fast enough. We can add another term to the controller which takes this into account, using the integral of the error.
+Consider the case in which we are **undershooting** our target value. We can detect that we're undershooting if the error isn't going down fast enough. The way we do this is by adding an additional term which accounts for the _accumulated_ error using integration.
 
 $$\text{input} = K_i \int \text{error}_t \, d \text{ time}$$
 
@@ -307,7 +307,7 @@ We can approximate this by keeping track of our running error:
 
 $$\text{input} \approx K_i \sum_{t = 0}^{T} \text{error}_t \, d \text{ time}$$
 
-This controller can work on its own, and will correct for undershooting. However, by itself it will naturally oscillate, because it has to accumulate error on the opposite side of the target value in order to start heading in the opposite direction.
+This controller can work on its own, and will correct for undershooting. However, it will tend to oscillate.
 
 Here's a few temperature curves for an undershooting proportional controller, with different integral controller coefficients.
 
@@ -315,7 +315,9 @@ Here's a few temperature curves for an undershooting proportional controller, wi
 
 ### Derivative Control
 
-Consider the case in which we are **overshooting** our target value. We can detect that we're about to overshoot if the error is getting smaller too fast. We can add another term to the controller which takes this into account, using the derivative of the error. The desired behavior is to decrease the input if the error is getting smaller too quickly, and increase the input if the error is getting smaller too slowly. This can be expressed as a function of the derivative of the error:
+Consider the case in which we are **overshooting** our target value. We can detect that we're about to overshoot if the error is decreasing too quickly. We can add another term to the controller which takes this into account, using the derivative of the error.
+
+The desired behavior is to decrease the input if the error is getting smaller too quickly, and increase the input if the error is getting smaller too slowly. This can be expressed as a function of the derivative of the error:
 
 $$\text{input} = K_d \frac{d \, \text{error}}{d \, \text{time}}$$
 
@@ -332,7 +334,11 @@ Here's a few temperature curves for an overshooting proportional controller, wit
 ### Updating our Controller
 
 We can put together each of our controllers into the final PID controller formulation shown below:
-$$\text{input} = K_p \text{error} + K_i \text{error} \, d \text{ time} + K_d \frac{d \text{error}}{d \, \text{time}}$$
+
+$$E = K_p E + K_i E \, dt + K_d \frac{dE}}{dt}$$
+
+where $E$ is the error, $K_p$ is the proportional controller coefficient, $K_i$ is the integral controller coefficient, $K_d$ is the derivative controller coefficient, and $dt$ is the timestep size.
+
 A Python implementation for this controller can be found below.
 
 ```python
@@ -611,15 +617,16 @@ For most PID controllers, you care about making the output reach the set point a
 
 $$
 \begin{aligned}
-\text{error} & = \text{set point} - \text{output} \\
-L & = \int_0^T
+E & = \text{set point} - \text{output} \\
+L & = dt \int_0^T
 \begin{cases}
-  \text{error}_t^2 & \text{if } \text{error}_t < 0 \\
-  \text{error}_t & \text{if } \text{otherwise}
+  E_t^2 & \text{if } E_t < 0 \\
+  E_t & \text{otherwise}
 \end{cases}
 \end{aligned}
-dt
 $$
+
+where $E_t$ is the error at time $t$, $L$ is the loss, $dt$ is the timestep size, and $T$ is the total number of timesteps.
 
 ### Do a Grid Search over $K_p$, $K_i$ and $K_d$
 
