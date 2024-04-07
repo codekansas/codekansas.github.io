@@ -6,13 +6,7 @@ excerpt: >
   An idea I've been toying with for how to manufacture humanoid robots at scale.
 ---
 
-At K-Scale, we're building the infrastructure to help humanity get to a billion useful robots. It is unlikely that this will be the work of just a couple of companies. In this post, I'm going to lay out a framework for a new way of thinking about manufacturing that will let us get there.
-
-## Economics
-
-As humanity has climbed up the economic development ladder, there has been a trend towards manufacturing centralization and specialization. Anyone who has opened an introductory economics textbook will understand why; comparative advantage and economies of scale mean that more trade tends leads to more specialization, because it is more efficient to specialize than generalize. As far as macroeconomic theories go, this is as close to an empirical law as you can get.
-
-To get a concrete picture in your mind of what this looks like, suppose there are two factories which each produce both cars and airplanes. Because the inputs required to build cars and airplanes are different, each factory has to manage two separate supply chains, they have to employ workers who are familiar with both industries, and they have to manage the logistics of shipping cars and airplanes to different customers. There may be some benefit to producing both things, but in general, the costs of one person producing two things are higher than the costs of one person producing one thing. Instead, it would make more sense for each factory to specialize in producing one thing or the other. The total output from the two factories would be probably be higher, and the costs of production would probably be lower.
+At K-Scale, we're building the infrastructure to help humanity get to a billion useful robots. We believe this will be fundamentally different from any other product ever made. In this post, I'm going to lay out a framework for a new way of thinking about manufacturing that I think will get us there.
 
 ## Scale Up verses Scale Out
 
@@ -24,7 +18,7 @@ Then the internet came along, and suddenly there were companies with more data t
 
 ## Bits Verses Atoms
 
-The analogy above is very common for people who think about software engineering, but less so for people who think about manufacturing. In an abstract sense, data processing systems and manufacturing systems have a lot of similarities - there are inputs and outputs to various steps in each system, with requirements for how they should to be implemented, and failure points that should be minimized. However, in my (admittedly extremely limited) experience interacting with people who think about manufacturing, most people operating in atom-space tend to be very much in the _scaling up_ mentality.
+The analogy above is very common for people who think about software engineering, but less so for people who think about manufacturing. In an abstract sense, data processing systems and manufacturing systems have a lot of similarities - there are inputs and outputs to various steps in each system, with requirements for how they should to be implemented, and failure points that should be minimized. However, in my (admittedly limited) experience interacting with people who think about manufacturing, most people operating in atom-space tend to be very much in the _scaling up_ mentality.
 
 I suspect that there are a couple of reasons for this. For one, I think atom-space people tend not to be as "abstraction-native" as bit-space people, as a function of the work they usually do day-to-day. More importantly, though, I suspect that the requirements of most atom-space processes have almost always favored scaling up over scaling out, and so this is where people have concentrated their efforts.
 
@@ -32,15 +26,21 @@ There are limits to scaling up manufacturing, however. If you think concretely a
 
 ## Why General-Purpose Robotics is Different
 
-In most practical scenarios, the upper bound on scaling up manufacturing doesn't really matter. In the plastic chair example, the total demand for one company's plastic chairs probably isn't that large.
+In most practical scenarios, the upper bound on scaling up manufacturing doesn't really matter. In the plastic chair example, the total demand for one company's plastic chairs probably isn't that large. I hope that this will not be the case for general-purpose humanoid robots. I suspect that at some capability level, the demand curve for humanoids is close to perfectly inelastic. I'm not the only person that thinks this; it is why most humanoid robot companies are building robots with six (or even seven) figure price tags. Once they make them work well, basically any price will be justifiable.
 
-There are numerous tangible benefits to moving to a distributed manufacturing approach:
+The conundrum is that most of the first robots will be basically useless. There is a cold start problem to humanoid robots that doesn't exist with other products at similar price points, like cars. There are relatively successful companies that build less than a hundred cars a year - if anything, the exclusivity is part of what makes them valuable.
 
-1. The constraints of distributed systems tend to mean they are more robust and resilient to node failures, something which was proven to be a weakness in conventional manufacturing systems during the Covid-19 pandemic supply crunch.
-2. As with capitalism verses communism, designing around incentives rather than central planning leaves freedom for people with the maximal amount of information to do the decision making, which will ultimately lower prices and improve quality.
-3. Distributed manufacturing has the potential to be more inclusive and open up opportunity for more people. If you believe that humanoid robots are going to be disruptive to many people's careers, then it makes sense to want the gains from that disruption to be broadly distributed rather than concentrated with a few companies.
+The problem is that humanoid robots are a lot closer to self-driving cars than to luxury car manufacturing. The critical thing to get right with any machine learning product is the data feedback loop. The right mental image for this is the way that Midjourney presents you with four images, and you can choose which one you want to upscale - that signal tells Midjourney which images it's users tend to prefer. At scale, this feedback gives Midjourney a huge advantage over other image generation products, and it's a big part of why it's been so sticky. There are bespoke image generation models tailored to specific categories of images like cat pictures, but they are basically all worse than Midjourney.
+
+The analogy carries well to humanoid robots. There is no "Tesla Roadster" equivalent for humanoid robots because you _need_ the scale to build something worth buying, and the only way to get to scale when you start with a bad product is by selling it very cheaply. In this sense, the right go-to-market strategy for humanoid robots probably more closely resembles the PlayStation or another loss leader. Unfortunately, that strategy is not possible if getting each robot out the door costs $100,000, but it might be possible if your robot costs about as much as an Apple Vision Pro.
 
 ## Implementations
+
+I have a couple different ideas on how to facilitate "scale out" manufacturing.
+
+### Spiderweb
+
+This is the simple approach of just building many small factories that each produce humanoids. I expect spinning up a single factory to cost about $10 million and be capable of producing something like 100 robots per year at the start.
 
 ### Craigslist
 
@@ -52,5 +52,7 @@ This may or may not be a good idea. To be honest, I don't know enough about Ethe
 2. Supplier builds the robot and sends it to the customer.
 3. Someone verifies that the robot that the supplier built is up-to-spec and reached the customer.
 4. The payment is released from escrow to the supplier.
+
+This feels like a good application of crypto because it can help stimulate demand before a physical product is built, without keeping a bunch of cash in escrow in a single location. Also, crypto enthusiasts as a category of consumers seems more likely than average to want to purchase a humanoid robot.
 
 [^1]: This brings to mind the few years that the Google Code Jam did a [distributed parallel track](https://en.wikipedia.org/wiki/Google_Code_Jam). The way of thinking about algorithms in distributed systems was different enough from how people were used to thinking about coding competition questions that Google thought it merited it's own Code Jam.

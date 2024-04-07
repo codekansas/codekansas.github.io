@@ -76,7 +76,7 @@ $$
 
 As expected, our input is smaller than when the error was larger, since we want to make the temperature delta smaller as we get closer to our target temperature.
 
-Let's say sometime later the system has gotten hotter, and now our temperature reading is $240 \deg$.
+Let's say a bit later the system has gotten hotter, and now our reading is $240 \deg$.
 
 $$
 \begin{aligned}
@@ -307,7 +307,7 @@ We can approximate this by keeping track of our running error:
 
 $$\text{input} \approx K_i \sum_{t = 0}^{T} \text{error}_t \, d \text{ time}$$
 
-This controller can work on it's own, and will correct for undershooting. However, by itself it will naturally oscillate, because it has to accumulate error on the opposite side of the target value in order to start heading in the opposite direction.
+This controller can work on its own, and will correct for undershooting. However, by itself it will naturally oscillate, because it has to accumulate error on the opposite side of the target value in order to start heading in the opposite direction.
 
 Here's a few temperature curves for an undershooting proportional controller, with different integral controller coefficients.
 
@@ -323,7 +323,7 @@ We can approximate this by keeping track of our past error:
 
 $$\text{input} \approx K_d \frac{\text{error} - \text{prev error}}{d \, \text{time}}$$
 
-This controller won't work on it's own, because the error shouldn't change without changing the input. The power of this controller is to help correct for the overshooting behavior of our original controller.
+This controller won't work on its own, because the error shouldn't change without changing the input. The power of this controller is to help correct for the overshooting behavior of our original controller.
 
 Here's a few temperature curves for an overshooting proportional controller, with different derivative controller coefficients.
 
