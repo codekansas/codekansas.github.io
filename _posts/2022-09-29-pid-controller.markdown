@@ -335,7 +335,7 @@ Here's a few temperature curves for an overshooting proportional controller, wit
 
 We can put together each of our controllers into the final PID controller formulation shown below:
 
-$$E = K_p E + K_i E \, dt + K_d \frac{dE}}{dt}$$
+$$E = K_p E + K_i E \, dt + K_d \frac{dE}{dt}$$
 
 where $E$ is the error, $K_p$ is the proportional controller coefficient, $K_i$ is the integral controller coefficient, $K_d$ is the derivative controller coefficient, and $dt$ is the timestep size.
 
