@@ -1,9 +1,15 @@
 # Blog
 
-Clone and run:
+Clone and install dependencies:
 
 ```bash
-jekyll serve
+bundle install
+```
+
+To develop:
+
+```bash
+bundle exec jekyll serve --drafts --incremental
 ```
 
 See Jekyll install instructions [here](https://jekyllrb.com/docs/installation/).
