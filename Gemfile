@@ -8,4 +8,4 @@ group :jekyll_plugins do
     gem 'jekyll-redirect-from'
 end
 
-gem 'sass-embedded', '1.77.2'
+gem 'sass-embedded', '~> 1.59.3'
