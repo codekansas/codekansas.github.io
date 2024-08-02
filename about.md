@@ -230,6 +230,18 @@ Here are some quotes that I have found interesting.
 > And, when you want something, all the universe conspires in helping you to achieve it.<br />
 > Paulo Coelho, The Alchemist
 
+> The great liability of the engineer compared to men of other professions is that his works are out in the open where all can see them. His acts, step by step, are in hard substance. He cannot bury his mistakes in the grave like the doctors. He cannot argue them into thin air or blame the judge like the lawyers. He cannot, like the politicians, screen his shortcomings by blaming his opponents and hope the people will forget. The engineer simple cannot deny he did it. If his works do not work, he is damned.”<br />
+> Herbert Hoover
+
+> Americans love to fight. All real Americans love the sting and clash of battle. When you were kids, you all admired the champion marble shooter, the fastest runner, the big-league ball players and the toughest boxers. Americans love a winner and will not tolerate a loser. Americans play to win all the time.<br />
+> George S. Patton
+
+> The reason the American army does so well in wartime, is that war is chaos, and the American army practices chaos on a daily basis.<br />
+> A German General
+
+> If we don't know what we are doing, the enemy certainly can't anticipate our future actions!<br />
+> U.S. Army Ligistics Operations and Readiness Division
+
 <hr />
 
 I've been using this photo as my Github profile pic for a while now. It's actually a photo of an exhibit I saw at the Renwick Gallery in Washington, D.C. sometime in college. I'm not sure if the artist intended it as such, but it stuck with me as the simplest expression of my philosophy of life - that humans can find meaning, belief and happiness in the depths of absurdism by making a choice to do so.
