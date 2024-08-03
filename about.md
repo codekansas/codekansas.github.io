@@ -240,7 +240,7 @@ Here are some quotes that I have found interesting.
 > A German General
 
 > If we don't know what we are doing, the enemy certainly can't anticipate our future actions!<br />
-> U.S. Army Ligistics Operations and Readiness Division
+> U.S. Army Logistics Operations and Readiness Division
 
 <hr />
 
