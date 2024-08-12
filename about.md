@@ -209,6 +209,9 @@ Here are some quotes that I have found interesting.
 > Consider it pure joy, my brothers and sisters, whenever you face trials of many kinds, because you know that the testing of your faith produces perseverance. Let perseverance finish its work so that you may be mature and complete, not lacking anything.<br />
 > James 1:2-4
 
+> For what is a man profited, if he shall gain the whole world, and lose his own soul?<br />
+> Matthew 16:26
+
 > I must not fear. Fear is the mind-killer. Fear is the little-death that brings total obliteration. I will face my fear. I will permit it to pass over me and through me. And when it has gone past I will turn the inner eye to see its path. Where the fear has gone there will be nothing. Only I will remain.<br />
 > Frank Herbert, Dune
 
