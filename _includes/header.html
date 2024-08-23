@@ -1,4 +1,4 @@
-<h2 class="title">{{ site.title }}</h2>
+<h2 class="title">{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h2>
 <nav>
     <a href="{{ '/' | relative_url }}">Home</a>
     <a href="{{ '/about' | relative_url }}">About</a>

@@ -4,9 +4,8 @@ title: About
 ---
 
 - Biography
-  - I'm a software engineer working on... things, currently based out of NYC
+  - I recently founded a company called [K-Scale Labs](https://kscalelabs.com)
   - [Resume]({{ 'resume' | relative_url }})
-  - I have some more interactive posts [here](https://lightning.bolte.cc/#/)
 - Productivity
   - [uBlock]({{ '/assets/scripts/ublock_list.txt' | relative_url }}) - My uBlock Origin filter list
   - [Daylio](https://daylio.net/) - My preferred journaling app
@@ -18,6 +17,7 @@ title: About
 - Learning ML / Self-Driving / Robotics
   - [Geoff Hinton Coursera Course (2012)](https://www.cs.toronto.edu/~hinton/coursera_lectures.html) - Doesn't get as much attention as Andrew Ng's course but in my opinion is superior in explaining concepts behind neural networks, especially for people motivated by the biological analogs.
   - [Coursera Self-Driving Specialization](https://www.coursera.org/specializations/self-driving-cars) - I did half of this before I started working at Tesla and found it useful
+  - [Eureka Labs](https://eurekalabs.ai/) - If you want to learn machine learning correctly
 - Hobbies
   - [Goodreads](https://www.goodreads.com/review/list/56667319-benjamin?shelf=favorites) - My favorite books
   - [Lichess](https://lichess.org/@/bkbolte18) - My lichess profile
