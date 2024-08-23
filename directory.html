@@ -14,10 +14,9 @@ layout: default
 <h2 class="padded top-bottom">{{ currentdate }}</h2>
 {% assign date = currentdate %}
 {% endif %}
-<div class="padded bottom" style="font-size: 80%">
-  <a class="no-highlight" href="{{ post.url | relative_url }}">
-    <h3>{{ post.title }}</h3>
-    <h4><i>{{ post.date | date: "%B %-d, %Y" }}</i></h4>
-  </a>
+<div style="font-size: 80%; margin-bottom: 1em;">
+  <h3><a class="no-highlight" href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+  {% if post.excerpt %}<p>{{ post.excerpt }}</p>{% endif %}
+  <p><small><i>{{ post.date | date: "%B %-d, %Y" }}</i></small></p>
 </div>
 {% endfor %}

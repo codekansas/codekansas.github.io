@@ -45,6 +45,7 @@ plugins:
   - jekyll-redirect-from
   - jekyll-katex
   - jekyll-feed
+  - jekyll-sitemap
 
 whitelist:
   - jekyll-redirect-from
